@@ -4,11 +4,7 @@
 
         <template id="view_disable_powered_odoo_footer"
                   inherit_id="web.menu_secondary">
-            <div class="oe_footer" position="replace">
-                <!--<div class="oe_footer">-->
-                <!--Made by <a href="http://www.odoo.com" target="_blank"><span>Odoo</span></a>-->
-                <!--</div>-->
-            </div>
+            <div class="oe_footer" position="replace"/>
         </template>
 
     </data>

@@ -5,7 +5,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
-    'name': "Disable Powered by Odoo Footer",
+    'name': 'Disable Powered by Odoo Footer',
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
     'version': '8.0.1.0.0',
@@ -17,7 +17,6 @@
     'data': [
         'views/view_disable_powered_odoo_footer.xml',
     ],
-    'demo': [],
     'installable': True,
     'auto_install': True,
 }
