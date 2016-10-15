@@ -10,6 +10,8 @@
     'author': 'MultidadosTI',
     'version': '8.0.1.0.0',
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
+    'description': 'Disable \'powered by Odoo\' footer',
+    'summary': 'Disable \'powered by Odoo\' footer',
     'category': 'Web',
     'depends': [
         'web',
