@@ -20,5 +20,4 @@
         'views/view_disable_powered_odoo_footer.xml',
     ],
     'installable': True,
-    'auto_install': True,
 }
