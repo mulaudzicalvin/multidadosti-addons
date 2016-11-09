@@ -2,5 +2,7 @@
  I check method of geo-localization and verifying if returns latitude and longitude correctly
 -
   !python {model: res.partner, id: base.res_partner_1}: |
-    assert 25 < self.partner_latitude < 26, "Latitude is wrong: 25 < %s < 26" % self.partner_latitude
-    assert 121 < self.partner_longitude < 122, "Longitude is wrong: 121 < %s < 122" % self.partner_longitude
+    self.zip = '04576-060'
+    assert self.zip_search(), 'Zip search does not return true'
+    assert -24 < self.partner_latitude < -23, "Latitude is wrong: 23 < %s < 24" % self.partner_latitude
+    assert -47 < self.partner_longitude < -46, "Longitude is wrong: 46 < %s < 47" % self.partner_longitude
