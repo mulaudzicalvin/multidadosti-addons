@@ -1,0 +1,6 @@
+-
+ I check method of geo-localization and verifying if returns latitude and longitude correctly
+-
+  !python {model: res.partner, id: base.res_partner_1}: |
+    assert 25 < self.partner_latitude < 26, "Latitude is wrong: 25 < %s < 26" % self.partner_latitude
+    assert 121 < self.partner_longitude < 122, "Longitude is wrong: 121 < %s < 122" % self.partner_longitude
