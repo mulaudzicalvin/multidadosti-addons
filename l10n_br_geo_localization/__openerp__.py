@@ -17,6 +17,9 @@
         'l10n_br_zip_correios',
         'base_geolocalize',
     ],
+    'test': [
+        'test/res_partner.yml',
+    ],
     'data': [
         'views/res_partner_view.xml',
     ],
