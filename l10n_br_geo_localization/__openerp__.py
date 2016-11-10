@@ -14,6 +14,7 @@
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
     'license': 'AGPL-3',
     'depends': [
+        'base',
         'l10n_br_zip_correios',
         'base_geolocalize',
     ],
