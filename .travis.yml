@@ -49,4 +49,5 @@ script:
   - coverage xml
 
 after_success:
+  - coveralls
   - python-codacy-coverage -c $TRAVIS_COMMIT -r coverage.xml
