@@ -45,8 +45,8 @@ before_script:
 
 script:
   - ./configure_locale.sh
-  - coverage run --append ./travis/travis_run_tests 8.0  # only used if VERSION not set in env
-  - coverage run --append ./travis/self_tests
+  - coverage run --append travis_run_tests 8.0  # only used if VERSION not set in env
+  - coverage run --append self_tests
   - coverage xml
 
 after_success:
