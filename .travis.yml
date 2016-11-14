@@ -45,7 +45,7 @@ before_script:
 
 script:
   - ./configure_locale.sh
-  - travis_run_tests
+  - coverage run travis_run_tests
   - coverage xml
 
 after_success:
