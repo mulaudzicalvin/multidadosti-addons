@@ -19,5 +19,5 @@
     'data': [
         'views/view_disable_powered_odoo_footer.xml',
     ],
-    'installable': True,
+    'installable': False,
 }
