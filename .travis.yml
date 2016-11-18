@@ -18,10 +18,9 @@ addons:
       - libxslt-dev
 
 env:
-  - VERSION="8.0" LINT_CHECK="1"
-  - VERSION="8.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
-  - VERSION="8.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
-  - VERSION="8.0" ODOO_REPO="multidadosti-erp/OCB" LINT_CHECK="0"
+  - VERSION="10.0" LINT_CHECK="1"
+  - VERSION="10.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
+  - VERSION="10.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
   
 virtualenv:
   system_site_packages: true
@@ -36,8 +35,8 @@ install:
   - pip install codacy-coverage
   - pip install http://xmlsoft.org/sources/python/libxml2-python-2.6.21.tar.gz
   - pip install https://github.com/multidadosti-erp/pyxmlsec/archive/master.zip
-  - pip install https://github.com/multidadosti-erp/geraldo/archive/master.zip
-  - pip install https://github.com/multidadosti-erp/PySPED/archive/8.0.zip --allow-external PyXMLSec --allow-insecure PyXMLSec
+#  - pip install https://github.com/multidadosti-erp/geraldo/archive/master.zip
+#  - pip install https://github.com/multidadosti-erp/PySPED/archive/8.0.zip --allow-external PyXMLSec --allow-insecure PyXMLSec
   - travis_install_nightly
 
 before_script:
@@ -46,7 +45,7 @@ before_script:
 script:
   - ./configure_locale.sh
   - cd ${HOME}/maintainer-quality-tools
-  - coverage run --append ./travis/travis_run_tests 8.0  # only used if VERSION not set in env
+  - coverage run --append ./travis/travis_run_tests 10.0  # only used if VERSION not set in env
   - coverage xml
 
 after_success:
