@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
-
-        <template id="view_disable_powered_odoo_footer"
+<odoo>
+    <template id="view_disable_powered_odoo_footer"
                   inherit_id="web.menu_secondary">
-            <div class="oe_footer" position="replace"/>
-        </template>
-
-    </data>
-</openerp>
+        <div class="oe_footer" position="replace"/>
+    </template>
+</odoo>
