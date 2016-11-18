@@ -15,12 +15,12 @@
     'license': 'AGPL-3',
     'depends': [
         'base',
-        'l10n_br_zip_correios',
+        'br_zip',
         'base_geolocalize',
     ],
     'data': [
         'views/res_partner_view.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': True,
 }
