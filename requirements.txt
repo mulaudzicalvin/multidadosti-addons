@@ -1,1 +1,10 @@
+ofxparse==0.14
+suds_requests
 suds
+pytrustnfe
+unidecode
+faker==0.7.3
+python-cnab
+python-boleto
+http://xmlsoft.org/sources/python/libxml2-python-2.6.21.tar.gz
+https://github.com/odoo-brazil/pyxmlsec/archive/master.zip
