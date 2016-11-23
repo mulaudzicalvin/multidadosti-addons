@@ -6,7 +6,7 @@
 
 {
     'name': 'Geo-Localization to Brazil',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'description': 'Partners Geo-Localization to Brazil',
     'summary': 'Geo localization to Brazil Localization',
     'category': 'Customer Relationship Management',
