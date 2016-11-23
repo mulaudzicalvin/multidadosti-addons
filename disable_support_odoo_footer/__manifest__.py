@@ -17,7 +17,7 @@
         'br_base',
     ],
     'data': [
-        'views/view_disable_support_footer.xml',
+        'views/view_disable_support_odoo_footer.xml',
     ],
     'installable': True,
 }
