@@ -6,21 +6,18 @@
 
 {
     'name': 'Geo-Localization to Brazil',
-    'version': '8.0.1.0.0',
-    'description': 'Partners Geo-Localization to Brazil',
+    'version': '10.0.1.0.0',
     'summary': 'Geo localization to Brazil Localization',
     'category': 'Customer Relationship Management',
     'author': 'MultidadosTI',
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
     'license': 'AGPL-3',
     'depends': [
-        'base',
-        'l10n_br_zip_correios',
+        'br_zip',
         'base_geolocalize',
     ],
     'data': [
         'views/res_partner_view.xml',
     ],
-    'installable': False,
-    'auto_install': True,
+    'installable': True,
 }
