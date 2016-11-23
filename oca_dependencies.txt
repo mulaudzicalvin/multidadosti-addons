@@ -1,3 +1,1 @@
-server-tools https://github.com/multidadosti-erp/server-tools.git
-account-fiscal-rule https://github.com/multidadosti-erp/account-fiscal-rule.git
-l10n-brazil https://github.com/multidadosti-erp/l10n-brazil.git fix/l10n_br_zip_correios_test
+odoo-brasil https://github.com/multidadosti-erp/odoo-brasil.git
