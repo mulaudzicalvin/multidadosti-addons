@@ -5,19 +5,19 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
-    'name': 'Disable Suport by Trustcode footer',
+    'name': 'Disable Support by Trustcode footer',
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
-    'summary': 'Disable \'Suport by Trustcode\' footer',
+    'summary': 'Disable \'Support by Trustcode\' footer',
     'category': 'Web',
     'depends': [
         'web',
         'br_base',
     ],
     'data': [
-        'views/view_disable_suport_footer.xml',
+        'views/view_disable_support_footer.xml',
     ],
     'installable': True,
 }
