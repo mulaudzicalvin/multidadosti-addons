@@ -8,9 +8,8 @@
     'name': 'Disable Powered by Odoo Footer',
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
-    'description': 'Disable \'powered by Odoo\' footer',
     'summary': 'Disable \'powered by Odoo\' footer',
     'category': 'Web',
     'depends': [
@@ -19,5 +18,5 @@
     'data': [
         'views/view_disable_powered_odoo_footer.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
