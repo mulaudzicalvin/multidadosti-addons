@@ -21,6 +21,6 @@
     'data': [
         'views/res_groups.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }
