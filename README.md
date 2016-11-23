@@ -1,13 +1,17 @@
 # MultidadosTI Odoo Addons
 [![Travis branch](https://img.shields.io/travis/multidadosti-erp/multidadosti-addons/8.0.svg?style=flat-square)](https://travis-ci.org/multidadosti-erp/multidadosti-addons)
-[![Codacy branch coverage](https://img.shields.io/codacy/coverage/4a3a1bfd01114e42bfd3488eaf7a64f6/8.0.svg?style=flat-square)](https://www.codacy.com/app/michellstut/multidadosti-addons/dashboard)
-[![Codacy branch grade](https://img.shields.io/codacy/grade/4a3a1bfd01114e42bfd3488eaf7a64f6/8.0.svg?style=flat-square)](https://www.codacy.com/app/michellstut/multidadosti-addons/dashboard)
+[![Coverage Status](https://coveralls.io/repos/github/multidadosti-erp/multidadosti-addons/badge.svg?branch=mig%2Fl10n_br_geo_localization)](https://coveralls.io/github/multidadosti-erp/multidadosti-addons?branch=mig%2Fl10n_br_geo_localization)
+[![Code Health](https://landscape.io/github/multidadosti-erp/multidadosti-addons/8.0/landscape.svg?style=flat)](https://landscape.io/github/multidadosti-erp/multidadosti-addons/8.0)
 
 Odoo Modules developed by MultidadosTI
 
 ### MultidadosTI Admin Development Features
 
 This module extends Admin Technical Features module and set the admin user like sale manager.
+
+### MultidadosTI Disable Support Footer
+
+This module extends `br_base` and remove Footer of theme added by TrustCode. It is needed to install backend theme.
 
 ### MultidadosTI Disable Powered Odoo Footer
 
