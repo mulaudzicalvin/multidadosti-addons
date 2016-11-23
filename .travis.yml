@@ -25,14 +25,11 @@ install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - pip install -r requirements.txt
-  - pip install coverage
-  - pip install codacy-coverage
+  - pip install coveralls
   - travis_install_nightly
 
 script:
-  - cd ${HOME}/maintainer-quality-tools
-  - coverage run --append ./travis/travis_run_tests 10.0  # only used if VERSION not set in env
-  - coverage xml
+  - travis_run_tests
 
 after_success:
-  - python-codacy-coverage -c $TRAVIS_COMMIT -r coverage.xml
+  - coveralls
