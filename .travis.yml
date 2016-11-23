@@ -30,7 +30,6 @@ install:
   - travis_install_nightly
 
 script:
-  - ./configure_locale.sh
   - cd ${HOME}/maintainer-quality-tools
   - coverage run --append ./travis/travis_run_tests 10.0  # only used if VERSION not set in env
   - coverage xml
