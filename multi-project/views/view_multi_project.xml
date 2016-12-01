@@ -6,8 +6,21 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_ids']" position="before">
                 <field name="project_ids"/>
-                <field name="task_ids"/>
+                <!--<field name="task_ids"/>-->
             </xpath>
         </field>
     </record>
+
+    <record id="view_multi_calendar_event_tree" model="ir.ui.view">
+        <field name="name">calendar.event.tree</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ids']" position="before">
+                <field name="project_ids"/>
+                <!--<field name="task_ids"/>-->
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
