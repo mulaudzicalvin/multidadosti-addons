@@ -19,8 +19,14 @@
         'document',
     ],
     'data': [
+<<<<<<< 7a7be84492664280c9619ff064dde1466f74ee53:project_task_calendar/__manifest__.py
         'views/view_multi_project.xml',
         'views/view_project_project.xml',
+=======
+        'views/calendar_meeting.xml',
+        'views/view_custom_menu_group.xml',
+
+>>>>>>> [IMP] Implementação de menu customizado, agrupamento de calendario, post-it e mensagens:multi-project/__manifest__.py
     ],
     'installable': True,
 }
