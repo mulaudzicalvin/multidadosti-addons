@@ -1,24 +1,32 @@
 <odoo>
-    <record id="view_multi_project_calendar" model="ir.ui.view">
-        <field name="name">multi.project</field>
-        <field name="model">calendar.event</field>
-        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='partner_ids']" position="before">
-                <field name="project_ids"/>
-                <!--<field name="task_ids"/>-->
-            </xpath>
-        </field>
-    </record>
-
     <record id="view_multi_calendar_event_tree" model="ir.ui.view">
         <field name="name">calendar.event.tree</field>
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='partner_ids']" position="before">
-                <field name="project_ids"/>
-                <!--<field name="task_ids"/>-->
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="project_id"/>
+                <field name="task_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_multi_calendar_event_form" model="ir.ui.view">
+        <field name="name">multi.calendar.event</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Projeto">
+                    <group col="12">
+                        <group colspan="4">
+                            <field name="project_id"
+                                   domain="[('partner_id', 'in', partner_ids and partner_ids[0][2])]"/>
+                            <field name="task_id"
+                                   domain="[('project_id', '=', project_id)]"/>
+                        </group>
+                    </group>
+                </page>
             </xpath>
         </field>
     </record>
