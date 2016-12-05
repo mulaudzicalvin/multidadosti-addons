@@ -1,0 +1,39 @@
+<odoo>
+    <menuitem id="custom_menu_root"
+              name="Comunicações"
+              sequence="10"/>
+
+    <menuitem id="custom_menu_submenu"
+              name="Organizador"
+              parent="custom_menu_root"
+              sequence="1"/>
+
+    <menuitem
+            id="note.menu_note_notes"
+            name="Post-it"
+            sequence="3"
+            parent="custom_group_postit.custom_menu_submenu"
+            action="note.action_note_note"
+            web_icon="note,static/description/icon.png"/>
+
+    <menuitem
+      id="note.menu_note_configuration"
+      name="Configuração"
+      sequence="100"
+      parent="note.menu_note_notes"
+      groups="base.group_no_one"/>
+
+    <menuitem
+      id="note.menu_notes_stage"
+      name="Estágios"
+      parent="note.menu_note_configuration"
+      action="note.action_note_stage"
+      sequence="21"/>
+
+    <menuitem
+      id="note.notes_tag_menu"
+      parent="note.menu_note_configuration"
+      action="note.note_tag_action"
+      sequence="22"/>
+
+</odoo>
