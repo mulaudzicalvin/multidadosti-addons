@@ -15,4 +15,10 @@
         </xpath>
     </template>
 
+    <template id="web_multi_layout" inherit_id="web.layout" name="Web multi layout">
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or 'ERP@Multi'"/>
+        </xpath>
+    </template>
+
 </odoo>
