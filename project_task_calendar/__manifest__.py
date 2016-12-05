@@ -19,6 +19,7 @@
     ],
     'data': [
         'views/view_multi_project.xml',
+        'views/view_project_project.xml',
     ],
     'installable': True,
 }
