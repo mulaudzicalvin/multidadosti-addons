@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_project_project_adjust_form" model="ir.ui.view">
+            <field name="name">view.project.project.adjust.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="replace"/>
+                <xpath expr="//field[@name='user_id']" position="replace">
+                    <field name="partner_id"/>
+                    <field name="user_id"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
