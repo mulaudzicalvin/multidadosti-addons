@@ -17,6 +17,7 @@
         'br_base',
     ],
     'data': [
+        'views/multi_assets.xml',
         'views/general_views_customize.xml',
     ],
     'installable': True,

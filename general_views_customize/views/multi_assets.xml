@@ -1,0 +1,7 @@
+<odoo>
+    <template id="multi_login_layout" name="Multi Login" inherit_id="web.login_layout">
+        <t t-set="head">
+            <link rel="stylesheet" href="/general_views_customize/static/src/css/general_views_customize.css"/>
+        </t>
+    </template>
+</odoo>
