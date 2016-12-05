@@ -9,8 +9,28 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='partner_id']" position="replace"/>
-                <xpath expr="//field[@name='user_id']" position="before">
-                    <field name="partner_id"/>
+                <xpath expr="//field[@name='user_id']" position="replace"/>
+
+                <xpath expr="//div[@name='options_active']" position="before">
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="user_id"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//field[@name='privacy_visibility']"
+                       position="replace">
+                    <field name="privacy_visibility" widget="radio"/>
+                    <field name="sequence" groups="base.group_no_one"/>
+                    <field name="resource_calendar_id" groups="base.group_no_one"/>
+                </xpath>
+
+                <xpath expr="//group[@name='misc']" position="replace"/>
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Calendario">
+                        <field name="calendar_event_ids" widget="many2many"/>
+                    </page>
                 </xpath>
 
             </field>
@@ -23,7 +43,8 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='partner_id']" position="replace"/>
-                <xpath expr="//field[@name='displayed_image_id']" position="replace"/>
+                <xpath expr="//field[@name='displayed_image_id']"
+                       position="replace"/>
                 <xpath expr="//field[@name='project_id']" position="after">
                     <field name="partner_id" readonly="1"/>
                 </xpath>
