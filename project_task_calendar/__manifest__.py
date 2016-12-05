@@ -5,12 +5,13 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
-    'name': 'Multidados Project',
+    'name': 'Project Task in Calendar',
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
-    'summary': 'Custom module developed for visual improvement on project module and integration with calendar \'Support by MultidadosTI\'',
+    'summary': """Custom module developed for visual improvement on project
+               module and integration with calendar Support by MultidadosTI""",
     'category': 'Project',
     'depends': [
         'project',

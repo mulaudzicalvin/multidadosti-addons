@@ -3,7 +3,8 @@
 from odoo import models, fields
 
 
-class Meeting(models.Model):
+class CalendarEvent(models.Model):
+
     _inherit = "calendar.event"
 
     project_id = fields.Many2one("project.project",
