@@ -16,6 +16,7 @@
     'depends': [
         'project',
         'calendar',
+        'document',
     ],
     'data': [
         'views/view_multi_project.xml',
