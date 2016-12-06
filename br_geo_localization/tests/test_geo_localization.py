@@ -1,6 +1,6 @@
 import mock
 
-from openerp.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase
 
 
 class TestResPartner(TransactionCase):
