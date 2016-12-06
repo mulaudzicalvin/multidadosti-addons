@@ -12,9 +12,10 @@
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
     'summary': 'Group calendar, productivity(post-it) and messages',
     'category': 'Web',
+    'sequence': 99,
     'depends': [
         'calendar',
-        'productivity',
+        'note',
         'br_base',
     ],
     'data': [
