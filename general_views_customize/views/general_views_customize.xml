@@ -20,5 +20,4 @@
             <title t-esc="title or 'ERP@Multi'"/>
         </xpath>
     </template>
-
 </odoo>

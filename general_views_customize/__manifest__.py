@@ -12,9 +12,11 @@
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
     'summary': 'General Views Customize to Odoo',
     'category': 'Web',
+    'sequence': 99,
     'depends': [
         'web',
         'br_base',
+        'crm',
     ],
     'data': [
         'views/multi_assets.xml',
