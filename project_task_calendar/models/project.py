@@ -17,6 +17,18 @@ class ProjectProject(models.Model):
                                      u" os estágios que foram criados "
                                      u"com status Padrão")
 
+    @api.model
+    def create(self, vals):
+        res = super(ProjectProject, self).create(vals)
+
+        if vals.get('bring_default_task_type'):
+            task_types = self.env['project.task.type'].search([(
+                'is_default', '=', 'True')])
+            for rec in task_types:
+                rec.project_ids = [(4, res.id)]
+
+        return res
+
 
 class MultiProjectTaskType(models.Model):
 
