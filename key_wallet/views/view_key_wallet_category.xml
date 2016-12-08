@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <record id="view_res_password_category_form" model="ir.ui.view">
-        <field name="name">view.res.password.category.form</field>
-        <field name="model">res.password.category</field>
+    <record id="view_key_wallet_category_form" model="ir.ui.view">
+        <field name="name">view.key.wallet.category.form</field>
+        <field name="model">key.wallet.category</field>
         <field name="arch" type="xml">
             <form string="Password Form">
                 <sheet>
@@ -20,15 +20,15 @@
         </field>
     </record>
 
-    <record id="action_key_wallet_password_category" model="ir.actions.act_window">
+    <record id="action_key_wallet_category" model="ir.actions.act_window">
         <field name="name">Passwords Category</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">res.password.category</field>
+        <field name="res_model">key.wallet.category</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
-    <menuitem id="key_wallet_password_category_menu" name="Category" sequence="1"
-              parent="key_wallet_submenu" action="action_key_wallet_password_category"/>
+    <menuitem id="key_wallet_category_menu" name="Category" sequence="1"
+              parent="key_wallet_sub_menu" action="action_key_wallet_category"/>
 
 </odoo>
