@@ -65,4 +65,15 @@
         </field>
     </record>
 
+    <record id="multi_project_project_view_form_simplified" model="ir.ui.view">
+        <field name="name">multi_project_project_view_form_simplified</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='use_tasks']" position="before">
+                <field name="bring_default_task_type"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
