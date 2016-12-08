@@ -11,11 +11,17 @@ class ProjectProject(models.Model):
                                          inverse_name="project_id",
                                          string=u"Eventos de Calendário")
 
+    bring_default_task_type = fields.Boolean(
+                                string=u"Trazer estágios padronizados",
+                                help=u"Atribui ao atual projeto, todos"
+                                     u" os estágios que foram criados "
+                                     u"com status Padrão")
+
 
 class MultiProjectTaskType(models.Model):
 
     _inherit = 'project.task.type'
 
     is_default = fields.Boolean(string=u"Padrão",
-                                help=u"Atribui o atual estágio automaticamente"
-                                     u" a todos os novos projetos criados")
+                                help=u"Permite Atribuição do atual estágio"
+                                     u" a novos projetos que serão criados")
