@@ -8,15 +8,17 @@
     'name': 'Key Wallet',
     'version': '10.0.1.0.0',
     'summary': 'Password manager',
-    'category': 'Extra',
+    'category': 'Key Wallet',
     'author': 'MultidadosTI',
-    'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
+    'website': 'www.multidadosti.com.br',
     'license': 'AGPL-3',
     'depends': [
         'base',
     ],
     'data': [
-        'views/view_res_password.xml',
-        'views/view_res_password_category.xml',
+        'security/ir.model.access.csv',
+        'security/key_wallet_security.xml',
+        'views/view_key_wallet_password.xml',
+        'views/view_key_wallet_category.xml',
     ],
 }
