@@ -10,7 +10,7 @@
 
         <record id="group_key_wallet_manager" model="res.groups">
             <field name="name">Manager</field>
-            <field name="category_id" ref="group_key_wallet_user"/>
+            <field name="category_id" ref="base.module_category_key_wallet"/>
             <field name="implied_ids" eval="[(4, ref('group_key_wallet_user'))]"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
@@ -20,19 +20,18 @@
     <data noupdate="0">
 
         <record model="ir.rule" id="key_wallet_password_user_rule">
-            <field name="name">Library: see only own books</field>
+            <field name="name">Library: see only own passwords</field>
             <field name="model_id" ref="model_key_wallet_password"/>
             <field name="groups" eval="[(4, ref('group_key_wallet_user'))]"/>
-            <field name="domain_force">
-                [('create_uid', '=', user.id)]
-            </field>
+            <field name="domain_force">[('group_id.id','in', [g.id for g in user.groups_id])]</field>
         </record>
 
         <record model="ir.rule" id="key_wallet_password_all_rule">
-            <field name="name">Library: see all books</field>
+            <field name="name">Library: see all passwords</field>
             <field name="model_id" ref="model_key_wallet_password"/>
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
             <field name="domain_force">[(1, '=', 1)]</field>
         </record>
+
     </data>
 </odoo>

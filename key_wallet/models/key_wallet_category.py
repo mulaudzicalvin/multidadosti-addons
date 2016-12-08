@@ -6,7 +6,7 @@
 from odoo import models, fields
 
 
-class ResPasswordCategory(models.Model):
+class KeyWalletCategory(models.Model):
 
     _name = 'key.wallet.category'
     _description = 'Password Category'

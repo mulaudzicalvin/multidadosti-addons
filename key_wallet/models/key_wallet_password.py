@@ -6,7 +6,7 @@
 from odoo import api, fields, models
 
 
-class ResPassword(models.Model):
+class KeyWalletPassword(models.Model):
 
     _name = 'key.wallet.password'
     _rec_name = 'title'
@@ -32,19 +32,19 @@ class ResPassword(models.Model):
     create_date = fields.Datetime(index=True, string='Date', readonly=True)
     write_date = fields.Datetime(index=True, string='Date', readonly=True)
 
-    create_uid = fields.Many2one('res.users', string='By', readonly=True,
+    create_uid = fields.Many2one('res.users', string='Create By', readonly=True,
                                  default=lambda self: self.env.uid)
-    write_uid = fields.Many2one('res.users', string='By', readonly=True)
+    write_uid = fields.Many2one('res.users', string='Last Edit By', readonly=True)
 
     @api.model
     def create(self, values):
         values.update({'show_password': False})
-        return super(ResPassword, self).create(vals=values)
+        return super(KeyWalletPassword, self).create(vals=values)
 
     @api.multi
     def write(self, values):
         values.update({'show_password': False})
-        return super(ResPassword, self).write(vals=values)
+        return super(KeyWalletPassword, self).write(vals=values)
 
     @api.onchange('password_visible')
     def onchange_password_visible(self):

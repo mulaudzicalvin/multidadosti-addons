@@ -16,8 +16,8 @@
         'base',
     ],
     'data': [
-        'security/ir.model.access.csv',
         'security/key_wallet_security.xml',
+        'security/ir.model.access.csv',
         'views/view_key_wallet_password.xml',
         'views/view_key_wallet_category.xml',
     ],
