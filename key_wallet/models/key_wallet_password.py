@@ -12,6 +12,12 @@ class ResPassword(models.Model):
     _rec_name = 'title'
     _description = 'Represents password key'
 
+    @api.model
+    def _get_user_group_list(self):
+        groups_id = self.env.user.groups_id
+        groups_id_list = groups_id.ids if groups_id else []
+        return [('id', 'in', groups_id_list)]
+
     title = fields.Char(string='Title', required=True)
     url = fields.Char(string='URL')
     username = fields.Char(string='Username')
@@ -19,7 +25,8 @@ class ResPassword(models.Model):
     password_visible = fields.Char(string='Password', related='password')
     show_password = fields.Boolean(string='Show Password', default=False)
     description = fields.Html(string='Description')
-    group_id = fields.Many2one('res.groups', string='Owner Group')
+    group_id = fields.Many2one('res.groups', string='Owner Group',
+                               domain=_get_user_group_list)
     category_ids = fields.Many2many('key.wallet.category', string='Category')
 
     create_date = fields.Datetime(index=True, string='Date', readonly=True)
