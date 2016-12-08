@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-#    
-#    Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
-#    @author Michell Stuttgart <m.faria@itimpacta.org.br>
+# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
+# @author Michell Stuttgart <m.faria@itimpacta.org.br>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import api, fields, models
@@ -32,14 +31,12 @@ class ResPassword(models.Model):
 
     @api.model
     def create(self, values):
-        # values['show_password'] = False
         values.update({'show_password': False})
         return super(ResPassword, self).create(vals=values)
 
     @api.multi
     def write(self, values):
         values.update({'show_password': False})
-        # values['show_password'] = False
         return super(ResPassword, self).write(vals=values)
 
     @api.onchange('password_visible')
