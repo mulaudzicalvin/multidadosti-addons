@@ -32,9 +32,8 @@ class KeyWalletPassword(models.Model):
     create_date = fields.Datetime(index=True, string='Date', readonly=True)
     write_date = fields.Datetime(index=True, string='Date', readonly=True)
 
-    create_uid = fields.Many2one('res.users', string='Create By', readonly=True,
-                                 default=lambda self: self.env.uid)
-    write_uid = fields.Many2one('res.users', string='Last Edit By', readonly=True)
+    create_uid = fields.Many2one('res.users', readonly=True)
+    write_uid = fields.Many2one('res.users', readonly=True)
 
     @api.model
     def create(self, values):
