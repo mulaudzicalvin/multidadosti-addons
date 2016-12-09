@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <template id="br_base.trust_menu_secondary" inherit_id="web.menu_secondary">
-    </template>
-</odoo>
