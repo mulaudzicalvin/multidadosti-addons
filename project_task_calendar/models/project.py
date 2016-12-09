@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
 
 
 class ProjectProject(models.Model):
@@ -13,10 +12,10 @@ class ProjectProject(models.Model):
                                          string=u"Eventos de Calendário")
 
     bring_default_task_type = fields.Boolean(
-                                string=u"Trazer estágios padronizados",
-                                help=u"Atribui ao atual projeto, todos"
-                                     u" os estágios que foram criados "
-                                     u"com status Padrão")
+        string=u"Trazer estágios padronizados",
+        help=u"Atribui ao atual projeto, todos"
+             u" os estágios que foram criados "
+             u"com status Padrão")
 
     @api.model
     def create(self, vals):
