@@ -5,7 +5,7 @@
         <field name="name">view.key.wallet.category.form</field>
         <field name="model">key.wallet.category</field>
         <field name="arch" type="xml">
-            <form string="Password Form">
+            <form string="Category Form">
                 <sheet>
                     <group>
                         <field name="name"/>

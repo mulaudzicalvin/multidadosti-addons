@@ -27,13 +27,17 @@ class KeyWalletPassword(models.Model):
     description = fields.Html(string='Description')
     group_id = fields.Many2one('res.groups', string='Owner Group',
                                domain=_get_user_group_list)
+    group_view_id = fields.Many2many('res.groups', string='Viewer Group')
     category_ids = fields.Many2many('key.wallet.category', string='Category')
 
-    create_date = fields.Datetime(index=True, string='Date', readonly=True)
-    write_date = fields.Datetime(index=True, string='Date', readonly=True)
+    create_date = fields.Datetime(index=True, string='Created on',
+                                  readonly=True)
+    write_date = fields.Datetime(index=True, string='Edited on', readonly=True)
 
-    create_uid = fields.Many2one('res.users', readonly=True)
-    write_uid = fields.Many2one('res.users', readonly=True)
+    create_uid = fields.Many2one('res.users', string='Created by',
+                                 readonly=True)
+    write_uid = fields.Many2one('res.users', string='Edited by',
+                                readonly=True)
 
     @api.model
     def create(self, values):
