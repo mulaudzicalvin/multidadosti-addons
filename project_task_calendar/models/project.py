@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class ProjectProject(models.Model):
@@ -37,3 +38,7 @@ class MultiProjectTaskType(models.Model):
     is_default = fields.Boolean(string=u"Padrão",
                                 help=u"Permite Atribuição do atual estágio"
                                      u" a novos projetos que serão criados")
+
+    _sql_constraints = [("project_task_type_name_uniq",
+                         "unique (name)",
+                        u"Já existe um estágio com esse mesmo nome!")]
