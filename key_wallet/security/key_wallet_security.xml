@@ -20,14 +20,14 @@
     <data noupdate="0">
 
         <record model="ir.rule" id="key_wallet_password_user_rule">
-            <field name="name">Library: see only own passwords</field>
+            <field name="name">Key Wallet: see only own passwords</field>
             <field name="model_id" ref="model_key_wallet_password"/>
             <field name="groups" eval="[(4, ref('group_key_wallet_user'))]"/>
             <field name="domain_force">[('group_id.id','in', [g.id for g in user.groups_id])]</field>
         </record>
 
         <record model="ir.rule" id="key_wallet_password_all_rule">
-            <field name="name">Library: see all passwords</field>
+            <field name="name">Key Wallet: see all passwords</field>
             <field name="model_id" ref="model_key_wallet_password"/>
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
             <field name="domain_force">[(1, '=', 1)]</field>
