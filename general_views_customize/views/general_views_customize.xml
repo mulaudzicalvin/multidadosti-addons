@@ -29,4 +29,16 @@
         </field>
     </record>
 
+    <record model="ir.ui.view" id="multi_view_task_form2_inherited">
+        <field name="name">project.task.form.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited" />
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='progress']" position="replace">
+                <field name="progress" widget="progressbar" string="Progresso da tarefa"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
