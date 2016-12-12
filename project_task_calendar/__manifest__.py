@@ -16,11 +16,6 @@
     'depends': [
         'project',
         'calendar',
-        'document',
-        'web_kanban',
-    ],
-    'qweb': [
-        "static/src/xml/web_kanban.xml",
     ],
     'data': [
         'views/view_multi_project.xml',
