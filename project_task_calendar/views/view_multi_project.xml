@@ -89,4 +89,15 @@
         </field>
     </record>
 
+    <record id="multi_view_config_settings" model="ir.ui.view">
+        <field name="name">multi project settings</field>
+        <field name="model">project.config.settings</field>
+        <field name="inherit_id" ref="project.view_config_settings"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='module_project_forecast']" position="replace"/>
+            <xpath expr="//label[@for='module_project_forecast']" position="replace"/>
+            <xpath expr="//a" position="replace"/>
+        </field>
+    </record>
+
 </odoo>
