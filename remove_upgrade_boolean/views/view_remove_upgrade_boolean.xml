@@ -2,13 +2,15 @@
 <odoo>
     <!-- Removing fields that implements boolean_widgets -->
 
-    <!-- Stock -->
-    <record id="multi_view_stock_config_settings" model="ir.ui.view">
-        <field name="name">stock settings</field>
-        <field name="model">stock.config.settings</field>
-        <field name="inherit_id" rel="stock.view_stock_config_settings"/>
+    <!-- base_setup (Initial Setup Tools) -->
+    <record id="multi_view_general_configuration" model="ir.ui.view">
+        <field name="name">Multi General Settings</field>
+        <field name="model">base.config.settings</field>
+        <field name="inherit_id" ref="base_setup.view_general_configuration"/>
         <field name="arch" type="xml">
-            <xpath expr="//form[@class='oe_form_configuration']/group[@name='traceability']/div/div" position="replace"/>
+            <xpath expr="//form[@class='oe_form_configuration']/group/label[@for='module_inter_company_rules']" position="replace"/>
+            <xpath expr="//form[@class='oe_form_configuration']/group/div[@name='inter_company']" position="replace"/>
         </field>
     </record>
+
 </odoo>
