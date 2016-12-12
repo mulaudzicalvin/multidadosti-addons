@@ -41,4 +41,15 @@
         </field>
     </record>
 
+    <record id="multi_view_config_settings_form_inherit_hr_timesheet_sheet" model="ir.ui.view">
+        <field name="name">multi.project.config.settings.form.inherit.timesheet.sheet</field>
+        <field name="model">project.config.settings</field>
+        <field name="inherit_id" ref="hr_timesheet_sheet.view_config_settings_form_inherit_hr_timesheet_sheet"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='module_project_timesheet_synchro']" position="replace"/>
+            <xpath expr="//label[@for='module_project_timesheet_synchro']" position="replace"/>
+            <xpath expr="//a" position="replace"/>
+        </field>
+    </record>
+
 </odoo>
