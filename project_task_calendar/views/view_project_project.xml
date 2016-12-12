@@ -93,6 +93,8 @@
         <field name="arch" type="xml">
 
             <xpath expr="//calendar" position="attributes">
+                <attribute name="display">"[name]"</attribute>
+                <attribute name="date_start">start</attribute>
                 <attribute name="date_start">start</attribute>
                 <attribute name="date_stop">stop</attribute>
                 <attribute name="date_delay">duration</attribute>
