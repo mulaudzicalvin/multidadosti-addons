@@ -111,6 +111,7 @@ class ProjectTask(models.Model):
                 enddate = enddate.replace(hour=18)
                 enddate = enddate.astimezone(pytz.utc)
                 meeting.stop = fields.Datetime.to_string(enddate)
+                meeting.date_deadline = meeting.stop
 
                 startdate = fields.Datetime.from_string(meeting.start_date)
                 startdate = tz.localize(startdate)  # Add "+hh:mm" timezone
@@ -120,6 +121,7 @@ class ProjectTask(models.Model):
             else:
                 meeting.start = meeting.start_datetime
                 meeting.stop = meeting.stop_datetime
+                meeting.date_deadline = meeting.stop
 
     def _get_duration(self, start, stop):
         """ Get the duration value between the 2 given dates. """
