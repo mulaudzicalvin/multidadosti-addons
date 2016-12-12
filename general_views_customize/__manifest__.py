@@ -17,7 +17,7 @@
         'web',
         'br_base',
         'crm',
-        'hr_timesheet',
+        'hr_timesheet_sheet',
         'web_kanban',
     ],
     'qweb': [

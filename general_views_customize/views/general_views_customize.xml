@@ -41,6 +41,17 @@
         </field>
     </record>
 
+    <record id="multi_view_sale_config_settings" model="ir.ui.view">
+        <field name="name">multi crm settings</field>
+        <field name="model">sale.config.settings</field>
+        <field name="inherit_id" ref="crm.view_sale_config_settings"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='module_website_sign']" position="replace"/>
+            <xpath expr="//label[@for='module_website_sign']" position="replace"/>
+            <xpath expr="//a" position="replace"/>
+        </field>
+    </record>
+
     <record id="multi_view_config_settings_form_inherit_hr_timesheet_sheet" model="ir.ui.view">
         <field name="name">multi.project.config.settings.form.inherit.timesheet.sheet</field>
         <field name="model">project.config.settings</field>
@@ -48,6 +59,17 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='module_project_timesheet_synchro']" position="replace"/>
             <xpath expr="//label[@for='module_project_timesheet_synchro']" position="replace"/>
+            <xpath expr="//a" position="replace"/>
+        </field>
+    </record>
+
+    <record id="multi_view_sale_config_settings" model="ir.ui.view">
+        <field name="name">crm settings</field>
+        <field name="model">sale.config.settings</field>
+        <field name="inherit_id" ref="crm.view_sale_config_settings"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='module_crm_voip']" position="replace"/>
+            <xpath expr="//group[@name='config_alias']/label[@for='module_crm_voip']" position="replace"/>
             <xpath expr="//a" position="replace"/>
         </field>
     </record>
