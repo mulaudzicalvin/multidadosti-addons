@@ -86,6 +86,7 @@ class ProjectTask(models.Model):
                 meeting.start_datetime = False
                 meeting.stop_date = meeting.stop
                 meeting.stop_datetime = False
+                meeting.date_start = meeting.start
                 meeting.date_deadline = meeting.stop
 
                 meeting.duration = 0.0
@@ -94,6 +95,7 @@ class ProjectTask(models.Model):
                 meeting.start_datetime = meeting.start
                 meeting.stop_date = False
                 meeting.stop_datetime = meeting.stop
+                meeting.date_start = False
                 meeting.date_deadline = False
 
                 meeting.duration = self._get_duration(meeting.start,
@@ -118,9 +120,11 @@ class ProjectTask(models.Model):
                 startdate = startdate.replace(hour=8)  # Set 8 AM in localtime
                 startdate = startdate.astimezone(pytz.utc)  # Convert to UTC
                 meeting.start = fields.Datetime.to_string(startdate)
+                meeting.date_start = meeting.start
             else:
                 meeting.start = meeting.start_datetime
                 meeting.stop = meeting.stop_datetime
+                meeting.date_start = meeting.start
                 meeting.date_deadline = meeting.stop
 
     def _get_duration(self, start, stop):
