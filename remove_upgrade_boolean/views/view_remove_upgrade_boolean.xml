@@ -25,4 +25,36 @@
         </field>
     </record>
 
+    <!-- account (Invoicing) -->
+    <record id="multi_view_account_config_settings" model="ir.ui.view">
+        <field name="name">multi account settings</field>
+        <field name="model">account.config.settings</field>
+        <field name="inherit_id" ref="account.view_account_config_settings"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='module_account_reports']" position="replace"/>
+            <xpath expr="//field[@name='module_account_reports']" position="replace"/>
+            <xpath expr="//a" position="replace"/>
+            <xpath expr="//label[@for='module_account_deferred_revenue']" position="replace"/>
+            <xpath expr="//field[@name='module_account_deferred_revenue']" position="replace"/>
+            <xpath expr="//label[@for='module_account_yodlee']" position="replace"/>
+            <xpath expr="//field[@name='module_account_yodlee']" position="replace"/>
+            <xpath expr="//label[@for='module_account_plaid']" position="replace"/>
+            <xpath expr="//field[@name='module_account_plaid']" position="replace"/>
+            <xpath expr="//label[@for='module_account_bank_statement_import_qif']" position="replace"/>
+            <xpath expr="//field[@name='module_account_bank_statement_import_qif']" position="replace"/>
+            <xpath expr="//label[@for='module_account_bank_statement_import_ofx']" position="replace"/>
+            <xpath expr="//field[@name='module_account_bank_statement_import_ofx']" position="replace"/>
+            <xpath expr="//label[@for='module_account_bank_statement_import_csv']" position="replace"/>
+            <xpath expr="//field[@name='module_account_bank_statement_import_csv']" position="replace"/>
+            <xpath expr="//label[@for='module_account_sepa']" position="replace"/>
+            <xpath expr="//field[@name='module_account_sepa']" position="replace"/>
+            <xpath expr="//label[@for='module_l10n_us_check_printing']" position="replace"/>
+            <xpath expr="//field[@name='module_l10n_us_check_printing']" position="replace"/>
+            <xpath expr="//label[@for='module_account_reports_followup']" position="replace"/>
+            <xpath expr="//field[@name='module_account_reports_followup']" position="replace"/>
+            <xpath expr="//label[@for='module_account_batch_deposit']" position="replace"/>
+            <xpath expr="//field[@name='module_account_batch_deposit']" position="replace"/>
+        </field>
+    </record>
+
 </odoo>
