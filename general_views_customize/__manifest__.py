@@ -15,9 +15,10 @@
     'sequence': 99,
     'depends': [
         'web',
-        'br_base',
         'crm',
         'web_settings_dashboard',
+        'document',
+        'br_base',
     ],
     'data': [
         'views/multi_assets.xml',
