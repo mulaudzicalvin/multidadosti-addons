@@ -6,3 +6,4 @@
 
 from . import calendar
 from . import project
+from . import project_postgresql_view

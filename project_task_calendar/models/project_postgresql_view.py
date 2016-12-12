@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# # Project Task Calendar
+# Project Task Calendar
 # Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
 # @author Michell Stuttgart <michellstut@gmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
@@ -7,7 +7,7 @@
 from odoo import fields, models, tools
 
 
-class NewModule(models.Model):
+class UnionProjectTaskCalendarEvent(models.Model):
 
     _name = 'union.project.task.calendar.event'
     _description = 'SQL view to union project.task and calendar.event tables'
@@ -31,12 +31,18 @@ class NewModule(models.Model):
     location = fields.Char('Location', readonly=True)
     recurrent = fields.Boolean('Recurrent', readonly=True)
     user_id = fields.Many2one('res.users', readonly=True)
-    project_id = fields.Many2one('project.project', readonly=True)
+    project_id = fields.Many2one('project.project', string='Project',
+                                 readonly=True)
     origin = fields.Char('Origin', readonly=True)
+    project_task_id = fields.Many2one('project.task', string='Project task',
+                                      readonly=True)
+    calendar_event_id = fields.Many2one('calendar.event',
+                                        string='Calendar Event',
+                                        readonly=True)
 
     def _select_calendar_event(self):
         select_str = """
-                     SELECT
+                SELECT
                      ce.id as id,
                      ce.name as name,
                      'Calendar Event' as origin,
@@ -51,7 +57,9 @@ class NewModule(models.Model):
                      ce.location as location,
                      ce.recurrency as recurrent,
                      ce.user_id as user_id,
-                     ce.project_id as project_id
+                     ce.project_id as project_id,
+                     NULL as project_task_id,
+                     ce.id as calendar_event_id
         """
         return select_str
 
@@ -59,21 +67,23 @@ class NewModule(models.Model):
     def _select_project_task(self):
         select_str = """
                      SELECT
-                     ce.id as id,
-                     ce.name as name,
+                     pt.id as id,
+                     pt.name as name,
                      'Project Task' as origin,
-                     ce.start as start,
-                     ce.stop as stop,
-                     ce.start_date as start_date,
-                     ce.start_datetime as start_datetime,
-                     ce.stop_date as stop_date,
-                     ce.stop_datetime as stop_datetime,
-                     ce.all_day as all_day,
-                     ce.duration as duration,
+                     pt.start as start,
+                     pt.stop as stop,
+                     pt.start_date as start_date,
+                     pt.start_datetime as start_datetime,
+                     pt.stop_date as stop_date,
+                     pt.stop_datetime as stop_datetime,
+                     pt.all_day as all_day,
+                     pt.duration as duration,
                      '' as location,
                      false as recurrent,
-                     ce.user_id as user_id,
-                     ce.project_id as project_id
+                     pt.user_id as user_id,
+                     pt.project_id as project_id,
+                     pt.id as project_task_id,
+                     NULL as calendar_event_id
         """
         return select_str
 
@@ -83,10 +93,10 @@ class NewModule(models.Model):
             CREATE view %s as
               %s
               FROM calendar_event ce
-              WHERE t.active = 'true'
+                 WHERE ce.active = 'true'
               UNION
               %s
               FROM project_task pt
-              WHERE t.active = 'true'
+                 WHERE pt.active = 'true'
         """ % (self._table, self._select_calendar_event(),
                self._select_project_task()))
