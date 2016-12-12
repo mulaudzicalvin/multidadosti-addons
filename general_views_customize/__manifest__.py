@@ -17,6 +17,10 @@
         'web',
         'br_base',
         'crm',
+        'web_kanban',
+    ],
+    'qweb': [
+        "static/src/xml/web_kanban.xml",
     ],
     'data': [
         'views/multi_assets.xml',
