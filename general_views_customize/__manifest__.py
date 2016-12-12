@@ -26,6 +26,7 @@
     'data': [
         'views/multi_assets.xml',
         'views/general_views_customize.xml',
+        'static/src/js/abstract_web_client.js',
     ],
     'installable': True,
 }

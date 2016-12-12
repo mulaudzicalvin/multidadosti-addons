@@ -4,4 +4,9 @@
             <link rel="stylesheet" href="/general_views_customize/static/src/css/general_views_customize.css"/>
         </t>
     </template>
+    <template id="multi_assets_backend" name="Multi Backend" inherit_id="web.assets_backend">
+        <xpath expr="//script[@src='/web/static/src/js/abstract_web_client.js']" position="replace">
+            <script type="text/javascript" src="/general_views_customize/static/src/js/abstract_web_client.js"></script>
+        </xpath>
+    </template>
 </odoo>
