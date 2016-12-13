@@ -3,7 +3,8 @@
     <menuitem
             id="custom_menu_root"
             name="Comunicações"
-            sequence="10"/>
+            sequence="10"
+            web_icon="custom_group_postit,static/description/icon.png"/>
 
     <menuitem
             id="custom_menu_submenu"
