@@ -160,25 +160,22 @@
                         <field name="stop_datetime" string="Termina em"
                                attrs="{'invisible': [('allday','=',True)]}"/>
 
-                        <label for="duration"
-                               attrs="{'invisible': [('allday','=',True)]}"/>
+                        <field name="duration" widget="float_time"
+                                   string="Duração (hrs)" class="oe_inline"/>
 
-                        <div attrs="{'invisible': [('allday','=',True)]}">
-                            <field name="duration" widget="float_time"
-                                   string="Duração" class="oe_inline"/>
-                             <span> hours</span>
-                        </div>
                         <field name="allday" string="Dia todo"/>
 
-                        <label for="user_id"
+                        <label for="user_id" string="Proprietário"
                                attrs="{'invisible': [('project_task_id','=',False)]}"/>
 
-                        <div attrs="{'invisible': [('project_task_id','=',False)]}">
-                            <field name="user_id" string="Proprietário"
-                                   class="oe_inline"/>
+                        <label for="user_id" string="Atribuída a"
+                               attrs="{'invisible': [('calendar_event_id','=',False)]}"/>
+
+                        <div attrs="{'invisible': [('project_task_id','=',True)]}">
+                            <field name="user_id" string="Proprietário" class="oe_inline"/>
                         </div>
 
-                        <div attrs="{'invisible': [('calendar_event_id','=',False)]}">
+                        <div attrs="{'invisible': [('calendar_event_id','=',True)]}">
                             <field name="user_id" string="Atribuída a"/>
                         </div>
                     </group>
@@ -206,7 +203,7 @@
 
     <record id="action_union_project_task_calendar_event"
             model="ir.actions.act_window">
-        <field name="name">General Calendar</field>
+        <field name="name">Calendário Geral</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">union.project.task.calendar.event</field>
         <field name="view_mode">calendar,tree,form</field>

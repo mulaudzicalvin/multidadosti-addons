@@ -26,7 +26,7 @@ class UnionProjectTaskCalendarEvent(models.Model):
     start_datetime = fields.Datetime('Start DateTime', readonly=True)
     stop_date = fields.Date('End Date', readonly=True)
     stop_datetime = fields.Datetime('End Datetime', readonly=True)
-    duration = fields.Float('Duration', readonly=True)
+    duration = fields.Float(u'Duração', readonly=True)
     location = fields.Char('Local', readonly=True)
     # categ_ids = fields.Many2many('calendar.event.type', readonly=True)
     # alarm_ids = fields.Many2many('calendar.alarm', readonly=True)
