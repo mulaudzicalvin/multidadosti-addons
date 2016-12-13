@@ -9,4 +9,9 @@
             <script type="text/javascript" src="/general_views_customize/static/src/js/abstract_web_client.js"></script>
         </xpath>
     </template>
+    <template id="multi_assets_backend" name="Multi Backend" inherit_id="web.layout">
+        <xpath expr="//link[@t-att-href=x_icon or '/web/static/src/img/favicon.ico']" position="replace">
+            <link type="image/x-icon" rel="shortcut icon" t-att-href= "x_icon or '/general_views_customize/static/src/img/favicon.ico'"/>
+        </xpath>
+    </template>
 </odoo>
