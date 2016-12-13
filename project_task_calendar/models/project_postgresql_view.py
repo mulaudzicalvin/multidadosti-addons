@@ -4,7 +4,7 @@
 # @author Michell Stuttgart <michellstut@gmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import fields, models, tools
+from odoo import api, fields, models, tools
 
 
 class UnionProjectTaskCalendarEvent(models.Model):
@@ -21,15 +21,15 @@ class UnionProjectTaskCalendarEvent(models.Model):
                            help="Stop date of an event, without time "
                                 "for full days events")
 
-    all_day = fields.Boolean('All Day', readonly=True)
+    allday = fields.Boolean('Todo o dia', readonly=True)
     start_date = fields.Date('Start Date', readonly=True)
     start_datetime = fields.Datetime('Start DateTime', readonly=True)
     stop_date = fields.Date('End Date', readonly=True)
     stop_datetime = fields.Datetime('End Datetime', readonly=True)
     duration = fields.Float('Duration', readonly=True)
-
-    location = fields.Char('Location', readonly=True)
-    recurrent = fields.Boolean('Recurrent', readonly=True)
+    location = fields.Char('Local', readonly=True)
+    # categ_ids = fields.Many2many('calendar.event.type', readonly=True)
+    # alarm_ids = fields.Many2many('calendar.alarm', readonly=True)
     user_id = fields.Many2one('res.users', readonly=True)
     project_id = fields.Many2one('project.project', string='Project',
                                  readonly=True)
@@ -52,10 +52,9 @@ class UnionProjectTaskCalendarEvent(models.Model):
                      ce.start_datetime as start_datetime,
                      ce.stop_date as stop_date,
                      ce.stop_datetime as stop_datetime,
-                     ce.allday as all_day,
+                     ce.allday as allday,
                      ce.duration as duration,
                      ce.location as location,
-                     ce.recurrency as recurrent,
                      ce.user_id as user_id,
                      ce.project_id as project_id,
                      NULL as project_task_id,
@@ -76,10 +75,9 @@ class UnionProjectTaskCalendarEvent(models.Model):
                      pt.start_datetime as start_datetime,
                      pt.stop_date as stop_date,
                      pt.stop_datetime as stop_datetime,
-                     pt.all_day as all_day,
+                     pt.all_day as allday,
                      pt.duration as duration,
                      '' as location,
-                     false as recurrent,
                      pt.user_id as user_id,
                      pt.project_id as project_id,
                      pt.id as project_task_id,

@@ -59,27 +59,28 @@
 
                 <field name="start" invisible="1"/>
                 <field name="stop" invisible="1"/>
-                <field name="all_day"/>
+                <field name="allday"/>
 
-                <field name="start_date" string="Starting at"
-                       attrs="{'invisible': [('all_day','=',False)]}"/>
+                <field name="start_date" string="Começa em"
+                       attrs="{'invisible': [('allday','=',False)]}"/>
 
-                <field name="stop_date" string="Ending at"
-                       attrs="{'invisible': [('all_day','=',False)]}"/>
+                <field name="stop_date" string="Termina em"
+                       attrs="{'invisible': [('allday','=',False)]}"/>
 
-                <field name="start_datetime" string="Starting at"
-                       attrs="{'invisible': [('all_day','=',True)]}"/>
+                <field name="start_datetime" string="Começa em"
+                       attrs="{'invisible': [('allday','=',True)]}"/>
 
-                <field name="stop_datetime" string="Ending at"
-                       attrs="{'invisible': [('all_day','=',True)]}"/>
+                <field name="stop_datetime" string="Termina em"
+                       attrs="{'invisible': [('allday','=',True)]}"/>
 
                 <label for="duration"
-                       attrs="{'invisible': [('all_day','=',True)]}"/>
+                       attrs="{'invisible': [('allday','=',True)]}"/>
 
-                <div attrs="{'invisible': [('all_day','=',True)]}">
+                <div attrs="{'invisible': [('allday','=',True)]}">
                     <field name="duration" widget="float_time"
                            string="Duration" class="oe_inline"/>
-                    <span>hours</span>
+                    <span> hours</span>
+
                 </div>
 
             </xpath>
@@ -87,7 +88,6 @@
             <xpath expr="//field[@name='partner_id']" position="attributes">
                 <attribute name="related">project_id.partner_id</attribute>
             </xpath>
-
 
         </field>
     </record>
@@ -104,76 +104,86 @@
                 <attribute name="date_start">start</attribute>
                 <attribute name="date_stop">stop</attribute>
                 <attribute name="date_delay">duration</attribute>
-                <attribute name="all_day">all_day</attribute>
+                <attribute name="all_day">allday</attribute>
             </xpath>
 
         </field>
     </record>
 
-    <record id="view_union_project_task_calendar_event_form"
+    <record id="view_union_project_task_calendar_event_tree"
             model="ir.ui.view">
-        <field name="name">union.project.task.calendar.event.form</field>
+        <field name="name">union.project.task.calendar.event.tree</field>
         <field name="model">union.project.task.calendar.event</field>
-        <field eval="2" name="priority"/>
         <field name="arch" type="xml">
-            <form edit="false" create="false">
-                <sheet>
-                    <div class="oe_title">
-                        <div>
-                            <label for="name"/>
-                        </div>
-                        <h1>
-                            <field name="name"/>
-                        </h1>
-                    </div>
+            <tree string="Calendar" edit="false" create="false" delete="false">
+                <field name="name"/>
+                <field name="origin"/>
+                <field name="project_id"/>
+                <field name="start_date" string="Começa em"/>
+                <field name="stop_date" string="Termina em"/>
+                <field name="start_datetime" string="Começa em"/>
+                <field name="stop_datetime" string="Termina em"/>
+                <field name="allday" string="Dia todo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_union_project_task_calendar_event_form_popup"
+            model="ir.ui.view">
+        <field name="name">union.project.task.calendar.event.form.popup</field>
+        <field name="model">union.project.task.calendar.event</field>
+        <field name="arch" type="xml">
+            <form edit="0" create="0" delete="0">
+                <field name="start" invisible="1"/>
+                <field name="stop" invisible="1"/>
+                <group>
                     <group>
-                        <field name="origin"/>
+                        <field name="origin" string="Origem"/>
                         <field name="project_task_id"
+                               string="Tarefa"
                                attrs="{'invisible': [('project_task_id','=',False)]}"/>
                         <field name="calendar_event_id"
+                               string="Evento de Calendário"
                                attrs="{'invisible': [('calendar_event_id','=',False)]}"/>
+                        <field name="project_id" string="Projeto"/>
+                    </group>
+                    <group>
+                        <field name="start_date" string="Começa em"
+                               attrs="{'invisible': [('allday','=',False)]}"/>
 
-                        <field name="start" invisible="1"/>
-                        <field name="stop" invisible="1"/>
-                        <field name="all_day"/>
+                        <field name="stop_date" string="Termina em"
+                               attrs="{'invisible': [('allday','=',False)]}"/>
 
-                        <field name="start_date" string="Starting at"
-                               attrs="{'invisible': [('all_day','=',False)]}"/>
+                        <field name="start_datetime" string="Começa em"
+                               attrs="{'invisible': [('allday','=',True)]}"/>
 
-                        <field name="stop_date" string="Ending at"
-                               attrs="{'invisible': [('all_day','=',False)]}"/>
-
-                        <field name="start_datetime" string="Starting at"
-                               attrs="{'invisible': [('all_day','=',True)]}"/>
-
-                        <field name="stop_datetime" string="Ending at"
-                               attrs="{'invisible': [('all_day','=',True)]}"/>
+                        <field name="stop_datetime" string="Termina em"
+                               attrs="{'invisible': [('allday','=',True)]}"/>
 
                         <label for="duration"
-                               attrs="{'invisible': [('all_day','=',True)]}"/>
+                               attrs="{'invisible': [('allday','=',True)]}"/>
 
-                        <div attrs="{'invisible': [('all_day','=',True)]}">
+                        <div attrs="{'invisible': [('allday','=',True)]}">
                             <field name="duration" widget="float_time"
-                                   string="Duration" class="oe_inline"/>
-                            <span> hours</span>
+                                   string="Duração" class="oe_inline"/>
+                             <span> hours</span>
+                        </div>
+                        <field name="allday" string="Dia todo"/>
+
+                        <label for="user_id"
+                               attrs="{'invisible': [('project_task_id','=',False)]}"/>
+
+                        <div attrs="{'invisible': [('project_task_id','=',False)]}">
+                            <field name="user_id" string="Proprietário"
+                                   class="oe_inline"/>
                         </div>
 
-                        <field name="location"
-                               attrs="{'invisible': [('calendar_event_id','=',False)]}"/>
-                        <field name="recurrent"
-                               attrs="{'invisible': [('calendar_event_id','=',False)]}"/>
-                        <field name="project_id"/>
-
-                        <!--<div attrs="{'invisible': [('project_task_id','=',False)]}">-->
-                             <!--<field name="user_id" string="Proprietário"/>-->
-                        <!--</div>-->
-
-                        <!--<div attrs="{'invisible': [('calendar_event_id','=',False)]}">-->
-                            <!--<field name="user_id" string="Atribuída a"/>-->
-                        <!--</div>-->
-
+                        <div attrs="{'invisible': [('calendar_event_id','=',False)]}">
+                            <field name="user_id" string="Atribuída a"/>
+                        </div>
                     </group>
-                </sheet>
+                </group>
+
             </form>
         </field>
     </record>
@@ -185,25 +195,11 @@
         <field eval="2" name="priority"/>
         <field name="arch" type="xml">
             <calendar color="user_id" date_start="start" date_stop="stop"
-                      date_delay="duration" all_day="all_day" string="Tasks">
+                      display="[name]" date_delay="duration" all_day="allday"
+                      string="Tasks" quick_add="false" avatar_model="res.users"
+                      event_open_popup="%(project_task_calendar.view_union_project_task_calendar_event_form_popup)s">
                 <field name="name"/>
-                <field name="origin"/>
-                <field name="project_id"/>
-            </calendar>
-        </field>
-    </record>
-
-    <record id="view_union_project_task_calendar_event_calendar"
-            model="ir.ui.view">
-        <field name="name">union.project.task.calendar.event.calendar</field>
-        <field name="model">union.project.task.calendar.event</field>
-        <field eval="2" name="priority"/>
-        <field name="arch" type="xml">
-            <calendar color="user_id" date_start="start" date_stop="stop"
-                      date_delay="duration" all_day="all_day" string="Tasks">
-                <field name="name"/>
-                <field name="origin"/>
-                <field name="project_id"/>
+                <field name="user_id"/>
             </calendar>
         </field>
     </record>
@@ -213,7 +209,7 @@
         <field name="name">General Calendar</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">union.project.task.calendar.event</field>
-        <field name="view_mode">tree,form,calendar</field>
+        <field name="view_mode">calendar,tree,form</field>
     </record>
 
 </odoo>

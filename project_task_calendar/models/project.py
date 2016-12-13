@@ -60,7 +60,7 @@ class ProjectTask(models.Model):
                            help="Stop date of an event, without time "
                                 "for full days events")
 
-    all_day = fields.Boolean('All Day', default=False)
+    allday = fields.Boolean('All Day', default=False)
     start_date = fields.Date('Start Date', compute='_compute_dates',
                              inverse='_inverse_dates', store=True,
                              track_visibility='onchange')
@@ -74,10 +74,10 @@ class ProjectTask(models.Model):
     stop_datetime = fields.Datetime('End Datetime', compute='_compute_dates',
                                     inverse='_inverse_dates', store=True,
                                     track_visibility='onchange')
-    duration = fields.Float('Duration')
+    duration = fields.Float(u'Duração')
 
     @api.multi
-    @api.depends('all_day', 'start', 'stop')
+    @api.depends('allday', 'start', 'stop')
     def _compute_dates(self):
         """ Adapt the value of start_date(time)/stop_date(time) according
         to start/stop fields and all day. Also, compute the duration for not
@@ -85,7 +85,7 @@ class ProjectTask(models.Model):
         meeting last all the day.
         """
         for meeting in self:
-            if meeting.all_day:
+            if meeting.allday:
                 meeting.start_date = meeting.start
                 meeting.start_datetime = False
                 meeting.stop_date = meeting.stop
@@ -108,7 +108,7 @@ class ProjectTask(models.Model):
     @api.multi
     def _inverse_dates(self):
         for meeting in self:
-            if meeting.all_day:
+            if meeting.allday:
                 tz = pytz.timezone(
                     self.env.user.tz) if self.env.user.tz else pytz.utc
 
