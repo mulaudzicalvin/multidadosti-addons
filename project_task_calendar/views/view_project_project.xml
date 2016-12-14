@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_project_project_adjust_form" model="ir.ui.view">
+        <field name="name">view.project.project.adjust.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='partner_id']" position="replace"/>
+            <xpath expr="//field[@name='user_id']" position="replace"/>
+
+            <xpath expr="//div[@name='options_active']" position="before">
+                <group>
+                    <field name="partner_id"/>
+                    <field name="user_id"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='privacy_visibility']"
+                   position="replace">
+                <field name="privacy_visibility" widget="radio"/>
+                <field name="sequence" groups="base.group_no_one"/>
+                <field name="resource_calendar_id" groups="base.group_no_one"/>
+            </xpath>
+
+            <xpath expr="//group[@name='misc']" position="replace"/>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Calendario">
+                    <field name="calendar_event_ids" widget="many2many"/>
+                </page>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_project_task_adjust_form" model="ir.ui.view">
+        <field name="name">view.project.task.adjust.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='partner_id']" position="replace"/>
+            <xpath expr="//field[@name='user_id']" position="replace"/>
+            <xpath expr="//field[@name='date_deadline']" position="replace"/>
+
+            <xpath expr="//field[@name='displayed_image_id']"
+                   position="replace"/>
+            <xpath expr="//field[@name='project_id']" position="after">
+
+                <field name="partner_id" readonly="1"/>
+                <field name="user_id"/>
+
+                <field name="start" invisible="1"/>
+                <field name="stop" invisible="1"/>
+                <field name="allday"/>
+
+                <field name="start_date" string="Começa em"
+                       attrs="{'invisible': [('allday','=',False)]}"/>
+
+                <field name="stop_date" string="Termina em"
+                       attrs="{'invisible': [('allday','=',False)]}"/>
+
+                <field name="start_datetime" string="Começa em"
+                       attrs="{'invisible': [('allday','=',True)]}"/>
+
+                <field name="stop_datetime" string="Termina em"
+                       attrs="{'invisible': [('allday','=',True)]}"/>
+
+                <label for="duration"
+                       attrs="{'invisible': [('allday','=',True)]}"/>
+
+                <div attrs="{'invisible': [('allday','=',True)]}">
+                    <field name="duration" widget="float_time"
+                           string="Duration" class="oe_inline"/>
+                    <span> hours</span>
+
+                </div>
+
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="related">project_id.partner_id</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_project_task_adjust_calendar" model="ir.ui.view">
+        <field name="name">view.project.task.adjust.calendar</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_calendar"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//calendar" position="attributes">
+                <attribute name="display">"[name]"</attribute>
+                <attribute name="date_start">start</attribute>
+                <attribute name="date_stop">stop</attribute>
+                <attribute name="date_delay">duration</attribute>
+                <attribute name="all_day">allday</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

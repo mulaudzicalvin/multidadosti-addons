@@ -14,9 +14,8 @@
     'category': 'Web',
     'sequence': 99,
     'depends': [
-        'calendar',
+        'project_task_calendar',
         'note',
-        'br_base',
     ],
     'data': [
         'views/view_custom_group_postit.xml',
