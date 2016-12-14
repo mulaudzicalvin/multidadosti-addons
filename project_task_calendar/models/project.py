@@ -10,6 +10,7 @@ from odoo import models, fields, api
 
 
 class ProjectProject(models.Model):
+
     _inherit = 'project.project'
 
     calendar_event_ids = fields.One2many(comodel_name="calendar.event",
@@ -46,7 +47,7 @@ class MultiProjectTaskType(models.Model):
     _sql_constraints = [("project_task_type_name_uniq",
                          "unique (name)",
                         u"Já existe um estágio com esse mesmo nome!")]
-
+    
 
 class ProjectTask(models.Model):
     _inherit = 'project.task'
