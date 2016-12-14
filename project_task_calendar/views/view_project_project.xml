@@ -165,19 +165,9 @@
 
                         <field name="allday" string="Dia todo"/>
 
-                        <label for="user_id" string="Proprietário"
-                               attrs="{'invisible': [('project_task_id','=',False)]}"/>
+                        <field name="user_id"/>
 
-                        <label for="user_id" string="Atribuída a"
-                               attrs="{'invisible': [('calendar_event_id','=',False)]}"/>
 
-                        <div attrs="{'invisible': [('project_task_id','=',True)]}">
-                            <field name="user_id" string="Proprietário" class="oe_inline"/>
-                        </div>
-
-                        <div attrs="{'invisible': [('calendar_event_id','=',True)]}">
-                            <field name="user_id" string="Atribuída a"/>
-                        </div>
                     </group>
                 </group>
 

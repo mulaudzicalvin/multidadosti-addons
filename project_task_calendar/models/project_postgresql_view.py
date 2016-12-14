@@ -28,7 +28,6 @@ class UnionProjectTaskCalendarEvent(models.Model):
     stop_date = fields.Date('End Date', readonly=True)
     stop_datetime = fields.Datetime('End Datetime', readonly=True)
     duration = fields.Float(u'Duração', readonly=True)
-    user_id = fields.Many2one('res.users', readonly=True)
     project_id = fields.Many2one('project.project', string='Project',
                                  readonly=True)
     project_task_id = fields.Many2one('project.task', string='Project task',
@@ -36,6 +35,13 @@ class UnionProjectTaskCalendarEvent(models.Model):
     calendar_event_id = fields.Many2one('calendar.event',
                                         string='Calendar Event',
                                         readonly=True)
+    user_id = fields.Many2one('res.users', readonly=True, string=u'Usuário',
+                              help=u"Para 'Tarefa de Projeto': \n "
+                                   u"o usuario representa a quem foi "
+                                   u"atribuída a tarefa. \n"
+                                   u"Para 'Evento de Calendário:' \n o usuário"
+                                   u" representa quem criou o registro do "
+                                   u"evento no calendário")
 
     def init(self):
         tools.drop_view_if_exists(self._cr, self._table)
@@ -43,7 +49,7 @@ class UnionProjectTaskCalendarEvent(models.Model):
         sql = """CREATE view %s as
             SELECT   ce.id as id,
                      ce.name as name,
-                     'Calendar Event' as origin,
+                     'Evento de Calendario' as origin,
                      ce.start as start,
                      ce.stop as stop,
                      ce.start_date as start_date,
@@ -61,7 +67,7 @@ class UnionProjectTaskCalendarEvent(models.Model):
             UNION
             SELECT   pt.id as id,
                      pt.name as name,
-                     'Project Task' as origin,
+                     'Tarefa de Projeto' as origin,
                      pt.start as start,
                      pt.stop as stop,
                      pt.start_date as start_date,
