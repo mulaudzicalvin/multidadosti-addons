@@ -1,0 +1,71 @@
+<odoo>
+
+    <menuitem
+            id="custom_menu_root"
+            name="Comunicações"
+            sequence="10"
+            web_icon="custom_group_postit,static/description/icon.png"/>
+
+    <menuitem
+            id="custom_menu_submenu"
+            name="Organizador"
+            parent="custom_menu_root"
+            sequence="1"/>
+
+    <menuitem
+            id="custom_menu_configuration"
+            name="Configurações"
+            parent="custom_menu_submenu"
+            sequence="99"/>
+
+    <menuitem
+            id="note.menu_note_notes"
+            name="Notes"
+            sequence="3"
+            parent="custom_group_postit.custom_menu_submenu"
+            action="note.action_note_note"
+            web_icon="note,static/description/icon.png"/>
+
+    <menuitem
+            id="note.menu_notes_stage"
+            name="Estágios"
+            parent="custom_group_postit.custom_menu_configuration"
+            action="note.action_note_stage"
+            sequence="21"/>
+
+    <menuitem
+            id="note.notes_tag_menu"
+            parent="custom_group_postit.custom_menu_configuration"
+            action="note.note_tag_action"
+            sequence="22"/>
+
+    <menuitem
+            id="menu_union_project_task_calendar_event"
+            name="Calendário"
+            parent="custom_group_postit.custom_menu_submenu"
+            sequence="3"
+            action="project_task_calendar.action_union_project_task_calendar_event"
+            web_icon="calendar,static/description/icon.png"
+            groups="base.group_user"/>
+
+    <menuitem
+            id="mail.mail_channel_menu_root_chat"
+            name="Comunicações"
+            string="Comunicações"
+            action="mail.mail_channel_action_client_chat"
+            parent="custom_group_postit.custom_menu_submenu"
+            web_icon="mail,static/description/icon.png"
+            groups="base.group_user"
+            sequence="1"/>
+
+    <menuitem
+            id="calendar.menu_calendar_event_type"
+            parent="custom_group_postit.custom_menu_configuration"
+            action="calendar.action_calendar_event_type"/>
+
+    <menuitem
+            id="calendar.menu_calendar_alarm"
+            parent="custom_group_postit.custom_menu_configuration"
+            action="calendar.action_calendar_alarm"/>
+
+</odoo>

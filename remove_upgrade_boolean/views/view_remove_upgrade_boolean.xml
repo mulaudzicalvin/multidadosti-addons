@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Removing fields that implements boolean_widgets -->
+
+    <!-- base_setup (Initial Setup Tools) -->
+    <record id="multi_view_general_configuration" model="ir.ui.view">
+        <field name="name">Multi General Settings</field>
+        <field name="model">base.config.settings</field>
+        <field name="inherit_id" ref="base_setup.view_general_configuration"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form[@class='oe_form_configuration']/group/label[@for='module_inter_company_rules']" position="replace"/>
+            <xpath expr="//form[@class='oe_form_configuration']/group/div[@name='inter_company']" position="replace"/>
+        </field>
+    </record>
+
+    <!-- sale (Sales) -->
+    <record id="multi_view_sales_config" model="ir.ui.view">
+        <field name="name">sale settings</field>
+        <field name="model">sale.config.settings</field>
+        <field name="inherit_id" ref="sale.view_sales_config"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='module_sale_contract']" position="replace"/>
+            <xpath expr="//label[@for='module_sale_contract']" position="replace"/>
+            <xpath expr="//a" position="replace"/>
+        </field>
+    </record>
+
+    <!-- account (Invoicing) -->
+    <record id="multi_view_account_config_settings" model="ir.ui.view">
+        <field name="name">multi account settings</field>
+        <field name="model">account.config.settings</field>
+        <field name="inherit_id" ref="account.view_account_config_settings"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='module_account_reports']" position="replace"/>
+            <xpath expr="//field[@name='module_account_reports']" position="replace"/>
+            <xpath expr="//a" position="replace"/>
+            <xpath expr="//label[@for='module_account_deferred_revenue']" position="replace"/>
+            <xpath expr="//field[@name='module_account_deferred_revenue']" position="replace"/>
+            <xpath expr="//label[@for='module_account_yodlee']" position="replace"/>
+            <xpath expr="//field[@name='module_account_yodlee']" position="replace"/>
+            <xpath expr="//label[@for='module_account_plaid']" position="replace"/>
+            <xpath expr="//field[@name='module_account_plaid']" position="replace"/>
+            <xpath expr="//label[@for='module_account_bank_statement_import_qif']" position="replace"/>
+            <xpath expr="//field[@name='module_account_bank_statement_import_qif']" position="replace"/>
+            <xpath expr="//label[@for='module_account_bank_statement_import_ofx']" position="replace"/>
+            <xpath expr="//field[@name='module_account_bank_statement_import_ofx']" position="replace"/>
+            <xpath expr="//label[@for='module_account_bank_statement_import_csv']" position="replace"/>
+            <xpath expr="//field[@name='module_account_bank_statement_import_csv']" position="replace"/>
+            <xpath expr="//label[@for='module_account_sepa']" position="replace"/>
+            <xpath expr="//field[@name='module_account_sepa']" position="replace"/>
+            <xpath expr="//label[@for='module_l10n_us_check_printing']" position="replace"/>
+            <xpath expr="//field[@name='module_l10n_us_check_printing']" position="replace"/>
+            <xpath expr="//label[@for='module_account_reports_followup']" position="replace"/>
+            <xpath expr="//field[@name='module_account_reports_followup']" position="replace"/>
+            <xpath expr="//label[@for='module_account_batch_deposit']" position="replace"/>
+            <xpath expr="//field[@name='module_account_batch_deposit']" position="replace"/>
+        </field>
+    </record>
+
+</odoo>

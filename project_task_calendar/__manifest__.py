@@ -9,7 +9,7 @@
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
-    'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
+    'website': 'www.multidadosti.com.br',
     'summary': """Custom module developed for visual improvement on project
                module and integration with calendar Support by MultidadosTI""",
     'category': 'Project',
@@ -20,6 +20,8 @@
     'data': [
         'views/view_multi_project.xml',
         'views/view_project_project.xml',
+        'views/view_union_project_task_calendar_event.xml',
+        'views/web_calendar_templates.xml',
     ],
     'installable': True,
 }
