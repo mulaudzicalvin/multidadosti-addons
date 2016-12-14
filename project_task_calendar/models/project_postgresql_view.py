@@ -14,7 +14,10 @@ class UnionProjectTaskCalendarEvent(models.Model):
     _auto = False
 
     name = fields.Char(readonly=True)
-    origin = fields.Char('Origin', readonly=True)
+    origin = fields.Selection(string='Origin',
+                              selection=[('project_task', 'Project Task'),
+                                         ('calendar_event', 'Calendar Event')],
+                              readonly=True)
     start = fields.Datetime('Start', readonly=True,
                             help="Start date of an event, without "
                                  "time for full days events")
@@ -27,21 +30,19 @@ class UnionProjectTaskCalendarEvent(models.Model):
     start_datetime = fields.Datetime('Start DateTime', readonly=True)
     stop_date = fields.Date('End Date', readonly=True)
     stop_datetime = fields.Datetime('End Datetime', readonly=True)
-    duration = fields.Float(u'Duração', readonly=True)
+    duration = fields.Float('Duration', readonly=True)
     project_id = fields.Many2one('project.project', string='Project',
                                  readonly=True)
-    project_task_id = fields.Many2one('project.task', string='Project task',
+    project_task_id = fields.Many2one('project.task', string='Project Task',
                                       readonly=True)
     calendar_event_id = fields.Many2one('calendar.event',
                                         string='Calendar Event',
                                         readonly=True)
-    user_id = fields.Many2one('res.users', readonly=True, string=u'Usuário',
-                              help=u"Para 'Tarefa de Projeto': \n "
-                                   u"o usuario representa a quem foi "
-                                   u"atribuída a tarefa. \n"
-                                   u"Para 'Evento de Calendário:' \n o usuário"
-                                   u" representa quem criou o registro do "
-                                   u"evento no calendário")
+    user_id = fields.Many2one('res.users', readonly=True, string='User',
+                              help=u"To 'Project Task': \n this user is "
+                                   u"represent who was attributed.\n"
+                                   u"To 'Calendar Event:' \n this user is "
+                                   u"represents the owner of calendar event.")
 
     def init(self):
         tools.drop_view_if_exists(self._cr, self._table)
@@ -49,7 +50,8 @@ class UnionProjectTaskCalendarEvent(models.Model):
         sql = """CREATE view %s as
             SELECT   ce.id as id,
                      ce.name as name,
-                     'Evento de Calendario' as origin,
+                     'calendar_event' as origin,
+                     'calendar_event' as state,
                      ce.start as start,
                      ce.stop as stop,
                      ce.start_date as start_date,
@@ -67,7 +69,8 @@ class UnionProjectTaskCalendarEvent(models.Model):
             UNION
             SELECT   pt.id as id,
                      pt.name as name,
-                     'Tarefa de Projeto' as origin,
+                     'project_task' as origin,
+                     'project_task' as state,
                      pt.start as start,
                      pt.stop as stop,
                      pt.start_date as start_date,
