@@ -1,9 +1,16 @@
+# -*- coding: utf-8 -*-
+# Geo localization to Brazil Localization to Odoo
+# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
+# @author Aldo Soares <a.soares@itimpacta.org.br>
+# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+
 import mock
 
-from openerp.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase
 
 
 class TestResPartner(TransactionCase):
+
     @mock.patch('openerp.addons.base_geolocalize.models.res_partner.json.load')
     def test_zip_search(self, mock_api_call):
         mock_api_call.return_value = {
