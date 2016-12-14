@@ -57,7 +57,7 @@
         <field name="arch" type="xml">
             <calendar color="user_id" date_start="start" date_stop="stop"
                       display="[name]" date_delay="duration" all_day="allday"
-                      string="Tasks" quick_add="false" avatar_model="res.users"
+                      string="Tasks" avatar_model="res.users" mode="week"
                       event_open_popup="%(project_task_calendar.view_union_project_task_calendar_event_form_popup)s">
                 <field name="name"/>
                 <field name="user_id"/>
