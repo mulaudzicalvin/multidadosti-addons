@@ -37,10 +37,11 @@ class UnionProjectTaskCalendarEvent(models.Model):
                                         string='Calendar Event',
                                         readonly=True)
 
-    def _select_calendar_event(self):
-        select_str = """
-                SELECT
-                     ce.id as id,
+    def init(self):
+        tools.drop_view_if_exists(self._cr, self._table)
+
+        sql = """CREATE view %s as
+            SELECT   ce.id as id,
                      ce.name as name,
                      'Calendar Event' as origin,
                      ce.start as start,
@@ -55,13 +56,10 @@ class UnionProjectTaskCalendarEvent(models.Model):
                      ce.project_id as project_id,
                      NULL as project_task_id,
                      ce.id as calendar_event_id
-        """
-        return select_str
-
-    def _select_project_task(self):
-        select_str = """
-                     SELECT
-                     pt.id as id,
+            FROM calendar_event ce
+            WHERE ce.active = 'true'
+            UNION
+            SELECT   pt.id as id,
                      pt.name as name,
                      'Project Task' as origin,
                      pt.start as start,
@@ -76,17 +74,7 @@ class UnionProjectTaskCalendarEvent(models.Model):
                      pt.project_id as project_id,
                      pt.id as project_task_id,
                      NULL as calendar_event_id
-        """
-        return select_str
+            FROM project_task pt
+            WHERE pt.active = 'true'""" % self._table
 
-    def init(self):
-        tools.drop_view_if_exists(self._cr, self._table)
-        self._cr.execute("CREATE view %s as %s "
-                         "FROM calendar_event ce "
-                         "WHERE ce.active = 'true' "
-                         "UNION "
-                         "%s FROM project_task pt "
-                         "WHERE pt.active = 'true'",
-                         (self._table,
-                          self._select_calendar_event(),
-                          self._select_project_task()))
+        self._cr.execute(sql)
