@@ -10,7 +10,7 @@
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
-    'summary': 'General Views Customize to Odoo',
+    'summary': 'General Views Customize',
     'category': 'Web',
     'sequence': 99,
     'depends': [
@@ -21,6 +21,7 @@
         'web_kanban',
     ],
     'qweb': [
+        "static/src/xml/sales_team_dashboard.xml",
         "static/src/xml/web_kanban.xml",
     ],
     'data': [

@@ -1,14 +1,15 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* web
+#	* sales_team
 #	* crm
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-07 19:27+0000\n"
-"PO-Revision-Date: 2016-12-07 19:27+0000\n"
+"POT-Creation-Date: 2016-12-14 20:02+0000\n"
+"PO-Revision-Date: 2016-12-14 20:02+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -279,11 +280,6 @@ msgstr "# Reuniões"
 msgid "# of Activities"
 msgstr "# de Atividades"
 
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_sale_order_count
-msgid "# of Sales Order"
-msgstr "# de Pedidos de Vendas"
-
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/views/search_filters.js:107
@@ -448,6 +444,34 @@ msgstr ", se contabilidade ou compras está instalado"
 #, python-format
 msgid "...Upload in progress..."
 msgstr "... Upload em andamento ..."
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:91
+#, python-format
+msgid "3 exp. closing"
+msgstr "3 esp. fechamento"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:137
+#, python-format
+msgid "35,029.39€"
+msgstr "35,029.39€"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:124
+#, python-format
+msgid "78,140.03€"
+msgstr "78,140.03€"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:169
+#, python-format
+msgid "80.000€"
+msgstr "80.000€"
 
 #. module: crm
 #. openerp-web
@@ -783,10 +807,25 @@ msgstr "<span><strong>Contacte-nos para personalizar sua aplicação:</strong><b
 "                                    Temos opções especiais para um número ilimitado de personalizações!\n"
 "                                    </span>"
 
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
+msgid "<span>New</span>"
+msgstr "<span>Novo</span>"
+
 #. module: web
 #: model:ir.ui.view,arch_db:web.menu_secondary
 msgid "<span>Odoo</span>"
 msgstr "<span>Odoo</span>"
+
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
+msgid "<span>Reports</span>"
+msgstr "<span>Relatórios</span>"
+
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
+msgid "<span>View</span>"
+msgstr "<span>Visualizar</span>"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -1065,16 +1104,6 @@ msgstr "Erro de Acesso"
 msgid "Access to all Enterprise Apps"
 msgstr "Access to all Enterprise Apps"
 
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_property_account_payable_id
-msgid "Account Payable"
-msgstr "Conta de Pagamento"
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_property_account_receivable_id
-msgid "Account Receivable"
-msgstr "Conta de Recebimento"
-
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/widgets/sidebar.js:23
@@ -1125,12 +1154,13 @@ msgstr "Ativar a opção 'Cotações Online' em"
 msgid "Activated by default when subscribing."
 msgstr "Ativado por padrão na inscrição"
 
-#. modules: web, crm
+#. modules: web, sales_team, crm
 #. openerp-web
 #: model:ir.model.fields,field_description:crm.field_crm_activity_report_active
 #: model:ir.model.fields,field_description:crm.field_crm_lead_active
 #: model:ir.model.fields,field_description:crm.field_crm_lost_reason_active
 #: model:ir.model.fields,field_description:crm.field_crm_opportunity_report_active
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_active
 #: code:addons/web/static/src/js/views/form_widgets.js:633
 #: code:addons/web/static/src/js/views/form_widgets.js:639
 #, python-format
@@ -1159,6 +1189,13 @@ msgstr "Atividades"
 #: model:ir.ui.view,arch_db:crm.crm_team_salesteams_view_kanban
 msgid "Activities Analysis"
 msgstr "Análise de atividades"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:114
+#, python-format
+msgid "Activities Done"
+msgstr "Atividades Realizadas"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_res_users_target_sales_done
@@ -1336,8 +1373,9 @@ msgstr "Analisando o pipeline por data de encerramento esperado irá ajudar a su
 msgid "And more"
 msgstr "And more"
 
-#. module: web
+#. modules: web, sales_team
 #. openerp-web
+#: model:ir.ui.view,arch_db:sales_team.view_sale_config_settings
 #: code:addons/web/static/src/xml/base.xml:935
 #: code:addons/web/static/src/xml/base.xml:1053
 #, python-format
@@ -1363,10 +1401,11 @@ msgstr "Apply multi-currencies"
 msgid "Archive"
 msgstr "Arquivado"
 
-#. modules: web, crm
+#. modules: web, sales_team, crm
 #. openerp-web
 #: model:ir.ui.view,arch_db:crm.crm_opportunity_report_view_search
 #: model:ir.ui.view,arch_db:crm.view_crm_case_leads_filter
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
 #: code:addons/web/static/src/js/views/form_widgets.js:641
 #, python-format
 msgid "Archived"
@@ -1467,10 +1506,16 @@ msgstr "B2B"
 msgid "B2C"
 msgstr "B2C"
 
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_bank_account_count
-msgid "Bank"
-msgstr "Banco"
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_action_res_partner_bank_form
+#: model:ir.ui.menu,name:sales_team.menu_config_bank_accounts
+msgid "Bank Accounts"
+msgstr "Contas Bancárias"
+
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_action_res_bank_form
+msgid "Banks"
+msgstr "Bancos"
 
 #. module: web
 #. openerp-web
@@ -1591,7 +1636,7 @@ msgstr "Campanha"
 msgid "Can't convert value %s to context"
 msgstr "Não foi possível converter o valor %s para contexto"
 
-#. modules: web, crm
+#. modules: web, sales_team, crm
 #. openerp-web
 #: model:ir.ui.view,arch_db:crm.base_partner_merge_automatic_wizard_form
 #: model:ir.ui.view,arch_db:crm.crm_activity_log_view_form
@@ -1599,6 +1644,7 @@ msgstr "Não foi possível converter o valor %s para contexto"
 #: model:ir.ui.view,arch_db:crm.merge_opportunity_form
 #: model:ir.ui.view,arch_db:crm.view_crm_lead2opportunity_partner
 #: model:ir.ui.view,arch_db:crm.view_crm_lead2opportunity_partner_mass
+#: model:ir.ui.view,arch_db:sales_team.view_sale_config_settings
 #: code:addons/web/static/src/js/framework/crash_manager.js:171
 #: code:addons/web/static/src/js/framework/dialog.js:183
 #: code:addons/web/static/src/js/views/form_common.js:1047
@@ -1706,6 +1752,13 @@ msgstr "Limpar Eventos"
 msgid "Click here to <b>create your first opportunity</b> and add it to your pipeline."
 msgstr "Click here to <b>create your first opportunity</b> and add it to your pipeline."
 
+#. module: sales_team
+#: model:ir.actions.act_window,help:sales_team.crm_team_act
+#: model:ir.actions.act_window,help:sales_team.crm_team_salesteams_act
+#: model:ir.actions.act_window,help:sales_team.sales_team_config_action
+msgid "Click here to define a new sales team."
+msgstr "Clique aqui para definir uma nova equipe de vendas."
+
 #. module: crm
 #. openerp-web
 #: code:addons/crm/static/src/js/tour.js:54
@@ -1738,6 +1791,19 @@ msgstr "Clique para definir um novo motivo de perda."
 #: model:ir.actions.act_window,help:crm.crm_lead_tag_action
 msgid "Click to define a new sales tag."
 msgstr "Clique para definir uma nova etiqueta de vendas."
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:148
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:152
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:161
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:165
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:174
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:178
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:182
+#, python-format
+msgid "Click to set"
+msgstr "Clique para definir"
 
 #. module: crm
 #: model:ir.actions.act_window,help:crm.crm_stage_action
@@ -1778,9 +1844,10 @@ msgstr "Closed Date"
 msgid "Closed/Dead leads cannot be converted into opportunities."
 msgstr "Prospectos Fechados/Mortos não podem ser convertidos em oportunidades."
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead_color
 #: model:ir.model.fields,field_description:crm.field_crm_lead_tag_color
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_color
 msgid "Color Index"
 msgstr "Índice de Cores"
 
@@ -1789,18 +1856,15 @@ msgstr "Índice de Cores"
 msgid "Community &amp; Enterprise users:"
 msgstr "Community &amp; Enterprise users:"
 
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_ref_company_ids
-msgid "Companies that refers to partner"
-msgstr "Empresas que referenciam o parceiro"
-
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_crm_activity_report_company_id
 #: model:ir.model.fields,field_description:crm.field_crm_lead_company_id
 #: model:ir.model.fields,field_description:crm.field_crm_opportunity_report_company_id
 #: model:ir.ui.view,arch_db:crm.crm_activity_report_view_search
 #: model:ir.ui.view,arch_db:crm.crm_opportunity_report_view_search
 #: model:ir.ui.view,arch_db:crm.view_crm_case_opportunities_filter
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_company_id
+#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Company"
 msgstr "Empresa"
 
@@ -1821,12 +1885,23 @@ msgstr "Matriz de Competição comparando preços"
 msgid "Condition:"
 msgstr "Condição:"
 
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_sale_config
+msgid "Configuration"
+msgstr "Configuração"
+
 #. module: crm
 #. openerp-web
 #: code:addons/crm/static/src/js/tour.js:71
 #, python-format
 msgid "Configuration options are available in the Settings app."
 msgstr "Configuration options are available in the Settings app."
+
+#. module: sales_team
+#: model:ir.actions.act_window,name:sales_team.action_sale_config
+#: model:ir.ui.view,arch_db:sales_team.view_sale_config_settings
+msgid "Configure Sales"
+msgstr "Configurar Vendas"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -1891,13 +1966,24 @@ msgstr "Informação de Contato"
 msgid "Contact Name"
 msgstr "Nome do Contato"
 
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_partner_category_form
+msgid "Contact Tags"
+msgstr "Tags do Contato"
+
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_partner_title_contact
+msgid "Contact Titles"
+msgstr "Tratamento para o contato"
+
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "Contact Us"
 msgstr "Entre em Contato Conosco"
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_partner_ids
+#: model:ir.ui.menu,name:sales_team.menu_config_address_book
 msgid "Contacts"
 msgstr "Contatos"
 
@@ -1907,12 +1993,6 @@ msgstr "Contatos"
 #, python-format
 msgid "Context:"
 msgstr "Contexto:"
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_contract_ids
-#: model:ir.model.fields,field_description:crm.field_res_users_contracts_count
-msgid "Contracts"
-msgstr "Contratos"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead2opportunity_partner_mass_name
@@ -1996,14 +2076,14 @@ msgid "Count"
 msgstr "Contar"
 
 #. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_payment_token_count
-msgid "Count Payment Token"
-msgstr "Count Payment Token"
-
-#. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead_message_bounce
 msgid "Counter of the number of bounced emails for this contact"
 msgstr "Contador do número de emails devolvidos para este contato"
+
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_country_partner
+msgid "Countries"
+msgstr "Países"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_activity_report_country_id
@@ -2016,6 +2096,11 @@ msgstr "Contador do número de emails devolvidos para este contato"
 #: model:ir.ui.view,arch_db:crm.view_crm_case_opportunities_filter
 msgid "Country"
 msgstr "País"
+
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_country_group
+msgid "Country Group"
+msgstr "Grupo de País"
 
 #. modules: web, crm
 #. openerp-web
@@ -2062,6 +2147,13 @@ msgstr "Criar Fornecedores"
 #, python-format
 msgid "Create a %s"
 msgstr "Criar um %s"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:215
+#, python-format
+msgid "Create a few opportunities in it."
+msgstr "Crie algumas oportunidades nele."
 
 #. module: crm
 #: selection:crm.lead2opportunity.partner,action:0
@@ -2139,7 +2231,7 @@ msgstr "Criar: "
 msgid "Created By"
 msgstr "Created By"
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_create_uid
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_line_create_uid
 #: model:ir.model.fields,field_description:crm.field_crm_activity_create_uid
@@ -2153,6 +2245,8 @@ msgstr "Created By"
 #: model:ir.model.fields,field_description:crm.field_crm_merge_opportunity_create_uid
 #: model:ir.model.fields,field_description:crm.field_crm_partner_binding_create_uid
 #: model:ir.model.fields,field_description:crm.field_crm_stage_create_uid
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_create_uid
+#: model:ir.model.fields,field_description:sales_team.field_sale_config_settings_create_uid
 msgid "Created by"
 msgstr "Criado por"
 
@@ -2163,7 +2257,7 @@ msgstr "Criado por"
 msgid "Created by :"
 msgstr "Criado por:"
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_create_date
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_line_create_date
 #: model:ir.model.fields,field_description:crm.field_crm_activity_create_date
@@ -2176,6 +2270,8 @@ msgstr "Criado por:"
 #: model:ir.model.fields,field_description:crm.field_crm_merge_opportunity_create_date
 #: model:ir.model.fields,field_description:crm.field_crm_partner_binding_create_date
 #: model:ir.model.fields,field_description:crm.field_crm_stage_create_date
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_create_date
+#: model:ir.model.fields,field_description:sales_team.field_sale_config_settings_create_date
 msgid "Created on"
 msgstr "Criado em"
 
@@ -2205,9 +2301,13 @@ msgstr "Mês de Criação"
 msgid "Creation User:"
 msgstr "Usuário de criação:"
 
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_action_currency_form
+msgid "Currencies"
+msgstr "Moedas"
+
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead_company_currency
-#: model:ir.model.fields,field_description:crm.field_res_users_currency_id
 msgid "Currency"
 msgstr "Moeda"
 
@@ -2255,15 +2355,11 @@ msgstr "E-mail do Cliente"
 msgid "Customer Name"
 msgstr "Nome do Cliente"
 
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_property_payment_term_id
-msgid "Customer Payment Terms"
-msgstr "Condições de Pagamento do Cliente"
-
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 #: model:ir.ui.view,arch_db:crm.view_crm_lead2opportunity_partner
 #: model:ir.ui.view,arch_db:crm.view_crm_lead2opportunity_partner_mass
+#: model:ir.ui.menu,name:sales_team.menu_partner_form
 msgid "Customers"
 msgstr "Clientes"
 
@@ -2271,6 +2367,15 @@ msgstr "Clientes"
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "Customizations"
 msgstr "Customizations"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/js/sales_team_dashboard.js:16
+#: model:ir.actions.act_window,name:sales_team.crm_team_salesteams_act
+#: model:ir.ui.menu,name:sales_team.menu_sales_team_act
+#, python-format
+msgid "Dashboard"
+msgstr "Painel"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.login
@@ -2337,11 +2442,6 @@ msgstr "Valores Padrão"
 #, python-format
 msgid "Default:"
 msgstr "Padrão:"
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_trust
-msgid "Degree of trust you have in this debtor"
-msgstr "Grau de confiança que você tem neste devedor"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_opportunity_report_delay_open
@@ -2419,6 +2519,11 @@ msgstr "Crie campanhas de e-mail eficientes. Envie, converta e acompanhe o desem
 msgid "Destination Contact"
 msgstr "Contato de Destino"
 
+#. module: sales_team
+#: model:crm.team,name:sales_team.team_sales_department
+msgid "Direct Sales"
+msgstr "Vendas Diretas"
+
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:105
@@ -2436,7 +2541,7 @@ msgstr "Desativar Características Técnicas"
 msgid "Discard"
 msgstr "Descartar"
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_display_name
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_line_display_name
 #: model:ir.model.fields,field_description:crm.field_crm_activity_display_name
@@ -2452,6 +2557,8 @@ msgstr "Descartar"
 #: model:ir.model.fields,field_description:crm.field_crm_opportunity_report_display_name
 #: model:ir.model.fields,field_description:crm.field_crm_partner_binding_display_name
 #: model:ir.model.fields,field_description:crm.field_crm_stage_display_name
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_display_name
+#: model:ir.model.fields,field_description:sales_team.field_sale_config_settings_display_name
 msgid "Display Name"
 msgstr "Nome para Exibição"
 
@@ -2851,6 +2958,11 @@ msgstr "Favoritos"
 msgid "Fax"
 msgstr "Fax"
 
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_country_state_partner
+msgid "Fed. States"
+msgstr "Estados"
+
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/views/form_view.js:1273
@@ -2946,11 +3058,6 @@ msgstr "Filtros"
 msgid "Finished"
 msgstr "Concluído."
 
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_property_account_position_id
-msgid "Fiscal Position"
-msgstr "Posição Fiscal"
-
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:575
@@ -2962,6 +3069,11 @@ msgstr "Virar eixo"
 #: model:ir.model.fields,field_description:crm.field_crm_stage_fold
 msgid "Folded in Pipeline"
 msgstr "Dobrado no Pipeline"
+
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+msgid "Follow this salesteam to automatically track the events associated to users of this team."
+msgstr "Siga esta equipe de vendas para acompanhar os eventos associados aos usuários dessa equipe automaticamente."
 
 #. module: crm
 #: model:crm.activity,name:crm.crm_activity_demo_followup_quote
@@ -3076,6 +3188,13 @@ msgstr "Gráfico"
 msgid "Great pipelines have stages <strong>aligned with the buyer's buying process</strong>, not your selling process:"
 msgstr "Grandes canais têm etapas <strong>alinhadas com o processo de compra do comprador</strong>, não com o seu processo de venda:"
 
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:214
+#, python-format
+msgid "Great sales journeys start with a clean pipeline."
+msgstr "Grandes jornadas de vendas começam com um pipeline limpo."
+
 #. modules: web, crm
 #. openerp-web
 #: model:ir.ui.view,arch_db:crm.crm_activity_report_view_search
@@ -3087,6 +3206,11 @@ msgstr "Grandes canais têm etapas <strong>alinhadas com o processo de compra do
 #, python-format
 msgid "Group By"
 msgstr "Agrupar Por"
+
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
+msgid "Group By..."
+msgstr "Agrupar por..."
 
 #. module: web
 #. openerp-web
@@ -3126,11 +3250,6 @@ msgid "Happy Selling!<br/>- The Odoo Team"
 msgstr "Boas Vendas!<br/>- O Time Odoo"
 
 #. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_has_unreconciled_entries
-msgid "Has unreconciled entries"
-msgstr "Possui entradas não reconciliadas"
-
-#. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "Have clear forecasts on sales"
 msgstr "Tenha previsões claras sobre vendas"
@@ -3157,6 +3276,13 @@ msgid "Here is the list of your next activities. Those are linked to your opport
 msgstr "Here is the list of your next activities. Those are linked to your opportunities.\n"
 "                   To set a next activity, go on an opportunity and add one. It will then appear in this list."
 
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:213
+#, python-format
+msgid "Hi there!"
+msgstr "Olá!"
+
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_activity_hidden
 msgid "Hidden"
@@ -3176,7 +3302,7 @@ msgstr "Esconder o subtipo nas opções dos seguidores"
 msgid "High"
 msgstr "Alta"
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_id
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_line_id
 #: model:ir.model.fields,field_description:crm.field_crm_activity_id
@@ -3192,6 +3318,8 @@ msgstr "Alta"
 #: model:ir.model.fields,field_description:crm.field_crm_opportunity_report_id
 #: model:ir.model.fields,field_description:crm.field_crm_partner_binding_id
 #: model:ir.model.fields,field_description:crm.field_crm_stage_id
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_id
+#: model:ir.model.fields,field_description:sales_team.field_sale_config_settings_id
 msgid "ID"
 msgstr "ID"
 
@@ -3216,6 +3344,17 @@ msgstr "Ids"
 #: model:ir.model.fields,help:crm.field_crm_lead_opt_out
 msgid "If opt-out is checked, this contact has refused to receive emails for mass mailing and marketing campaign. Filter 'Available for Mass Mailing' allows users to filter the leads when performing mass mailing."
 msgstr "Se opt-out está marcado, este contato se recusou a receber e-mails para correio em massa e uma campanha de marketing. Filtrar 'Disponível para Correio em Massa' permite que os usuários filtrem os prospectos ao realizarem correio em massa."
+
+#. module: sales_team
+#: model:ir.model.fields,help:sales_team.field_res_partner_team_id
+#: model:ir.model.fields,help:sales_team.field_res_users_team_id
+msgid "If set, sale team used notably for sales and assignations related to this partner"
+msgstr "Se definido, o time de vendas utilizada principalmente para vendas e atribuições relacionadas a esse parceiro. "
+
+#. module: sales_team
+#: model:ir.model.fields,help:sales_team.field_crm_team_active
+msgid "If the active field is set to false, it will allow you to hide the sales team without removing it."
+msgstr "Se o campo ativo estiver como falso, ele permitirá que você esconda a equipe de vendas sem remove-la."
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead2opportunity_partner_mass_force_assignation
@@ -3299,6 +3438,11 @@ msgstr "Incluir arquivados"
 msgid "Incoming Emails"
 msgstr "E-mails Recebidos"
 
+#. module: sales_team
+#: model:crm.team,name:sales_team.crm_team_1
+msgid "Indirect Sales"
+msgstr "Vendas Indiretas"
+
 #. module: crm
 #: model:crm.lead.tag,name:crm.categ_oppor4
 msgid "Information"
@@ -3329,19 +3473,16 @@ msgid "Invalid data"
 msgstr "Dado inválido"
 
 #. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_invoice_warn
-msgid "Invoice"
-msgstr "Fatura"
-
-#. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "Invoice Analysis"
 msgstr "Análise de Faturas"
 
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_invoice_ids
-msgid "Invoices"
-msgstr "Faturas"
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:140
+#, python-format
+msgid "Invoiced"
+msgstr "Faturado"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_group_by_is_company
@@ -3359,12 +3500,6 @@ msgstr "Testes JS"
 #: model:ir.model.fields,field_description:crm.field_crm_lead_function
 msgid "Job Position"
 msgstr "Cargo"
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_issued_total
-#: model:ir.model.fields,field_description:crm.field_res_users_journal_item_count
-msgid "Journal Items"
-msgstr "Itens do Diário"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_exclude_journal_item
@@ -3387,7 +3522,7 @@ msgstr "Idiomas"
 msgid "Last Action"
 msgstr "Última Ação"
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard___last_update
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_line___last_update
 #: model:ir.model.fields,field_description:crm.field_crm_activity___last_update
@@ -3403,8 +3538,17 @@ msgstr "Última Ação"
 #: model:ir.model.fields,field_description:crm.field_crm_opportunity_report___last_update
 #: model:ir.model.fields,field_description:crm.field_crm_partner_binding___last_update
 #: model:ir.model.fields,field_description:crm.field_crm_stage___last_update
+#: model:ir.model.fields,field_description:sales_team.field_crm_team___last_update
+#: model:ir.model.fields,field_description:sales_team.field_sale_config_settings___last_update
 msgid "Last Modified on"
 msgstr "Última Modificação em"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:188
+#, python-format
+msgid "Last Month"
+msgstr "Último Mês"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead_date_last_stage_update
@@ -3412,7 +3556,7 @@ msgstr "Última Modificação em"
 msgid "Last Stage Update"
 msgstr "Última Atualização de Estágio"
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_write_uid
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_line_write_uid
 #: model:ir.model.fields,field_description:crm.field_crm_activity_log_write_uid
@@ -3426,10 +3570,12 @@ msgstr "Última Atualização de Estágio"
 #: model:ir.model.fields,field_description:crm.field_crm_merge_opportunity_write_uid
 #: model:ir.model.fields,field_description:crm.field_crm_partner_binding_write_uid
 #: model:ir.model.fields,field_description:crm.field_crm_stage_write_uid
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_write_uid
+#: model:ir.model.fields,field_description:sales_team.field_sale_config_settings_write_uid
 msgid "Last Updated by"
 msgstr "Última atualização por"
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_write_date
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_line_write_date
 #: model:ir.model.fields,field_description:crm.field_crm_activity_log_write_date
@@ -3442,6 +3588,8 @@ msgstr "Última atualização por"
 #: model:ir.model.fields,field_description:crm.field_crm_merge_opportunity_write_date
 #: model:ir.model.fields,field_description:crm.field_crm_partner_binding_write_date
 #: model:ir.model.fields,field_description:crm.field_crm_stage_write_date
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_write_date
+#: model:ir.model.fields,field_description:sales_team.field_sale_config_settings_write_date
 msgid "Last Updated on"
 msgstr "Última atualização em"
 
@@ -3449,16 +3597,6 @@ msgstr "Última atualização em"
 #: model:ir.model.fields,field_description:crm.field_res_users_calendar_last_notif_ack
 msgid "Last notification marked as read from base Calendar"
 msgstr "A última notificação foi marcada como lida."
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_last_time_entries_checked
-msgid "Last time the invoices & payments matching was performed for this partner. It is set either if there's not at least an unreconciled debit and an unreconciled credit or if you click the \"Done\" button."
-msgstr "A última vez em que a correspondência de faturas e pagamentos foi realizada para este parceiro. Ele é definido se não houver pelo menos um débito não reconciliado e um crédito não reconciliado ou se você clicar no botão \"Concluído\"."
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_last_time_entries_checked
-msgid "Latest Invoices & Payments Matching Date"
-msgstr "Últimos Pedidos & Pagamentos em Data Equivalente"
 
 #. module: web
 #. openerp-web
@@ -3633,7 +3771,7 @@ msgstr "Deixar as Ferramentas de Desenvolvimento"
 #: code:addons/crm/static/src/js/tour.js:18
 #, python-format
 msgid "Let's have a look at your opportunities pipeline."
-msgstr "Let's have a look at your opportunities pipeline."
+msgstr "Vamos dar uma olhada em suas oportunidades."
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -3708,6 +3846,11 @@ msgstr "Falha na avaliação local\n"
 "%s\n"
 "\n"
 "%s"
+
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_localisation
+msgid "Localization"
+msgstr "Localização"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_activity_log_view_form
@@ -3809,6 +3952,11 @@ msgstr "Administrar bancos de dados"
 msgid "Manage Filters"
 msgstr "Gerenciar Filtros"
 
+#. module: sales_team
+#: model:res.groups,name:sales_team.group_sale_manager
+msgid "Manager"
+msgstr "Gerente"
+
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_case_form_view_oppor
 msgid "Mark Lost"
@@ -3867,12 +4015,15 @@ msgstr "Médio"
 msgid "Meeting scheduled at '%s'<br> Subject: %s <br> Duration: %s hour(s)"
 msgstr "Reunião agendada para '%s'<br> Assunto: %s <br> Duração: %s hora(s)"
 
-#. module: crm
+#. modules: sales_team, crm
+#. openerp-web
 #: model:ir.actions.act_window,name:crm.act_crm_opportunity_calendar_event_new
 #: model:ir.actions.act_window,name:crm.calendar_event_partner
 #: model:ir.model.fields,field_description:crm.field_res_partner_meeting_ids
 #: model:ir.model.fields,field_description:crm.field_res_users_meeting_ids
 #: model:ir.ui.view,arch_db:crm.view_partners_form_crm1
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:25
+#, python-format
 msgid "Meetings"
 msgstr "Reuniões"
 
@@ -3979,16 +4130,6 @@ msgid "Message Type"
 msgstr "Tipo de Mensagem"
 
 #. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_invoice_warn_msg
-msgid "Message for Invoice"
-msgstr "Mensagem para Fatura"
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_sale_warn_msg
-msgid "Message for Sales Order"
-msgstr "Mensagem para o Pedido de Vendas"
-
-#. module: crm
 #: model:ir.model.fields,help:crm.field_crm_activity_name
 msgid "Message subtype gives a more precise type on the message, especially for system notifications. For example, it can be a notification related to a new record (New), or to a stage change in a process (Stage change). Message subtypes allow to precisely tune the notifications the user want to receive on its wall."
 msgstr "Subtipos de mensagem proporcionam um tipo mais preciso nas mensagens, especialmente para sistemas de notificação. Por exemplo, podem ser uma notificação relacionada a um novo registro (Novo), ou a uma alteração de estágio em um processo (Alteração de Estágio). Elas permitem refinar as notificações que o usuário quer receber em ser mural."
@@ -4085,8 +4226,14 @@ msgstr "Mais"
 msgid "More <b class=\"caret\"/>"
 msgstr "Mais <b class=\"caret\"/>"
 
-#. module: crm
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
+msgid "More <i class=\"fa fa-caret-down\"/>"
+msgstr "Mais <i class=\"fa fa-caret-down\"/>"
+
+#. modules: sales_team, crm
 #: model:ir.ui.view,arch_db:crm.view_sale_config_settings
+#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "More Info"
 msgstr "Mais Informação"
 
@@ -4127,11 +4274,21 @@ msgstr "Minha conta Odoo.com"
 msgid "My Opportunities"
 msgstr "Minhas Oportunidades"
 
-#. module: crm
+#. modules: sales_team, crm
+#. openerp-web
 #: model:ir.actions.server,name:crm.action_your_pipeline
 #: model:ir.ui.menu,name:crm.menu_crm_opportunities
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:42
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:44
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:216
+#, python-format
 msgid "My Pipeline"
-msgstr "Meu Pipeline"
+msgstr "Minhas Oportunidades"
+
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
+msgid "My Salesteams"
+msgstr "Minhas Equipes de Vendas"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_group_by_name
@@ -4174,10 +4331,24 @@ msgstr "Nova Senha"
 msgid "New design"
 msgstr "New design"
 
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:50
+#, python-format
+msgid "Next 7 days"
+msgstr "Próximos 7 dias"
+
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead_date_action_next
 msgid "Next Action"
 msgstr "Próxima Ação"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:38
+#, python-format
+msgid "Next Actions"
+msgstr "Próximas Ações"
 
 #. module: crm
 #: model:ir.actions.act_window,name:crm.crm_lead_action_activities
@@ -4515,8 +4686,9 @@ msgstr "Assim que tiver implementado o seu CRM, é tempo de fazer crescer as sua
 msgid "Online users: we do it for you!"
 msgstr "Online users: we do it for you!"
 
-#. module: web
+#. modules: web, sales_team
 #. openerp-web
+#: code:addons/sales_team/static/src/js/sales_team_dashboard.js:83
 #: code:addons/web/static/src/js/widgets/progress_bar.js:79
 #, python-format
 msgid "Only Integer Value should be valid."
@@ -4732,10 +4904,11 @@ msgstr "Modelo de pai segurando o alias. O modelo segurando a referência de ali
 msgid "Parent subtype, used for automatic subscription. This field is not correctly named. For example on a project, the parent_id of project subtypes refers to task-related subtypes."
 msgstr "Subtipo pai, usado para a subscrição automática. Este campo não está corretamente identificado. Por exemplo, em um projeto, o parent_id dos subtipos do projeto refere-se a subtipos relacionados a tarefas."
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model,name:crm.model_res_partner
 #: model:ir.model.fields,field_description:crm.field_crm_opportunity_report_partner_id
 #: model:ir.ui.view,arch_db:crm.view_crm_case_leads_filter
+#: model:ir.model,name:sales_team.model_res_partner
 msgid "Partner"
 msgstr "Parceiro"
 
@@ -4764,15 +4937,12 @@ msgstr "Parceiros"
 msgid "Password"
 msgstr "Senha"
 
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_debit_limit
-msgid "Payable Limit"
-msgstr "Limite pagável"
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_payment_token_ids
-msgid "Payment Tokens"
-msgstr "Payment Tokens"
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:102
+#, python-format
+msgid "Performance"
+msgstr "Performance"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead_phone
@@ -5114,9 +5284,19 @@ msgstr "Remover Tudo"
 msgid "Render"
 msgstr "Renderizar"
 
+#. module: sales_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_reply_to
+msgid "Reply-To"
+msgstr "Responder Para"
+
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "Reporting"
+msgstr "Relatórios"
+
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_sale_report
+msgid "Reports"
 msgstr "Relatórios"
 
 #. module: crm
@@ -5142,6 +5322,12 @@ msgstr "Run JS Tests"
 msgid "Sale Flow"
 msgstr "Sale Flow"
 
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_base_partner
+#: model:ir.ui.menu,name:sales_team.menu_sales
+msgid "Sales"
+msgstr "Vendas"
+
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "Sales Forecasts (month+1)"
@@ -5153,17 +5339,11 @@ msgid "Sales Management module."
 msgstr "Módulo de Gerenciamento de Vendas"
 
 #. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_sale_order_ids
-#: model:ir.model.fields,field_description:crm.field_res_users_sale_warn
-msgid "Sales Order"
-msgstr "Ordem de Venda"
-
-#. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "Sales Settings"
 msgstr "Configurações de Vendas"
 
-#. module: crm
+#. modules: sales_team, crm
 #: model:ir.model,name:crm.model_crm_team
 #: model:ir.model.fields,field_description:crm.field_crm_activity_log_team_id
 #: model:ir.model.fields,field_description:crm.field_crm_activity_report_team_id
@@ -5177,13 +5357,37 @@ msgstr "Configurações de Vendas"
 #: model:ir.ui.view,arch_db:crm.crm_opportunity_report_view_search
 #: model:ir.ui.view,arch_db:crm.view_crm_case_leads_filter
 #: model:ir.ui.view,arch_db:crm.view_crm_case_opportunities_filter
+#: model:ir.model,name:sales_team.model_crm_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_name
+#: model:ir.model.fields,field_description:sales_team.field_res_partner_team_id
+#: model:ir.model.fields,field_description:sales_team.field_res_users_sale_team_id
+#: model:ir.model.fields,field_description:sales_team.field_res_users_team_id
+#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model:ir.ui.view,arch_db:sales_team.crm_team_view_tree
 msgid "Sales Team"
 msgstr "Equipe de Vendas"
+
+#. module: sales_team
+#: model:ir.model.fields,help:sales_team.field_res_users_sale_team_id
+msgid "Sales Team the user is member of. Used to compute the members of a sales team through the inverse one2many"
+msgstr "A equipe de vendas na qual o usuário é membro. Usado para computar os membros de uma equipe de vendas do inverso one2many"
+
+#. module: sales_team
+#: model:ir.actions.act_window,name:sales_team.crm_team_act
+#: model:ir.actions.act_window,name:sales_team.sales_team_config_action
+#: model:ir.ui.menu,name:sales_team.sales_team_config
+msgid "Sales Teams"
+msgstr "Equipes de Vendas"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "Sales Tools"
 msgstr "Ferramentas de Vendas"
+
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+msgid "Sales team"
+msgstr "Equipe de Venda"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead2opportunity_partner_mass_user_ids
@@ -5201,6 +5405,16 @@ msgstr "Vendedor"
 #: model:ir.ui.view,arch_db:crm.view_crm_case_opportunities_filter
 msgid "Salesperson"
 msgstr "Vendedor"
+
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+msgid "Salesteam name..."
+msgstr "Nome da equipe de vendas..."
+
+#. module: sales_team
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
+msgid "Salesteams Search"
+msgstr "Procurar Equipe de Vendas"
 
 #. module: web
 #. openerp-web
@@ -5423,12 +5637,6 @@ msgid "Selected records"
 msgstr "Selected records"
 
 #. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_invoice_warn
-#: model:ir.model.fields,help:crm.field_res_users_sale_warn
-msgid "Selecting the \"Warning\" option will notify user with the message, Selecting \"Blocking Message\" will throw an exception with the message and block the flow. The Message has to be written in the next field."
-msgstr "Selecionando a opção de \"Aviso\" irá notificar o usuário com a mensagem, marcar \"Mensagem de Bloqueio\" irá lançar uma exceção com a mensagem e bloquear o fluxo. A mensagem tem de ser escrita no campo a seguir."
-
-#. module: crm
 #: selection:base.partner.merge.automatic.wizard,state:0
 msgid "Selection"
 msgstr "Seleção"
@@ -5508,6 +5716,12 @@ msgstr "Definir o seu funil de vendas é apenas o primeiro passo. Para alcançar
 "                      aumento significativo, nós iremos ajudá-lo a tirar o máximo proveito\n"
 "                      do Odoo CRM para transformar a forma como o seu pessoal de vendas \n"
 "                      trabalha. É esse o propósito deste guia."
+
+#. module: sales_team
+#: model:ir.ui.menu,name:sales_team.menu_sale_general_settings
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
+msgid "Settings"
+msgstr "Configurações"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.view_sale_config_settings
@@ -5776,6 +5990,13 @@ msgstr "Marcadores"
 msgid "Take a minute to get a coffee,<br />because it's loading..."
 msgstr "Espere uns minutos, pegue um café, <br /> porque está carregando..."
 
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:146
+#, python-format
+msgid "Target"
+msgstr "Meta"
+
 #. module: crm
 #: model:crm.activity,name:crm.crm_activity_data_meeting
 #: model:mail.message.subtype,name:crm.crm_activity_data_meeting_mail_message_subtype
@@ -5791,6 +6012,18 @@ msgstr "Equipe"
 #: model:ir.filters,name:crm.ir_filters_crm_opportunity_report_next_action
 msgid "Team Activities"
 msgstr "Atividades da Equipe"
+
+#. module: sales_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_user_id
+#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
+msgid "Team Leader"
+msgstr "Lider da Equipe"
+
+#. module: sales_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member_ids
+#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+msgid "Team Members"
+msgstr "Membros da Equipe"
 
 #. module: web
 #. openerp-web
@@ -5809,6 +6042,11 @@ msgstr "Modelos de e-mails"
 msgid "Templates of quotations (use Odoo Online Proposals for this)"
 msgstr "Modelos de cotações (use Propostas On-line Odoo para isso)"
 
+#. module: sales_team
+#: model:ir.model.fields,help:sales_team.field_crm_team_color
+msgid "The color of the team"
+msgstr "A cor do time"
+
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/views/form_widgets.js:426
@@ -5820,6 +6058,11 @@ msgstr "The domain is wrong."
 #: model:ir.model.fields,help:crm.field_crm_team_alias_id
 msgid "The email address associated with this team. New emails received will automatically create new leads assigned to the team."
 msgstr "O endereço de e-mail associado a esta equipe. Novos e-mails recebidos criarão automaticamente novos prospectos atribuídos à equipe."
+
+#. module: sales_team
+#: model:ir.model.fields,help:sales_team.field_crm_team_reply_to
+msgid "The email address put in the 'Reply-To' of all emails sent by Odoo about cases in this sales team"
+msgstr "O endereço de mail para ser colocado em 'Responder-para' de todos os e-mails enviados pelo Odoo sobre os casos nesta equipe de vendas"
 
 #. module: web
 #. openerp-web
@@ -5837,11 +6080,6 @@ msgstr "O primeiro contato que você faz com um cliente em potencial é um prosp
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "The first stage is usually \"New\" and the last one is \"Won\""
 msgstr "A primeira fase é geralmente \"Nova\" e a última é \"Ganhou\""
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_property_account_position_id
-msgid "The fiscal position will determine taxes and accounts used for the partner."
-msgstr "A posição fiscal irá determinar os impostos e contas usadas para o parceiro."
 
 #. module: web
 #. openerp-web
@@ -5895,11 +6133,6 @@ msgstr "A senha atual que você digitou está incorreta, sua senha não foi alte
 #: model:ir.model.fields,help:crm.field_crm_team_alias_user_id
 msgid "The owner of records created upon receiving emails on this alias. If this field is not set the system will attempt to find the right owner based on the sender (From) address, or will use the Administrator account if no system user is found for that address."
 msgstr "O proprietário dos registros criados após o recebimento de e-mails neste apelido. Se este campo não estiver definido, o sistema tentará encontrar o proprietário correto baseado no endereço do remetente (De), ou utilizará a conta do Administrador se não for encontrado um usuário do sistema para este endereço."
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_has_unreconciled_entries
-msgid "The partner has at least one unreconciled debit and credit since last time the invoices & payments matching was performed."
-msgstr "O parceiro tem pelo menos um débito e crédito não reconciliado desde última vez que a correspondência de faturas e pagamentos foi realizada."
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -5993,20 +6226,17 @@ msgstr "Houve um problema ao fazer o upload do arquivo"
 msgid "These email addresses will be added to the CC field of all inbound and outbound emails for this record before being sent. Separate multiple email addresses with a comma"
 msgstr "Estes endereços de e-mail serão adicionados para o campo CC de todas entradas e saídas de e-mails para este registro antes de ser enviado. Separe múltiplos endereços de e-mail com vírgula."
 
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:102
+#, python-format
+msgid "This Month"
+msgstr "Este Mês"
+
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.view_crm_case_opportunities_filter
 msgid "This Week Activities"
 msgstr "Atividades desta Semana"
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_property_account_payable_id
-msgid "This account will be used instead of the default one as the payable account for the current partner"
-msgstr "Esta conta será usada em vez da padrão como a conta de pagamento para o parceiro atual"
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_property_account_receivable_id
-msgid "This account will be used instead of the default one as the receivable account for the current partner"
-msgstr "Esta conta será usada em vez da conta padrão,  como conta de recebimento para o parceiro atual"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -6033,16 +6263,6 @@ msgstr "Esta é a configuração padrão, não há nada para configurar."
 #, python-format
 msgid "This opportunity has <b>no next activity scheduled</b>. <i>Click to set one.</i>"
 msgstr "This opportunity has <b>no next activity scheduled</b>. <i>Click to set one.</i>"
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_property_supplier_payment_term_id
-msgid "This payment term will be used instead of the default one for purchase orders and vendor bills"
-msgstr "Este prazo de pagamento será usado em vez do padrão de ordens de compra"
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_property_payment_term_id
-msgid "This payment term will be used instead of the default one for sale orders and customer invoices"
-msgstr "Este prazo de pagamento será usado em vez do padrão nos pedidos de venda e faturas dos clientes"
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_stage_probability
@@ -6100,10 +6320,72 @@ msgstr "Incompatibilidade de fuso horário: o fuso horário do seu navegador nã
 msgid "Title"
 msgstr "Título"
 
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:29
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:61
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:76
+#, python-format
+msgid "To Activities"
+msgstr "Para Atividades"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:105
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:189
+#, python-format
+msgid "To Activity Report"
+msgstr "Para Relatório de Atividade"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:16
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:51
+#, python-format
+msgid "To Calendar"
+msgstr "Para Calendário"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:131
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:199
+#, python-format
+msgid "To Invoice Report"
+msgstr "Para Relatório de Fatura"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:86
+#, python-format
+msgid "To Opportunities"
+msgstr "Para Oportunidades"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:118
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:194
+#, python-format
+msgid "To Opportunity Report"
+msgstr "Para Relatório de Oportunidade"
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:13
+#, python-format
+msgid "To do"
+msgstr "Para fazer"
+
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "To stimulate your customers, show them the public price and the discount applied to it. This is settable in the pricelist configuration if you allow discounts."
 msgstr "To stimulate your customers, show them the public price and the discount applied to it. This is settable in the pricelist configuration if you allow discounts."
+
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:13
+#, python-format
+msgid "Today"
+msgstr "Hoje"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.view_crm_case_opportunities_filter
@@ -6131,34 +6413,9 @@ msgid "Total"
 msgstr "Total"
 
 #. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_total_invoiced
-msgid "Total Invoiced"
-msgstr "Total Faturado"
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_debit
-msgid "Total Payable"
-msgstr "Total a pagar"
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_credit
-msgid "Total Receivable"
-msgstr "Total Recebível"
-
-#. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_opportunity_report_total_revenue
 msgid "Total Revenue"
 msgstr "Rendimento Total"
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_credit
-msgid "Total amount this customer owes you."
-msgstr "Valor total que este cliente deve a você."
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_debit
-msgid "Total amount you have to pay to this vendor."
-msgstr "Valor total a ser pago para este fornecedor."
 
 #. module: web
 #. openerp-web
@@ -6417,6 +6674,17 @@ msgstr "Utilize oportunidades para acompanhar o seu canal de vendas, seguir\n"
 msgid "Use our import templates to get your catalog ready in no time!"
 msgstr "Use our import templates to get your catalog ready in no time!"
 
+#. module: sales_team
+#: model:ir.actions.act_window,help:sales_team.crm_team_act
+#: model:ir.actions.act_window,help:sales_team.crm_team_salesteams_act
+#: model:ir.actions.act_window,help:sales_team.sales_team_config_action
+msgid "Use sales team to organize your different salespersons or\n"
+"                    departments into separate teams. Each team will work in\n"
+"                    its own list of opportunities."
+msgstr "Usar equipe de vendas para organizar seus diferentes vendedores ou\n"
+"departamentos em equipes separadas. Cada equipe irá trabalhar em\n"
+"sua própria lista de oportunidades."
+
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "Use subscription for recurring billing.\n"
@@ -6472,15 +6740,21 @@ msgstr "E-mail do Usuário"
 msgid "User Login"
 msgstr "Login de Usuário"
 
-#. module: crm
+#. module: sales_team
+#: model:res.groups,name:sales_team.group_sale_salesman_all_leads
+msgid "User: All Documents"
+msgstr "Usuário: Todos os documentos"
+
+#. module: sales_team
+#: model:res.groups,name:sales_team.group_sale_salesman
+msgid "User: Own Documents Only"
+msgstr "Usuário: Apenas Documentos Próprios"
+
+#. modules: sales_team, crm
 #: model:ir.model,name:crm.model_res_users
+#: model:ir.model,name:sales_team.model_res_users
 msgid "Users"
 msgstr "Usuários"
-
-#. module: crm
-#: model:ir.model.fields,help:crm.field_res_users_currency_id
-msgid "Utility field to express amount currency"
-msgstr "Campo utilitário para expressar total em moeda"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_base_partner_merge_automatic_wizard_group_by_vat
@@ -6498,11 +6772,6 @@ msgstr "Carta VIP para patrocinadores potenciais"
 #, python-format
 msgid "Validation Error"
 msgstr "Erro de Validação"
-
-#. module: crm
-#: model:ir.model.fields,field_description:crm.field_res_users_property_supplier_payment_term_id
-msgid "Vendor Payment Terms"
-msgstr "Termos de Pagamento do Fornecedor"
 
 #. modules: web, crm
 #. openerp-web
@@ -6616,6 +6885,11 @@ msgstr "We don't have people/skills"
 msgid "We hope this process helped you bring your sales vision to life."
 msgstr "Esperamos que este processo tenha ajudado a levar a sua visão de vendas para a vida."
 
+#. module: sales_team
+#: model:crm.team,name:sales_team.salesteam_website_sales
+msgid "Website Sales"
+msgstr "Site de Vendas"
+
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:591
@@ -6698,6 +6972,13 @@ msgstr "Ganhamos"
 msgid "Won By Country"
 msgstr "Ganho por País"
 
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:127
+#, python-format
+msgid "Won in Opportunities"
+msgstr "Ganho em Oportunidades"
+
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_res_users_target_sales_won
 msgid "Won in Opportunities Target"
@@ -6714,8 +6995,9 @@ msgstr "Tempo de Trabalho"
 msgid "Wrong login/password"
 msgstr "Wrong login/password"
 
-#. module: web
+#. modules: web, sales_team
 #. openerp-web
+#: code:addons/sales_team/static/src/js/sales_team_dashboard.js:83
 #: code:addons/web/static/src/js/widgets/progress_bar.js:79
 #, python-format
 msgid "Wrong value entered!"
@@ -6999,6 +7281,13 @@ msgstr "por exemplo, Discutir proposta"
 msgid "e.g. Product Pricing"
 msgstr "por exemplo, Preço do Produto"
 
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:89
+#, python-format
+msgid "exp. closing"
+msgstr "esp. fechamento"
+
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/views/search_filters.js:182
@@ -7156,8 +7445,16 @@ msgstr "oportunidades"
 msgid "or"
 msgstr "ou"
 
-#. module: crm
+#. module: sales_team
+#. openerp-web
+#: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:79
+#, python-format
+msgid "overdue"
+msgstr "vencido"
+
+#. modules: sales_team, crm
 #: model:ir.model,name:crm.model_sale_config_settings
+#: model:ir.model,name:sales_team.model_sale_config_settings
 msgid "sale.config.settings"
 msgstr "sale.config.settings"
 
@@ -7180,6 +7477,21 @@ msgstr "pesquisa"
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid "the list of customers"
 msgstr "a lista de clientes"
+
+#. module: sales_team
+#: model:res.groups,comment:sales_team.group_sale_salesman_all_leads
+msgid "the user will have access to all records of everyone in the sales application."
+msgstr "o usuário terá acesso a todos os registros de todos os usuários no módulo de vendas."
+
+#. module: sales_team
+#: model:res.groups,comment:sales_team.group_sale_salesman
+msgid "the user will have access to his own data in the sales application."
+msgstr "o usuário terá acesso a seus próprios dados na aplicação de vendas."
+
+#. module: sales_team
+#: model:res.groups,comment:sales_team.group_sale_manager
+msgid "the user will have an access to the sales configuration as well as statistic reports."
+msgstr "o usuário terá acesso à configuração de vendas bem como a relatórios estatísticos."
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
