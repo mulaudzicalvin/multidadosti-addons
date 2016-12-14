@@ -10,7 +10,6 @@ from odoo import models, fields, api
 
 
 class ProjectProject(models.Model):
-
     _inherit = 'project.project'
 
     calendar_event_ids = fields.One2many(comodel_name="calendar.event",
@@ -50,7 +49,6 @@ class MultiProjectTaskType(models.Model):
 
 
 class ProjectTask(models.Model):
-
     _inherit = 'project.task'
 
     start = fields.Datetime('Start', required=False,
@@ -135,7 +133,7 @@ class ProjectTask(models.Model):
         """ Get the duration value between the 2 given dates. """
         if start and stop:
             diff = fields.Datetime.from_string(stop) - \
-                   fields.Datetime.from_string(start)
+                fields.Datetime.from_string(start)
             if diff:
                 duration = float(diff.days) * 24 + (float(diff.seconds) / 3600)
                 return round(duration, 2)

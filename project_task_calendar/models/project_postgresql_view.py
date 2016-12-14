@@ -4,7 +4,7 @@
 # @author Michell Stuttgart <michellstut@gmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import api, fields, models, tools
+from odoo import fields, models, tools
 
 
 class UnionProjectTaskCalendarEvent(models.Model):
@@ -14,6 +14,7 @@ class UnionProjectTaskCalendarEvent(models.Model):
     _auto = False
 
     name = fields.Char(readonly=True)
+    origin = fields.Char('Origin', readonly=True)
     start = fields.Datetime('Start', readonly=True,
                             help="Start date of an event, without "
                                  "time for full days events")
@@ -21,19 +22,15 @@ class UnionProjectTaskCalendarEvent(models.Model):
                            help="Stop date of an event, without time "
                                 "for full days events")
 
-    allday = fields.Boolean('Todo o dia', readonly=True)
+    allday = fields.Boolean('All Day', readonly=True)
     start_date = fields.Date('Start Date', readonly=True)
     start_datetime = fields.Datetime('Start DateTime', readonly=True)
     stop_date = fields.Date('End Date', readonly=True)
     stop_datetime = fields.Datetime('End Datetime', readonly=True)
     duration = fields.Float(u'Duração', readonly=True)
-    location = fields.Char('Local', readonly=True)
-    # categ_ids = fields.Many2many('calendar.event.type', readonly=True)
-    # alarm_ids = fields.Many2many('calendar.alarm', readonly=True)
     user_id = fields.Many2one('res.users', readonly=True)
     project_id = fields.Many2one('project.project', string='Project',
                                  readonly=True)
-    origin = fields.Char('Origin', readonly=True)
     project_task_id = fields.Many2one('project.task', string='Project task',
                                       readonly=True)
     calendar_event_id = fields.Many2one('calendar.event',
@@ -54,14 +51,12 @@ class UnionProjectTaskCalendarEvent(models.Model):
                      ce.stop_datetime as stop_datetime,
                      ce.allday as allday,
                      ce.duration as duration,
-                     ce.location as location,
                      ce.user_id as user_id,
                      ce.project_id as project_id,
                      NULL as project_task_id,
                      ce.id as calendar_event_id
         """
         return select_str
-
 
     def _select_project_task(self):
         select_str = """
@@ -75,9 +70,8 @@ class UnionProjectTaskCalendarEvent(models.Model):
                      pt.start_datetime as start_datetime,
                      pt.stop_date as stop_date,
                      pt.stop_datetime as stop_datetime,
-                     pt.all_day as allday,
+                     pt.allday as allday,
                      pt.duration as duration,
-                     '' as location,
                      pt.user_id as user_id,
                      pt.project_id as project_id,
                      pt.id as project_task_id,
@@ -87,14 +81,12 @@ class UnionProjectTaskCalendarEvent(models.Model):
 
     def init(self):
         tools.drop_view_if_exists(self._cr, self._table)
-        self._cr.execute("""
-            CREATE view %s as
-              %s
-              FROM calendar_event ce
-                 WHERE ce.active = 'true'
-              UNION
-              %s
-              FROM project_task pt
-                 WHERE pt.active = 'true'
-        """ % (self._table, self._select_calendar_event(),
-               self._select_project_task()))
+        self._cr.execute("CREATE view %s as %s "
+                         "FROM calendar_event ce "
+                         "WHERE ce.active = 'true' "
+                         "UNION "
+                         "%s FROM project_task pt "
+                         "WHERE pt.active = 'true'",
+                         (self._table,
+                          self._select_calendar_event(),
+                          self._select_project_task()))
