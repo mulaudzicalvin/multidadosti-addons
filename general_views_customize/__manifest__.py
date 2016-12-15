@@ -15,14 +15,11 @@
     'sequence': 99,
     'depends': [
         'web',
-        'crm',
-        'hr_timesheet_sheet',
         'web_kanban',
-        'document',
         'br_base',
+        'crm',
     ],
     'qweb': [
-        "static/src/xml/sales_team_dashboard.xml",
         "static/src/xml/web_kanban.xml",
     ],
     'data': [
