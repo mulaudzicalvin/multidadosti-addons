@@ -5,7 +5,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import pytz
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 from odoo import models, fields, api
 
@@ -45,10 +45,9 @@ class MultiProjectTaskType(models.Model):
                                 help=u"Permite Atribuição do atual estágio"
                                      u" a novos projetos que serão criados")
 
-    _sql_constraints = [("project_task_type_name_uniq",
-                         "unique (name)",
-                        u"Já existe um estágio com esse mesmo nome!")]
-    
+    _sql_constraints = [('project_task_type_name_uniq', 'unique (name)',
+                         u"Já existe um estágio com esse mesmo nome!")]
+
 
 class ProjectTask(models.Model):
     _inherit = 'project.task'
