@@ -4,7 +4,7 @@
 # @author Michell Stuttgart <michellstut@gmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import fields, models, tools
+from odoo import api, fields, models, tools
 
 
 class UnionProjectTaskCalendarEvent(models.Model):
@@ -44,10 +44,11 @@ class UnionProjectTaskCalendarEvent(models.Model):
                                    u"To 'Calendar Event:' \n this user is "
                                    u"represents the owner of calendar event.")
 
+    @api.model_cr
     def init(self):
-        tools.drop_view_if_exists(self._cr, self._table)
+        tools.drop_view_if_exists(self.env.cr, self._table)
 
-        sql = """CREATE view %s as
+        sql = """CREATE OR REPLACE VIEW %s AS
             SELECT   ce.id as id,
                      ce.name as name,
                      'calendar_event' as origin,
@@ -86,4 +87,4 @@ class UnionProjectTaskCalendarEvent(models.Model):
             FROM project_task pt
             WHERE pt.active = 'true'""" % self._table
 
-        self._cr.execute(sql)
+        self.env.cr.execute(sql)
