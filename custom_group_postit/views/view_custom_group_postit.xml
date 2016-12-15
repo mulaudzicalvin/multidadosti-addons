@@ -3,7 +3,8 @@
     <menuitem
             id="custom_menu_root"
             name="Comunicações"
-            sequence="10"/>
+            sequence="10"
+            web_icon="custom_group_postit,static/description/icon.png"/>
 
     <menuitem
             id="custom_menu_submenu"
@@ -39,11 +40,11 @@
             sequence="22"/>
 
     <menuitem
-            id="calendar.mail_menu_calendar"
+            id="menu_union_project_task_calendar_event"
             name="Calendário"
             parent="custom_group_postit.custom_menu_submenu"
             sequence="3"
-            action="calendar.action_calendar_event"
+            action="project_task_calendar.action_union_project_task_calendar_event"
             web_icon="calendar,static/description/icon.png"
             groups="base.group_user"/>
 

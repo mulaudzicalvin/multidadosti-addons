@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-#    General Views Customize
-#    Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
-#    @author Aldo Soares <soares_aldo@hotmail.com>
+# General Views Customize
+# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
+# @author Aldo Soares <soares_aldo@hotmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
@@ -15,10 +15,11 @@
     'sequence': 99,
     'depends': [
         'web',
-        'br_base',
         'crm',
         'hr_timesheet_sheet',
         'web_kanban',
+        'document',
+        'br_base',
     ],
     'qweb': [
         "static/src/xml/sales_team_dashboard.xml",
@@ -28,6 +29,10 @@
         'views/multi_assets.xml',
         'views/general_views_customize.xml',
         'static/src/js/abstract_web_client.js',
+    ],
+    'qweb': [
+        'static/src/xml/base.xml',
+        'static/src/xml/dashboard.xml',
     ],
     'installable': True,
 }
