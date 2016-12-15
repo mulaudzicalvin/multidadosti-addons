@@ -18,27 +18,50 @@ class UnionProjectTaskCalendarEvent(models.Model):
                               selection=[('project_task', 'Project Task'),
                                          ('calendar_event', 'Calendar Event')],
                               readonly=True)
-    start = fields.Datetime('Start', readonly=True,
+
+    start = fields.Datetime('Start',
+                            readonly=True,
                             help="Start date of an event, without "
                                  "time for full days events")
-    stop = fields.Datetime('Stop', readonly=True,
+
+    stop = fields.Datetime('Stop',
+                           readonly=True,
                            help="Stop date of an event, without time "
                                 "for full days events")
 
-    allday = fields.Boolean('All Day', readonly=True)
-    start_date = fields.Date('Start Date', readonly=True)
-    start_datetime = fields.Datetime('Start DateTime', readonly=True)
-    stop_date = fields.Date('End Date', readonly=True)
-    stop_datetime = fields.Datetime('End Datetime', readonly=True)
-    duration = fields.Float('Duration', readonly=True)
-    project_id = fields.Many2one('project.project', string='Project',
+    allday = fields.Boolean('All Day',
+                            readonly=True)
+
+    start_date = fields.Date('Start Date',
+                             readonly=True)
+
+    start_datetime = fields.Datetime('Start DateTime',
+                                     readonly=True)
+
+    stop_date = fields.Date('End Date',
+                            readonly=True)
+
+    stop_datetime = fields.Datetime('End Datetime',
+                                    readonly=True)
+
+    duration = fields.Float('Duration',
+                            readonly=True)
+
+    project_id = fields.Many2one('project.project',
+                                 string='Project',
                                  readonly=True)
-    project_task_id = fields.Many2one('project.task', string='Project Task',
+
+    project_task_id = fields.Many2one('project.task',
+                                      string='Project Task',
                                       readonly=True)
+
     calendar_event_id = fields.Many2one('calendar.event',
                                         string='Calendar Event',
                                         readonly=True)
-    user_id = fields.Many2one('res.users', readonly=True, string='User',
+
+    user_id = fields.Many2one('res.users',
+                              readonly=True,
+                              string='User',
                               help=u"To 'Project Task': \n this user is "
                                    u"represent who was attributed.\n"
                                    u"To 'Calendar Event:' \n this user is "

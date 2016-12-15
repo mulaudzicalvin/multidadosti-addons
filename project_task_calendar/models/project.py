@@ -53,27 +53,44 @@ class ProjectTask(models.Model):
     _inherit = 'project.task'
     _date_name = "date_start"
 
-    start = fields.Datetime('Start', required=False,
+    start = fields.Datetime('Start',
+                            required=False,
+                            related='date_start',
                             help="Start date of an event, without "
                                  "time for full days events")
-    stop = fields.Datetime('Stop', required=False,
+
+    stop = fields.Datetime('Stop',
+                           required=False,
                            help="Stop date of an event, without time "
                                 "for full days events")
 
-    allday = fields.Boolean('All Day', default=False)
-    start_date = fields.Date('Start Date', compute='_compute_dates',
-                             inverse='_inverse_dates', store=True,
+    allday = fields.Boolean('All Day',
+                            default=False)
+
+    start_date = fields.Date('Start Date',
+                             compute='_compute_dates',
+                             inverse='_inverse_dates',
+                             store=True,
                              track_visibility='onchange')
+
     start_datetime = fields.Datetime('Start DateTime',
                                      compute='_compute_dates',
-                                     inverse='_inverse_dates', store=True,
+                                     inverse='_inverse_dates',
+                                     store=True,
                                      track_visibility='onchange')
-    stop_date = fields.Date('End Date', compute='_compute_dates',
-                            inverse='_inverse_dates', store=True,
+
+    stop_date = fields.Date('End Date',
+                            compute='_compute_dates',
+                            inverse='_inverse_dates',
+                            store=True,
                             track_visibility='onchange')
-    stop_datetime = fields.Datetime('End Datetime', compute='_compute_dates',
-                                    inverse='_inverse_dates', store=True,
+
+    stop_datetime = fields.Datetime('End Datetime',
+                                    compute='_compute_dates',
+                                    inverse='_inverse_dates',
+                                    store=True,
                                     track_visibility='onchange')
+
     duration = fields.Float(u'Duração')
 
     @api.multi
