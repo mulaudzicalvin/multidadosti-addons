@@ -17,7 +17,6 @@
         'web',
         'web_kanban',
         'br_base',
-        'crm',
     ],
     'qweb': [
         "static/src/xml/web_kanban.xml",
