@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-14 18:47+0000\n"
-"PO-Revision-Date: 2016-12-14 18:47+0000\n"
+"POT-Creation-Date: 2016-12-15 17:23+0000\n"
+"PO-Revision-Date: 2016-12-15 17:23+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,6 +41,11 @@ msgid "Are you sure you want to delete this record ?"
 msgstr "Tem certeza que deseja excluir este registro ?"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,help:project_task_calendar.field_project_project_bring_default_task_type
+msgid "Atribui ao atual projeto, todos os estágios que foram criados com status Padrão"
+msgstr "Atribui ao atual projeto, todos os estágios que foram criados com status Padrão"
+
+#. module: project_task_calendar
 #. openerp-web
 #: code:addons/project_task_calendar/static/src/js/web_calendar.js:98
 #: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_tree
@@ -51,7 +56,7 @@ msgstr "Calendario"
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_union_project_task_calendar_event_calendar_event_id
 #: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
-#: selection:union.project.task.calendar.event,state:0
+#: selection:union.project.task.calendar.event,origin:0
 msgid "Calendar Event"
 msgstr "Evento de Calendario"
 
@@ -60,7 +65,7 @@ msgstr "Evento de Calendario"
 #: code:addons/project_task_calendar/static/src/js/web_calendar.js:123
 #, python-format
 msgid "Calendar view has not defined 'date_start' attribute."
-msgstr "Calendar view has not defined 'date_start' attribute."
+msgstr "Vis]ao de Calendário não tem o campo 'date_start' definido."
 
 #. module: project_task_calendar
 #: model:ir.ui.view,arch_db:project_task_calendar.view_project_project_adjust_form
@@ -81,6 +86,21 @@ msgid "Começa em"
 msgstr "Começa em"
 
 #. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Current month"
+msgstr "Mês atual"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Current week"
+msgstr "Semana atual"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Day"
+msgstr "Dia"
+
+#. module: project_task_calendar
 #. openerp-web
 #: code:addons/project_task_calendar/static/src/js/web_calendar.js:934
 #, python-format
@@ -91,6 +111,26 @@ msgstr "Excluir"
 #: model:ir.model.fields,field_description:project_task_calendar.field_union_project_task_calendar_event_display_name
 msgid "Display Name"
 msgstr "Nome para Exibição"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Display all elements in the current month."
+msgstr "Mostra todos os elementos no mês atual"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Display all elements in the current week."
+msgstr "Mostra todos os elementos na semana atual"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Display all elements in the next month."
+msgstr "Mostra todos os elementos no próximo mês"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Display all elements in the next week."
+msgstr "Mostra todos os elementos na próxima semana"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_union_project_task_calendar_event_duration
@@ -143,9 +183,39 @@ msgid "Group By"
 msgstr "Agrupar Por"
 
 #. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Group all elements in the same day."
+msgstr "Agrupe todos os elemsnto do mesmo dia."
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Group all elements in the same month."
+msgstr "Agrupe todos os elemsnto do mesmo mês."
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Group all elements in the same quarter."
+msgstr "Agrupe todos os elemsnto do mesmo quarto."
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Group all elements in the same week."
+msgstr "Agrupe todos os elemsnto do mesma semana."
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Group all elements in the same year."
+msgstr "Agrupe todos os elemsnto do mesmo ano."
+
+#. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_union_project_task_calendar_event_id
 msgid "ID"
 msgstr "ID"
+
+#. module: project_task_calendar
+#: sql_constraint:project.task.type:0
+msgid "Já existe um estágio com esse mesmo nome!"
+msgstr "Já existe um estágio com esse mesmo nome!"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_union_project_task_calendar_event___last_update
@@ -156,6 +226,11 @@ msgstr "Última Modificação em"
 #: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
 msgid "Meeting"
 msgstr "Reunião"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Month"
+msgstr "Mês"
 
 #. module: project_task_calendar
 #: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
@@ -173,11 +248,40 @@ msgid "Name"
 msgstr "Nome"
 
 #. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Next month"
+msgstr "Próximo mês"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Next week"
+msgstr "Próxima semana"
+
+#. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_union_project_task_calendar_event_origin
-#: model:ir.model.fields,field_description:project_task_calendar.field_union_project_task_calendar_event_state
 #: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
 msgid "Origin"
 msgstr "Origem"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Others"
+msgstr "Others"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_task_type_is_default
+msgid "Padrão"
+msgstr "Padrão"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Period"
+msgstr "Período"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,help:project_task_calendar.field_project_task_type_is_default
+msgid "Permite Atribuição do atual estágio a novos projetos que serão criados"
+msgstr "Permite Atribuição do atual estágio a novos projetos que serão criados"
 
 #. module: project_task_calendar
 #: model:ir.model,name:project_task_calendar.model_project_project
@@ -202,6 +306,11 @@ msgstr "Projeto"
 #: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_project_id
 msgid "Projetos"
 msgstr "Projetos"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Quarter"
+msgstr "Quarto"
 
 #. module: project_task_calendar
 #: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
@@ -265,6 +374,11 @@ msgid "Task"
 msgstr "Tarefa"
 
 #. module: project_task_calendar
+#: model:ir.model,name:project_task_calendar.model_project_task_type
+msgid "Task Stage"
+msgstr "Estágios de Tarefas"
+
+#. module: project_task_calendar
 #: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_calendar
 msgid "Tasks"
 msgstr "Tarefas"
@@ -286,9 +400,19 @@ msgstr "Para 'Tarefa de Projeto': \n"
 " this user is represents the owner of calendar event."
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_bring_default_task_type
+msgid "Trazer estágios padronizados"
+msgstr "Trazer estágios padronizados"
+
+#. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_union_project_task_calendar_event_user_id
 msgid "User"
 msgstr "Usuário"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Week"
+msgstr "Semana"
 
 #. module: project_task_calendar
 #. openerp-web
@@ -296,4 +420,9 @@ msgstr "Usuário"
 #, python-format
 msgid "Week "
 msgstr "Semana "
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_union_project_task_calendar_event_search
+msgid "Year"
+msgstr "Ano"
 
