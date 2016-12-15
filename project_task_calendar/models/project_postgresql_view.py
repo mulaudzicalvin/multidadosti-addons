@@ -15,51 +15,52 @@ class UnionProjectTaskCalendarEvent(models.Model):
 
     name = fields.Char(readonly=True)
     origin = fields.Selection(string='Origin',
-                              selection=[('project_task', 'Project Task'),
-                                         ('calendar_event', 'Calendar Event')],
+                              selection=[
+                                  ('project_task', 'Project Task'),
+                                  ('calendar_event', 'Calendar Event')],
                               readonly=True)
 
-    start = fields.Datetime('Start',
+    start = fields.Datetime(string='Start',
                             readonly=True,
                             help="Start date of an event, without "
                                  "time for full days events")
 
-    stop = fields.Datetime('Stop',
+    stop = fields.Datetime(string='Stop',
                            readonly=True,
                            help="Stop date of an event, without time "
                                 "for full days events")
 
-    allday = fields.Boolean('All Day',
+    allday = fields.Boolean(string='All Day',
                             readonly=True)
 
-    start_date = fields.Date('Start Date',
+    start_date = fields.Date(string='Start Date',
                              readonly=True)
 
-    start_datetime = fields.Datetime('Start DateTime',
+    start_datetime = fields.Datetime(string='Start DateTime',
                                      readonly=True)
 
-    stop_date = fields.Date('End Date',
+    stop_date = fields.Date(string='End Date',
                             readonly=True)
 
-    stop_datetime = fields.Datetime('End Datetime',
+    stop_datetime = fields.Datetime(string='End Datetime',
                                     readonly=True)
 
-    duration = fields.Float('Duration',
+    duration = fields.Float(string='Duration',
                             readonly=True)
 
-    project_id = fields.Many2one('project.project',
+    project_id = fields.Many2one(comodel_name='project.project',
                                  string='Project',
                                  readonly=True)
 
-    project_task_id = fields.Many2one('project.task',
+    project_task_id = fields.Many2one(comodel_name='project.task',
                                       string='Project Task',
                                       readonly=True)
 
-    calendar_event_id = fields.Many2one('calendar.event',
+    calendar_event_id = fields.Many2one(comodel_name='calendar.event',
                                         string='Calendar Event',
                                         readonly=True)
 
-    user_id = fields.Many2one('res.users',
+    user_id = fields.Many2one(comodel_name='res.users',
                               readonly=True,
                               string='User',
                               help=u"To 'Project Task': \n this user is "

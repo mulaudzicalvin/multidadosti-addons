@@ -53,45 +53,45 @@ class ProjectTask(models.Model):
     _inherit = 'project.task'
     _date_name = "date_start"
 
-    start = fields.Datetime('Start',
+    start = fields.Datetime(string='Start',
                             required=False,
                             related='date_start',
                             help="Start date of an event, without "
                                  "time for full days events")
 
-    stop = fields.Datetime('Stop',
+    stop = fields.Datetime(string='Stop',
                            required=False,
                            help="Stop date of an event, without time "
                                 "for full days events")
 
-    allday = fields.Boolean('All Day',
+    allday = fields.Boolean(string='All Day',
                             default=False)
 
-    start_date = fields.Date('Start Date',
+    start_date = fields.Date(string='Start Date',
                              compute='_compute_dates',
                              inverse='_inverse_dates',
                              store=True,
                              track_visibility='onchange')
 
-    start_datetime = fields.Datetime('Start DateTime',
+    start_datetime = fields.Datetime(string='Start DateTime',
                                      compute='_compute_dates',
                                      inverse='_inverse_dates',
                                      store=True,
                                      track_visibility='onchange')
 
-    stop_date = fields.Date('End Date',
+    stop_date = fields.Date(string='End Date',
                             compute='_compute_dates',
                             inverse='_inverse_dates',
                             store=True,
                             track_visibility='onchange')
 
-    stop_datetime = fields.Datetime('End Datetime',
+    stop_datetime = fields.Datetime(string='End Datetime',
                                     compute='_compute_dates',
                                     inverse='_inverse_dates',
                                     store=True,
                                     track_visibility='onchange')
 
-    duration = fields.Float(u'Duração')
+    duration = fields.Float(string=u'Duração')
 
     @api.multi
     @api.depends('allday', 'start', 'stop')
