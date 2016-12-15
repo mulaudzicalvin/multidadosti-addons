@@ -5,6 +5,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import pytz
+from datetime import datetime, timedelta
 
 from odoo import models, fields, api
 
@@ -51,6 +52,7 @@ class MultiProjectTaskType(models.Model):
 
 class ProjectTask(models.Model):
     _inherit = 'project.task'
+    _date_name = "date_start"
 
     start = fields.Datetime('Start', required=False,
                             help="Start date of an event, without "
@@ -89,8 +91,6 @@ class ProjectTask(models.Model):
                 meeting.start_datetime = False
                 meeting.stop_date = meeting.stop
                 meeting.stop_datetime = False
-                meeting.date_start = meeting.start
-                meeting.date_deadline = meeting.stop
 
                 meeting.duration = 0.0
             else:
@@ -98,11 +98,14 @@ class ProjectTask(models.Model):
                 meeting.start_datetime = meeting.start
                 meeting.stop_date = False
                 meeting.stop_datetime = meeting.stop
-                meeting.date_start = False
+                meeting.date_start = meeting.start
                 meeting.date_deadline = False
 
                 meeting.duration = self._get_duration(meeting.start,
                                                       meeting.stop)
+
+            meeting.date_start = meeting.start_datetime
+            meeting.date_deadline = meeting.stop_date
 
     @api.multi
     def _inverse_dates(self):
@@ -130,6 +133,9 @@ class ProjectTask(models.Model):
                 meeting.date_start = meeting.start
                 meeting.date_deadline = meeting.stop
 
+                meeting.duration = self._get_duration(meeting.start,
+                                                      meeting.stop)
+
     def _get_duration(self, start, stop):
         """ Get the duration value between the 2 given dates. """
         if start and stop:
@@ -139,3 +145,11 @@ class ProjectTask(models.Model):
                 duration = float(diff.days) * 24 + (float(diff.seconds) / 3600)
                 return round(duration, 2)
             return 0.0
+
+    @api.onchange('start_datetime', 'duration')
+    def _onchange_duration(self):
+        if self.start_datetime:
+            start = fields.Datetime.from_string(self.start_datetime)
+            self.start = self.start_datetime
+            self.stop = fields.Datetime.to_string(
+                start + timedelta(hours=self.duration))
