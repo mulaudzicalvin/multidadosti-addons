@@ -75,13 +75,63 @@
                 <filter string="My Events" domain="[('user_id','=',uid)]" help="My Events"/>
                 <filter string="My Meetings" help="My Meetings" name="mymeetings" context='{"mymeetings": 1}'/>
                 <separator/>
-                <group expand="0" string="Group By">
+                <group expand="0" string="Others">
                     <filter string="Responsible" domain="[]" context="{'group_by':'user_id'}"/>
                     <filter string="Origin" domain="[]" context="{'group_by':'origin'}"/>
                     <filter string="Project Task" domain="[]" context="{'group_by':'project_task_id'}"/>
                     <filter string="Calendar Event" domain="[]" context="{'group_by':'calendar_event_id'}"/>
                     <filter string="Project" domain="[]" context="{'group_by':'project_id'}"/>
                 </group>
+                <newline/>
+                    <!--<group expand="0" string="Extended Filters..." colspan="4" col="8">-->
+                        <!--<field name="date_start" />-->
+                        <!--<field name="duration" />-->
+                    <!--</group>-->
+
+                    <group expand="0" string="Period">
+                        <filter string="Current week"
+                                name="current_week"
+                                domain="[('start','&lt;=', (context_today() + relativedelta(weeks=0, weekday=6)).strftime('%%Y-%%m-%%d')),
+                                ('start','&gt;',(context_today() - relativedelta(weeks=1, weekday=6)).strftime('%%Y-%%m-%%d'))]"
+                                help="Display all elements in the current week." />
+                        <filter string="Current month"
+                                name="current_month"
+                                domain="[('start','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                                ('start','&gt;=',time.strftime('%%Y-%%m-01'))]"
+                                help="Display all elements in the current month." />
+                        <filter string="Next week"
+                                name="next_week"
+                                domain="[('start','&gt;',(context_today()+relativedelta(weeks=0, weekday=6)).strftime('%%Y-%%m-%%d')),
+                                ('start','&lt;=',(context_today()+relativedelta(weeks=1, weekday=6)).strftime('%%Y-%%m-%%d'))]"
+                                help="Display all elements in the next week." />
+                        <filter string="Next month"
+                                name="next_month"
+                                domain="[('start','&gt;=',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                                ('start','&lt;',(context_today()+relativedelta(months=2)).strftime('%%Y-%%m-01'))]"
+                                help="Display all elements in the next month." />
+                    </group>
+                    <group expand="1" string="Group By">
+                        <filter string="Day"
+                                name="group_day"
+                                context="{'group_by':'start:day'}"
+                                help="Group all elements in the same day."/>
+                        <filter string="Week"
+                                name="group_week"
+                                context="{'group_by':'start:week'}"
+                                help="Group all elements in the same week."/>
+                        <filter string="Month"
+                                name="group_month"
+                                context="{'group_by':'start:month'}"
+                                help="Group all elements in the same month."/>
+                        <filter string="Quarter"
+                                name="group_quarter"
+                                context="{'group_by':'start:quarter'}"
+                                help="Group all elements in the same quarter."/>
+                        <filter string="Year"
+                                name="group_year"
+                                context="{'group_by':'start:year'}"
+                                help="Group all elements in the same year."/>
+                     </group>
             </search>
         </field>
     </record>
