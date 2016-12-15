@@ -18,9 +18,6 @@
         'web_kanban',
         'br_base',
     ],
-    'qweb': [
-        "static/src/xml/web_kanban.xml",
-    ],
     'data': [
         'views/multi_assets.xml',
         'views/general_views_customize.xml',
@@ -29,6 +26,7 @@
     'qweb': [
         'static/src/xml/base.xml',
         'static/src/xml/dashboard.xml',
+        'static/src/xml/web_kanban.xml',
     ],
     'installable': True,
 }
