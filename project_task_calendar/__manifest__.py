@@ -18,7 +18,7 @@
         'calendar',
     ],
     'data': [
-        'views/view_multi_project.xml',
+        'views/view_calendar.xml',
         'views/view_project_project.xml',
         'views/view_union_project_task_calendar_event.xml',
         'views/web_calendar_templates.xml',
