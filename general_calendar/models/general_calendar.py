@@ -56,32 +56,46 @@ class GeneralCalendar(models.Model):
     @api.model_cr
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
-        #
-        # lines = self.env['general.calendar.line'].search([])
-        #
-        # sql = ''
-        # selects = []
-        #
-        # for line in lines:
-        #     """SELECT
-        #     line.id as id,
-        #     line.name.name as name,
-        #     line.date_start_field_id as date_start,
-        #     line.duration_field_id as duration,
-        #     line.user_field_id as user_id
-        # FROM
-        # general_calendar_line
-        # """
+
+        lines = self.env['general.calendar.line'].search([])
+
+        select_str = []
+
+        for line in lines:
+            obj_calendar = self.env[line.name.model].search([])
+            f_user = obj_calendar.user_field_id.name
+            f_descr = obj_calendar.description_field_id.name
+            f_date_start = obj_calendar.date_start_field_id.name
+            f_date_stop = obj_calendar.date_stop_field_id.name
+            f_duration = obj_calendar.duration_field_id.name
+
+            select = """SELECT
+                t.id as id,
+                'teste' as name,
+                %s as date_start,
+                %s as duration,
+                %s as user_id,
+                NULL as res_id,
+                NULL as model_id
+                FROM
+                    %s t""" % (self.self.env[line.name.model]._table, f_date_start, f_duration, f_user)
+
+            select_str.append(select)
+
+        sel = ''
+        for select in select_str:
+
 
         sql = """CREATE VIEW %s AS
-                SELECT   ce.id as id,
-                         ce.name as name,
-                         ce.start as date_start,
-                         ce.duration as duration,
-                         ce.user_id as user_id,
-                         NULL as model_id
-                FROM calendar_event ce
-                WHERE ce.active = 'true'
-                """ % self._table
+               SELECT
+                    line.id as id,
+                    'teste' as name,
+                    line.date_start_field_id as date_start,
+                    line.duration_field_id as duration,
+                    line.user_field_id as user_id,
+                    NULL as res_id,
+                    NULL as model_id
+               FROM
+                    general_calendar_line line""" % self._table
 
         self.env.cr.execute(sql)
