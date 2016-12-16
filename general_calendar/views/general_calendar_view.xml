@@ -2,7 +2,7 @@
 <odoo>
 
     <record model="ir.ui.view" id="view_general_calendar_calendar">
-        <field name="name">general_calendar</field>
+        <field name="name">view.general.calendar.calendar</field>
         <field name="model">general.calendar</field>
         <field name="arch" type="xml">
             <calendar string="Calendar" color="model_id"
@@ -18,7 +18,7 @@
         <field name="name">General Calendar</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">general.calendar</field>
-        <field name="view_mode">calendar,tree</field>
+        <field name="view_mode">calendar</field>
     </record>
 
     <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
@@ -28,7 +28,7 @@
      <menuitem id="general_calendar_sub_menu" name="Calendar" sequence="2"
               parent="general_calendar_root"/>
 
-    <menuitem id="general_calendar_menu" name="General Calendar"
+    <menuitem id="general_calendar_menu" name="General Calendar Calendar"
               sequence="1"
               parent="general_calendar_sub_menu"
               action="action_general_calendar"/>
