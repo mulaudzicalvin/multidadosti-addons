@@ -24,6 +24,7 @@
                             <field name="user_field_id"/>
                         </group>
                         <group>
+                            <field name="all_day_field_id"/>
                             <field name="date_start_field_id"/>
                             <field name="duration_field_id"/>
                             <field name="date_stop_field_id"

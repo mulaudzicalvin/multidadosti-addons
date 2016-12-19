@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record model="ir.ui.view" id="general_calendar_form">
+            <field name="name">view.general.calendar.form</field>
+            <field name="model">general.calendar</field>
+            <field name="arch" type="xml">
+                <form string="Calendar">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="date_start"/>
+                            <field name="allday"/>
+                            <field name="duration"/>
+                            <field name="user_id"/>
+                            <!--<field name="configurator_id"/>-->
+                            <field name="model_id"/>
+                            <field name="res_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
     <record model="ir.ui.view" id="view_general_calendar_calendar">
         <field name="name">view.general.calendar.calendar</field>
         <field name="model">general.calendar</field>
         <field name="arch" type="xml">
             <calendar string="Calendar" color="model_id"
-                      date_start="date_start" date_delay="duration"
-                      quick_add="false">
+                      date_start="date_start" date_delay="duration" all_day="allday"
+                      quick_add="false" event_open_popup="%(general_calendar.general_calendar_form)s">
                 <field name="name"/>
             </calendar>
         </field>
@@ -18,7 +39,7 @@
         <field name="name">General Calendar</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">general.calendar</field>
-        <field name="view_mode">calendar</field>
+        <field name="view_mode">calendar,tree,form</field>
     </record>
 
     <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
