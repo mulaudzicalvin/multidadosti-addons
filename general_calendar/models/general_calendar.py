@@ -58,10 +58,14 @@ class GeneralCalendar(models.Model):
 
         select_str = self.env['general.calendar.line'].get_details()
 
-        sql = 'CREATE VIEW %s AS ' % self._table
-        for select in select_str:
-            sql += select
-            # sql += ''
+        sql = 'CREATE VIEW %s AS \n' % self._table
+        for select in select_str[:1]:
+            sql += select + '\nUNION\n'
+
+        for select in select_str[1:-1]:
+            sql += select + '\nUNION\n'
+
+        sql += select_str[-1] + ';'
 
         # sql = """CREATE VIEW %s AS
         #                SELECT   ce.id as id,

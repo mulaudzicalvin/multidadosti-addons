@@ -78,26 +78,29 @@ class CalendarLine(models.Model):
         select_str = []
 
         for line in lines:
+
             # for obj_calendar in self.env[line.name.model].search([]):
-            f_user = line.user_field_id.name
-            f_descr = line.description_field_id.name
-            f_date_start = line.date_start_field_id.name
-            f_date_stop = line.date_stop_field_id.name
-            f_duration = line.duration_field_id.name
-            f_allday = line.all_day_field_id.name
+            f_user = 'table_name.' + line.user_field_id.name if line.user_field_id else 'NULL'
+            f_descr = 'table_name.' + line.description_field_id.name if line.description_field_id else 'false'
+            f_date_start = 'table_name.' + line.date_start_field_id.name if line.date_start_field_id else 'false'
+            f_date_stop = 'table_name.' + line.date_stop_field_id.name if line.date_stop_field_id else 'false'
+            f_duration = 'table_name.' + line.duration_field_id.name if line.duration_field_id else 0.00
+            f_allday = 'table_name.' + line.all_day_field_id.name if line.all_day_field_id else 'false'
             table_name = line.name.model.replace('.', '_')
 
             select = """SELECT
-                t.id AS id,
-                name AS name,
+                table_name.id AS id,
+                table_name.name AS name,
                 %s AS date_start,
                 %s AS duration,
                 %s AS allday,
                 %s AS user_id,
-                \'%s,\' || CAST(t.id AS varchar) AS res_id,
+                \'%s,\' || CAST(table_name.id AS varchar) AS res_id,
                 %d AS model_id
                 FROM
-                    %s t""" % (f_date_start, f_duration, f_allday, f_user, line.name.model, line.name.id, table_name)
+                    table_name """ % (f_date_start, f_duration, f_allday, f_user, line.name.model, line.name.id)
+
+            select = select.replace('table_name', table_name)
 
             select_str.append(select)
 
