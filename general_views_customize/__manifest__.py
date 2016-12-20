@@ -13,6 +13,9 @@
     'summary': 'General Views Customize',
     'category': 'Web',
     'sequence': 99,
+    'description': """
+        This module customize appearance of his dependencies
+    """,
     'depends': [
         'web',
         'web_kanban',
