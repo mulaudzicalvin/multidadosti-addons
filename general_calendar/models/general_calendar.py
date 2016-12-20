@@ -28,6 +28,11 @@ class GeneralCalendar(models.Model):
         required=True,
         readonly=True,
     )
+    date_stop = fields.Datetime(
+        string='Stop date',
+        required=True,
+        readonly=True,
+    )
     duration = fields.Float(
         string='Duration',
         readonly=True,
@@ -56,28 +61,30 @@ class GeneralCalendar(models.Model):
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
 
-        select_str = self.env['general.calendar.line'].get_details()
+        # select_str = self.env['general.calendar.line'].get_details()
 
         sql = 'CREATE VIEW %s AS \n' % self._table
-        for select in select_str[:1]:
+
+        for select in self.env['general.calendar.line'].get_details():
             sql += select + '\nUNION\n'
 
-        for select in select_str[1:-1]:
-            sql += select + '\nUNION\n'
+        # A view precisa de um select default para funcionar, entao adicionei
+        # a tabela calendar_event como padrao, ja que ela e o calendario mais
+        # usado
+        ce_model_id = self.env['ir.model'].search(
+            [('model', 'like', 'calendar.event')])[0].id
 
-        sql += select_str[-1] + ';'
+        ce_sql = """SELECT  ce.id as id,
+                            ce.name as name,
+                            ce.start as date_start,
+                            ce.stop as date_stop,
+                            ce.duration as duration,
+                            ce.allday as allday,
+                            ce.user_id as user_id,
+                            'calendar.event,' || CAST(ce.id AS varchar) AS res_id,
+                            %d as model_id
+                       FROM calendar_event ce;
+                       """ % ce_model_id
 
-        # sql = """CREATE VIEW %s AS
-        #                SELECT   ce.id as id,
-        #                         ce.name as name,
-        #                         ce.start as date_start,
-        #                         ce.duration as duration,
-        #                         ce.user_id as user_id,
-        #                         ce.allday as allday,
-        #                         'calendar.event,' || CAST(ce.id AS varchar) AS res_id,
-        #                         NULL as model_id
-        #                FROM calendar_event ce
-        #                WHERE ce.active = 'true'
-        #                """ % self._table
-
+        sql += ce_sql
         self.env.cr.execute(sql)
