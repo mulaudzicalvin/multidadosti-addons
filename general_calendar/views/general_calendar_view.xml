@@ -43,8 +43,7 @@
         <field name="model">general.calendar</field>
         <field name="arch" type="xml">
             <calendar string="Calendar" color="model_id"
-                      date_start="date_start" date_stop="date_stop"
-                      date_delay="duration" all_day="allday"
+                      date_start="date_start" date_delay="duration" all_day="allday"
                       quick_add="false" event_open_popup="%(general_calendar.general_calendar_form)s">
                 <field name="name"/>
             </calendar>
@@ -58,6 +57,7 @@
             <search string="Search Calendar">
                 <field name="name"/>
                 <field name="model_id" select="1"/>
+                <field name="user_id" select="1"/>
                 <newline/>
                 <group expand="0" string="Extended Filters..." colspan="4"
                        col="8">

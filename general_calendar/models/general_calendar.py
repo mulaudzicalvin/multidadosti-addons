@@ -16,6 +16,7 @@ def _models_get(self):
 class GeneralCalendar(models.Model):
 
     _name = 'general.calendar'
+    _description = 'SQL view to union calendars of Odoo'
     _auto = False
 
     name = fields.Char(
@@ -61,8 +62,6 @@ class GeneralCalendar(models.Model):
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
 
-        # select_str = self.env['general.calendar.line'].get_details()
-
         sql = 'CREATE VIEW %s AS \n' % self._table
 
         for select in self.env['general.calendar.line'].get_details():
@@ -75,15 +74,15 @@ class GeneralCalendar(models.Model):
             [('model', 'like', 'calendar.event')])[0].id
 
         ce_sql = """SELECT
-                       ce.id as id,
-                        ce.name as name,
-                        ce.start as date_start,
-                        ce.stop as date_stop,
-                        ce.duration as duration,
-                        ce.allday as allday,
-                        ce.user_id as user_id,
-                        'calendar.event,' || CAST(ce.id AS varchar) AS res_id,
-                        %d as model_id
+                    ce.id as id,
+                    ce.name as name,
+                    ce.start as date_start,
+                    ce.stop as date_stop,
+                    ce.duration as duration,
+                    ce.allday as allday,
+                    ce.user_id as user_id,
+                    'calendar.event,' || CAST(ce.id AS varchar) AS res_id,
+                    %d as model_id
                     FROM calendar_event ce;
                     """ % ce_model_id
 

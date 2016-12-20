@@ -19,9 +19,9 @@
         'calendar',
     ],
     'data': [
+        'views/web_calendar_templates.xml',
         'views/general_calendar_view.xml',
         'views/general_calendar_line_view.xml',
-        'views/web_calendar_templates.xml',
     ],
     'installable': True,
 }

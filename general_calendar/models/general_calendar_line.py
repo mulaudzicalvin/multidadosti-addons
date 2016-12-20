@@ -25,7 +25,8 @@ class CalendarLine(models.Model):
     description_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='Description field',
-        domain="[('ttype', 'in', ('char', 'text')), ('model_id', '=', name)]",
+        domain="[('ttype', 'in', ('char', 'text')), ('model_id', '=', name),"
+               "('related', 'like', '')]",
     )
 
     description_code = fields.Text(string='Description field',
@@ -37,33 +38,37 @@ class CalendarLine(models.Model):
         comodel_name='ir.model.fields',
         string='Start date field',
         domain="[('ttype', 'in', ('datetime', 'date')), "
-               "('model_id', '=', name)]",
+               "('model_id', '=', name),('related', 'like', '')]",
         required=True,
     )
 
     date_stop_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='End date field',
-        domain="[('ttype', 'in', ('datetime', 'date')), "
-               "('model_id', '=', name)]",
+        domain="[('ttype', 'in', ('datetime', 'date')),"
+               "('model_id', '=', name),"
+               "('related', 'like', '')]",
     )
 
     duration_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='Duration field',
-        domain="[('ttype', '=', 'float'), ('model_id', '=', name)]",
+        domain="[('ttype', '=', 'float'), ('model_id', '=', name),"
+               "('related', 'like', '')]",
     )
 
     all_day_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='All Day field',
-        domain="[('ttype', '=', 'boolean'), ('model_id', '=', name)]",
+        domain="[('ttype', '=', 'boolean'), ('model_id', '=', name)],"
+               "('related', 'like', '')",
     )
 
     user_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='User field',
-        domain="[('ttype', '=', 'many2one'), ('model_id', '=', name)]",
+        domain="[('ttype', '=', 'many2one'), ('model_id', '=', name)],"
+               "('related', 'like', '')",
     )
 
     @api.multi
