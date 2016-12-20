@@ -31,8 +31,7 @@ class CalendarLine(models.Model):
     description_code = fields.Text(string='Description field',
                                    help=("""Use '${o}' to refer
                                    to the involved object.
-                                   E.g.: '${o.project_id.name}'"""),
-    )
+                                   E.g.: '${o.project_id.name}'"""))
 
     date_start_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
@@ -88,7 +87,7 @@ class CalendarLine(models.Model):
 
             f_allday = 'table_name.' + line.all_day_field_id.name \
                 if line.all_day_field_id else 'false'
-            
+
             table_name = line.name.model.replace('.', '_')
 
             select = """SELECT
