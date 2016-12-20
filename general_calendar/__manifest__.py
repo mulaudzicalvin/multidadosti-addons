@@ -16,7 +16,7 @@
     'category': 'Project',
     'depends': [
         'base',
-        'web_calendar',
+        'calendar',
     ],
     'data': [
         # 'security/ir.model.access.csv',
