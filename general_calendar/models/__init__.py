@@ -4,5 +4,6 @@
 # @author Michell Stuttgart <michellstut@gmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from . import general_calendar
 from . import general_calendar_line
+from . import general_calendar
+
