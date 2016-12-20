@@ -11,7 +11,6 @@
                         <field name="name"/>
                         <field name="date_start"/>
                         <field name="allday"/>
-                        <field name="duration"/>
                         <field name="user_id"/>
                         <field name="model_id"/>
                         <field name="res_id"/>
@@ -30,7 +29,6 @@
                 <field name="date_start"/>
                 <field name="date_stop"/>
                 <field name="allday"/>
-                <field name="duration"/>
                 <field name="user_id"/>
                 <field name="model_id"/>
                 <field name="res_id"/>
@@ -43,8 +41,9 @@
         <field name="model">general.calendar</field>
         <field name="arch" type="xml">
             <calendar string="Calendar" color="model_id"
-                      date_start="date_start" date_delay="duration" all_day="allday"
-                      quick_add="false" event_open_popup="%(general_calendar.general_calendar_form)s">
+                      date_start="date_start" date_stop="date_stop"
+                      all_day="allday" quick_add="false"
+                      event_open_popup="%(general_calendar.general_calendar_form)s">
                 <field name="name"/>
             </calendar>
         </field>
@@ -62,7 +61,6 @@
                 <group expand="0" string="Extended Filters..." colspan="4"
                        col="8">
                     <field name="date_start"/>
-                    <field name="duration"/>
                 </group>
 
                 <group expand="0" string="Others">

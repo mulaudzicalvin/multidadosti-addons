@@ -34,10 +34,6 @@ class GeneralCalendar(models.Model):
         required=True,
         readonly=True,
     )
-    duration = fields.Float(
-        string='Duration',
-        readonly=True,
-    )
     allday = fields.Boolean(
         string='All Day',
         readonly=True,
@@ -78,7 +74,6 @@ class GeneralCalendar(models.Model):
                     ce.name as name,
                     ce.start as date_start,
                     ce.stop as date_stop,
-                    ce.duration as duration,
                     ce.allday as allday,
                     ce.user_id as user_id,
                     'calendar.event,' || CAST(ce.id AS varchar) AS res_id,

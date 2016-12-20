@@ -50,13 +50,6 @@ class CalendarLine(models.Model):
                "('related', 'like', '')]",
     )
 
-    duration_field_id = fields.Many2one(
-        comodel_name='ir.model.fields',
-        string='Duration field',
-        domain="[('ttype', '=', 'float'), ('model_id', '=', name),"
-               "('related', 'like', '')]",
-    )
-
     all_day_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='All Day field',
@@ -87,9 +80,6 @@ class CalendarLine(models.Model):
             f_date_stop = 'table_name.' + line.date_stop_field_id.name \
                 if line.date_stop_field_id else 'NULL'
 
-            f_duration = 'table_name.' + line.duration_field_id.name \
-                if line.duration_field_id else 0.00
-
             f_allday = 'table_name.' + line.all_day_field_id.name \
                 if line.all_day_field_id else 'false'
 
@@ -100,7 +90,6 @@ class CalendarLine(models.Model):
                 table_name.name AS name,
                 %s AS date_start,
                 %s AS date_stop,
-                %s AS duration,
                 %s AS allday,
                 %s AS user_id,
                 \'%s,\' || CAST(table_name.id AS varchar) AS res_id,
@@ -109,7 +98,6 @@ class CalendarLine(models.Model):
                     table_name """ % ((index + 1) * 1000000,
                                       f_date_start,
                                       f_date_stop,
-                                      f_duration,
                                       f_allday,
                                       f_user,
                                       line.name.model,

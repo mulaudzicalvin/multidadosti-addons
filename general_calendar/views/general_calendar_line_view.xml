@@ -5,7 +5,7 @@
         <field name="name">general.calendar.line.tree</field>
         <field name="model">general.calendar.line</field>
         <field name="arch" type="xml">
-            <tree string="Configurators">
+            <tree string="Configuration">
                 <field name="name"/>
             </tree>
         </field>
@@ -26,9 +26,7 @@
                         <group>
                             <field name="all_day_field_id"/>
                             <field name="date_start_field_id"/>
-                            <field name="duration_field_id"/>
-                            <field name="date_stop_field_id"
-                                   attrs="{'readonly':[('duration_field_id','!=',False)], 'visible': [('duration_field_id','!=',False)]}"/>
+                            <field name="date_stop_field_id"/>
                         </group>
                     </group>
                     <group string="Description">
