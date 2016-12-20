@@ -1,0 +1,12 @@
+<odoo>
+    <record id="multi_view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='calendar_id']" position="after">
+                <field name="signature" widget='image' class="oe_avatar" options='{"preview_image":"image_medium"}'/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
