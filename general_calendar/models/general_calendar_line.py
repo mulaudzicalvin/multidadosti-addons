@@ -17,10 +17,6 @@ class CalendarLine(models.Model):
 
     domain = fields.Char(string='Domain')
 
-    # configurator_id = fields.Many2one(
-    #     comodel_name='super.calendar.configurator',
-    #     string='Configurator',
-    # )
     description_type = fields.Selection([('field', 'Field'),
                                          ('code', 'Code')],
                                         string="Description Type",
@@ -74,18 +70,25 @@ class CalendarLine(models.Model):
     @api.multi
     def get_details(self):
 
-        # lines =
         select_str = []
 
         for index, line in enumerate(self.search([])):
 
-            # for obj_calendar in self.env[line.name.model].search([]):
-            f_user = 'table_name.' + line.user_field_id.name if line.user_field_id else 'NULL'
-            f_descr = 'table_name.' + line.description_field_id.name if line.description_field_id else 'false'
-            f_date_start = 'table_name.' + line.date_start_field_id.name if line.date_start_field_id else 'NULL'
-            f_date_stop = 'table_name.' + line.date_stop_field_id.name if line.date_stop_field_id else 'NULL'
-            f_duration = 'table_name.' + line.duration_field_id.name if line.duration_field_id else 0.00
-            f_allday = 'table_name.' + line.all_day_field_id.name if line.all_day_field_id else 'false'
+            f_user = 'table_name.' + line.user_field_id.name \
+                if line.user_field_id else 'NULL'
+
+            f_date_start = 'table_name.' + line.date_start_field_id.name \
+                if line.date_start_field_id else 'NULL'
+
+            f_date_stop = 'table_name.' + line.date_stop_field_id.name \
+                if line.date_stop_field_id else 'NULL'
+
+            f_duration = 'table_name.' + line.duration_field_id.name \
+                if line.duration_field_id else 0.00
+
+            f_allday = 'table_name.' + line.all_day_field_id.name \
+                if line.all_day_field_id else 'false'
+            
             table_name = line.name.model.replace('.', '_')
 
             select = """SELECT
@@ -99,10 +102,16 @@ class CalendarLine(models.Model):
                 \'%s,\' || CAST(table_name.id AS varchar) AS res_id,
                 %d AS model_id
                 FROM
-                    table_name """ % ((index + 1) * 1000000, f_date_start, f_date_stop, f_duration, f_allday, f_user, line.name.model, line.name.id)
+                    table_name """ % ((index + 1) * 1000000,
+                                      f_date_start,
+                                      f_date_stop,
+                                      f_duration,
+                                      f_allday,
+                                      f_user,
+                                      line.name.model,
+                                      line.name.id)
 
             select = select.replace('table_name', table_name)
-
             select_str.append(select)
 
         return select_str

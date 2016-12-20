@@ -74,17 +74,18 @@ class GeneralCalendar(models.Model):
         ce_model_id = self.env['ir.model'].search(
             [('model', 'like', 'calendar.event')])[0].id
 
-        ce_sql = """SELECT  ce.id as id,
-                            ce.name as name,
-                            ce.start as date_start,
-                            ce.stop as date_stop,
-                            ce.duration as duration,
-                            ce.allday as allday,
-                            ce.user_id as user_id,
-                            'calendar.event,' || CAST(ce.id AS varchar) AS res_id,
-                            %d as model_id
-                       FROM calendar_event ce;
-                       """ % ce_model_id
+        ce_sql = """SELECT
+                       ce.id as id,
+                        ce.name as name,
+                        ce.start as date_start,
+                        ce.stop as date_stop,
+                        ce.duration as duration,
+                        ce.allday as allday,
+                        ce.user_id as user_id,
+                        'calendar.event,' || CAST(ce.id AS varchar) AS res_id,
+                        %d as model_id
+                    FROM calendar_event ce;
+                    """ % ce_model_id
 
         sql += ce_sql
         self.env.cr.execute(sql)
