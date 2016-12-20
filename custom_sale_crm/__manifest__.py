@@ -12,6 +12,9 @@
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
     'summary': 'Custom Sale CRM',
     'category': 'Web',
+    'description': """
+        Customizações relacionadas ao módulo sale_crm
+    """,
     'sequence': 99,
     'depends': [
         'sale',
