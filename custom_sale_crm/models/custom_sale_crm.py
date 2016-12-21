@@ -10,7 +10,9 @@ from odoo import fields, models
 class CustomStage(models.Model):
     _inherit = "crm.stage"
 
-    allow_quotation = fields.Boolean(u"Permitir Nova Cotação")
+    allow_quotation = fields.Boolean(string=u'Permitir Nova Cotação?',
+                                     help=u'Indica se é possivel criar uma '
+                                          u'nova cotação neste estágio.')
 
 
 class CustomLead(models.Model):
