@@ -6,7 +6,7 @@
 
 {
     'name': 'General Calendar',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
@@ -14,7 +14,10 @@
         Merge calendars in a general calendar.
         Support by MultidadosTI
     """,
-    'category': 'Project',
+    'category': 'Sales',
+    'contributors': [
+        'Michell Stuttgart <michellstut@gmail.com>',
+    ],
     'depends': [
         'base',
         'calendar',

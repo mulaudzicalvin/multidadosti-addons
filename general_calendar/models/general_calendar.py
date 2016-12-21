@@ -63,9 +63,8 @@ class GeneralCalendar(models.Model):
         for select in self.env['general.calendar.line'].get_details():
             sql += select + '\nUNION\n'
 
-        # A view precisa de um select default para funcionar, entao adicionei
-        # a tabela calendar_event como padrao, ja que ela e o calendario mais
-        # usado
+        # Using 'calendar_event' like default table to view, because the sql
+        # view not be empty
         ce_model_id = self.env['ir.model'].search(
             [('model', 'like', 'calendar.event')])[0].id
 
