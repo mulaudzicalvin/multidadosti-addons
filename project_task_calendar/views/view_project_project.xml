@@ -48,41 +48,11 @@
 
             <xpath expr="//field[@name='partner_id']" position="replace"/>
             <xpath expr="//field[@name='user_id']" position="replace"/>
-            <xpath expr="//field[@name='date_deadline']" position="replace"/>
 
-            <xpath expr="//field[@name='displayed_image_id']"
-                   position="replace"/>
+            <xpath expr="//field[@name='displayed_image_id']" position="replace"/>
             <xpath expr="//field[@name='project_id']" position="after">
-
                 <field name="partner_id" readonly="1"/>
                 <field name="user_id"/>
-
-                <field name="start" invisible="1"/>
-                <field name="stop" invisible="1"/>
-                <field name="allday"/>
-
-                <field name="start_date" string="Começa em"
-                       attrs="{'invisible': [('allday','=',False)]}"/>
-
-                <field name="stop_date" string="Termina em"
-                       attrs="{'invisible': [('allday','=',False)]}"/>
-
-                <field name="start_datetime" string="Começa em"
-                       attrs="{'invisible': [('allday','=',True)]}"/>
-
-                <field name="stop_datetime" string="Termina em"
-                       attrs="{'invisible': [('allday','=',True)]}"/>
-
-                <label for="duration"
-                       attrs="{'invisible': [('allday','=',True)]}"/>
-
-                <div attrs="{'invisible': [('allday','=',True)]}">
-                    <field name="duration" widget="float_time"
-                           string="Duration" class="oe_inline"/>
-                    <span> hours</span>
-
-                </div>
-
             </xpath>
 
             <xpath expr="//field[@name='partner_id']" position="attributes">
@@ -92,21 +62,62 @@
         </field>
     </record>
 
-    <!-- Inherit Form View to Modify it -->
-    <record id="view_project_task_adjust_calendar" model="ir.ui.view">
-        <field name="name">view.project.task.adjust.calendar</field>
-        <field name="model">project.task</field>
-        <field name="inherit_id" ref="project.view_task_calendar"/>
+    <record id="multi_task_type_edit" model="ir.ui.view">
+        <field name="name">multi.project.task.type.form</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_edit"/>
         <field name="arch" type="xml">
-
-            <xpath expr="//calendar" position="attributes">
-                <attribute name="display">"[name]"</attribute>
-                <attribute name="date_start">start</attribute>
-                <attribute name="date_stop">stop</attribute>
-                <attribute name="date_delay">duration</attribute>
-                <attribute name="all_day">allday</attribute>
+            <xpath expr="//field[@name='fold']" position="after">
+                <field name="is_default"/>
             </xpath>
+        </field>
+    </record>
 
+    <record id="multi_task_type_tree" model="ir.ui.view">
+        <field name="name">project.task.type.tree</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fold']" position="after">
+                <field name="is_default"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="multi_project_project_view_form_simplified" model="ir.ui.view">
+        <field name="name">multi_project_project_view_form_simplified</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='use_tasks']" position="before">
+                <field name="bring_default_task_type"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project.action_view_task" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+        <field name="context">{'search_default_Stage': 1}</field>
+        <field name="search_view_id" ref="project.view_task_search_form"/>
+        <field name="help" type="html">
+            <p>
+                Odoo's project management allows you to manage the
+                pipeline of your tasks efficiently. You can track progress,
+                discuss on tasks, attach documents, etc.
+            </p>
+        </field>
+    </record>
+
+    <record id="multi_view_config_settings" model="ir.ui.view">
+        <field name="name">multi project settings</field>
+        <field name="model">project.config.settings</field>
+        <field name="inherit_id" ref="project.view_config_settings"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='module_project_forecast']" position="replace"/>
+            <xpath expr="//label[@for='module_project_forecast']" position="replace"/>
+            <xpath expr="//a" position="replace"/>
         </field>
     </record>
 
