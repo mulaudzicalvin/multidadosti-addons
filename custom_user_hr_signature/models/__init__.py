@@ -4,4 +4,4 @@
 # @author Aldo Soares <soares_aldo@hotmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from . import custom_user_hr_signature
+from . import hr_employee

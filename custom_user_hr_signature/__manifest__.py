@@ -16,13 +16,13 @@
     """,
     'category': 'Web',
     'contributors': [
-        'Aldo Soares <soares_aldo@hotmail.com>'
+        'Aldo Soares <soares_aldo@hotmail.com>',
     ],
     'depends': [
         'hr',
     ],
     'data': [
-        'views/view_multi_hr_employee.xml',
+        'views/view_hr_employee.xml',
     ],
     'installable': True,
 }

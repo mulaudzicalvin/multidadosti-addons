@@ -4,7 +4,7 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='calendar_id']" position="after">
+            <xpath expr="//field[@name='bank_account_id']" position="after">
                 <field name="signature" widget='image' class="oe_avatar" options='{"preview_image":"image_medium"}'/>
             </xpath>
         </field>
