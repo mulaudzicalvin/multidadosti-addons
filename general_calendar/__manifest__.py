@@ -19,6 +19,8 @@
         'calendar',
     ],
     'data': [
+        'security/ir.model.access.csv',
+        'security/general_calendar_security.xml',
         'views/web_calendar_templates.xml',
         'views/general_calendar_view.xml',
         'views/general_calendar_line_view.xml',
