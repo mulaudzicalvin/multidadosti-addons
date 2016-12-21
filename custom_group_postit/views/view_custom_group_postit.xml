@@ -40,11 +40,11 @@
             sequence="22"/>
 
     <menuitem
-            id="menu_union_project_task_calendar_event"
+            id="menu_general_calendar"
             name="Calendário"
             parent="custom_group_postit.custom_menu_submenu"
             sequence="3"
-            action="project_task_calendar.action_union_project_task_calendar_event"
+            action="general_calendar.action_general_calendar"
             web_icon="calendar,static/description/icon.png"
             groups="base.group_user"/>
 
@@ -67,5 +67,16 @@
             id="calendar.menu_calendar_alarm"
             parent="custom_group_postit.custom_menu_configuration"
             action="calendar.action_calendar_alarm"/>
+
+    <record id="multi_view_note_note_form" model="ir.ui.view">
+        <field name="name">multi.note.note.form</field>
+        <field name="model">note.note</field>
+        <field name="inherit_id" ref="note.view_note_note_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="options">{'no_quick_create': False}</attribute>
+            </xpath>
+        </field>
+    </record>
 
 </odoo>
