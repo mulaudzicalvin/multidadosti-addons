@@ -41,6 +41,9 @@ Here is a sample monthly calendar:
 .. image:: general_calendar/static/description/general_calendar.png
    :width: 400 px
 
+IMPORTANT: After update calendar list, remember of update 'General Calendar' module in
+models list.
+
 As you can see, several filters are available. A typical usage consists in
 filtering by 'Module' and by your user.
 Once you filtered, you can save the filter as 'Advanced filter' or even
