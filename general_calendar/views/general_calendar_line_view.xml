@@ -56,7 +56,7 @@
     </record>
 
     <menuitem id="general_calendar_configuration_menu" name="Configuration" sequence="2"
-              parent="general_calendar_root"/>
+              parent="general_calendar_root" groups="base.group_system"/>
 
     <menuitem id="general_calendar_line_menu" name="General Calendar Line"
               sequence="2"

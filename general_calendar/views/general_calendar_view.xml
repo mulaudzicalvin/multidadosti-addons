@@ -133,7 +133,7 @@
               web_icon="calendar,static/description/icon.png"/>
 
     <menuitem id="general_calendar_sub_menu" name="Calendar" sequence="2"
-              parent="general_calendar_root"/>
+              parent="general_calendar_root" groups="base.group_user"/>
 
     <menuitem id="general_calendar_menu" name="General Calendar"
               sequence="1"
