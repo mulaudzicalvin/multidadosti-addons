@@ -25,8 +25,9 @@ class CalendarLine(models.Model):
     description_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='Description field',
-        domain="[('ttype', 'in', ('char', 'text')), ('model_id', '=', name),"
-               "('related', 'like', '')]",
+        domain="[('ttype', 'in', ('char', 'text')), "
+               "('model_id', '=', name),"
+               "('store', '=', True)]",
     )
 
     description_code = fields.Text(string='Description field',
@@ -38,7 +39,7 @@ class CalendarLine(models.Model):
         comodel_name='ir.model.fields',
         string='Start date field',
         domain="[('ttype', 'in', ('datetime', 'date')), "
-               "('model_id', '=', name),('related', 'like', '')]",
+               "('model_id', '=', name),('store', '=', True)]",
         required=True,
     )
 
@@ -47,21 +48,21 @@ class CalendarLine(models.Model):
         string='End date field',
         domain="[('ttype', 'in', ('datetime', 'date')),"
                "('model_id', '=', name),"
-               "('related', 'like', '')]",
+               "('store', '=', True)]",
     )
 
     all_day_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='All Day field',
         domain="[('ttype', '=', 'boolean'), ('model_id', '=', name)],"
-               "('related', 'like', '')",
+               "('store', '=', True)",
     )
 
     user_field_id = fields.Many2one(
         comodel_name='ir.model.fields',
         string='User field',
         domain="[('ttype', '=', 'many2one'), ('model_id', '=', name)],"
-               "('related', 'like', '')",
+               "('store', '=', True)",
     )
 
     @api.multi
