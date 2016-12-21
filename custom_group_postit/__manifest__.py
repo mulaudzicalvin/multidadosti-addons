@@ -14,7 +14,7 @@
     'category': 'Web',
     'sequence': 99,
     'depends': [
-        'project_task_calendar',
+        'general_calendar',
         'note',
     ],
     'data': [
