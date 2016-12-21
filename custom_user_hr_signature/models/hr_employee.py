@@ -13,5 +13,6 @@ class CustomUserHRSignature(models.Model):
 
     signature = fields.Binary("Signature",
                               attachment=True,
-                              help="This field holds the image used as photo "
-                                   "for the employee, limited to 1024x1024px.")
+                              help="This field holds the image used as "
+                                   "signature for the employee, limited to "
+                                   "1024x1024px. It can be used in reports.")
