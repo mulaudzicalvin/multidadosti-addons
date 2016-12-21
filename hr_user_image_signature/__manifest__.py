@@ -5,12 +5,12 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
-    'name': 'Custom User HR Signature',
+    'name': 'HR User Image Signature',
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
-    'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
-    'summary': 'Custom User HR Signature',
+    'website': 'ww.multidadosti.com.br',
+    'summary': 'HR User Image Signature',
     'category': 'Web',
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
