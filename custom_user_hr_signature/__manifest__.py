@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-#    Custom User HR Signature
-#    Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
-#    @author Aldo Soares <soares_aldo@hotmail.com>
+# Custom User HR Signature
+# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
+# @author Aldo Soares <soares_aldo@hotmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
@@ -15,6 +15,9 @@
         This module adds a signature field in hr module
     """,
     'category': 'Web',
+    'contributors': [
+        'Aldo Soares <soares_aldo@hotmail.com>'
+    ],
     'depends': [
         'hr',
     ],
