@@ -11,7 +11,8 @@
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
     'summary': """
-    Merge calendars in a general calendar. Support by MultidadosTI
+        Merge calendars in a general calendar.
+        Support by MultidadosTI
     """,
     'category': 'Project',
     'depends': [
