@@ -193,8 +193,8 @@ msgstr "Calendário Geral"
 #. module: general_calendar
 #: model:ir.actions.act_window,name:general_calendar.action_general_calendar_line
 #: model:ir.ui.menu,name:general_calendar.general_calendar_line_menu
-msgid "General Calendar Line"
-msgstr "Linhas de Calendário Geral"
+msgid "Add Calendars"
+msgstr "Adicionar Calendários"
 
 #. module: general_calendar
 #: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
