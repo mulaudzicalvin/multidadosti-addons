@@ -11,9 +11,6 @@
     'version': '10.0.1.0.0',
     'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
     'summary': 'Custom User HR Signature',
-    'description': """
-        This module adds a signature field in hr module
-    """,
     'category': 'Web',
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
