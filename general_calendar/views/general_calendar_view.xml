@@ -6,16 +6,18 @@
         <field name="model">general.calendar</field>
         <field name="arch" type="xml">
             <form string="Calendar">
-                <sheet>
+                <group>
                     <group>
                         <field name="name"/>
+                        <field name="res_id"/>
+                        <field name="model_id"/>
+                    </group>
+                    <group>
                         <field name="date_start"/>
                         <field name="allday"/>
                         <field name="user_id"/>
-                        <field name="model_id"/>
-                        <field name="res_id"/>
                     </group>
-                </sheet>
+                </group>
             </form>
         </field>
     </record>
