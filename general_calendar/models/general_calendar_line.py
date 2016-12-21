@@ -83,11 +83,14 @@ class CalendarLine(models.Model):
             f_allday = 'table_name.' + line.all_day_field_id.name \
                 if line.all_day_field_id else 'false'
 
+            f_description = 'table_name.' + line.description_field_id.name \
+                if line.description_field_id else 'false'
+
             table_name = line.name.model.replace('.', '_')
 
             select = """SELECT
                 %s + table_name.id AS id,
-                table_name.name AS name,
+                %s AS name,
                 %s AS date_start,
                 %s AS date_stop,
                 %s AS allday,
@@ -96,6 +99,7 @@ class CalendarLine(models.Model):
                 %d AS model_id
                 FROM
                     table_name """ % ((index + 1) * 1000000,
+                                      f_description,
                                       f_date_start,
                                       f_date_stop,
                                       f_allday,
