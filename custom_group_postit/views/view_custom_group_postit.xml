@@ -40,11 +40,20 @@
             sequence="22"/>
 
     <menuitem
-            id="general_calendar.menu_general_calendar"
+            id="general_calendar.general_calendar_menu"
             name="Calendário Geral"
             parent="custom_group_postit.custom_menu_submenu"
             sequence="3"
             action="general_calendar.action_general_calendar"
+            web_icon="calendar,static/description/icon.png"
+            groups="base.group_user"/>
+
+    <menuitem
+            id="calendar.mail_menu_calendar"
+            name="Calendário"
+            parent="custom_group_postit.custom_menu_submenu"
+            sequence="3"
+            action="calendar.action_calendar_event"
             web_icon="calendar,static/description/icon.png"
             groups="base.group_user"/>
 
