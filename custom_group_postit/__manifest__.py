@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
-#    Custom Group Post-it
-#    Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
-#    @author Aldo Soares <a.soares@itimpacta.org.br>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# Custom Group Post-it
+# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
+# @author Aldo Soares <soares_aldo@hotmail.com>
+# License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 {
     'name': 'Custom Group Post-it',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
-    'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
+    'website': 'www.multidadosti.com.br',
     'summary': 'Group calendar, productivity(post-it) and messages',
     'category': 'Web',
-    'sequence': 99,
     'depends': [
         'general_calendar',
         'note',

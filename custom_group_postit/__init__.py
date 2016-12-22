@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#    Custom Group Post-it
-#    Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
-#    @author Aldo Soares <a.soares@itimpacta.org.br>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# Custom Group Post-it
+# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
+# @author Aldo Soares <soares_aldo@hotmail.com>
+# License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
