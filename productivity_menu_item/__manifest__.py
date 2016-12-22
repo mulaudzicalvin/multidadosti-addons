@@ -5,7 +5,7 @@
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 {
-    'name': 'Custom Group Post-it',
+    'name': 'Productivity Menu Item',
     'license': 'LGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
