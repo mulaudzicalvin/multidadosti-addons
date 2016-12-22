@@ -25,17 +25,5 @@
             </xpath>
         </field>
     </record>
-    
-    <record id="multi_view_sale_config_settings" model="ir.ui.view">
-        <field name="name">multi crm settings</field>
-        <field name="model">sale.config.settings</field>
-        <field name="inherit_id" ref="crm.view_sale_config_settings"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='module_crm_voip']" position="replace"/>
-            <xpath expr="//group[@name='config_alias']/label[@for='module_crm_voip']" position="replace"/>
-            <xpath expr="//group[@name='config_sign']" position="replace"/>
-            <xpath expr="//a" position="replace"/>
-        </field>
-    </record>
 
 </odoo>
