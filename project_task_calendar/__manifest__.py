@@ -12,6 +12,9 @@
     'summary': """Custom module developed for visual improvement on project
                module and integration with calendar Support by MultidadosTI""",
     'category': 'Project',
+    'contributors': [
+        'Aldo Soares <soares_aldo@hotmail.com>',
+    ],
     'depends': [
         'project',
         'calendar',

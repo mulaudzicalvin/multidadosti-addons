@@ -11,6 +11,9 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Disable \'powered by Odoo\' footer',
     'category': 'Web',
+    'contributors': [
+        'Michell Stuttgart <michellstut@gmail.com>',
+    ],
     'depends': [
         'web',
     ],

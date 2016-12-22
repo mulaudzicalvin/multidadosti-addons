@@ -14,6 +14,9 @@
     'description': """
         Customizações relacionadas ao módulo sale_crm
     """,
+    'contributors': [
+        'Aldo Soares <soares_aldo@hotmail.com>',
+    ],
     'sequence': 99,
     'depends': [
         'sale',

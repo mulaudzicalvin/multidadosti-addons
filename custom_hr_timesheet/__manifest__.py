@@ -17,6 +17,9 @@
             - progress bar field
             - *enterprises*
     """,
+    'contributors': [
+        'Aldo Soares <soares_aldo@hotmail.com>',
+    ],
     'depends': [
         'hr_timesheet',
         'hr_timesheet_sheet',

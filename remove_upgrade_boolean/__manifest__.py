@@ -4,28 +4,35 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
-    'name': 'Custom Sales Team',
+    'name': 'Remove upgrade boolean',
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
-    'summary': 'Custom Sales Team',
-    'category': 'Sales',
+    'summary': 'Refactory/Customize',
     'description': """
-        Custom module for customize sales_team module
-        Changes:
-            -translate
-            -dashboard view
-    """,
+
+This module refactor these base modules:
+========================================
+
+* base_setup (Initial Setup Tools)
+* sale (Sales)
+* account (Invoicing)
+
+Remove all fields with widget *upgrade_boolean*.
+                       """,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
+    'category': 'Web',
     'sequence': 99,
     'depends': [
-        'sales_team'
+        'base_setup',
+        'sale',
+        'account',
     ],
-    'qweb': [
-        'static/src/xml/sales_team_dashboard.xml',
+    'data': [
+        'views/view_remove_upgrade_boolean.xml',
     ],
     'installable': True,
 }

@@ -15,6 +15,9 @@
     'description': """
         This module customize appearance of his dependencies
     """,
+    'contributors': [
+        'Aldo Soares <soares_aldo@hotmail.com>',
+    ],
     'depends': [
         'web',
         'web_kanban',

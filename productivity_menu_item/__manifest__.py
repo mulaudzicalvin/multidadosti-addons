@@ -11,6 +11,9 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Group calendar, productivity(post-it) and messages',
     'category': 'Web',
+    'contributors': [
+        'Aldo Soares <soares_aldo@hotmail.com>',
+    ],
     'depends': [
         'general_calendar',
         'note',
