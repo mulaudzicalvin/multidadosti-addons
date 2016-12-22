@@ -19,7 +19,7 @@
         'note',
     ],
     'data': [
-        'views/view_custom_group_postit.xml',
+        'views/view_productivity_menu_item.xml',
     ],
     'installable': True,
 }
