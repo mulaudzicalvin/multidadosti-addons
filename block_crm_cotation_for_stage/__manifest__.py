@@ -17,14 +17,11 @@
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
-    'sequence': 99,
     'depends': [
-        'sale',
-        'crm',
         'sale_crm',
     ],
     'data': [
-        'views/view_custom_sale_crm.xml',
+        'views/view_sale_crm.xml',
     ],
     'installable': True,
 }
