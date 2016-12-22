@@ -9,7 +9,7 @@
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
-    'website': 'ww.multidadosti.com.br',
+    'website': 'www.multidadosti.com.br',
     'summary': 'HR User Image Signature',
     'category': 'Web',
     'contributors': [

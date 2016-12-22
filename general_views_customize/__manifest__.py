@@ -9,7 +9,7 @@
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
-    'website': 'https://github.com/multidadosti-erp/multidadosti-addons',
+    'website': 'www.multidadosti.com.br',
     'summary': 'General Views Customize',
     'category': 'Web',
     'sequence': 99,
