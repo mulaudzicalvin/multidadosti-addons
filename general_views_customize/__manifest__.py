@@ -19,9 +19,9 @@
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
     'depends': [
-        'web',
         'web_kanban',
         'br_base',
+        'disable_odoo_online',
     ],
     'data': [
         'views/multi_assets.xml',
