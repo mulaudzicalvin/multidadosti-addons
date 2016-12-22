@@ -15,7 +15,7 @@
     <menuitem
             id="custom_menu_configuration"
             name="Configurações"
-            parent="custom_menu_submenu"
+            parent="custom_menu_root"
             sequence="99"/>
 
     <menuitem
@@ -40,8 +40,8 @@
             sequence="22"/>
 
     <menuitem
-            id="menu_general_calendar"
-            name="Calendário"
+            id="general_calendar.menu_general_calendar"
+            name="Calendário Geral"
             parent="custom_group_postit.custom_menu_submenu"
             sequence="3"
             action="general_calendar.action_general_calendar"
@@ -67,6 +67,11 @@
             id="calendar.menu_calendar_alarm"
             parent="custom_group_postit.custom_menu_configuration"
             action="calendar.action_calendar_alarm"/>
+
+    <menuitem
+            id="general_calendar.general_calendar_line_menu"
+            parent="custom_group_postit.custom_menu_configuration"
+            action="general_calendar.action_general_calendar_line"/>
 
     <record id="multi_view_note_note_form" model="ir.ui.view">
         <field name="name">multi.note.note.form</field>
