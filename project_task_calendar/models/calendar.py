@@ -10,5 +10,5 @@ class CalendarEvent(models.Model):
 
     _inherit = 'calendar.event'
 
-    project_id = fields.Many2one('project.project', string='Project')
-    task_id = fields.Many2one('project.task', string='Task')
+    project_id = fields.Many2one('project.project', string='Projeto')
+    task_id = fields.Many2one('project.task', string='Tarefa')
