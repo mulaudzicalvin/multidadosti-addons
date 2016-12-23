@@ -4,7 +4,7 @@
             id="custom_menu_root"
             name="Comunicações"
             sequence="10"
-            web_icon="custom_group_postit,static/description/icon.png"/>
+            web_icon="productivity_menu_item,static/description/icon.png"/>
 
     <menuitem
             id="custom_menu_submenu"
@@ -22,27 +22,27 @@
             id="note.menu_note_notes"
             name="Notes"
             sequence="3"
-            parent="custom_group_postit.custom_menu_submenu"
+            parent="productivity_menu_item.custom_menu_submenu"
             action="note.action_note_note"
             web_icon="note,static/description/icon.png"/>
 
     <menuitem
             id="note.menu_notes_stage"
             name="Estágios"
-            parent="custom_group_postit.custom_menu_configuration"
+            parent="productivity_menu_item.custom_menu_configuration"
             action="note.action_note_stage"
             sequence="21"/>
 
     <menuitem
             id="note.notes_tag_menu"
-            parent="custom_group_postit.custom_menu_configuration"
+            parent="productivity_menu_item.custom_menu_configuration"
             action="note.note_tag_action"
             sequence="22"/>
 
     <menuitem
             id="general_calendar.general_calendar_menu"
             name="Calendário Geral"
-            parent="custom_group_postit.custom_menu_submenu"
+            parent="productivity_menu_item.custom_menu_submenu"
             sequence="3"
             action="general_calendar.action_general_calendar"
             web_icon="calendar,static/description/icon.png"
@@ -51,7 +51,7 @@
     <menuitem
             id="calendar.mail_menu_calendar"
             name="Calendário"
-            parent="custom_group_postit.custom_menu_submenu"
+            parent="productivity_menu_item.custom_menu_submenu"
             sequence="3"
             action="calendar.action_calendar_event"
             web_icon="calendar,static/description/icon.png"
@@ -62,24 +62,24 @@
             name="Comunicações"
             string="Comunicações"
             action="mail.mail_channel_action_client_chat"
-            parent="custom_group_postit.custom_menu_submenu"
+            parent="productivity_menu_item.custom_menu_submenu"
             web_icon="mail,static/description/icon.png"
             groups="base.group_user"
             sequence="1"/>
 
     <menuitem
             id="calendar.menu_calendar_event_type"
-            parent="custom_group_postit.custom_menu_configuration"
+            parent="productivity_menu_item.custom_menu_configuration"
             action="calendar.action_calendar_event_type"/>
 
     <menuitem
             id="calendar.menu_calendar_alarm"
-            parent="custom_group_postit.custom_menu_configuration"
+            parent="productivity_menu_item.custom_menu_configuration"
             action="calendar.action_calendar_alarm"/>
 
     <menuitem
             id="general_calendar.general_calendar_line_menu"
-            parent="custom_group_postit.custom_menu_configuration"
+            parent="productivity_menu_item.custom_menu_configuration"
             action="general_calendar.action_general_calendar_line"/>
 
     <record id="multi_view_note_note_form" model="ir.ui.view">
