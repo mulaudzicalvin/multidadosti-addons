@@ -1,2 +1,2 @@
-server-tools https://github.com/multidadosti-erp/server-tools.git
+server-tools https://github.com/multidadosti-erp/server-tools.git 10.0-develop
 odoo-brasil https://github.com/multidadosti-erp/odoo-brasil.git
