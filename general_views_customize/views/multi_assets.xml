@@ -1,0 +1,17 @@
+<odoo>
+    <template id="multi_login_layout" name="Multi Login" inherit_id="web.login_layout">
+        <t t-set="head">
+            <link rel="stylesheet" href="/general_views_customize/static/src/css/general_views_customize.css"/>
+        </t>
+    </template>
+    <template id="multi_assets_backend" name="Multi Backend" inherit_id="web.assets_backend">
+        <xpath expr="//script[@src='/web/static/src/js/abstract_web_client.js']" position="replace">
+            <script type="text/javascript" src="/general_views_customize/static/src/js/abstract_web_client.js"></script>
+        </xpath>
+    </template>
+    <template id="multi_assets_backend_favicon" name="Multi Backend" inherit_id="web.layout">
+        <xpath expr="//link[@t-att-href=x_icon or '/web/static/src/img/favicon.ico']" position="replace">
+            <link type="image/x-icon" rel="shortcut icon" t-att-href= "x_icon or '/general_views_customize/static/src/img/favicon.ico'"/>
+        </xpath>
+    </template>
+</odoo>
