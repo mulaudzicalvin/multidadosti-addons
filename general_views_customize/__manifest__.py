@@ -22,6 +22,7 @@
         'web_kanban',
         'br_base',
         'disable_odoo_online',
+        'res_config_settings_enterprise_remove',
     ],
     'data': [
         'views/multi_assets.xml',
@@ -29,7 +30,6 @@
         'static/src/js/abstract_web_client.js',
     ],
     'qweb': [
-        'static/src/xml/base.xml',
         'static/src/xml/dashboard.xml',
         'static/src/xml/web_kanban.xml',
     ],
