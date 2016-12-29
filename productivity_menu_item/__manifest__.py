@@ -11,15 +11,20 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Group calendar, productivity(post-it) and messages',
     'category': 'Web',
+    'sequence': 99,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
     'depends': [
         'general_calendar',
         'note',
+        'mail',
     ],
     'data': [
         'views/view_productivity_menu_item.xml',
+    ],
+    'qweb': [
+        'static/src/xml/client_action.xml'
     ],
     'installable': True,
 }
