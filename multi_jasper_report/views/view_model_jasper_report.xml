@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- DBSource -->
+
+        <record model="ir.ui.view" id="view_dbsource_tree">
+            <field name="name">multi_jasper_dbsource_tree</field>
+            <field name="model">multi_jasper_dbsource</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="External DB Sources">
+                    <field name="name"/>
+                    <field name="connector"/>
+                    <field name="conn_string"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_dbsource_form">
+            <field name="name">multi_jasper_dbsource_form</field>
+            <field name="model">multi_jasper_dbsource</field>
+            <field name="arch" type="xml">
+                <form string="External DB Source">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="password" password="True"/>
+                            </group>
+                        </group>
+                        <group col="1">
+                            <field name="connector"/>
+                            <field name="conn_string"
+                                   placeholder="Please check the tooltip for connection string examples"/>
+                            <button name="connection_test" string="Test Connection" type="object" icon="fa-refresh"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="multi_action_dbsource">
+            <field name="name">External Database Sources</field>
+            <field name="res_model">multi_jasper_dbsource</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_dbsource_tree"/>
+        </record>
+
+        <menuitem id="multi_jasper_menu" name="Multi Reports" sequence="450"/>
+
+        <menuitem id="multi_jasper_submenu" name="Multi Reports"
+                  parent="multi_jasper_menu" sequence="1"/>
+
+        <menuitem id="multi_jasper_config" name="Configurações"
+                  parent="multi_jasper_menu" sequence="2"/>
+
+        <menuitem name="Database Sources" id="menu_dbsource"
+                  parent="multi_jasper_config"
+                  action="multi_action_dbsource"/>
+
+</odoo>
