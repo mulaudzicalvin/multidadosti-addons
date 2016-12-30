@@ -56,7 +56,7 @@
         <menuitem id="multi_jasper_config" name="Configurações"
                   parent="multi_jasper_menu" sequence="2"/>
 
-        <menuitem name="Database Sources" id="menu_dbsource"
+        <menuitem name="Conexões de banco de dados" id="menu_dbsource"
                   parent="multi_jasper_config"
                   action="multi_action_dbsource"/>
 

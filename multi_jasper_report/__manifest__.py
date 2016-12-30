@@ -11,7 +11,7 @@
         'base_external_dbsource',
     ],
     'data': [
-        'views/view_model_jasper_report.xml',
+        'views/view_settings_jasper_report.xml',
     ],
     'application': True,
 }
