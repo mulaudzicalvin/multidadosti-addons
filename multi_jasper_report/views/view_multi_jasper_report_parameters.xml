@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_jasper_report_parameters">
+        <field name="name">multi_jasper_parameters_form</field>
+        <field name="model">multi_jasper_report_parameters</field>
+        <field name="arch" type="xml">
+            <form string="Multi Jasper Report Parameters">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="subquery"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_jasper_report_tree">
+        <field name="name">view_jasper_report_tree</field>
+        <field name="model">multi_jasper_report</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Multi Jasper Reports">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_jasper_report_form">
+        <field name="name">multi_jasper_report_form</field>
+        <field name="model">multi_jasper_report</field>
+        <field name="arch" type="xml">
+            <form string="Multi Jasper Report">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="db_obj"/>
+                            <field name="name"/>
+                            <field name="report"/>
+                        </group>
+                        <group>
+                            <p>
+                                <b>Parâmetros</b><br/><br/>
+                                <field name="parameters" no_label="1"/>
+                            </p>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="multi_action_jasper_report">
+        <field name="name">Multi Jasper Reports</field>
+        <field name="res_model">multi_jasper_report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_jasper_report_tree"/>
+    </record>
+
+    <menuitem name="Lista de Relatórios" id="menu_reports"
+              parent="multi_jasper_submenu"
+              action="multi_action_jasper_report"/>
+
+</odoo>

@@ -1,1 +1,3 @@
-from . import model_jasper_report_model
+# -*- coding: utf-8 -*-
+
+from . import model_multi_jasper_report, model_settings_jasper_report
