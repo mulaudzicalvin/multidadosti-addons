@@ -12,9 +12,9 @@
         'base_external_dbsource',
     ],
     'data': [
+        'views/view_settings_jasper_report.xml',
         'views/view_multi_jasper_report.xml',
         'views/view_multi_jasper_report_parameters.xml',
-        'views/view_settings_jasper_report.xml',
     ],
     'application': True,
 }

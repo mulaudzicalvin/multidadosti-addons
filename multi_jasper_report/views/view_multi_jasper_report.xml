@@ -26,7 +26,7 @@
                         <group>
                             <p>
                                 <b>Parâmetros</b><br/><br/>
-                                <field name="parameters" no_label="1"/>
+                                <field name="parameters" options="{'no_create_edit': True}"/>
                             </p>
                         </group>
                     </group>
