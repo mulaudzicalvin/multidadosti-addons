@@ -93,20 +93,14 @@ class MultiJasperReport(models.Model):
             for item in self.parameters:
                 dict_list.update({item.name: item.subquery})
 
-            con_string = self.db_obj.conn_string.split(' ')
-            db_param = {}
-
-            for i in range(len(con_string)):
-                con_string[i] = con_string[i].split('=')
-                db_param.update(
-                    {con_string[i][0]: con_string[i][1].replace("'", "")})
-
-            db_param["username"] = db_param["user"]
-            db_param["database"] = db_param["dbname"]
-            db_param["password"] = self.db_obj.password
-            db_param["driver"] = self.db_obj.connector
-            db_param.pop("user")
-            db_param.pop("dbname")
+            db_param = {
+                "username": self.db_obj.user_field,
+                "database": self.db_obj.dbname,
+                "host": self.db_obj.host,
+                "port": self.db_obj.port,
+                "password": self.db_obj.password,
+                "driver": self.db_obj.connector
+            }
 
             jasper = pyjasper.JasperPy()
             jasper.process(file_input, self.path_report, ["pdf"],
