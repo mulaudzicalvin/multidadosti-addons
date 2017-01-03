@@ -23,6 +23,7 @@
                             <field name="name"/>
                             <field name="report"/>
                             <button string="Gerar Relatório" type="object" name="get_report" class="oe_highlight"/>
+                            <button string="Download Relatório" type="object" name="get_file_report"/>
                         </group>
                         <group>
                             <p>

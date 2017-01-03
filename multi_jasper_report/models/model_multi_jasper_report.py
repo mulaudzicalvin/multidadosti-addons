@@ -1,16 +1,26 @@
 # -*- coding: utf-8 -*-
 
+import base64
 import os
+import pyjasper
 import re
 from tempfile import NamedTemporaryFile
-import pyjasper
+
+from odoo import http
+from odoo.http import request
+from odoo.http import content_disposition
+from odoo.addons.web.controllers.main import serialize_exception
+
 from odoo import models, fields, api
 
 
 class MultiJasperReport(models.Model):
+
     _name = 'multi_jasper_report'
 
     path_report = ""
+
+    url_param = fields.Char()
 
     name = fields.Char(
         string=u"Nome")
@@ -64,6 +74,7 @@ class MultiJasperReport(models.Model):
             self.path_report = os.path.dirname(os.path.dirname(__file__)) + '/temp'
             file_temp = NamedTemporaryFile(dir=self.path_report, suffix='.jrxml',
                                            delete=False)
+            self.url_param = file_temp.name.replace(self.path_report+'/', "")
             file_temp.write(self.report.decode('base64'))
             file_temp.close()
             input = file_temp.name
@@ -88,10 +99,39 @@ class MultiJasperReport(models.Model):
             jasper = pyjasper.JasperPy()
             jasper.process(input, self.path_report, ["pdf"],
                            parameters=dict_list, db_connection=db_param).execute()
+            print self.url_param
             # self.url_report = str(file_temp.name).replace('jrxml', 'pdf')
             # os.unlink(input)
         else:
             print "Insira um Relatório"
+
+    @api.multi
+    def get_file_report(self):
+        self.ensure_one()
+        self.url_param = self.url_param.replace("jrxml", "pdf")
+        return {
+            'type': 'ir.actions.act_url',
+            'url': '/web/binary/download_document?filename=%s' %
+                   self.url_param, 'target': 'self',
+        }
+
+
+class Binary(http.Controller):
+    @http.route('/web/binary/download_document', type='http', auth="public")
+    @serialize_exception
+    def download_document(self, filename=None):
+
+        file_c = open(os.path.dirname(os.path.dirname(__file__))
+                      + '/temp/' + filename, 'rb')
+
+        filecontent = file_c.read()
+        file_c.close()
+
+        return request.make_response(filecontent,
+                                     [('Content-Type',
+                                       'application/octet-stream'),
+                                      ('Content-Disposition'
+                                       , content_disposition(filename))])
 
 
 class MultiJasperReportParameters(models.Model):
@@ -102,3 +142,4 @@ class MultiJasperReportParameters(models.Model):
 
     subquery = fields.Char(
         string=u"SubQuery")
+
