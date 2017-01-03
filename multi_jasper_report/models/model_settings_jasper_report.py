@@ -82,6 +82,14 @@ class BaseExternalDbsource(models.Model):
     - SQLite: sqlite:///test.db
     """)
 
+    dbname = fields.Char('Nome DB')
+
+    user_field = fields.Char('Usuário')
+
+    host = fields.Char('Host')
+
+    port = fields.Char('Porta')
+
     password = fields.Char('Password', size=40)
 
     connector = fields.Selection(CONNECTORS, 'Connector', required=True,
@@ -97,6 +105,15 @@ class BaseExternalDbsource(models.Model):
         self.ensure_one()
         # Get dbsource record
         # Build the full connection string
+        if self.connector == 'postgres':
+            self.conn_string = "dbname='{0}' " \
+                                        "user='{1}' " \
+                                        "host='{2}' " \
+                                        "port='{3}' " \
+                                        "password=%s".format(self.dbname,
+                                                             self.user_field,
+                                                             self.host,
+                                                             self.port)
         connStr = self.conn_string
         if self.password:
             if '%s' not in self.conn_string:

@@ -10,7 +10,6 @@
                 <tree string="External DB Sources">
                     <field name="name"/>
                     <field name="connector"/>
-                    <field name="conn_string"/>
                 </tree>
             </field>
         </record>
@@ -21,19 +20,22 @@
             <field name="arch" type="xml">
                 <form string="External DB Source">
                     <sheet>
-                        <group>
-                            <group>
-                                <field name="name"/>
-                            </group>
-                            <group>
-                                <field name="password" password="True"/>
-                            </group>
-                        </group>
                         <group col="1">
-                            <field name="connector"/>
-                            <field name="conn_string"
-                                   placeholder="Please check the tooltip for connection string examples"/>
-                            <button name="connection_test" string="Test Connection" type="object" icon="fa-refresh"/>
+                            <group>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="dbname"/>
+                                    <field name="host"/>
+                                    <field name="port"/>
+                                </group>
+                                <group>
+                                    <field name="connector"/>
+                                    <field name="user_field"/>
+                                    <field name="password" password="True"/>
+                                    <button name="connection_test" string="Test Connection" type="object" icon="fa-refresh"/>
+                                </group>
+                            </group>
+                            <field name="conn_string" invisible="1"/>
                         </group>
                     </sheet>
                 </form>
