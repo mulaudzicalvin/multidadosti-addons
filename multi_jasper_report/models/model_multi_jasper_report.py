@@ -56,10 +56,7 @@ class MultiJasperReport(models.Model):
             param_dic = {}
             param_output = output
             line_param = param_output.split('\n')
-
-            if len(self.parameters) > 0:
-                self.parameters = [(5)]
-
+    
             for i in range(len(line_param)):
                 param_item = re.findall(r"[\S]+", line_param[i])
                 if param_item:
