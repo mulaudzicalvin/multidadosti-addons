@@ -105,7 +105,18 @@ class BaseExternalDbsource(models.Model):
         self.ensure_one()
         # Get dbsource record
         # Build the full connection string
-        if self.connector == 'postgres':
+
+        if self.connector == 'fdb':
+            self.conn_string = "host={0};" \
+                                         "database={1}" \
+                                         "user={2};" \
+                                         "password=%s;" \
+                                         "port={3};" \
+                                         "charset=utf8".format(self.dbname,
+                                                             self.user_field,
+                                                             self.host,
+                                                             self.port)
+        elif self.connector == 'postgres':
             self.conn_string = "dbname='{0}' " \
                                         "user='{1}' " \
                                         "host='{2}' " \
