@@ -28,8 +28,9 @@
                         <group>
                             <p>
                                 <b>Parâmetros</b><br/><br/>
-                                <field name="parameters" options="{'no_create_edit': True}"/>
-                                <button string="Listar Parâmetros" type="object" name="listing_parameters" class="oe_highlight"/>
+                                <field name="parameters"/>
+                                <field name="check_parameters" invisible="1"/>
+                                <button string="Listar Parâmetros" type="object" attrs="{'invisible': [('check_parameters', '=', True)]}" name="listing_parameters" class="oe_highlight"/>
                             </p>
                         </group>
                     </group>

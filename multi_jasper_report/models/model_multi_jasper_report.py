@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import base64
 import os
 import pyjasper
 import re
@@ -22,6 +21,8 @@ class MultiJasperReport(models.Model):
 
     url_param = fields.Char()
 
+    check_parameters = fields.Boolean()
+
     name = fields.Char(
         string=u"Nome")
 
@@ -32,8 +33,9 @@ class MultiJasperReport(models.Model):
     report = fields.Binary(
         string=u"Relatório")
 
-    parameters = fields.Many2many(
+    parameters = fields.One2many(
         comodel_name="multi_jasper_report_parameters",
+        inverse_name="report_id",
         string=u"Parâmetros")
 
     @api.multi
@@ -47,15 +49,15 @@ class MultiJasperReport(models.Model):
 
             file_temp.write(self.report.decode('base64'))
             file_temp.close()
-            input = file_temp.name
+            file_input = file_temp.name
             jasper = pyjasper.JasperPy()
-            output = jasper.list_parameters(input).execute()
-            os.unlink(input)
+            output = jasper.list_parameters(file_input).execute()
+            os.unlink(file_input)
             param_dic = {}
             param_output = output
             line_param = param_output.split('\n')
 
-            if self.parameters._ids.__len__() > 0:
+            if len(self.parameters) > 0:
                 self.parameters = [(5)]
 
             for i in range(len(line_param)):
@@ -63,22 +65,31 @@ class MultiJasperReport(models.Model):
                 if param_item:
                     param_dic.update({param_item[1]: param_item[2]})
                     self.parameters = [(0, 0, {'name': param_item[1]})]
-                    # return output
-        else:
-            print "Insira um Relatório"
+
+            if len(self.parameters):
+                self.check_parameters = True
+            else:
+                self.check_parameters = False
+
+        return 0
 
     @api.multi
     def get_report(self):
         self.ensure_one()
         if self.report:
-            self.path_report = os.path.dirname(os.path.dirname(__file__)) + '/temp'
-            file_temp = NamedTemporaryFile(dir=self.path_report, suffix='.jrxml',
+            self.path_report = os.path.dirname(os.path.dirname(__file__)) + \
+                               '/temp'
+
+            file_temp = NamedTemporaryFile(dir=self.path_report,
+                                           suffix='.jrxml',
                                            delete=False)
+
             self.url_param = file_temp.name.replace(self.path_report+'/', "")
             file_temp.write(self.report.decode('base64'))
             file_temp.close()
-            input = file_temp.name
+            file_input = file_temp.name
             dict_list = {}
+
             for item in self.parameters:
                 dict_list.update({item.name: item.subquery})
 
@@ -87,7 +98,8 @@ class MultiJasperReport(models.Model):
 
             for i in range(len(con_string)):
                 con_string[i] = con_string[i].split('=')
-                db_param.update({con_string[i][0]: con_string[i][1].replace("'", "")})
+                db_param.update(
+                    {con_string[i][0]: con_string[i][1].replace("'", "")})
 
             db_param["username"] = db_param["user"]
             db_param["database"] = db_param["dbname"]
@@ -97,13 +109,8 @@ class MultiJasperReport(models.Model):
             db_param.pop("dbname")
 
             jasper = pyjasper.JasperPy()
-            jasper.process(input, self.path_report, ["pdf"],
+            jasper.process(file_input, self.path_report, ["pdf"],
                            parameters=dict_list, db_connection=db_param).execute()
-            print self.url_param
-            # self.url_report = str(file_temp.name).replace('jrxml', 'pdf')
-            # os.unlink(input)
-        else:
-            print "Insira um Relatório"
 
     @api.multi
     def get_file_report(self):
@@ -136,6 +143,8 @@ class Binary(http.Controller):
 
 class MultiJasperReportParameters(models.Model):
     _name = 'multi_jasper_report_parameters'
+
+    report_id = fields.Many2one()
 
     name = fields.Char(
         string=u"Nome")
