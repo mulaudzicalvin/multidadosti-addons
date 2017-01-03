@@ -57,7 +57,7 @@ except:
     _logger.info('Firebird libraries not available. Please install "fdb"\
                  python package.')
 
-CONNECTORS.append(('postgresql', 'PostgreSQL'))
+CONNECTORS.append(('postgres', 'PostgreSQL'))
 
 
 class BaseExternalDbsource(models.Model):
@@ -114,7 +114,7 @@ class BaseExternalDbsource(models.Model):
         elif self.connector == 'fdb':
             kwargs = dict([x.split('=') for x in connStr.split(';')])
             conn = fdb.connect(**kwargs)
-        elif self.connector == 'postgresql':
+        elif self.connector == 'postgres':
             conn = psycopg2.connect(connStr)
 
         return conn
