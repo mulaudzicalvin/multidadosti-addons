@@ -56,7 +56,7 @@ class MultiJasperReport(models.Model):
             param_dic = {}
             param_output = output
             line_param = param_output.split('\n')
-    
+
             for i in range(len(line_param)):
                 param_item = re.findall(r"[\S]+", line_param[i])
                 if param_item:
@@ -81,7 +81,6 @@ class MultiJasperReport(models.Model):
                                            suffix='.jrxml',
                                            delete=False)
 
-            self.url_param = file_temp.name.replace(self.path_report+'/', "")
             file_temp.write(self.report.decode('base64'))
             file_temp.close()
             file_input = file_temp.name
@@ -103,10 +102,12 @@ class MultiJasperReport(models.Model):
             jasper.process(file_input, self.path_report, ["pdf"],
                            parameters=dict_list, db_connection=db_param).execute()
 
+            self.url_param = file_temp.name.replace(self.path_report+'/', "")
+            self.url_param = self.url_param.replace("jrxml", "pdf")
+
     @api.multi
     def get_file_report(self):
         self.ensure_one()
-        self.url_param = self.url_param.replace("jrxml", "pdf")
         return {
             'type': 'ir.actions.act_url',
             'url': '/web/binary/download_document?filename=%s' %
