@@ -5,6 +5,7 @@ import pyjasper
 import re
 from tempfile import NamedTemporaryFile
 
+from odoo.exceptions import ValidationError
 from odoo import http
 from odoo.http import request
 from odoo.http import content_disposition
@@ -40,18 +41,28 @@ class MultiJasperReport(models.Model):
         inverse_name="report_id",
         string=u"Parâmetros")
 
+    def create_temp_file(self):
+        file_temp = NamedTemporaryFile(
+            dir=os.path.dirname(os.path.dirname(__file__)) + '/temp',
+            suffix='.jrxml',
+            delete=False)
+
+        file_temp.write(self.report.decode('base64'))
+        file_temp.close()
+        return file_temp.name
+
+    @api.onchange('parameters')
+    def check_parameters_field(self):
+        if len(self.parameters) == 0:
+            self.check_parameters = True
+        else:
+            self.check_parameters = False
+
     @api.multi
     def listing_parameters(self):
         self.ensure_one()
         if self.report:
-            file_temp = NamedTemporaryFile(
-                dir=os.path.dirname(os.path.dirname(__file__)) + '/temp',
-                suffix='.jrxml',
-                delete=False)
-
-            file_temp.write(self.report.decode('base64'))
-            file_temp.close()
-            file_input = file_temp.name
+            file_input = self.create_temp_file()
             jasper = pyjasper.JasperPy()
             output = jasper.list_parameters(file_input).execute()
             os.unlink(file_input)
@@ -65,16 +76,14 @@ class MultiJasperReport(models.Model):
                     param_dic.update({param_item[1]: param_item[2]})
                     self.parameters = [(0, 0, {'name': param_item[1]})]
 
-            if len(self.parameters):
-                self.check_parameters = True
-            else:
-                self.check_parameters = False
+            self.check_parameters_field()
 
         return 0
 
     @api.multi
     def get_report(self):
         self.ensure_one()
+
         if self.report:
             self.path_report = os.path.dirname(os.path.dirname(__file__)) + \
                                '/temp'
@@ -89,6 +98,11 @@ class MultiJasperReport(models.Model):
             dict_list = {}
 
             for item in self.parameters:
+                if item and not item.subquery:
+                    os.unlink(file_input)
+                    raise ValidationError(
+                        "Há parâmetro(s) sem entrada de valor(es),"
+                        " por favor forneça valor(es) ao(s) parâmetro(s)")
                 dict_list.update({item.name: item.subquery})
 
             db_param = {

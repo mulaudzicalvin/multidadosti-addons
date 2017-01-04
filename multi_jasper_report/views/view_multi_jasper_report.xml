@@ -22,17 +22,21 @@
                             <field name="db_obj"/>
                             <field name="name"/>
                             <field name="report"/>
-                            <field name="url_param" invisible="1"/>
-                            <button string="Gerar Relatório" type="object" name="get_report" class="oe_highlight"/>
-                            <button string="Download Relatório" type="object" name="get_file_report" attrs="{'invisible': [('url_param', '=', False)]}"/>
+                            <field name="pdf_report" invisible="1"/>
                         </group>
                         <group>
                             <p>
-                                <b>Parâmetros</b><br/><br/>
+                                <b>Parâmetros</b>
                                 <field name="parameters"/>
                                 <field name="check_parameters" invisible="1"/>
-                                <button string="Listar Parâmetros" type="object" attrs="{'invisible': [('check_parameters', '=', True)]}" name="listing_parameters" class="oe_highlight"/>
+                                <button string="Listar Parâmetros" type="object" attrs="{'invisible': [('check_parameters', '=', False)]}" name="listing_parameters" class="oe_highlight"/>
                             </p>
+                        </group>
+                        <group col="4">
+                            <group colspan="2">
+                                <button string="Gerar Relatório" type="object" name="get_report" class="oe_highlight"/>
+                                <button string="Download Relatório" type="object" name="get_file_report" attrs="{'invisible': [('pdf_report', '=', False)]}"/>
+                            </group>
                         </group>
                     </group>
                 </sheet>
