@@ -9,9 +9,10 @@ from odoo import fields, models
 class CRMStage(models.Model):
     _inherit = "crm.stage"
 
-    allow_quotation = fields.Boolean(string=u'Permitir Nova Cotação?',
-                                     help=u'Indica se é possivel criar uma '
-                                          u'nova cotação neste estágio.')
+    allow_quotation = fields.Boolean(string='Allow Quotation',
+                                     default=True,
+                                     help='Allow create quotation when '
+                                          'opportunity is in this state.')
 
 
 class CRMLead(models.Model):
