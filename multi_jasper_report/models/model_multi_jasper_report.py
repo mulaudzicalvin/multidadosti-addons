@@ -79,7 +79,7 @@ class MultiJasperReport(models.Model):
     @api.multi
     def listing_parameters(self):
         self.ensure_one()
-        if self.report:
+        if self.report and self.db_obj:
             file_input = self.create_temp_file()
 
             jasper = pyjasper.JasperPy()
@@ -90,6 +90,9 @@ class MultiJasperReport(models.Model):
 
             self.generate_param_dict(line_param)
             self.check_parameters_field()
+        elif not self.db_obj:
+            raise ValidationError(
+                "Não há banco relacionado para consulta")
         else:
             raise ValidationError(
                 "Não há relatorio anexado para listagem")
@@ -100,7 +103,7 @@ class MultiJasperReport(models.Model):
     def get_report(self):
         self.ensure_one()
 
-        if self.report:
+        if self.report and self.db_obj:
             self.path_report = os.path.dirname(os.path.dirname(__file__)) + \
                                '/temp'
 
@@ -130,6 +133,13 @@ class MultiJasperReport(models.Model):
                 os.unlink(file_input)
                 os.unlink(file_input.replace("jrxml", "pdf"))
 
+        elif not self.db_obj:
+            raise ValidationError(
+                "Não há banco relacionado para consulta")
+        else:
+            raise ValidationError(
+                "Não há relatorio anexado para listagem")
+
     @api.multi
     def get_file_report(self):
         self.ensure_one()
@@ -142,7 +152,7 @@ class MultiJasperReport(models.Model):
                    ''.format(self.id,
                              'multi_jasper_report',
                              self.name),
-            'target': 'self',
+            'target': '_blank',
         }
 
 
