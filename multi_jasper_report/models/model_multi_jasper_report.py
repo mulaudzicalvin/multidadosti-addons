@@ -20,8 +20,6 @@ class MultiJasperReport(models.Model):
 
     path_report = ""
 
-    url_param = fields.Char()
-
     check_parameters = fields.Boolean()
 
     name = fields.Char(
@@ -51,6 +49,26 @@ class MultiJasperReport(models.Model):
         file_temp.close()
         return file_temp.name
 
+    def generate_param_dict(self, line_param):
+        param_dic = {}
+        for i in range(len(line_param)):
+            param_item = re.findall(r"[\S]+", line_param[i])
+            if param_item:
+                param_dic.update({param_item[1]: param_item[2]})
+                self.parameters = [(0, 0, {'name': param_item[1]})]
+        return 0
+
+    def pass_params(self, file_input):
+        dict_list = {}
+        for item in self.parameters:
+            if item and not item.subquery:
+                os.unlink(file_input)
+                raise ValidationError(
+                    "Há parâmetro(s) sem entrada de valor(es),"
+                    " por favor forneça valor(es) ao(s) parâmetro(s)")
+            dict_list.update({item.name: item.subquery})
+        return dict_list
+
     @api.onchange('parameters')
     def check_parameters_field(self):
         if len(self.parameters) == 0:
@@ -63,19 +81,14 @@ class MultiJasperReport(models.Model):
         self.ensure_one()
         if self.report:
             file_input = self.create_temp_file()
+
             jasper = pyjasper.JasperPy()
             output = jasper.list_parameters(file_input).execute()
             os.unlink(file_input)
-            param_dic = {}
             param_output = output
             line_param = param_output.split('\n')
 
-            for i in range(len(line_param)):
-                param_item = re.findall(r"[\S]+", line_param[i])
-                if param_item:
-                    param_dic.update({param_item[1]: param_item[2]})
-                    self.parameters = [(0, 0, {'name': param_item[1]})]
-
+            self.generate_param_dict(line_param)
             self.check_parameters_field()
 
         return 0
@@ -88,22 +101,8 @@ class MultiJasperReport(models.Model):
             self.path_report = os.path.dirname(os.path.dirname(__file__)) + \
                                '/temp'
 
-            file_temp = NamedTemporaryFile(dir=self.path_report,
-                                           suffix='.jrxml',
-                                           delete=False)
-
-            file_temp.write(self.report.decode('base64'))
-            file_temp.close()
-            file_input = file_temp.name
-            dict_list = {}
-
-            for item in self.parameters:
-                if item and not item.subquery:
-                    os.unlink(file_input)
-                    raise ValidationError(
-                        "Há parâmetro(s) sem entrada de valor(es),"
-                        " por favor forneça valor(es) ao(s) parâmetro(s)")
-                dict_list.update({item.name: item.subquery})
+            file_input = self.create_temp_file()
+            dict_list = self.pass_params(file_input)
 
             db_param = {
                 "username": self.db_obj.user_field,
@@ -121,16 +120,12 @@ class MultiJasperReport(models.Model):
                            parameters=dict_list,
                            db_connection=db_param).execute()
 
-            self.url_param = file_temp.name.replace(self.path_report+'/', "")
-            self.url_param = self.url_param.replace("jrxml", "pdf")
-
             try:
-                file_pdf = open(os.path.dirname(os.path.dirname(__file__))
-                              + '/temp/' + self.url_param, 'rb')
+                file_pdf = open(file_input.replace("jrxml", "pdf"), 'rb')
                 self.pdf_report = file_pdf.read().encode('base64')
             finally:
-                os.unlink(file_temp.name)
-                os.unlink(file_temp.name.replace("jrxml", "pdf"))
+                os.unlink(file_input)
+                os.unlink(file_input.replace("jrxml", "pdf"))
 
     @api.multi
     def get_file_report(self):
@@ -173,4 +168,3 @@ class MultiJasperReportParameters(models.Model):
 
     subquery = fields.Char(
         string=u"SubQuery")
-
