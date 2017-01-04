@@ -31,4 +31,4 @@ Contributors
 
 Credits
 =======
-Copyright (C) 2016 by MultidadosTI
+Copyright (C) 2016-2017 by MultidadosTI
