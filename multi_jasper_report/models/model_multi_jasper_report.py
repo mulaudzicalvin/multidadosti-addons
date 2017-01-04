@@ -33,6 +33,8 @@ class MultiJasperReport(models.Model):
     report = fields.Binary(
         string=u"Relatório")
 
+    pdf_report = fields.Binary()
+
     parameters = fields.One2many(
         comodel_name="multi_jasper_report_parameters",
         inverse_name="report_id",
@@ -99,32 +101,46 @@ class MultiJasperReport(models.Model):
             }
 
             jasper = pyjasper.JasperPy()
-            jasper.process(file_input, self.path_report, ["pdf"],
-                           parameters=dict_list, db_connection=db_param).execute()
+            jasper.process(file_input,
+                           self.path_report,
+                           ["pdf"],
+                           parameters=dict_list,
+                           db_connection=db_param).execute()
 
             self.url_param = file_temp.name.replace(self.path_report+'/', "")
             self.url_param = self.url_param.replace("jrxml", "pdf")
+
+            try:
+                file_pdf = open(os.path.dirname(os.path.dirname(__file__))
+                              + '/temp/' + self.url_param, 'rb')
+                self.pdf_report = file_pdf.read().encode('base64')
+            finally:
+                os.unlink(file_temp.name)
+                os.unlink(file_temp.name.replace("jrxml", "pdf"))
 
     @api.multi
     def get_file_report(self):
         self.ensure_one()
         return {
             'type': 'ir.actions.act_url',
-            'url': '/web/binary/download_document?filename=%s' %
-                   self.url_param, 'target': 'self',
+            'url': '/web/binary/download_document?'
+                   'id_rep={0}&'
+                   'model={1}&'
+                   'filename={2}_{0}.pdf'
+                   ''.format(self.id,
+                             'multi_jasper_report',
+                             self.name),
+            'target': 'self',
         }
 
 
 class Binary(http.Controller):
     @http.route('/web/binary/download_document', type='http', auth="public")
     @serialize_exception
-    def download_document(self, filename=None):
+    def download_document(self, model, id_rep, filename=None):
 
-        file_c = open(os.path.dirname(os.path.dirname(__file__))
-                      + '/temp/' + filename, 'rb')
-
-        filecontent = file_c.read()
-        file_c.close()
+        file_c = request.env[model].search([("id", "=", id_rep)]).pdf_report
+        filecontent = file_c.decode('base64')
 
         return request.make_response(filecontent,
                                      [('Content-Type',
