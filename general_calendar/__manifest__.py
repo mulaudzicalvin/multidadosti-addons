@@ -11,7 +11,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': """
         Merge calendars in a general calendar.
-        Support by MultidadosTI
     """,
     'category': 'Sales',
     'contributors': [

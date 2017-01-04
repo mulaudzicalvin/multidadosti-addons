@@ -1,7 +1,7 @@
 GENERAL CALENDAR
 ==============
 
-This module allows to create configurable calendars.
+This module allows to merge differently calendars in a same calendar.
 
 Through the 'general calendar line' object, you can specify which models have
 to be merged in the general calendar. For each model, you have to define the
@@ -21,7 +21,7 @@ After installing the module you can go to
 
 *General calendar > Configuration > Add Calendars*
 
-and create a new calendar. The Calendar Events from 'calendar' module come by default.
+and create a new calendar. The Calendar Events from `Calendar <https://github.com/multidadosti-erp/odoo/tree/10.0/addons/calendar>`_ module come by default.
 For instance, if you want to see project tasks and sale orders, you can create the following lines
 
 Project Task:
@@ -34,7 +34,7 @@ Sale Orders:
 .. image:: general_calendar/static/description/sale_order.png
    :width: 400 px
 
-You can visualize it by the 'general calendar' main menu.
+You can visualize it in the 'general calendar' main menu.
 
 Here is a sample monthly calendar:
 
