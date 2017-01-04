@@ -24,7 +24,7 @@
                             <field name="report"/>
                             <field name="pdf_report" invisible="1"/>
                         </group>
-                        <group>
+                        <group attrs="{'invisible': [('report', '=', False)]}">
                             <p>
                                 <b>Parâmetros</b>
                                 <field name="parameters"/>
@@ -32,7 +32,7 @@
                                 <button string="Listar Parâmetros" type="object" attrs="{'invisible': [('check_parameters', '=', False)]}" name="listing_parameters" class="oe_highlight"/>
                             </p>
                         </group>
-                        <group col="4">
+                        <group col="4" attrs="{'invisible': [('report', '=', False)]}">
                             <group colspan="2">
                                 <button string="Gerar Relatório" type="object" name="get_report" class="oe_highlight"/>
                                 <button string="Download Relatório" type="object" name="get_file_report" attrs="{'invisible': [('pdf_report', '=', False)]}"/>

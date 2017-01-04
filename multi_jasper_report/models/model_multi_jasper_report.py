@@ -90,6 +90,9 @@ class MultiJasperReport(models.Model):
 
             self.generate_param_dict(line_param)
             self.check_parameters_field()
+        else:
+            raise ValidationError(
+                "Não há relatorio anexado para listagem")
 
         return 0
 
