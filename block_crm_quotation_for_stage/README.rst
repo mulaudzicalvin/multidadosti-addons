@@ -6,22 +6,22 @@ This Module gives the feature of block Quotation creation in one or more opportu
 In your Odoo web interface, under the Sale section, Sales & Opportunities menu is there. 
 Select a crm stage to block quotation create
 
-.. image:: block_crm_quotation_for_stage/static/description/screenshot_01.png
+.. image:: static/description/screenshot_01.png
    :width: 400 px
 
 Select the desired crm state and check the "Allow Quotation" field.
 
-.. image:: block_crm_quotation_for_stage/static/description/screenshot_02.png
+.. image:: static/description/screenshot_02.png
    :width: 400 px
 
 Create quotation create only in selected state.
 
-.. image:: block_crm_quotation_for_stage/static/description/screenshot_03.png
+.. image:: static/description/screenshot_03.png
    :width: 400 px
    
 In the others states the create quotation button is not visible.
    
-.. image:: block_crm_quotation_for_stage/static/description/screenshot_04.png
+.. image:: static/description/screenshot_04.png
    :width: 400 px
    
 Contributors
