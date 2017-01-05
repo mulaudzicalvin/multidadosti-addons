@@ -1,4 +1,4 @@
-MultidadosTI Disable Powered Odoo Footer
+Disable Powered Odoo Footer
 ========================================
 
 This module remove "Powered by Odoo" footer from interface.
@@ -17,4 +17,4 @@ This module will be install automatically on init database.
 
 Credits
 =======
-Copyright (C) 2016 by MultidadosTI
+Copyright (C) 2016-2017 by MultidadosTI

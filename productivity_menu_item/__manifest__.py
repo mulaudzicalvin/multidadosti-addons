@@ -14,6 +14,7 @@
     'sequence': 99,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
+        'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
         'general_calendar',

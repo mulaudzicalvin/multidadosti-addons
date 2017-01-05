@@ -13,6 +13,7 @@
     'category': 'Web',
     'contributors': [
         'Michell Stuttgart <michellstut@gmail.com>',
+        'Aldo Soares <soares_aldo@hotmail.com>',
     ],
     'depends': [
         'web',

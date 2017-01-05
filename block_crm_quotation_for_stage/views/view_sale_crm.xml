@@ -20,7 +20,19 @@
         <field name="inherit_id" ref="crm.crm_stage_form"/>
         <field name="priority" eval="1"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='on_change']" position="before">
+            <xpath expr="//field[@name='fold']" position="after">
+                <field name="allow_quotation"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="multi_crm_stage_tree" model="ir.ui.view">
+        <field name="name">multi.crm.stage.tree</field>
+        <field name="model">crm.stage</field>
+        <field name="inherit_id" ref="crm.crm_stage_tree"/>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']" position="after">
                 <field name="allow_quotation"/>
             </xpath>
         </field>

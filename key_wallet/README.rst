@@ -1,6 +1,5 @@
-ABOUT
+Key Wallet
 ==============
-
 This module allows to manage password in groups.
 
 Through the 'key_wallet' object, you can store team password and prove access by user groups.
