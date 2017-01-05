@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_key_wallet_password_user,key.wallet.password.user,model_key_wallet_password,key_wallet.group_key_wallet_user,1,1,1,1
-access_key_wallet_password_admin,key.wallet.password.admin,model_key_wallet_password,base.group_system,1,1,1,1
-access_key_wallet_category_user,key.wallet.category.user,model_key_wallet_category,key_wallet.group_key_wallet_user,1,1,1,1
-access_key_wallet_category_admin,key.wallet.category.admin,model_key_wallet_category,base.group_system,1,1,1,1
+access_key_wallet_password_user,key.wallet.password.user,model_key_wallet_password,key_wallet.group_key_wallet_user,1,0,0,0
+access_key_wallet_password_admin,key.wallet.password.admin,model_key_wallet_password,key_wallet.group_key_wallet_manager,1,1,1,1
+access_key_wallet_category_user,key.wallet.category.user,model_key_wallet_category,key_wallet.group_key_wallet_user,1,0,0,0
+access_key_wallet_category_admin,key.wallet.category.admin,model_key_wallet_category,key_wallet.group_key_wallet_manager,1,1,1,1
