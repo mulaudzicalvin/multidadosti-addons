@@ -21,50 +21,32 @@
                                 name="get_report" class="oe_highlight"/>
                         <button string="Download Report" type="object"
                                 name="get_file_report"
-                                attrs="{'invisible': [('pdf_report', '=', False)]}"/>
+                                attrs="{'invisible': [('file_report_binary', '=', False)]}"/>
                     </header>
                 <sheet>
                     <group>
                         <group>
                             <field name="name"/>
                             <field name="db_obj"/>
-                            <field name="report_template_filename" invisible="1"/>
-                            <field name="report_template" filename="report_template_filename"/>
-                            <field name="pdf_report_filename" invisible="1"/>
-                            <field name="pdf_report" invisible="1"/>
+                            <field name="template_filename" invisible="1"/>
+                            <field name="template" filename="template_filename"/>
+                            <field name="file_report_binary" invisible="1"/>
+                            <field name="output_format"/>
                         </group>
 
-                        <!--<group attrs="{'invisible': [('report', '=', False)]}">-->
-                            <!--<p>-->
-                                <!--<b>Parameters</b>-->
-                                <!--<field name="parameters"/>-->
-                                <!--<field name="check_parameters" invisible="1"/>-->
-                                <!--<button string="List Parameters"-->
-                                        <!--type="object"-->
-                                        <!--attrs="{'invisible': [('check_parameters', '=', False)]}"-->
-                                        <!--name="listing_parameters"-->
-                                        <!--class="oe_highlight"/>-->
-                            <!--</p>-->
-                        <!--</group>-->
-                        <!--<group col="4" attrs="{'invisible': [('report', '=', False)]}">-->
-                        <!--<group colspan="2">-->
-                        <!--<button string="Gerar Relatório" type="object" name="get_report" class="oe_highlight"/>-->
-                        <!--<button string="Download Relatório" type="object" name="get_file_report" attrs="{'invisible': [('pdf_report', '=', False)]}"/>-->
-                        <!--</group>-->
-                        <!--</group>-->
                     </group>
                     <notebook>
-                            <page string="Parameters">
-                                <field name="parameters"/>
-                                <field name="check_parameters" invisible="1"/>
-                                <button string="List Parameters"
-                                        type="object"
-                                        attrs="{'invisible': [('check_parameters', '=', False)]}"
-                                        name="listing_parameters"
-                                        class="oe_highlight"/>
+                        <page string="Parameters">
+                            <field name="parameters"/>
+                            <field name="check_parameters" invisible="1"/>
+                            <button string="List Parameters"
+                                    type="object"
+                                    attrs="{'invisible': [('check_parameters', '=', False)]}"
+                                    name="listing_parameters"
+                                    class="oe_highlight"/>
 
-                            </page>
-                        </notebook>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

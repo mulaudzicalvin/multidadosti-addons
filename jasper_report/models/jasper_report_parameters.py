@@ -10,5 +10,6 @@ class JasperReportParameters(models.Model):
     _name = 'jasper.report.parameters'
 
     name = fields.Char('Name')
-    report_id = fields.Many2one('jasper.report', string='Report')
     subquery = fields.Char('SQL Query')
+    report_id = fields.Many2one('jasper.report', string='Report')
+

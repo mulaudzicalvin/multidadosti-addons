@@ -14,36 +14,46 @@ from odoo.http import request
 from odoo.http import content_disposition
 from odoo.addons.web.controllers.main import serialize_exception
 
-from odoo import models, fields, api
+from odoo import api, fields, models
+
+
+FORMAT = [('html', 'HTML'),
+          ('csv', 'CSV'),
+          ('xls', 'XLS'),
+          ('rtf', 'RTF'),
+          ('odt', 'ODT'),
+          ('ods', 'ODS'),
+          ('pdf', 'PDF')]
 
 
 class JasperReport(models.Model):
 
     _name = 'jasper.report'
-    #
-    # path_report = ""
+
     name = fields.Char(string='Name', required=True)
-
-    check_parameters = fields.Boolean('Check Parameters')
-
     db_obj = fields.Many2one('jasper.report.db.source',
                              string='Database', required=True)
 
-    report_template = fields.Binary(string='Report Template', required=True)
-    report_template_filename = fields.Char(string='Report Template Filename')
+    model_id = fields.Many2one('ir.model', 'Model')
 
-    pdf_report = fields.Binary('PDF Report')
-    pdf_report_filename = fields.Char(string='PDF Report Filename')
+    output_format = fields.Selection(FORMAT, 'Jasper Output', default='pdf')
 
-    parameters = fields.One2many(comodel_name="jasper.report.parameters",
-                                 inverse_name="report_id",
+    template = fields.Binary(string='Report Template',
+                             required=True)
+    template_filename = fields.Char(string='Report Template Filename')
+
+    file_report_binary = fields.Binary('Binary Report File')
+
+    check_parameters = fields.Boolean('Check Parameters')
+    parameters = fields.One2many(comodel_name='jasper.report.parameters',
+                                 inverse_name='report_id',
                                  string='Parameters')
 
     def create_report_file(self):
 
         with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
 
-            file_temp.write(self.report_template.decode('base64'))
+            file_temp.write(self.template.decode('base64'))
             file_temp.flush()
 
             db_param = {
@@ -58,11 +68,11 @@ class JasperReport(models.Model):
             jasper = jasperpy.JasperPy()
             jasper.process(file_temp.name,
                            output_file=tempfile.gettempdir(),
-                           format_list=["pdf"],
+                           format_list=[self.output_format],
                            parameters=self.pass_params(file_temp.name),
                            db_connection=db_param)
 
-        return file_temp.name.replace(".jrxml", ".pdf")
+        return file_temp.name.replace(".jrxml", ".%s" % self.output_format)
 
     def generate_param_dict(self, line_param):
         param_dic = {}
@@ -110,8 +120,8 @@ class JasperReport(models.Model):
 
         report_file = self.create_report_file()
 
-        with open(report_file, 'rb') as file_pdf:
-            self.pdf_report = file_pdf.read().encode('base64')
+        with open(report_file, 'rb') as file_bin:
+            self.file_report_binary = file_bin.read().encode('base64')
             os.unlink(report_file)
 
     @api.multi
@@ -121,7 +131,8 @@ class JasperReport(models.Model):
         url = '/web/binary/download_document?' \
               'id_rep={0}&' \
               'model=jasper.report&' \
-              'filename={1}_{0}.pdf'.format(self.id, self.name)
+              'filename={1}_{0}.{2}'.format(self.id, self.name,
+                                            self.output_format)
 
         return {
             'type': 'ir.actions.act_url',
@@ -135,8 +146,8 @@ class Binary(http.Controller):
     @serialize_exception
     def download_document(self, model, id_rep, filename=None, debug=None):
 
-        file_c = request.env[model].search([("id", "=", id_rep)]).pdf_report
-        file_content = file_c.decode('base64')
+        file_c = request.env[model].search([("id", "=", id_rep)])
+        file_content = file_c.file_report_binary.decode('base64')
 
         return request.make_response(file_content,
                                      [('Content-Type',

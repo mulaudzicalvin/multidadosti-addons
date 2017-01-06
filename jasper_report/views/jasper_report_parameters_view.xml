@@ -16,4 +16,15 @@
         </field>
     </record>
 
+    <record model="ir.ui.view" id="view_jasper_report_parameters_tree">
+        <field name="name">view.jasper.report.parameters.tree</field>
+        <field name="model">jasper.report.parameters</field>
+        <field name="arch" type="xml">
+            <tree string="Jasper Report Parameters">
+                <field name="name"/>
+                <field name="subquery"/>
+            </tree>
+        </field>
+    </record>
+
 </odoo>

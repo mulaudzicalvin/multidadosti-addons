@@ -6,7 +6,6 @@
 # Based in module 'base_external_dbsource'
 #
 
-# import os
 import logging
 import psycopg2
 from odoo import models, fields, api, _
@@ -15,48 +14,6 @@ import odoo.tools as tools
 
 _logger = logging.getLogger(__name__)
 
-# CONNECTORS = []
-
-# try:
-#     import sqlalchemy
-#     CONNECTORS.append(('sqlite', 'SQLite'))
-#     try:
-#         import pymssql
-#         CONNECTORS.append(('mssql', 'Microsoft SQL Server'))
-#         assert pymssql
-#     except (ImportError, AssertionError):
-#         _logger.info('MS SQL Server not available. Please install "pymssql"\
-#                       python package.')
-#     try:
-#         import MySQLdb
-#         CONNECTORS.append(('mysql', 'MySQL'))
-#         assert MySQLdb
-#     except (ImportError, AssertionError):
-#         _logger.info('MySQL not available. Please install "mysqldb"\
-#                      python package.')
-# except:
-#     _logger.info('SQL Alchemy not available. Please install "slqalchemy"\
-#                  python package.')
-# try:
-#     import pyodbc
-#     CONNECTORS.append(('pyodbc', 'ODBC'))
-# except:
-#     _logger.info('ODBC libraries not available. Please install "unixodbc"\
-#                  and "python-pyodbc" packages.')
-#
-# try:
-#     import cx_Oracle
-#     CONNECTORS.append(('cx_Oracle', 'Oracle'))
-# except:
-#     _logger.info('Oracle libraries not available. Please install "cx_Oracle"\
-#                  python package.')
-#
-# try:
-#     import fdb
-#     CONNECTORS.append(('fdb', 'Firebird'))
-# except:
-#     _logger.info('Firebird libraries not available. Please install "fdb"\
-#                  python package.')
 
 CONNECTORS = [('postgres', 'PostgreSQL')]
 
@@ -95,70 +52,10 @@ class JasperReportDBSource(models.Model):
                                             self.user_field,
                                             self.host,
                                             self.port)
-            # conn_str = self.conn_string
-            # if self.password:
-            #     if '%s' not in self.conn_string:
-            #         conn_str += ';PWD=%s'
-            #     else:
-            #
-            # conn_str += conn_str % self.password
 
-            # elif self.connector == 'postgres':
             conn = psycopg2.connect(conn_str % self.password)
 
         return conn
-
-    # @api.multi
-    # def execute(self, sqlquery, sqlparams=None, metadata=False,
-    #             context=None):
-    #     """Executes SQL and returns a list of rows.
-    #
-    #         "sqlparams" can be a dict of values, that can be referenced in
-    #         the SQL statement using "%(key)s" or, in the case of Oracle,
-    #         ":key".
-    #         Example:
-    #             sqlquery = "select * from mytable where city = %(city)s and
-    #                         date > %(dt)s"
-    #             params   = {'city': 'Lisbon',
-    #                         'dt': datetime.datetime(2000, 12, 31)}
-    #
-    #         If metadata=True, it will instead return a dict containing the
-    #         rows list and the columns list, in the format:
-    #             { 'cols': [ 'col_a', 'col_b', ...]
-    #             , 'rows': [ (a0, b0, ...), (a1, b1, ...), ...] }
-    #     """
-    #
-    #     rows, cols = list(), list()
-    #     for obj in self:
-    #         conn = obj.conn_open()
-    #         if obj.connector in ["sqlite", "mysql", "mssql"]:
-    #             # using sqlalchemy
-    #             cur = conn.execute(sqlquery, sqlparams)
-    #             if metadata:
-    #                 cols = cur.keys()
-    #             rows = [r for r in cur]
-    #
-    #         elif obj.connector in ["fdb"]:
-    #             # using other db connectors
-    #             cur = conn.cursor()
-    #             for key in sqlparams:
-    #                 sqlquery = sqlquery.replace('%%(%s)s' % key,
-    #                                             str(sqlparams[key]))
-    #
-    #             cur.execute(sqlquery)
-    #             rows = cur.fetchall()
-    #         else:
-    #             # using other db connectors
-    #             cur = conn.cursor()
-    #             cur.execute(sqlquery, sqlparams)
-    #             if metadata:
-    #                 cols = [d[0] for d in cur.description]
-    #             rows = cur.fetchall()
-    #         conn.close()
-    #     if metadata:
-    #         return{'cols': cols, 'rows': rows}
-    #     else:
-    #         return rows
 
     @api.multi
     def connection_test(self):
