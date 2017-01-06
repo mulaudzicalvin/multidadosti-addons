@@ -149,8 +149,6 @@ class Binary(http.Controller):
         file_c = request.env[model].search([("id", "=", id_rep)])
         file_content = file_c.file_report_binary.decode('base64')
 
-        return request.make_response(file_content,
-                                     [('Content-Type',
-                                       'application/octet-stream'),
-                                      ('Content-Disposition'
-                                       , content_disposition(filename))])
+        return request.make_response(file_content, [
+            ('Content-Type', 'application/octet-stream'),
+            ('Content-Disposition', content_disposition(filename))])
