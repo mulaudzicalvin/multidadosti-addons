@@ -1,0 +1,145 @@
+# -*- coding: utf-8 -*-
+# Copyright (C) 2017 MultidadosTI (http://www.multidadosti.com.br)
+# @author Aldo Soares <soares_aldo@hotmail.com>
+# License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
+
+import os
+from pyjasper import jasperpy
+import re
+import tempfile
+
+from odoo.exceptions import ValidationError
+from odoo import http
+from odoo.http import request
+from odoo.http import content_disposition
+from odoo.addons.web.controllers.main import serialize_exception
+
+from odoo import models, fields, api
+
+
+class JasperReport(models.Model):
+
+    _name = 'jasper.report'
+    #
+    # path_report = ""
+    name = fields.Char(string='Name', required=True)
+
+    check_parameters = fields.Boolean('Check Parameters')
+
+    db_obj = fields.Many2one('jasper.report.db.source',
+                             string='Database', required=True)
+
+    report_template = fields.Binary(string='Report Template', required=True)
+    report_template_filename = fields.Char(string='Report Template Filename')
+
+    pdf_report = fields.Binary('PDF Report')
+    pdf_report_filename = fields.Char(string='PDF Report Filename')
+
+    parameters = fields.One2many(comodel_name="jasper.report.parameters",
+                                 inverse_name="report_id",
+                                 string='Parameters')
+
+    def create_report_file(self):
+
+        with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
+
+            file_temp.write(self.report_template.decode('base64'))
+            file_temp.flush()
+
+            db_param = {
+                "username": self.db_obj.user_field,
+                "database": self.db_obj.db_name,
+                "host": self.db_obj.host,
+                "port": self.db_obj.port,
+                "password": self.db_obj.password,
+                "driver": self.db_obj.connector
+            }
+
+            jasper = jasperpy.JasperPy()
+            jasper.process(file_temp.name,
+                           output_file=tempfile.gettempdir(),
+                           format_list=["pdf"],
+                           parameters=self.pass_params(file_temp.name),
+                           db_connection=db_param)
+
+        return file_temp.name.replace(".jrxml", ".pdf")
+
+    def generate_param_dict(self, line_param):
+        param_dic = {}
+        for i in range(len(line_param)):
+            param_item = re.findall(r"[\S]+", line_param[i])
+            if param_item:
+                param_dic.update({param_item[1]: param_item[2]})
+                self.parameters = [(0, 0, {'name': param_item[1]})]
+        return 0
+
+    def pass_params(self, file_input):
+        dict_list = {}
+        for item in self.parameters:
+            if item and not item.subquery:
+                os.unlink(file_input)
+                raise ValidationError('Empty parameters. Please set any value'
+                                      ' to them')
+            dict_list.update({item.name: item.subquery})
+        return dict_list
+
+    @api.onchange('parameters')
+    def check_parameters_field(self):
+        self.check_parameters = True if len(self.parameters) == 0 else False
+
+    @api.multi
+    def listing_parameters(self):
+        self.ensure_one()
+
+        # file_input = self.create_temp_file()
+        #
+        # jasper = jasperpy.JasperPy()
+        # output = jasper.list_parameters(file_input)
+        # os.unlink(file_input)
+        # param_output = output
+        # line_param = param_output.split('\n')
+        #
+        # self.generate_param_dict(line_param)
+        # self.check_parameters_field()
+
+        return 0
+
+    @api.multi
+    def get_report(self):
+        self.ensure_one()
+
+        report_file = self.create_report_file()
+
+        with open(report_file, 'rb') as file_pdf:
+            self.pdf_report = file_pdf.read().encode('base64')
+            os.unlink(report_file)
+
+    @api.multi
+    def get_file_report(self):
+        self.ensure_one()
+
+        url = '/web/binary/download_document?' \
+              'id_rep={0}&' \
+              'model=jasper.report&' \
+              'filename={1}_{0}.pdf'.format(self.id, self.name)
+
+        return {
+            'type': 'ir.actions.act_url',
+            'url': url,
+            'target': '_blank',
+        }
+
+
+class Binary(http.Controller):
+    @http.route('/web/binary/download_document', type='http', auth="public")
+    @serialize_exception
+    def download_document(self, model, id_rep, filename=None, debug=None):
+
+        file_c = request.env[model].search([("id", "=", id_rep)]).pdf_report
+        file_content = file_c.decode('base64')
+
+        return request.make_response(file_content,
+                                     [('Content-Type',
+                                       'application/octet-stream'),
+                                      ('Content-Disposition'
+                                       , content_disposition(filename))])
