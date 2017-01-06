@@ -22,4 +22,6 @@
         'views/jasper_report_view.xml',
         'views/jasper_report_parameters_view.xml',
     ],
+    'installable': True,
+    'application': False,
 }
