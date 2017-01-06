@@ -9,6 +9,6 @@ from odoo import fields, models
 class JasperReportParameters(models.Model):
     _name = 'jasper.report.parameters'
 
-    name = fields.Char('Name')
+    name = fields.Char('Name', required=True)
     subquery = fields.Char('SQL Query')
     report_id = fields.Many2one('jasper.report', string='Report')

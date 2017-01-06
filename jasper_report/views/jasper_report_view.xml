@@ -46,6 +46,9 @@
                                     class="oe_highlight"/>
 
                         </page>
+                        <page string="Action Reports">
+                            <field name="action_reports" widget="many2many"/>
+                        </page>
                     </notebook>
                 </sheet>
             </form>

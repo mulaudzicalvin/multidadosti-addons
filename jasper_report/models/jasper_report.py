@@ -34,7 +34,9 @@ class JasperReport(models.Model):
     db_obj = fields.Many2one('jasper.report.db.source',
                              string='Database', required=True)
 
-    model_id = fields.Many2one('ir.model', 'Model')
+    action_reports = fields.One2many(comodel_name='ir.actions.report.xml',
+                                     inverse_name='jasper_report_id',
+                                     string='Action Report')
 
     output_format = fields.Selection(FORMAT, 'Jasper Output', default='pdf')
 
@@ -152,3 +154,9 @@ class Binary(http.Controller):
         return request.make_response(file_content, [
             ('Content-Type', 'application/octet-stream'),
             ('Content-Disposition', content_disposition(filename))])
+
+
+class IrActionReportXML(models.Model):
+    _inherit = 'ir.actions.report.xml'
+
+    jasper_report_id = fields.Many2one('jasper.report')
