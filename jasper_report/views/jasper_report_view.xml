@@ -17,19 +17,21 @@
         <field name="arch" type="xml">
             <form string="Jasper Report">
                 <header>
-                        <button string="Build Report" type="object"
-                                name="get_report" class="oe_highlight"/>
-                        <button string="Download Report" type="object"
-                                name="get_file_report"
-                                attrs="{'invisible': [('file_report_binary', '=', False)]}"/>
-                    </header>
+                    <button string="Build Report" type="object"
+                            name="get_report" class="oe_highlight"/>
+                    <button string="Download Report" type="object"
+                            name="get_file_report"
+                            attrs="{'invisible': [('file_report_binary', '=', False)]}"/>
+
+                </header>
                 <sheet>
                     <group>
                         <group>
                             <field name="name"/>
                             <field name="db_obj"/>
                             <field name="template_filename" invisible="1"/>
-                            <field name="template" filename="template_filename"/>
+                            <field name="template"
+                                   filename="template_filename"/>
                             <field name="file_report_binary" invisible="1"/>
                             <field name="output_format"/>
                         </group>
@@ -37,13 +39,14 @@
                     </group>
                     <notebook>
                         <page string="Parameters">
-                            <field name="parameters"/>
-                            <field name="check_parameters" invisible="1"/>
                             <button string="List Parameters"
-                                    type="object"
-                                    attrs="{'invisible': [('check_parameters', '=', False)]}"
-                                    name="listing_parameters"
-                                    class="oe_highlight"/>
+                            type="object"
+                            attrs="{'invisible': [('template', '=', False)]}"
+                            name="listing_parameters"
+                            class="oe_highlight"
+                            style="margin: 15px 0"/>
+
+                            <field name="parameters"/>
 
                         </page>
                         <page string="Action Reports">
@@ -63,8 +66,20 @@
         <field name="view_id" ref="view_jasper_report_tree"/>
     </record>
 
+    <record model="ir.actions.act_window" id="action_jasper_report_parameters">
+        <field name="name">Jasper Report</field>
+        <field name="res_model">jasper.report.parameters</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <!--<field name="view_id" ref="view_jasper_report_tree"/>-->
+    </record>
+
     <menuitem name="Jasper Report" id="menu_reports"
               parent="jasper_submenu"
               action="action_jasper_report"/>
+
+    <menuitem name="Jasper Report Parameters" id="menu_reports_parameters"
+              parent="jasper_submenu"
+              action="action_jasper_report_parameters"/>
 
 </odoo>

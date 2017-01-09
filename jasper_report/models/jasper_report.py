@@ -46,7 +46,6 @@ class JasperReport(models.Model):
 
     file_report_binary = fields.Binary('Binary Report File')
 
-    check_parameters = fields.Boolean('Check Parameters')
     parameters = fields.One2many(comodel_name='jasper.report.parameters',
                                  inverse_name='report_id',
                                  string='Parameters')
@@ -95,26 +94,29 @@ class JasperReport(models.Model):
             dict_list.update({item.name: item.subquery})
         return dict_list
 
-    @api.onchange('parameters')
-    def check_parameters_field(self):
-        self.check_parameters = True if len(self.parameters) == 0 else False
-
     @api.multi
     def listing_parameters(self):
         self.ensure_one()
 
-        # file_input = self.create_temp_file()
-        #
-        # jasper = jasperpy.JasperPy()
-        # output = jasper.list_parameters(file_input)
-        # os.unlink(file_input)
-        # param_output = output
-        # line_param = param_output.split('\n')
-        #
-        # self.generate_param_dict(line_param)
-        # self.check_parameters_field()
+        if self.template:
 
-        return 0
+            with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
+
+                file_temp.write(self.template.decode('base64'))
+                file_temp.flush()
+                jasper = jasperpy.JasperPy()
+                output = jasper.list_parameters(file_temp.name)
+
+            names = self.parameters.mapped('name')
+            rec = [(0, 0, {'name': key}) for key in output if key not in names]
+
+            self.write({
+                'parameters': rec,
+            })
+
+    @api.onchange('template')
+    def change_template(self):
+        self.listing_parameters()
 
     @api.multi
     def get_report(self):
