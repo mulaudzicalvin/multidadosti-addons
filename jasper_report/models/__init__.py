@@ -6,3 +6,5 @@
 from . import jasper_report
 from . import jasper_report_parameters
 from . import jasper_report_settings
+from . import ir_action_report_xml
+# from . import pyjasper_client

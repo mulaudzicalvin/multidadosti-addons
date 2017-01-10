@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_act_report_xml_form" model="ir.ui.view">
+        <field name="name">ir.actions.report.xml.form</field>
+        <field name="model">ir.actions.report.xml</field>
+        <field name="inherit_id" ref="base.act_report_xml_view"/>
+        <field name="arch" type="xml">
+            <field name="report_type" position="after">
+                <field name="jasper_output_format" attrs="{'invisible': [('report_type', '!=', 'jasper_report')]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
