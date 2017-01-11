@@ -4,6 +4,5 @@
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 from . import jasper_report
-# from . import jasper_report_parameters
 from . import jasper_report_settings
 from . import ir_action_report_xml

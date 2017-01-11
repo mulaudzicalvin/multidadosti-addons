@@ -35,7 +35,6 @@
                                     <button name="connection_test" string="Test Connection" type="object" icon="fa-refresh"/>
                                 </group>
                             </group>
-                            <!--<field name="conn_string" invisible="1"/>-->
                         </group>
                     </sheet>
                 </form>
