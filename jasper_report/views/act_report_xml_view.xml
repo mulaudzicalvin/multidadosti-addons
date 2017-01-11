@@ -6,9 +6,42 @@
         <field name="model">ir.actions.report.xml</field>
         <field name="inherit_id" ref="base.act_report_xml_view"/>
         <field name="arch" type="xml">
-            <field name="report_type" position="after">
-                <field name="jasper_output_format" attrs="{'invisible': [('report_type', '!=', 'jasper_report')]}"/>
-            </field>
+
+            <xpath expr="//notebook/page[@name='security']" position="after">
+                <!-- Add your fields or attributes here -->
+                <page name="jasper" string="Jasper Configuration"
+                      attrs="{'invisible': [('report_type', '!=', 'jasper_report')]}">
+                    <group>
+                        <group>
+                            <field name="jasper_output_format"
+                                   attrs="{'required': [('report_type', '=', 'jasper_report')]}"/>
+                            <field name="template_filename" invisible="1"/>
+                            <field name="template" filename="template_filename"
+                                   attrs="{'required': [('report_type', '=', 'jasper_report')]}"/>
+                        </group>
+                        <group>
+                            <field name="db_obj"
+                                   attrs="{'required': [('report_type', '=', 'jasper_report')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                            <page name="sub_reports" String="Sub Reports">
+                                <field name="sub_report_ids"/>
+                            </page>
+                        </notebook>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_act_report_xml_sub_report_tree" model="ir.ui.view">
+        <field name="name">view.act.report.xml.sub.report.tree</field>
+        <field name="model">ir.actions.jasper.sub.report</field>
+        <field name="arch" type="xml">
+            <tree string="Report SubReport" editable="top">
+                <field name="template_filename" invisible="1"/>
+                <field name="template" filename="template_filename"/>
+            </tree>
         </field>
     </record>
 

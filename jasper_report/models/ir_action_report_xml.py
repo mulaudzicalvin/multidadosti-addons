@@ -268,24 +268,23 @@ class ReportJasper(report.interface.report_int):
     def create(self, cr, uid, ids, datas, context=None):
         name = self.name
 
-        if self.parser:
-            d = self.parser(cr, uid, ids, datas, context)
-            ids = d.get('ids', ids)
-            name = d.get('name', self.name)
-            # Use model defined in ReportJasper definition.
-            # Necessary for menu entries.
-            datas['model'] = d.get('model', self.model)
-            datas['records'] = d.get('records', [])
-            # data_source can be 'model' or 'records' and lets parser to return
-            # an empty 'records' parameter while still executing using
-            # 'records'
-            datas['data_source'] = d.get('data_source', 'model')
-            datas['parameters'] = d.get('parameters', {})
+        # if self.parser:
+        #     d = self.parser(cr, uid, ids, datas, context)
+        #     ids = d.get('ids', ids)
+        #     name = d.get('name', self.name)
+        #     # Use model defined in ReportJasper definition.
+        #     # Necessary for menu entries.
+        #     datas['model'] = d.get('model', self.model)
+        #     datas['records'] = d.get('records', [])
+        #     # data_source can be 'model' or 'records' and lets parser to return
+        #     # an empty 'records' parameter while still executing using
+        #     # 'records'
+        #     datas['data_source'] = d.get('data_source', 'model')
+        #     datas['parameters'] = d.get('parameters', {})
 
         datas['env'] = api.Environment(cr, uid, context or {})
         r = Report(name, cr, uid, ids, datas, context)
         return r.execute()
-
 
 
 def register_jasper_report(report_name, model_name):
@@ -305,9 +304,11 @@ def register_jasper_report(report_name, model_name):
     return ReportJasper(name, model_name)
 
 
-class ReportXml(models.Model):
+class IrActionReportXml(models.Model):
 
     _inherit = 'ir.actions.report.xml'
+
+    jasper_report_id = fields.Many2one('jasper.report')
 
     report_type = fields.Selection(
         selection_add=[('jasper_report', 'Jasper Report')])
@@ -316,31 +317,15 @@ class ReportXml(models.Model):
                                             string='Jasper Output',
                                             default='pdf')
 
-    # @api.model
-    # def create(self, values):
-    #     if self._context and self._context.get('jasper_report'):
-    #         values['model'] = \
-    #             self.env['ir.model'].browse(values['jasper_model_id']).model
-    #         values['type'] = 'ir.actions.report.xml'
-    #         values['report_type'] = 'pdf'
-    #         values['jasper_report'] = True
-    #
-    #     return super(ReportXml, self).create(values)
-    #
-    # @api.multi
-    # def write(self, values):
-    #     if self._context and self._context.get('jasper_report'):
-    #
-    #         if 'jasper_model_id' in values:
-    #             values['model'] = \
-    #                 self.env['ir.model'].browse(
-    #                     values['jasper_model_id']).model
-    #
-    #         values['type'] = 'ir.actions.report.xml'
-    #         values['report_type'] = 'pdf'
-    #         values['jasper_report'] = True
-    #
-    #     return super(ReportXml, self).write(values)
+    db_obj = fields.Many2one('jasper.report.db.source',
+                             string='Database', required=True)
+
+    template = fields.Binary(string='Report Template', required=True)
+    template_filename = fields.Char(string='Report Template Filename')
+
+    sub_report_ids = fields.One2many('ir.actions.jasper.sub.report',
+                                     'action_report_xml_id',
+                                     string='SubReports')
 
     def _lookup_report(self, name):
         """
@@ -354,10 +339,20 @@ class ReportXml(models.Model):
         report_type='jasper_report' and report_name=%s limit 1"
         self.env.cr.execute(query, (name,))
         record = self.env.cr.dictfetchone()
+
         if not record:
-            return super(ReportXml, self)._lookup_report(name)
+            return super(IrActionReportXml, self)._lookup_report(name)
 
         # Calling Jasper
-        print
-        #
         return register_jasper_report(name, record['model'])
+
+
+class IrActionReportJasperSubReport(models.Model):
+
+    _name = 'ir.actions.jasper.sub.report'
+    _rec_name = 'template_filename'
+    _description = 'Jasper SubReport'
+
+    template = fields.Binary(string='Template', required=True)
+    template_filename = fields.Char(string='Sub Report Template Filename')
+    action_report_xml_id = fields.Many2one('ir.actions.report.xml')
