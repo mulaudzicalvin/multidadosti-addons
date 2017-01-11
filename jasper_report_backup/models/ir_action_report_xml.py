@@ -9,8 +9,6 @@ import os
 import time
 import odoo
 from odoo import api, fields, models, report, release
-from jasper_report import JasperReport
-
 
 FORMAT = [('html', 'HTML'),
           ('csv', 'CSV'),
@@ -40,12 +38,11 @@ class Report:
     def execute(self):
 
         rep_xml_set = self.env['ir.actions.report.xml'].search(
-            [('report_name', '=', self.name[7:]),
-             ('report_type', 'ilike', 'jasper_report')])
+            [('report_name', '=', self.name[7:])])
 
-        obj_report = rep_xml_set.jasper_report_id
-        obj_report.get_report()
-        data = obj_report.file_report_binary.decode('base64')
+        jreport = rep_xml_set.jasper_report_id
+        jreport.get_report()
+        data = jreport.file_report_binary.decode('base64')
 
         return data, rep_xml_set.jasper_output_format
 
@@ -286,34 +283,8 @@ class ReportJasper(report.interface.report_int):
         #     datas['parameters'] = d.get('parameters', {})
 
         datas['env'] = api.Environment(cr, uid, context or {})
-
-        rep_xml_set = datas['env']['ir.actions.report.xml'].search(
-            [('report_name', '=', name[7:]),
-             ('report_type', 'ilike', 'jasper_report')])
-
-        obj_report_xml = rep_xml_set[0]
-
-        kwargs = {
-            'username': obj_report_xml.db_obj.user_field,
-            'database': obj_report_xml.db_obj.db_name,
-            'host': obj_report_xml.db_obj.host,
-            'port': obj_report_xml.db_obj.port,
-            'password': obj_report_xml.db_obj.password,
-            'driver': obj_report_xml.db_obj.connector,
-        }
-
-        jasper = JasperReport(**kwargs)
-        data = jasper.process(obj_report_xml.template,
-                              obj_report_xml.jasper_output_format,
-                              parameters={
-                                  'ODOO_REC': '(%s)' % ','.join(map(str, ids)),
-                              })
-        # obj_report.get_report()
-        # data = obj_report.file_report_binary.decode('base64')
-
-        return data.decode('base64'), obj_report_xml.jasper_output_format
-        # r = Report(name, cr, uid, ids, datas, context)
-        # return r.execute()
+        r = Report(name, cr, uid, ids, datas, context)
+        return r.execute()
 
 
 def register_jasper_report(report_name, model_name):
@@ -337,7 +308,7 @@ class IrActionReportXml(models.Model):
 
     _inherit = 'ir.actions.report.xml'
 
-    # jasper_report_id = fields.Many2one('jasper.report')
+    jasper_report_id = fields.Many2one('jasper.report')
 
     report_type = fields.Selection(
         selection_add=[('jasper_report', 'Jasper Report')])

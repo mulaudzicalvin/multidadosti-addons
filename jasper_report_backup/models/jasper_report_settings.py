@@ -19,7 +19,6 @@ CONNECTORS = [('postgres', 'PostgreSQL')]
 
 
 class JasperReportDBSource(models.Model):
-
     _name = "jasper.report.db.source"
     _description = 'External Database Sources'
 

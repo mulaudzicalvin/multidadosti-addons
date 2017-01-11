@@ -19,8 +19,8 @@
     ],
     'data': [
         'views/jasper_report_settings.xml',
-        # 'views/jasper_report_view.xml',
-        # 'views/jasper_report_parameters_view.xml',
+        'views/jasper_report_view.xml',
+        'views/jasper_report_parameters_view.xml',
         'views/act_report_xml_view.xml',
     ],
     'installable': True,
