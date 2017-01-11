@@ -27,10 +27,11 @@ class JasperReportDBSource(models.Model):
     db_name = fields.Char('Database Name',
                           default=lambda self: self.env.cr.dbname)
     user_field = fields.Char('User')
-    host = fields.Char('Host')
-    port = fields.Char('Port')
+    host = fields.Char('Host', default='localhost')
+    port = fields.Char('Port', default='5432')
     password = fields.Char('Password', size=40)
     connector = fields.Selection(CONNECTORS, 'Connector', required=True,
+                                 default='postgres',
                                  help="If a connector is missing from the\
                                       list, check the server log to confirm\
                                       that the required components were\
