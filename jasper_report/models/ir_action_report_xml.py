@@ -10,12 +10,10 @@ from odoo import api, fields, models, report, release
 
 from jasper_report import JasperReport
 
-
 DIR_PATH = '/opt/odoo-10/downloads/'
 
 
 class ReportJasper(report.interface.report_int):
-
     def __init__(self, name, model, parser=None):
         # Remove report name from list of services if it already
         # exists to avoid report_int's assert. We want to keep the
@@ -29,7 +27,6 @@ class ReportJasper(report.interface.report_int):
         self.parser = parser
 
     def create(self, cr, uid, ids, datas, context=None):
-
         datas['env'] = api.Environment(cr, uid, context or {})
 
         rep_xml_set = datas['env']['ir.actions.report.xml'].search(
@@ -92,7 +89,11 @@ class IrActionReportXml(models.Model):
         res = super(IrActionReportXml, self).create(values)
 
         if res.sub_report_ids:
-            IrActionReportXml.compile_jasper(res.sub_report_ids)
+            IrActionReportXml.compile_subreports(res.sub_report_ids)
+
+        if res.template:
+            with open(DIR_PATH + self.template_filename, 'w') as f:
+                f.write(self.template.decode('base64'))
 
         return res
 
@@ -102,21 +103,24 @@ class IrActionReportXml(models.Model):
         res = super(IrActionReportXml, self).write(values)
 
         if 'sub_report_ids' in values:
-            IrActionReportXml.compile_jasper(self.sub_report_ids)
+            IrActionReportXml.compile_subreports(self.sub_report_ids)
+
+        if 'template' in values:
+            with open(DIR_PATH + self.template_filename, 'w') as f:
+                f.write(self.template.decode('base64'))
 
         return res
 
     @staticmethod
-    def compile_jasper(sub_report_ids):
+    def compile_subreports(sub_report_ids):
         jasper = JasperReport()
 
         for sub_report in sub_report_ids:
-
             with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
                 file_temp.write(sub_report.template.decode('base64'))
                 file_temp.flush()
                 output = DIR_PATH + \
-                    sub_report.template_filename.replace('.jrxml', '')
+                         sub_report.template_filename.replace('.jrxml', '')
                 jasper.compile(file_temp.name, output_file=output)
 
     def _lookup_report(self, name):
