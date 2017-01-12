@@ -24,15 +24,6 @@ class JasperReport:
             file_temp.write(template.decode('base64'))
             file_temp.flush()
 
-            # db_param = {
-            #     'username': self.username,
-            #     'database': self.database,
-            #     'host': self.host,
-            #     'port': self.port,
-            #     'password': self.password,
-            #     'driver': self.driver,
-            # }
-
             self.jasper_client.process(file_temp.name,
                                        output_file=tempfile.gettempdir(),
                                        format_list=[output_format],

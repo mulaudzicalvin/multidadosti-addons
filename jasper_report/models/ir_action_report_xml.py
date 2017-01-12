@@ -15,17 +15,14 @@ DIR_PATH = '/opt/odoo-10/downloads/'
 
 
 class ReportJasper(report.interface.report_int):
+
     def __init__(self, name, model, parser=None):
         # Remove report name from list of services if it already
         # exists to avoid report_int's assert. We want to keep the
         # automatic registration at login, but at the same time we
         # need modules to be able to use a parser for certain reports.
-        if release.major_version == '5.0':
-            if name in odoo.report.interface.report_int._reports:
-                del odoo.report.interface.report_int._reports[name]
-        else:
-            if name in odoo.report.interface.report_int._reports:
-                del odoo.report.interface.report_int._reports[name]
+        if name in odoo.report.interface.report_int._reports:
+            del odoo.report.interface.report_int._reports[name]
 
         super(ReportJasper, self).__init__(name)
         self.model = model
@@ -61,23 +58,6 @@ class ReportJasper(report.interface.report_int):
                               db_parameters=db_parameters)
 
         return data.decode('base64'), obj_report_xml.jasper_output_format
-
-
-def register_jasper_report(report_name, model_name):
-    name = 'report.%s' % report_name
-
-    # Register only if it didn't exist another "jasper_report"
-    # with the same name given that developers might prefer/need
-    # to register the reports themselves.
-    # For example, if they need their own parser.
-    if name in odoo.report.interface.report_int._reports:
-        if isinstance(odoo.report.interface.report_int._reports[name],
-                      ReportJasper):
-            return odoo.report.interface.report_int._reports[name]
-
-        del odoo.report.interface.report_int._reports[name]
-
-    return ReportJasper(name, model_name)
 
 
 class IrActionReportXml(models.Model):
@@ -156,7 +136,7 @@ class IrActionReportXml(models.Model):
             return super(IrActionReportXml, self)._lookup_report(name)
 
         # Calling Jasper
-        return register_jasper_report(name, record['model'])
+        return ReportJasper(name, record['model'])
 
 
 class IrActionReportJasperSubReport(models.Model):
