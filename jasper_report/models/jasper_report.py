@@ -11,36 +11,33 @@ import tempfile
 
 class JasperReport:
 
-    def __init__(self, username, database, host, port, password, driver):
-        self.username = username
-        self.database = database
-        self.host = host
-        self.port = port
-        self.password = password
-        self.driver = driver
-
+    def __init__(self):
         self.jasper_client = jasperpy.JasperPy()
 
-    def process(self, template, output_format, parameters):
+    def compile(self,  template, output_file=False, redirect_output=True):
+        self.jasper_client.compile(template, output_file=output_file,
+                                   redirect_output=redirect_output)
+
+    def process(self, template, output_format, parameters, db_parameters):
 
         with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
             file_temp.write(template.decode('base64'))
             file_temp.flush()
 
-            db_param = {
-                'username': self.username,
-                'database': self.database,
-                'host': self.host,
-                'port': self.port,
-                'password': self.password,
-                'driver': self.driver,
-            }
+            # db_param = {
+            #     'username': self.username,
+            #     'database': self.database,
+            #     'host': self.host,
+            #     'port': self.port,
+            #     'password': self.password,
+            #     'driver': self.driver,
+            # }
 
             self.jasper_client.process(file_temp.name,
                                        output_file=tempfile.gettempdir(),
                                        format_list=[output_format],
                                        parameters=parameters,
-                                       db_connection=db_param)
+                                       db_connection=db_parameters)
 
             output = file_temp.name.replace('.jrxml', '.%s' % output_format)
 
