@@ -9,7 +9,6 @@ from jasper_report import JasperReport
 
 
 class ReportJasper(report.interface.report_int):
-
     def __init__(self, name, model, parser=None):
         # Remove report name from list of services if it already
         # exists to avoid report_int's assert. We want to keep the
@@ -49,7 +48,8 @@ class ReportJasper(report.interface.report_int):
         data = jasper.process(obj_report_xml.template,
                               obj_report_xml.jasper_output_format,
                               parameters={
-                                  'ODOO_REC': '(%s)' % ','.join(map(str, ids)),
+                                  'ODOO_RECORD_IDS': '(%s)' % ','.join(
+                                      map(str, ids)),
                               })
 
         return data.decode('base64'), obj_report_xml.jasper_output_format
