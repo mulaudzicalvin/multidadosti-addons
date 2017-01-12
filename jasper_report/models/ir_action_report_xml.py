@@ -3,9 +3,15 @@
 # @author Michell Stuttgart <michellstut@gmail.com>
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
+import tempfile
+
 import odoo
 from odoo import api, fields, models, report, release
+
 from jasper_report import JasperReport
+
+
+DIR_PATH = '/opt/odoo-10/downloads/'
 
 
 class ReportJasper(report.interface.report_int):
@@ -35,7 +41,7 @@ class ReportJasper(report.interface.report_int):
 
         obj_report_xml = rep_xml_set[0]
 
-        kwargs = {
+        db_parameters = {
             'username': obj_report_xml.db_obj.user_field,
             'database': obj_report_xml.db_obj.db_name,
             'host': obj_report_xml.db_obj.host,
@@ -44,13 +50,15 @@ class ReportJasper(report.interface.report_int):
             'driver': obj_report_xml.db_obj.connector,
         }
 
-        jasper = JasperReport(**kwargs)
+        # SQL tuple, ie. (id, id2, id3), of odoo records id to use in WHERE
+        # statement.
+        rec_ids = '(%s)' % ','.join(map(str, ids))
+
+        jasper = JasperReport()
         data = jasper.process(obj_report_xml.template,
                               obj_report_xml.jasper_output_format,
-                              parameters={
-                                  'ODOO_RECORD_IDS': '(%s)' % ','.join(
-                                      map(str, ids)),
-                              })
+                              parameters={'ODOO_RECORD_IDS': rec_ids},
+                              db_parameters=db_parameters)
 
         return data.decode('base64'), obj_report_xml.jasper_output_format
 
@@ -97,6 +105,39 @@ class IrActionReportXml(models.Model):
     sub_report_ids = fields.One2many('ir.actions.jasper.sub.report',
                                      'action_report_xml_id',
                                      string='SubReports')
+
+    @api.model
+    def create(self, values):
+        # Add code here
+        res = super(IrActionReportXml, self).create(values)
+
+        if res.sub_report_ids:
+            IrActionReportXml.compile_jasper(res.sub_report_ids)
+
+        return res
+
+    @api.multi
+    def write(self, values):
+        # Add code here
+        res = super(IrActionReportXml, self).write(values)
+
+        if 'sub_report_ids' in values:
+            IrActionReportXml.compile_jasper(self.sub_report_ids)
+
+        return res
+
+    @staticmethod
+    def compile_jasper(sub_report_ids):
+        jasper = JasperReport()
+
+        for sub_report in sub_report_ids:
+
+            with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
+                file_temp.write(sub_report.template.decode('base64'))
+                file_temp.flush()
+                output = DIR_PATH + \
+                    sub_report.template_filename.replace('.jrxml', '')
+                jasper.compile(file_temp.name, output_file=output)
 
     def _lookup_report(self, name):
         """
