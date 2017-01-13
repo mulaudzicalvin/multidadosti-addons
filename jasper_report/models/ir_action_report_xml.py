@@ -6,7 +6,7 @@
 import tempfile
 
 import odoo
-from odoo import api, fields, models, report, release
+from odoo import api, fields, models, report
 
 from jasper_report import JasperReport
 
@@ -14,6 +14,7 @@ DIR_PATH = '/opt/odoo-10/downloads/'
 
 
 class ReportJasper(report.interface.report_int):
+
     def __init__(self, name, model, parser=None):
         # Remove report name from list of services if it already
         # exists to avoid report_int's assert. We want to keep the
@@ -49,7 +50,7 @@ class ReportJasper(report.interface.report_int):
         rec_ids = '(%s)' % ','.join(map(str, ids))
 
         jasper = JasperReport()
-        data = jasper.process(obj_report_xml.template,
+        data = jasper.process(obj_report_xml.template_filename,
                               obj_report_xml.jasper_output_format,
                               parameters={'ODOO_RECORD_IDS': rec_ids},
                               db_parameters=db_parameters)
@@ -120,7 +121,7 @@ class IrActionReportXml(models.Model):
                 file_temp.write(sub_report.template.decode('base64'))
                 file_temp.flush()
                 output = DIR_PATH + \
-                         sub_report.template_filename.replace('.jrxml', '')
+                    sub_report.template_filename.replace('.jrxml', '')
                 jasper.compile(file_temp.name, output_file=output)
 
     def _lookup_report(self, name):
@@ -140,7 +141,25 @@ class IrActionReportXml(models.Model):
             return super(IrActionReportXml, self)._lookup_report(name)
 
         # Calling Jasper
-        return ReportJasper(name, record['model'])
+        # return ReportJasper(name, record['model'])
+        return IrActionReportXml.register_jasper_report(name, record['model'])
+
+    @staticmethod
+    def register_jasper_report(report_name, model_name):
+        name = 'report.%s' % report_name
+
+        # Register only if it didn't exist another "jasper_report"
+        # with the same name given that developers might prefer/need
+        # to register the reports themselves.
+        # For example, if they need their own parser.
+        if name in odoo.report.interface.report_int._reports:
+            if isinstance(odoo.report.interface.report_int._reports[name],
+                          IrActionReportXml):
+                return odoo.report.interface.report_int._reports[name]
+
+            del odoo.report.interface.report_int._reports[name]
+
+        return ReportJasper(name, model_name)
 
 
 class IrActionReportJasperSubReport(models.Model):
