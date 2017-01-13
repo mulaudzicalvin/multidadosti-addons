@@ -8,6 +8,8 @@ import os
 from pyjasper import jasperpy
 import tempfile
 
+DIR_PATH = '/opt/odoo-10/downloads/'
+
 
 class JasperReport:
 
@@ -18,19 +20,17 @@ class JasperReport:
         self.jasper_client.compile(template, output_file=output_file,
                                    redirect_output=redirect_output)
 
-    def process(self, template, output_format, parameters, db_parameters):
+    def process(self, template_name, output_format, parameters, db_parameters):
 
-        with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
-            file_temp.write(template.decode('base64'))
-            file_temp.flush()
+        with open(DIR_PATH + template_name, 'r') as file_jrxml:
 
-            self.jasper_client.process(file_temp.name,
-                                       output_file=tempfile.gettempdir(),
+            self.jasper_client.process(file_jrxml.name,
+                                       output_file=DIR_PATH,
                                        format_list=[output_format],
                                        parameters=parameters,
                                        db_connection=db_parameters)
 
-            output = file_temp.name.replace('.jrxml', '.%s' % output_format)
+            output = file_jrxml.name.replace('.jrxml', '.%s' % output_format)
 
             with open(output, 'rb') as file_bin:
                 data = file_bin.read().encode('base64')
