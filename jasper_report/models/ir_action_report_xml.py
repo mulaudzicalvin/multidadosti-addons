@@ -4,13 +4,15 @@
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 import tempfile
+import os
 
 import odoo
 from odoo import api, fields, models, report
+from odoo.addons.jasper_report.tools.misc import mount_path_jasper
 
 from jasper_report import JasperReport
 
-DIR_PATH = '/opt/odoo-10/downloads/'
+# DIR_PATH = '/opt/odoo-10/downloads/'
 
 
 class ReportJasper(report.interface.report_int):
@@ -49,8 +51,12 @@ class ReportJasper(report.interface.report_int):
         # statement.
         rec_ids = '(%s)' % ','.join(map(str, ids))
 
+        path = os.path.join(
+            mount_path_jasper(datas['env'].cr.dbname, obj_report_xml.name),
+            obj_report_xml.template_filename)
+
         jasper = JasperReport()
-        data = jasper.process(obj_report_xml.template_filename,
+        data = jasper.process(path,
                               obj_report_xml.jasper_output_format,
                               parameters={'ODOO_RECORD_IDS': rec_ids},
                               db_parameters=db_parameters)
@@ -59,6 +65,7 @@ class ReportJasper(report.interface.report_int):
 
 
 class IrActionReportXml(models.Model):
+
     _inherit = 'ir.actions.report.xml'
 
     report_type = fields.Selection(
@@ -75,10 +82,12 @@ class IrActionReportXml(models.Model):
                                             default='pdf')
 
     db_obj = fields.Many2one('jasper.report.db.source',
-                             string='Database', required=True)
+                             string='Database')
 
-    template = fields.Binary(string='Report Template', required=True)
+    template = fields.Binary(string='Report Template')
     template_filename = fields.Char(string='Report Template Filename')
+
+    template_dir = fields.Char()
 
     sub_report_ids = fields.One2many('ir.actions.jasper.sub.report',
                                      'action_report_xml_id',
@@ -86,43 +95,56 @@ class IrActionReportXml(models.Model):
 
     @api.model
     def create(self, values):
-        # Add code here
-        res = super(IrActionReportXml, self).create(values)
-
-        if res.sub_report_ids:
-            IrActionReportXml.compile_subreports(res.sub_report_ids)
-
-        if res.template:
-            with open(DIR_PATH + self.template_filename, 'w') as f:
-                f.write(self.template.decode('base64'))
-
-        return res
+        return super(IrActionReportXml, self).create(values)
 
     @api.multi
     def write(self, values):
         # Add code here
         res = super(IrActionReportXml, self).write(values)
 
-        if 'sub_report_ids' in values:
-            IrActionReportXml.compile_subreports(self.sub_report_ids)
+        if self.report_type == 'jasper_report':
+            if 'sub_report_ids' in values:
+                self._compile_sub_report()
 
-        if 'template' in values:
-            with open(DIR_PATH + self.template_filename, 'w') as f:
-                f.write(self.template.decode('base64'))
+            if 'template' in values:
+                self._build_root_report()
 
         return res
 
-    @staticmethod
-    def compile_subreports(sub_report_ids):
-        jasper = JasperReport()
+    @api.multi
+    def _build_root_report(self):
+        template_dir = mount_path_jasper(self.env.cr.dbname, self.name)
+        template_dir = os.path.join(template_dir, self.template_filename)
 
-        for sub_report in sub_report_ids:
+        with open(template_dir, 'w') as f:
+            f.write(self.template.decode('base64'))
+
+    @api.multi
+    def _compile_sub_report(self):
+        jasper = JasperReport()
+        template_dir = mount_path_jasper(self.env.cr.dbname, self.name)
+
+        for sub_report in self.sub_report_ids:
             with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
                 file_temp.write(sub_report.template.decode('base64'))
                 file_temp.flush()
-                output = DIR_PATH + \
-                    sub_report.template_filename.replace('.jrxml', '')
+
+                output = sub_report.template_filename.replace('.jrxml', '')
+                output = os.path.join(template_dir, output)
                 jasper.compile(file_temp.name, output_file=output)
+
+    # @api.multi
+    # def compile_subreports(self, sub_report_ids, output_dir):
+    #     jasper = JasperReport()
+    #
+    #     for sub_report in sub_report_ids:
+    #         with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
+    #             file_temp.write(sub_report.template.decode('base64'))
+    #             file_temp.flush()
+    #
+    #             output = sub_report.template_filename.replace('.jrxml', '')
+    #             output = os.path.join(output_dir, output)
+    #             jasper.compile(file_temp.name, output_file=output)
 
     def _lookup_report(self, name):
         """
