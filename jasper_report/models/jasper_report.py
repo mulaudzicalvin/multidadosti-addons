@@ -8,8 +8,6 @@ import os
 from pyjasper import jasperpy
 import tempfile
 
-# DIR_PATH = '/opt/odoo-10/downloads/'
-
 
 class JasperReport:
 

@@ -12,8 +12,6 @@ from odoo.addons.jasper_report.tools.misc import mount_path_jasper
 
 from jasper_report import JasperReport
 
-# DIR_PATH = '/opt/odoo-10/downloads/'
-
 
 class ReportJasper(report.interface.report_int):
 
@@ -30,6 +28,7 @@ class ReportJasper(report.interface.report_int):
         self.parser = parser
 
     def create(self, cr, uid, ids, datas, context=None):
+
         datas['env'] = api.Environment(cr, uid, context or {})
 
         rep_xml_set = datas['env']['ir.actions.report.xml'].search(
@@ -78,36 +77,34 @@ class IrActionReportXml(models.Model):
                                              ('odt', 'ODT'),
                                              ('ods', 'ODS'),
                                              ('pdf', 'PDF')],
-                                            string='Jasper Output',
+                                            string='Output Format',
                                             default='pdf')
 
     db_obj = fields.Many2one('jasper.report.db.source',
                              string='Database')
 
-    template = fields.Binary(string='Report Template')
-    template_filename = fields.Char(string='Report Template Filename')
-
-    template_dir = fields.Char()
+    template = fields.Binary(string='Report Template', help='The root template'
+                                                            ' of report.')
+    template_filename = fields.Char()
 
     sub_report_ids = fields.One2many('ir.actions.jasper.sub.report',
                                      'action_report_xml_id',
-                                     string='SubReports')
-
-    @api.model
-    def create(self, values):
-        return super(IrActionReportXml, self).create(values)
+                                     string='SubReports',
+                                     help='Subreport .jrxml templates. '
+                                          'This templates are compile in '
+                                          '.jasper file.')
 
     @api.multi
     def write(self, values):
-        # Add code here
         res = super(IrActionReportXml, self).write(values)
 
         if self.report_type == 'jasper_report':
-            if 'sub_report_ids' in values:
-                self._compile_sub_report()
 
-            if 'template' in values:
-                self._build_root_report()
+            # Compile jasper sub reports
+            self._compile_sub_report()
+
+            # Copy .jrxml of template to 'filestore' Odoo folder
+            self._build_root_report()
 
         return res
 
@@ -124,6 +121,9 @@ class IrActionReportXml(models.Model):
         jasper = JasperReport()
         template_dir = mount_path_jasper(self.env.cr.dbname, self.name)
 
+        # Create temporary .jrxml files to compile them to .jasper
+        # We need the make this to generate report, because jasper use
+        # .jasper file of subreport to generate final report
         for sub_report in self.sub_report_ids:
             with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
                 file_temp.write(sub_report.template.decode('base64'))
@@ -132,19 +132,6 @@ class IrActionReportXml(models.Model):
                 output = sub_report.template_filename.replace('.jrxml', '')
                 output = os.path.join(template_dir, output)
                 jasper.compile(file_temp.name, output_file=output)
-
-    # @api.multi
-    # def compile_subreports(self, sub_report_ids, output_dir):
-    #     jasper = JasperReport()
-    #
-    #     for sub_report in sub_report_ids:
-    #         with tempfile.NamedTemporaryFile(suffix='.jrxml') as file_temp:
-    #             file_temp.write(sub_report.template.decode('base64'))
-    #             file_temp.flush()
-    #
-    #             output = sub_report.template_filename.replace('.jrxml', '')
-    #             output = os.path.join(output_dir, output)
-    #             jasper.compile(file_temp.name, output_file=output)
 
     def _lookup_report(self, name):
         """
@@ -163,7 +150,6 @@ class IrActionReportXml(models.Model):
             return super(IrActionReportXml, self)._lookup_report(name)
 
         # Calling Jasper
-        # return ReportJasper(name, record['model'])
         return IrActionReportXml.register_jasper_report(name, record['model'])
 
     @staticmethod
@@ -187,8 +173,9 @@ class IrActionReportXml(models.Model):
 class IrActionReportJasperSubReport(models.Model):
     _name = 'ir.actions.jasper.sub.report'
     _rec_name = 'template_filename'
-    _description = 'Jasper SubReport'
+    _description = 'Jasper SubReports'
 
-    template = fields.Binary(string='Template', required=True)
-    template_filename = fields.Char(string='Sub Report Template Filename')
+    template = fields.Binary(string='Template', required=True,
+                             help='.jrxml file of template.')
+    template_filename = fields.Char()
     action_report_xml_id = fields.Many2one('ir.actions.report.xml')

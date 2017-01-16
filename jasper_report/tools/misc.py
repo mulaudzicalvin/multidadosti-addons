@@ -11,17 +11,14 @@ from odoo.exceptions import RedirectWarning
 
 
 def mount_path_jasper(db_name, report_name):
-    filestore = config.filestore(db_name)
-    report_path = '/'.join([filestore,
-                            'jasper_report',
-                            str(report_name)])
+    file_store = config.filestore(db_name)
+    report_path = '/'.join([file_store, 'jasper_report', str(report_name)])
 
     if not os.path.exists(report_path):
         try:
             os.makedirs(report_path)
         except OSError:
             raise RedirectWarning(
-                _(u'Erro!'),
-                _(u"""Verifique as permissões de escrita
-                e o caminho da pasta"""))
+                _('Error!'),
+                _('Please, see the write permission and the directory path!'))
     return report_path
