@@ -3,7 +3,7 @@
 # @author Aldo Soares <soares_aldo@hotmail.com>
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 {
-    'name': 'Multi Jasper Report',
+    'name': 'Jasper Report',
     'version': '10.0.1.0.0',
     'summary': 'Jasper Client',
     'category': 'Reports',
