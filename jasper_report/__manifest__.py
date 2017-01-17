@@ -22,5 +22,5 @@
         'views/act_report_xml_view.xml',
     ],
     'installable': True,
-    'application': False,
+    'application': True,
 }
