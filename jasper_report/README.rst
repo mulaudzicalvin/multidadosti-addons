@@ -27,6 +27,7 @@ When this module provide support to PostgreSQL only. Others database support wil
    :width: 400 px
 
 After insert the fields, press the button
+
 .. image:: static/description/screenshot_03.png
    :width: 400 px
 
@@ -61,8 +62,7 @@ to add report in print menu on record screen.
 Print the Report
 ----------------
 
-Go in the page of model tah you select in **Model** field and in the drop-down print button.
- You can print the report created.
+Go in the page of model that you select in **Model** field and in the drop-down print button. You can print the report created.
 
 Bug Tracker
 ===========
