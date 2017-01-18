@@ -18,6 +18,7 @@
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/jasper_report_settings.xml',
         'views/act_report_xml_view.xml',
     ],
