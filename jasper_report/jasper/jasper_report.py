@@ -5,8 +5,17 @@
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 import os
-from pyjasper import jasperpy
+import logging
 import tempfile
+
+_logger = logging.getLogger(__name__)
+
+try:
+    from pyjasper import jasperpy
+except ImportError:
+    _logger.debug('Cannot import pyreportjasper'
+                  'pip install https://github.com/multidadosti-erp/'
+                  'pyreport/archive/master.zip')
 
 
 class JasperReport:

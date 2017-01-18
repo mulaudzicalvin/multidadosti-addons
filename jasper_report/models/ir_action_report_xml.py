@@ -8,12 +8,12 @@ import os
 
 import odoo
 from odoo import api, fields, models, report
-from odoo.addons.jasper_report.tools.misc import mount_path_jasper
 
-from jasper_report import JasperReport
+from ..tools.misc import mount_path_jasper
+from ..jasper import jasper_report
 
 
-class ReportJasper(report.interface.report_int):
+class Report(report.interface.report_int):
 
     def __init__(self, name, model, parser=None):
         # Remove report name from list of services if it already
@@ -23,7 +23,7 @@ class ReportJasper(report.interface.report_int):
         if name in odoo.report.interface.report_int._reports:
             del odoo.report.interface.report_int._reports[name]
 
-        super(ReportJasper, self).__init__(name)
+        super(Report, self).__init__(name)
         self.model = model
         self.parser = parser
 
@@ -54,7 +54,7 @@ class ReportJasper(report.interface.report_int):
             mount_path_jasper(datas['env'].cr.dbname, obj_report_xml.name),
             obj_report_xml.template_filename)
 
-        jasper = JasperReport()
+        jasper = jasper_report.JasperReport()
         data = jasper.process(path,
                               obj_report_xml.jasper_output_format,
                               parameters={'ODOO_RECORD_IDS': rec_ids},
@@ -118,7 +118,7 @@ class IrActionReportXml(models.Model):
 
     @api.multi
     def _compile_sub_report(self):
-        jasper = JasperReport()
+        jasper = jasper_report.JasperReport()
         template_dir = mount_path_jasper(self.env.cr.dbname, self.name)
 
         # Create temporary .jrxml files to compile them to .jasper
@@ -167,7 +167,7 @@ class IrActionReportXml(models.Model):
 
             del odoo.report.interface.report_int._reports[name]
 
-        return ReportJasper(name, model_name)
+        return Report(name, model_name)
 
 
 class IrActionReportJasperSubReport(models.Model):
