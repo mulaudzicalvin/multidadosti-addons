@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-26 13:08+0000\n"
-"PO-Revision-Date: 2017-01-26 11:10-0200\n"
+"POT-Creation-Date: 2017-01-27 18:33+0000\n"
+"PO-Revision-Date: 2017-01-27 16:34-0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,18 +18,19 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: general_payments
-#: model:ir.model.fields,field_description:general_payments.field_account_payment_journal_inout
+#: model:ir.model,name:general_payments.model_account_account
+#: model:ir.model.fields,field_description:general_payments.field_account_payment_general_account_id
 msgid "Account"
 msgstr "Conta"
 
 #. module: general_payments
-#: code:addons/general_payments/models/account_payment.py:55
+#: code:addons/general_payments/models/account_payment.py:76
 #, python-format
 msgid "Account to 'Receive Money' payment type must starts with '3'!"
 msgstr "Conta para o tipo de pagamento 'Receber Dinheiro' deve começar com o dígito '3'!"
 
 #. module: general_payments
-#: code:addons/general_payments/models/account_payment.py:61
+#: code:addons/general_payments/models/account_payment.py:82
 #, python-format
 msgid "Account to 'Send Money' payment type must starts with '4'!"
 msgstr "Conta para o tipo de pagamento 'Enviar Dinheiro' deve começar com o dígito '4'!"
@@ -37,7 +38,17 @@ msgstr "Conta para o tipo de pagamento 'Enviar Dinheiro' deve começar com o dí
 #. module: general_payments
 #: model:ir.model.fields,field_description:general_payments.field_account_payment_analytic_account_id
 msgid "Analytic Account"
-msgstr "Conta Analítica"
+msgstr "Centro de Custo"
+
+#. module: general_payments
+#: model:ir.model.fields,field_description:general_payments.field_account_account_code_first_digit
+msgid "Code first digit"
+msgstr "Code first digit"
+
+#. module: general_payments
+#: model:ir.ui.view,arch_db:general_payments.view_general_payment_form_inherit
+msgid "Código de Referência"
+msgstr "Código de Referência"
 
 #. module: general_payments
 #: model:ir.model.fields,field_description:general_payments.field_account_payment_description
