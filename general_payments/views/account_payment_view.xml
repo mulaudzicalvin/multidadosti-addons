@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_general_payment_form_inherit" model="ir.ui.view">
+        <field name="name">view.general.payment.form.inherit</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="br_account_payment.view_br_account_payment_payment_form_inherit"/>
+        <field name="arch" type="xml">
+            <field name="payment_transaction_id" position="replace"/>
+
+            <xpath expr="//field[@name='journal_id']" position="after">
+                <field name="general_account_id"
+                       attrs="{'required': [('payment_type', 'in', ('inbound', 'outbound')),('state', '=', 'draft')], 'invisible': ['|',('payment_type', 'not in', ('inbound', 'outbound')),'&amp;',('state', '!=', 'draft'),('general_account_id', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
+                <field name="analytic_account_id"
+                       groups="analytic.group_analytic_accounting"
+                       attrs="{'invisible': [('state', '!=', 'draft'), ('analytic_account_id', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
+            </xpath>
+
+            <xpath expr="//group" position="after">
+                <notebook>
+                    <page string="Description">
+                        <field name="description" attrs="{'invisible': [('state', '!=', 'draft'), ('description', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
+                    </page>
+                </notebook>
+            </xpath>
+
+            <xpath expr="//field[@name='communication']" position="attributes">
+                <attribute name="string">Código de Referência</attribute>
+                <attribute name="required">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
