@@ -12,19 +12,20 @@ class AccountPayment(models.Model):
 
     _inherit = 'account.payment'
 
-    journal_inout = fields.Many2one(comodel_name='account.account',
-                                    string='Account')
+    general_account_id = fields.Many2one(comodel_name='account.account',
+                                         string='Account')
     analytic_account_id = fields.Many2one('account.analytic.account',
                                           string='Analytic Account')
     description = fields.Text('Description')
 
-    @api.one
+    @api.multi
     @api.depends('invoice_ids', 'payment_type', 'partner_type', 'partner_id')
     def _compute_destination_account_id(self):
+        self.ensure_one()
         super(AccountPayment, self)._compute_destination_account_id()
 
-        if self.journal_inout:
-            self.destination_account_id = self.journal_inout.id
+        if self.general_account_id:
+            self.destination_account_id = self.general_account_id.id
 
     @api.onchange('payment_type')
     def _onchange_payment_type(self):
@@ -39,24 +40,44 @@ class AccountPayment(models.Model):
 
             records = self.env['account.account'].search([])
             ids = [rec.id for rec in records if rec.code[0] == account_prefix]
-            res['domain']['journal_inout'] = [('id', 'in', ids)]
+            res['domain']['general_account_id'] = [('id', 'in', ids)]
 
         return res
 
-    @api.constrains('journal_inout', 'payment_type')
+    def _get_shared_move_line_vals(self, debit, credit, amount_currency,
+                                   move_id, invoice_id=False):
+        """
+            Returns values common to both move lines (except for debit, credit
+            and amount_currency which are reversed)
+        """
+        res = super(AccountPayment, self)._get_shared_move_line_vals(
+            debit, credit, amount_currency, move_id, invoice_id=invoice_id)
+
+        if self.invoice_ids:
+
+            for inv in self.invoice_ids:
+                self.analytic_account_id = \
+                    inv.invoice_line_ids[0].account_analytic_id.id
+
+        # if not self.invoice_ids:
+        res['analytic_account_id'] = self.analytic_account_id.id
+        return res
+
+    @api.constrains('general_account_id', 'payment_type')
     def _check_journal(self):
 
         for record in self:
 
-            if record.journal_inout and not self.payment_type == 'transfer':
+            if record.general_account_id \
+                    and not self.payment_type == 'transfer':
 
                 if self.payment_type == 'inbound' \
-                        and record.journal_inout.code[0] != '3':
+                        and record.general_account_id.code[0] != '3':
                     raise ValidationError(_("Account to 'Receive Money' "
                                             "payment type must starts "
                                             "with '3'!"))
 
                 elif self.payment_type == 'outbound' \
-                        and record.journal_inout.code[0] != '4':
+                        and record.general_account_id.code[0] != '4':
                     raise ValidationError(_("Account to 'Send Money' payment "
                                             "type must starts with '4'!"))
