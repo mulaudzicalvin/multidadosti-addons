@@ -4,7 +4,7 @@
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 {
-    'name': 'Send and Receive General Payments',
+    'name': 'General Payments',
     'summary': """Send and Receive your general payments""",
     'version': '10.0.1.0.0',
     'category': 'Invoicing & Payments',
