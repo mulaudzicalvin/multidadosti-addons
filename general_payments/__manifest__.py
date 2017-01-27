@@ -19,7 +19,8 @@
         'br_account_payment',
     ],
     'data': [
-        'views/account_payment.xml',
+        'views/account_analytic_view.xml',
+        'views/account_payment_view.xml',
     ],
     'installable': True,
     'application': False,
