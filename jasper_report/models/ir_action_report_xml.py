@@ -54,10 +54,16 @@ class Report(report.interface.report_int):
             mount_path_jasper(datas['env'].cr.dbname, obj_report_xml.name),
             obj_report_xml.template_filename)
 
+        parameters = {
+            'ODOO_RECORD_IDS': rec_ids,
+            'ODOO_REPORT_PATH': mount_path_jasper(datas['env'].cr.dbname,
+                                                  obj_report_xml.name),
+        }
+
         jasper = jasper_report.JasperReport()
         data = jasper.process(path,
                               obj_report_xml.jasper_output_format,
-                              parameters={'ODOO_RECORD_IDS': rec_ids},
+                              parameters=parameters,
                               db_parameters=db_parameters)
 
         return data.decode('base64'), obj_report_xml.jasper_output_format
