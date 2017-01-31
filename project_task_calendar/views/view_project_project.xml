@@ -18,8 +18,7 @@
                 </group>
             </xpath>
 
-            <xpath expr="//field[@name='privacy_visibility']"
-                   position="replace">
+            <xpath expr="//field[@name='privacy_visibility']" position="replace">
                 <field name="privacy_visibility" widget="radio"/>
                 <field name="sequence" groups="base.group_no_one"/>
                 <field name="resource_calendar_id" groups="base.group_no_one"/>
@@ -30,6 +29,9 @@
             <xpath expr="//notebook" position="inside">
                 <page string="Calendario">
                     <field name="calendar_event_ids" widget="many2many"/>
+                </page>
+                <page string="Parceiros Relacionados">
+                    <field name="partner_ids" widget="many2many"/>
                 </page>
             </xpath>
 
