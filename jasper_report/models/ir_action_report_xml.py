@@ -51,14 +51,18 @@ class Report(report.interface.report_int):
         rec_ids = '(%s)' % ','.join(map(str, ids))
 
         path = os.path.join(
-            mount_path_jasper(datas['env'].cr.dbname, obj_report_xml.name),
+            mount_path_jasper(datas['env'].cr.dbname,
+                              obj_report_xml.report_name),
             obj_report_xml.template_filename)
 
         parameters = {
             'ODOO_RECORD_IDS': rec_ids,
-            'ODOO_REPORT_PATH': mount_path_jasper(datas['env'].cr.dbname,
-                                                  obj_report_xml.name),
         }
+
+        # Add ODOO_REPORT_PATH parameter only exist subreports
+        if obj_report_xml.sub_report_ids:
+            parameters['ODOO_REPORT_PATH'] = \
+                mount_path_jasper(datas['env'].cr.dbname, obj_report_xml.name)
 
         jasper = jasper_report.JasperReport()
         data = jasper.process(path,
@@ -116,7 +120,7 @@ class IrActionReportXml(models.Model):
 
     @api.multi
     def _build_root_report(self):
-        template_dir = mount_path_jasper(self.env.cr.dbname, self.name)
+        template_dir = mount_path_jasper(self.env.cr.dbname, self.report_name)
         template_dir = os.path.join(template_dir, self.template_filename)
 
         with open(template_dir, 'w') as f:
@@ -125,7 +129,7 @@ class IrActionReportXml(models.Model):
     @api.multi
     def _compile_sub_report(self):
         jasper = jasper_report.JasperReport()
-        template_dir = mount_path_jasper(self.env.cr.dbname, self.name)
+        template_dir = mount_path_jasper(self.env.cr.dbname, self.report_name)
 
         # Create temporary .jrxml files to compile them to .jasper
         # We need the make this to generate report, because jasper use
