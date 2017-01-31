@@ -10,9 +10,12 @@ from odoo.tools.translate import _
 from odoo.exceptions import RedirectWarning
 
 
-def mount_path_jasper(db_name, report_name):
+def mount_path_jasper(db_name, report_name, report_id):
+    # Make a directory name of report files unique
+    dir_name = report_name + '_' + str(report_id)
+
     file_store = config.filestore(db_name)
-    report_path = '/'.join([file_store, 'jasper_report', str(report_name)])
+    report_path = '/'.join([file_store, 'jasper_report', dir_name])
 
     if not os.path.exists(report_path):
         try:
