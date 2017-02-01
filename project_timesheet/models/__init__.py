@@ -4,4 +4,4 @@
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 from . import account_analytic_line
-from . import line_to_invoice
+from . import to_invoice

@@ -12,4 +12,4 @@ class AccountAnalyticLine(models.Model):
     project_task_type_id = fields.Many2one('project.task.type',
                                            string='Project Task State')
 
-    to_invoice = fields.Many2one('line.to.invoice', string='To Invoice')
+    to_invoice = fields.Many2one('to.invoice', string='To Invoice')

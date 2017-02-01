@@ -6,9 +6,9 @@
 from odoo import fields, models
 
 
-class LineToInvoice(models.Model):
+class ToInvoice(models.Model):
 
-    _name = 'line.to.invoice'
+    _name = 'to.invoice'
 
     name = fields.Char(string='Name', required=True)
     factor = fields.Float(string='Discount (%)', required=True)
