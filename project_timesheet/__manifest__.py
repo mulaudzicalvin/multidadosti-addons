@@ -12,6 +12,9 @@
     'license': 'LGPL-3',
     'category': 'Project',
     'summary': 'Project Improvements in Timesheet',
+    'contributors': [
+        'Michell Stuttgart <michellstut@gmail.com>',
+    ],
     'depends': [
         'hr_timesheet',
         'project_task_calendar',
