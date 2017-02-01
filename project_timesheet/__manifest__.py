@@ -18,6 +18,7 @@
     ],
     'data': [
         'views/account_analytic_line_view.xml',
+        'views/line_to_invoice_view.xml',
     ],
     'installable': True,
 }
