@@ -12,4 +12,3 @@ class LineToInvoice(models.Model):
 
     name = fields.Char(string='Name', required=True)
     factor = fields.Float(string='Discount (%)', required=True)
-    customer_name = fields.Char(string='Customer Name')

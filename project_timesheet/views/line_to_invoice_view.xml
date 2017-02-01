@@ -8,9 +8,10 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <field name="name"/>
-                        <field name="factor"/>
-                        <field name="customer_name"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="factor"/>
+                        </group>
                     </sheet>
                 </form>
 
