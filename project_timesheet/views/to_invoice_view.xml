@@ -11,6 +11,7 @@
                         <group>
                             <field name="name"/>
                             <field name="factor"/>
+                            <field name="billable"/>
                         </group>
                     </sheet>
                 </form>

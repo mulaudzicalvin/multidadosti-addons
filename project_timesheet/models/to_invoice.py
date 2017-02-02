@@ -12,3 +12,4 @@ class ToInvoice(models.Model):
 
     name = fields.Char(string='Name', required=True)
     factor = fields.Float(string='Discount (%)', required=True)
+    billable = fields.Boolean(string='Billable', default=True)
