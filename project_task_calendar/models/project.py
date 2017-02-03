@@ -10,6 +10,9 @@ class ProjectProject(models.Model):
 
     _inherit = 'project.project'
 
+    partner_ids = fields.Many2many(comodel_name='res.partner',
+                                   string='Parceiros Relacionados')
+
     calendar_event_ids = fields.One2many(comodel_name="calendar.event",
                                          inverse_name="project_id",
                                          string=u"Eventos de Calendário")
@@ -30,10 +33,18 @@ class ProjectProject(models.Model):
             for rec in task_types:
                 rec.project_ids = [(4, res.id)]
 
+        self.partner_ids = [(4, self.partner_id.id)]
         return res
 
+    @api.multi
+    def write(self, values):
+        # Add code here
+        if 'partner_id' in values:
+            values['partner_ids'] = [(4, values['partner_id'])]
+        return super(ProjectProject, self).write(values)
 
-class MultiProjectTaskType(models.Model):
+
+class ProjectTaskType(models.Model):
 
     _inherit = 'project.task.type'
 
