@@ -17,6 +17,7 @@
     """,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
+        'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
         'web_kanban',
@@ -31,7 +32,7 @@
     ],
     'qweb': [
         'static/src/xml/dashboard.xml',
-        'static/src/xml/web_kanban.xml',
+        # 'static/src/xml/web_kanban.xml',
     ],
     'installable': True,
 }

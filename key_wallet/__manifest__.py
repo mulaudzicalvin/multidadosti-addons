@@ -10,7 +10,10 @@
     'category': 'Key Wallet',
     'author': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
+    'contributors': [
+        'Michell Stuttgart <michellstut@gmail.com>',
+    ],
     'depends': [
         'base',
     ],
