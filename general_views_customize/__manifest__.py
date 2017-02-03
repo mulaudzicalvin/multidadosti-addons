@@ -32,7 +32,7 @@
     ],
     'qweb': [
         'static/src/xml/dashboard.xml',
-        'static/src/xml/web_kanban.xml',
+        # 'static/src/xml/web_kanban.xml',
     ],
     'installable': True,
 }
