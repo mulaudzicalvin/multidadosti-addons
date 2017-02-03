@@ -20,6 +20,7 @@
         'project_task_calendar',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'data/to_invoice_data.xml',
         'views/account_analytic_line_view.xml',
         'views/to_invoice_view.xml',
