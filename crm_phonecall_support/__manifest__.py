@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
 # @author Rodrigo Ferreira <rodrigosferreira91@gmail.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 {
     'name': 'CRM PhoneCall Support',
@@ -13,13 +13,15 @@
                module and integration with calendar Support by MultidadosTI""",
     'category': 'Project',
     'contributors': [
-        'Rodrigo Ferreira <rodrigosferreira91@gmail.com>'
+        'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
         'Aldo Soares <soares_aldo@hotmail.com>',
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
+        'project',
     ],
     'data': [
+        'views/crm_phonecall_support.xml',
     ],
     'installable': True,
 }
