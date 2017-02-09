@@ -4,7 +4,7 @@
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 {
-    'name': 'CRM PhoneCall Support',
+    'name': 'PhoneCall Support',
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
@@ -21,7 +21,7 @@
         'project',
     ],
     'data': [
-        'views/crm_phonecall_support.xml',
+        'views/helpdesk_phonecall_support.xml',
     ],
     'installable': True,
 }
