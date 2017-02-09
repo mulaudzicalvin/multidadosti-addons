@@ -16,6 +16,7 @@
                 widget="selection"/>
                 <field name="user_id"/>
                 <field name="finish_date_hour"/>
+                <button string="Finish call" name="button_finish_data" type="object"/>
             </tree>
         </field>
     </record>
