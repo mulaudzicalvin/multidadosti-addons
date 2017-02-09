@@ -3,4 +3,4 @@
 # @author Rodrigo Ferreira <rodrigosferreira91@gmail.com>
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
-from . import crm_phonecall
+from . import models

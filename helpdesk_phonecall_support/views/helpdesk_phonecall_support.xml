@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <record id="view_phonecall_service_tree" model="ir.ui.view">
-        <field name="name">phonecall.service.tree</field>
-        <field name="model">phonecall.service</field>
+    <record id="view_helpdesk_phonecall_service_tree" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.tree</field>
+        <field name="model">helpdesk.phonecall.service</field>
         <field name="arch" type="xml">
             <tree string="phonecall" editable="top">
                 <field name="start_date_hour"/>
@@ -17,20 +17,22 @@
                 <field name="user_id"/>
                 <field name="finish_date_hour"/>
                 <button string="Finish call" name="button_finish_data" type="object"/>
+                <field name="solicitation" required="True"/>
             </tree>
         </field>
     </record>
 
-    <record id="action_phonecall_service" model="ir.actions.act_window">
+    <record id="action_helpdesk_phonecall_service" model="ir.actions.act_window">
         <field name="name">PhoneCall Service</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">phonecall.service</field>
+        <field name="res_model">helpdesk.phonecall.service</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="menuitem_phonecall_service"
-              name="CRM PhoneCall"
-              action="action_phonecall_service"
+              name="Helpdesk PhoneCall"
+              action="action_helpdesk_phonecall_service"
               sequence="10"
+              web_icon="helpdesk_phonecall_support,static/description/icon_phone.png"
     />
 </odoo>

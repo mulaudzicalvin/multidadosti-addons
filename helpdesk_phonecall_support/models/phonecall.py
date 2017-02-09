@@ -6,8 +6,8 @@
 from odoo import api, fields, models
 
 
-class PhoneCallCrm(models.Model):
-    _name = 'phonecall.service'
+class HelpDeskPhoneCall(models.Model):
+    _name = 'helpdesk.phonecall.service'
 
     name = fields.Text(string='Description')
 
@@ -28,6 +28,11 @@ class PhoneCallCrm(models.Model):
 
     finish_date_hour = fields.Datetime(string='Finish Date',
                                        readonly=True, )
+
+    solicitation = fields.Selection(string='Solicitation', selection=(
+        [('1', u'Dúvidas Gerais'),
+         ('2', u'Dúvidas Nota Fiscal'), ('3', u'Erro NFe'),
+         ('4', u'Erro NFSe'), ('5', u'Erro VMulti'), ('6', u'Nova Solicitação')]))
 
     def button_finish_data(self):
         self.finish_date_hour = fields.Datetime.now()
