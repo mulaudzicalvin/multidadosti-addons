@@ -7,25 +7,27 @@ from odoo import api, fields, models
 
 
 class PhoneCallCrm(models.Model):
-
     _name = 'phonecall.service'
 
     name = fields.Text(string='Description')
 
-    start_date_hour = fields.Datetime(string='Start Date')
+    start_date_hour = fields.Datetime(string='Start Date',
+                                      readonly=True,
+                                      default=lambda s: fields.Datetime.now())
 
     partner_id = fields.Many2one(string='Partner',
-                              comodel_name='res.partner')
+                                 comodel_name='res.partner')
 
     project_id = fields.Many2one(comodel_name='project.project')
 
     contact_partner_id = fields.Many2one(string='Contact',
-                              comodel_name='res.partner')
+                                         comodel_name='res.partner')
 
-    user_id = fields.Many2one(string='User',
-                              comodel_name='res.users')
+    user_id = fields.Many2one('res.users', string='User', readonly=True,
+                              default=lambda self: self._uid)
 
-    finish_date_hour = fields.Datetime(string='Finish Date')
+    finish_date_hour = fields.Datetime(string='Finish Date',
+                                       readonly=True, )
 
-
-
+    def button_finish_data(self):
+        self.finish_date_hour = fields.Datetime.now()
