@@ -7,18 +7,18 @@
         <field name="arch" type="xml">
             <tree string="phonecall" editable="top">
                 <field name="start_date_hour"/>
-                <field name="name"/>
                 <field name="partner_id" domain="[('is_company','=',True)]"
                        options="{'no_create':True}"/>
                 <field name="project_id" domain ="[('partner_id','=',partner_id)]"
                        options="{'no_create':True}"/>
                 <field name="contact_partner_id" domain="[('is_company','=',False),('parent_id','=',partner_id)]"
                        options="{'no_create':True}"/>
-                <field name="user_id"/>
-                <field name="finish_date_hour"/>
-                <button string="Finish call" name="button_finish_data" type="object" attrs="{'invisible':[('state','=','done')]}"/>
+                <field name="name"/>
                 <field name="project_tag_id" required="True"/>
+                <field name="finish_date_hour"/>
+                <field name="user_id"/>
                 <field name="state" readonly="True"/>
+                <button string="Finish call" name="button_finish_data" type="object" attrs="{'invisible':[('state','=','done')]}"/>
             </tree>
         </field>
     </record>
