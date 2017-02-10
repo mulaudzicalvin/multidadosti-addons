@@ -9,16 +9,16 @@
                 <field name="start_date_hour"/>
                 <field name="name"/>
                 <field name="partner_id" domain="[('is_company','=',True)]"
-                widget="selection"/>
+                       options="{'no_create':True}"/>
                 <field name="project_id" domain ="[('partner_id','=',partner_id)]"
-                widget="selection"/>
+                       options="{'no_create':True}"/>
                 <field name="contact_partner_id" domain="[('is_company','=',False),('parent_id','=',partner_id)]"
-                widget="selection"/>
+                       options="{'no_create':True}"/>
                 <field name="user_id"/>
                 <field name="finish_date_hour"/>
-                <button string="Finish call" name="button_finish_data" type="object"/>
-                <field name="solicitation" required="True"/>
-                <button string="Reopen" name="button_reopen" type="object"/>
+                <button string="Finish call" name="button_finish_data" type="object" attrs="{'invisible':[('state','=','done')]}"/>
+                <field name="project_tag_id" required="True"/>
+                <field name="state" readonly="True"/>
             </tree>
         </field>
     </record>
