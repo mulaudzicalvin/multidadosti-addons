@@ -9,13 +9,10 @@
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
-    'summary': """Custom module developed for visual improvement on project
-               module and integration with calendar Support by MultidadosTI""",
+    'summary': """Phonecall service to Odoo by MultidadosTI""",
     'category': 'Project',
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
-        'Aldo Soares <soares_aldo@hotmail.com>',
-        'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
         'project',
@@ -23,7 +20,8 @@
     'data': [
         'security/ir.model.access.csv',
         'security/helpdesk_phonecall_support.xml',
-        'views/helpdesk_phonecall_support.xml',
+        'views/helpdesk_phonecall_service_view.xml',
+        'data/helpdesk_data.xml',
     ],
     'installable': True,
 }
