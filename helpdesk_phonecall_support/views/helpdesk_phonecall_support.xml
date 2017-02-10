@@ -18,11 +18,42 @@
                 <field name="finish_date_hour"/>
                 <button string="Finish call" name="button_finish_data" type="object"/>
                 <field name="solicitation" required="True"/>
+                <button string="Reopen" name="button_reopen" type="object"/>
             </tree>
         </field>
     </record>
 
     <record id="action_helpdesk_phonecall_service" model="ir.actions.act_window">
+        <field name="name">PhoneCall Service</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">helpdesk.phonecall.service</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_helpdesk_phonecall_service_search" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.search</field>
+        <field name="model">helpdesk.phonecall.service</field>
+        <field name="arch" type="xml">
+            <search string="Filters">
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="project_id"/>
+
+                <!--<filter name="my_filters" string="My Filters"-->
+                    <!--domain="[('partner_id', '=', project_id)]"/>-->
+                <group string="Group By">
+                    <filter name="group_by_partner" string="Partners"
+                        context="{'group_by': 'partner_id'}"/>
+                </group>
+                <group string="Group By">
+                    <filter name="group_by_user" string="Users"
+                        context="{'group_by': 'user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+     <record id="action_helpdesk_phonecall_service" model="ir.actions.act_window">
         <field name="name">PhoneCall Service</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.phonecall.service</field>
@@ -35,4 +66,5 @@
               sequence="10"
               web_icon="helpdesk_phonecall_support,static/description/icon_phone.png"
     />
+
 </odoo>
