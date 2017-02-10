@@ -34,5 +34,10 @@ class HelpDeskPhoneCall(models.Model):
          ('2', u'Dúvidas Nota Fiscal'), ('3', u'Erro NFe'),
          ('4', u'Erro NFSe'), ('5', u'Erro VMulti'), ('6', u'Nova Solicitação')]))
 
+    
+
     def button_finish_data(self):
         self.finish_date_hour = fields.Datetime.now()
+
+    def button_reopen(self):
+        pass
