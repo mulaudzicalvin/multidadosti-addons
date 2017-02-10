@@ -3,7 +3,7 @@
 # @author Rodrigo Ferreira <rodrigosferreira91@gmail.com>
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class HelpDeskPhoneCall(models.Model):
@@ -18,7 +18,8 @@ class HelpDeskPhoneCall(models.Model):
     partner_id = fields.Many2one(string='Partner',
                                  comodel_name='res.partner')
 
-    project_id = fields.Many2one(comodel_name='project.project')
+    project_id = fields.Many2one(string="Project",
+                                 comodel_name='project.project')
 
     contact_partner_id = fields.Many2one(string='Contact',
                                          comodel_name='res.partner')
@@ -29,15 +30,13 @@ class HelpDeskPhoneCall(models.Model):
     finish_date_hour = fields.Datetime(string='Finish Date',
                                        readonly=True, )
 
-    solicitation = fields.Selection(string='Solicitation', selection=(
-        [('1', u'Dúvidas Gerais'),
-         ('2', u'Dúvidas Nota Fiscal'), ('3', u'Erro NFe'),
-         ('4', u'Erro NFSe'), ('5', u'Erro VMulti'), ('6', u'Nova Solicitação')]))
+    project_tag_id = fields.Many2one('project.tags', string='Tags')
 
-    
+    state = fields.Selection(string='State', selection=(
+        [('open', 'Open'),
+         ('done', 'Done')]),
+                             default='open')
 
     def button_finish_data(self):
         self.finish_date_hour = fields.Datetime.now()
-
-    def button_reopen(self):
-        pass
+        self.state = "done"
