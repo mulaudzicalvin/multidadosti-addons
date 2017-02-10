@@ -5,7 +5,7 @@
 
 {
     'name': 'PhoneCall Support',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
@@ -21,6 +21,8 @@
         'project',
     ],
     'data': [
+        'security/ir.model.access.csv',
+        'security/helpdesk_phonecall_support.xml',
         'views/helpdesk_phonecall_support.xml',
     ],
     'installable': True,
