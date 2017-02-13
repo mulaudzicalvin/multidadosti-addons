@@ -48,9 +48,9 @@
             </xpath>
 
             <xpath expr="//notebook" position="inside">
-                <page string="Projeto">
-                    <group>
-                        <field name="project_id"
+                <page string="Project">
+                    <group col="12">
+                      <field name="project_id"
                                domain="[('partner_ids', '=', partner_id)]"/>
                         <!--domain="[('partner_id', 'in', partner_ids and partner_ids[0][2])]"/>-->
                         <field name="task_id"

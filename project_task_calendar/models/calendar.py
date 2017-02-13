@@ -9,8 +9,8 @@ from odoo import models, fields, api
 class CalendarEvent(models.Model):
     _inherit = 'calendar.event'
 
-    project_id = fields.Many2one('project.project', string='Projeto')
-    task_id = fields.Many2one('project.task', string='Tarefa')
+    project_id = fields.Many2one('project.project', string='Project')
+    task_id = fields.Many2one('project.task', string='Task')
     partner_id = fields.Many2one('res.partner', string='Cliente')
     meeting_state = fields.Selection([
         ('open', 'Open'),
