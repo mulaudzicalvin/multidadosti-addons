@@ -34,8 +34,7 @@ class HelpDeskPhoneCall(models.Model):
 
     state = fields.Selection(string='State', selection=(
         [('open', 'Open'),
-         ('done', 'Done')]),
-                             default='open')
+         ('done', 'Done')]), default='open')
 
     def button_finish_data(self):
         self.finish_date_hour = fields.Datetime.now()
