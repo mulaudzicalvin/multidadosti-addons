@@ -36,9 +36,6 @@
                 <field name="user_id"/>
                 <field name="project_id"/>
 
-                <!--<filter name="my_filters" string="My Filters"-->
-                <!--domain="[('partner_id', '=', project_id)]"/>-->
-
                 <filter name="open_filters" string="Open"
                         domain="[('state', '=', 'open')]"/>
 
