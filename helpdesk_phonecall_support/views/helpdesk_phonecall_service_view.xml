@@ -9,25 +9,22 @@
                 <field name="start_date_hour"/>
                 <field name="partner_id" domain="[('is_company','=',True)]"
                        options="{'no_create':True}"/>
-                <field name="project_id" domain ="[('partner_id','=',partner_id)]"
+                <field name="project_id"
+                       domain="[('partner_id','=',partner_id)]"
                        options="{'no_create':True}"/>
-                <field name="contact_partner_id" domain="[('is_company','=',False),('parent_id','=',partner_id)]"
+                <field name="contact_partner_id"
+                       domain="[('is_company','=',False),('parent_id','=',partner_id)]"
                        options="{'no_create':True}"/>
                 <field name="name"/>
                 <field name="project_tag_id" required="True"/>
                 <field name="finish_date_hour"/>
                 <field name="user_id"/>
                 <field name="state" readonly="True"/>
-                <button string="Finish call" name="button_finish_data" type="object" attrs="{'invisible':[('state','=','done')]}"/>
+                <button string="Finish call" name="button_finish_data"
+                        type="object" icon="fa-check"
+                        attrs="{'invisible':[('state','=','done')]}"/>
             </tree>
         </field>
-    </record>
-
-    <record id="action_helpdesk_phonecall_service" model="ir.actions.act_window">
-        <field name="name">PhoneCall Service</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">helpdesk.phonecall.service</field>
-        <field name="view_mode">tree,form</field>
     </record>
 
     <record id="view_helpdesk_phonecall_service_search" model="ir.ui.view">
@@ -40,23 +37,31 @@
                 <field name="project_id"/>
 
                 <!--<filter name="my_filters" string="My Filters"-->
-                    <!--domain="[('partner_id', '=', project_id)]"/>-->
+                <!--domain="[('partner_id', '=', project_id)]"/>-->
+
+                <filter name="open_filters" string="Open"
+                        domain="[('state', '=', 'open')]"/>
+
+                <filter name="done_filters" string="Done"
+                        domain="[('state', '=', 'done')]"/>
+
                 <group string="Group By">
                     <filter name="group_by_partner" string="Partners"
-                        context="{'group_by': 'partner_id'}"/>
-                </group>
-                <group string="Group By">
+                            context="{'group_by': 'partner_id'}"/>
+
                     <filter name="group_by_user" string="Users"
-                        context="{'group_by': 'user_id'}"/>
+                            context="{'group_by': 'user_id'}"/>
                 </group>
             </search>
         </field>
     </record>
 
-     <record id="action_helpdesk_phonecall_service" model="ir.actions.act_window">
+    <record id="action_helpdesk_phonecall_service"
+            model="ir.actions.act_window">
         <field name="name">PhoneCall Service</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.phonecall.service</field>
+        <field name="context">{'search_default_open_filters':1}</field>
         <field name="view_mode">tree,form</field>
     </record>
 
