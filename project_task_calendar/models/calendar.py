@@ -7,8 +7,15 @@ from odoo import models, fields
 
 
 class CalendarEvent(models.Model):
-
     _inherit = 'calendar.event'
 
     project_id = fields.Many2one('project.project', string='Projeto')
     task_id = fields.Many2one('project.task', string='Tarefa')
+    partner_id = fields.Many2one('res.partner', string='Cliente')
+    state = fields.Selection([
+        ('open', 'Open'),
+        ('done', 'Done'),
+        ('cancel', 'Cancel')
+    ], readonly=True, required=True, string='State', default='open')
+   time = fields.Float(string="Time")
+
