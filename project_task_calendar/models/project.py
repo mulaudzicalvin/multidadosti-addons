@@ -21,6 +21,11 @@ class ProjectProject(models.Model):
         string='Get default stages',
         help='Add to this project, all stage defined like default')
 
+    allow_meetings = fields.Boolean("Allow Meetings", default=True)
+
+    meeting_number = fields.Integer(compute='_get_meeting_number',
+                                    string="Number of Meetings")
+
     @api.model
     def create(self, values):
         values['partner_ids'] = [(4, values['partner_id'])]
@@ -40,6 +45,10 @@ class ProjectProject(models.Model):
             values['partner_ids'] = [(4, values['partner_id'])]
         return super(ProjectProject, self).write(values)
 
+    @api.multi
+    def _get_meeting_number(self):
+        for record in self:
+            record.meeting_number = len(record.calendar_event_ids)
 
 class ProjectTask(models.Model):
 
