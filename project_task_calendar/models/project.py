@@ -50,6 +50,7 @@ class ProjectProject(models.Model):
         for record in self:
             record.meeting_number = len(record.calendar_event_ids)
 
+
 class ProjectTask(models.Model):
 
     _inherit = 'project.task'
@@ -84,6 +85,7 @@ class ProjectTask(models.Model):
 
         res['context'] = {
             'search_default_partner_ids': task_owner_id.name,
+            'search_default_task_id': self.id,
             # 'default_partner_id': self.partners.id,
             'default_partner_ids': partners.ids,
             'default_user_id': self.env.uid,

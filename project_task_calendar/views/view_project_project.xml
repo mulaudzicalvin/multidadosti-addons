@@ -72,7 +72,6 @@
                     <div attrs="{'invisible': [('allow_meetings', '=', False)]}" class="o_project_kanban_box">
                         <a name="%(act_calendar_event_meetings_line_by_project)d" type="action">
                             <span class="o_value"><t t-esc="record.meeting_number.value"/></span>
-                        <!--<span class="o_label"><t t-esc="record.label_tasks.value"/></span>-->
                         </a>
                         <a t-if="record.allow_meetings.raw_value" name="%(act_calendar_event_meetings_line_by_project)d" type="action">
                             <span class="o_label">Meetings</span>
