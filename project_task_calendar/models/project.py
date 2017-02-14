@@ -46,9 +46,36 @@ class ProjectTask(models.Model):
     _inherit = 'project.task'
 
     calendar_event_ids = fields.One2many(comodel_name='calendar.event',
-                                         inverse_name='project_id',
+                                         inverse_name='task_id',
                                          readonly=True,
                                          string='Calendar Events')
+
+    meeting_number = fields.Integer(compute='_get_meeting_number',
+                                    string="Number of Meetings")
+
+    @api.multi
+    def _get_meeting_number(self):
+        for record in self:
+            record.meeting_number = len(record.calendar_event_ids)
+
+    @api.multi
+    def action_make_meeting(self):
+        """ This opens Meeting's calendar view to schedule meeting on current applicant
+            @return: Dictionary value for created Meeting view
+        """
+        self.ensure_one()
+        res = self.env['ir.actions.act_window'].for_xml_id(
+            'calendar', 'action_calendar_event')
+
+        res['context'] = {
+            'search_default_partner_ids': self.partner_id.name,
+            # 'default_partner_id': self.partners.id,
+            'default_user_id': self.env.uid,
+            'default_name': self.name,
+            'default_project_id': self.project_id.id,
+            'default_task_id': self.id,
+        }
+        return res
 
 
 class ProjectTaskType(models.Model):
