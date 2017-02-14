@@ -21,9 +21,13 @@
         'calendar',
     ],
     'data': [
+        'security/ir.model.access.csv',
+        'data/to_invoice_data.xml',
         'views/view_calendar.xml',
         'views/view_project_project.xml',
         'views/view_project_task.xml',
+        'views/to_invoice_view.xml',
+        'views/account_analytic_line_view.xml',
     ],
     'installable': True,
 }
