@@ -99,6 +99,18 @@
         </field>
     </record>
 
+     <record id="view_multi_calendar_event_search" model="ir.ui.view">
+        <field name="name">multi.calendar.event.search</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_ids']" position="after">
+                <!-- Add your fields or attributes here -->
+                <field name="project_id"/>
+            </xpath>
+        </field>
+    </record>
+
     <record id="act_calendar_event_meetings_line_by_project" model="ir.actions.act_window">
             <field name="name">Activities</field>
             <field name="res_model">calendar.event</field>
