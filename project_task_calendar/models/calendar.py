@@ -17,7 +17,7 @@ class CalendarEvent(models.Model):
     meeting_state = fields.Selection([('open', 'Open'),
                                       ('done', 'Done'),
                                       ('cancel', 'Cancel')],
-                                     string='State', default='open')
+                                     string='Meeting State', default='open')
 
     @api.multi
     def done_button(self):

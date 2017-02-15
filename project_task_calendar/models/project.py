@@ -21,10 +21,10 @@ class ProjectProject(models.Model):
         string='Get default stages',
         help='Add to this project, all stage defined like default')
 
-    allow_meetings = fields.Boolean("Allow Meetings", default=True)
+    allow_meetings = fields.Boolean('Allow Meetings', default=True)
 
     meeting_number = fields.Integer(compute='_get_meeting_number',
-                                    string="Number of Meetings")
+                                    string='Number of Meetings')
 
     @api.model
     def create(self, values):
@@ -48,7 +48,9 @@ class ProjectProject(models.Model):
     @api.multi
     def _get_meeting_number(self):
         for record in self:
-            record.meeting_number = len(record.calendar_event_ids)
+            cal_events = record.calendar_event_ids.filtered(
+                lambda r: r.meeting_state == 'open')
+            record.meeting_number = len(cal_events)
 
 
 class ProjectTask(models.Model):
@@ -61,12 +63,14 @@ class ProjectTask(models.Model):
                                          string='Calendar Events')
 
     meeting_number = fields.Integer(compute='_get_meeting_number',
-                                    string="Number of Meetings")
+                                    string='Number of Meetings')
 
     @api.multi
     def _get_meeting_number(self):
         for record in self:
-            record.meeting_number = len(record.calendar_event_ids)
+            cal_events = record.calendar_event_ids.filtered(
+                lambda r: r.meeting_state == 'open')
+            record.meeting_number = len(cal_events)
 
     @api.multi
     def action_make_meeting(self):

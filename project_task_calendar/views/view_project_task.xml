@@ -18,8 +18,7 @@
             <xpath expr="//field[@name='partner_id']" position="replace"/>
             <xpath expr="//field[@name='user_id']" position="replace"/>
 
-            <xpath expr="//field[@name='displayed_image_id']"
-                   position="replace"/>
+            <xpath expr="//field[@name='displayed_image_id']" position="replace"/>
             <xpath expr="//field[@name='project_id']" position="after">
                 <field name="partner_id" readonly="1"/>
                 <field name="user_id"/>
@@ -39,6 +38,7 @@
                             <field name="location"/>
                             <field name="duration"/>
                             <field name="meeting_state"/>
+                            <field name="state" invisible="0"/>
                         </tree>
                     </field>
                 </page>
@@ -46,10 +46,8 @@
 
             <xpath expr="//field[@name='timesheet_ids']" position="replace">
                 <!-- Add your fields or attributes here -->
-                <field name="timesheet_ids"
-                       context="{'default_project_id': project_id,'default_project_task_type_id': stage_id}">
-                    <tree editable="bottom" string="Timesheet Activities"
-                          default_order="date">
+                <field name="timesheet_ids" context="{'default_project_id': project_id,'default_project_task_type_id': stage_id}">
+                    <tree editable="bottom" string="Timesheet Activities" default_order="date">
                         <field name="date"/>
                         <field name="user_id" required="1"/>
                         <field name="name"/>
