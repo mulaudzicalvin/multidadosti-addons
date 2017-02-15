@@ -62,17 +62,3 @@ class CalendarEvent(models.Model):
                 'unit_amount': self.duration,
             }
             self.env['account.analytic.line'].create(values)
-
-
-class WizardCalendarEventDone(models.TransientModel):
-    _name = 'wizard.calendar.event'
-
-    meeting_feedback = fields.Text(string='Feedback', required=True)
-    meeting_duration = fields.Float(string='Duration', required=True)
-    calendar_event_id = fields.Many2one('calendar.event')
-
-    def finish(self):
-        self.calendar_event_id.meeting_state = 'done'
-        self.calendar_event_id.meeting_feedback = self.meeting_feedback
-        self.calendar_event_id.meeting_duration = self.meeting_duration
-

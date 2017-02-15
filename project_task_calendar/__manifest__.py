@@ -28,6 +28,7 @@
         'views/view_project_task.xml',
         'views/to_invoice_view.xml',
         'views/account_analytic_line_view.xml',
+        'wizard/wizard_calendar_event_done.xml',
     ],
     'installable': True,
 }
