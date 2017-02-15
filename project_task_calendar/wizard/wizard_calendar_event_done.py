@@ -21,6 +21,7 @@ class WizardCalendarEventDone(models.TransientModel):
         self.ensure_one()
 
         ce = self.calendar_event_id
+
         ce.meeting_state = 'done'
         ce.meeting_feedback = self.meeting_feedback
         ce.meeting_duration = self.meeting_duration
@@ -34,7 +35,12 @@ class WizardCalendarEventDone(models.TransientModel):
                 'date': dt.date(),
                 'user_id': ce.user_id.id,
                 'project_id': ce.project_id.id,
-                'task_id': ce.task_id.id if ce.task_id else False,
                 'unit_amount': ce.duration,
+                'calendar_event_id': ce.id,
             }
+
+            if ce.task_id:
+                values['task_id'] = ce.task_id.id
+                values['project_task_type_id'] = ce.task_id.stage_id.id
+
             self.env['account.analytic.line'].create(values)
