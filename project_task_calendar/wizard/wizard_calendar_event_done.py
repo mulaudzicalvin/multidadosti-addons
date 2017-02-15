@@ -24,7 +24,7 @@ class WizardCalendarEventDone(models.TransientModel):
         ce.meeting_feedback = self.meeting_feedback
         ce.meeting_duration = self.meeting_duration
 
-        if ce.project_id:
+        if ce.project_id and ce.meeting_state == 'done':
             dt = datetime.datetime.strptime(ce.start_datetime,
                                             '%Y-%m-%d %H:%M:%S')
 

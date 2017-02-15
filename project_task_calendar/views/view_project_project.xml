@@ -35,7 +35,7 @@
                             <field name="stop_datetime"/>
                             <field name="location"/>
                             <field name="duration"/>
-                            <field name="state" invisible="1"/>
+                            <field name="meeting_state"/>
                         </tree>
                     </field>
                 </page>

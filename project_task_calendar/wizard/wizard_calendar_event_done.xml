@@ -7,20 +7,22 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <field name="meeting_feedback"/>
-                    </group>
-                    <div class="oe_title">
-                        <div class="oe_edit_only">
-                            <label for="meeting_duration"/>
-                        </div>
+                    <div class="oe_edit_only">
+                        <label for="meeting_duration"/>
                         <field name="meeting_duration" widget="float_time"
                                class="oe_inline"/>
-                        <span>hours</span>
+                        <span> hours</span>
                     </div>
+
+                    <notebook>
+                        <page string="Meeting Feedback">
+                            <field name="meeting_feedback" style="margin: 10px 0px 10px 0px;"/>
+                        </page>
+                    </notebook>
                 </sheet>
                 <footer>
-                    <button name="finish" string="Finish" type="object" default_focus="1" class="oe_highlight"/>
+                    <button name="finish" string="Finish" type="object"
+                            default_focus="1" class="oe_highlight"/>
                     or
                     <button string="Cancel" class="oe_link" special="cancel"/>
                 </footer>

@@ -18,38 +18,36 @@
         <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
         <field name="arch" type="xml">
             <xpath expr="//label[@for='partner_ids']" position="before">
+                <label for="partner_id" string="Partner" class="oe_edit_only"/>
                 <h2>
-                    <label for="partner_id" string="Partner"
-                           class="oe_edit_only"/>
-                    <field name="partner_id"
-                           domain="[('is_company','=',True)]"/>
+                    <field name="partner_id" placeholder="Select partner..."
+                           nolabel="1"
+                           class="oe_inline"/>
                 </h2>
             </xpath>
 
             <xpath expr="//sheet" position="before">
                 <header>
-                    <button name="done_button" string='Done' type="object"
+                    <button name="done_button" string='Confirm' type="object"
                             class="btn-primary"
-                            widget="button_confirm"
-                            attrs="{'invisible': [('meeting_state','!=','open')]}"/>
+                            attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>
                     <button name="cancel_button" string='Cancel' type="object"
-                            class="btn-primary"
-                            attrs="{'invisible': [('meeting_state','!=','open')]}"/>
+                            attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>
                     <button name="open_button" string='Open' type="object"
-                            class="btn-primary"
-                            attrs="{'invisible': [('meeting_state','=','open')]}"/>
-                    <field name="meeting_state" widget="statusbar"
-                           statusbar_visible="open,done,cancel"/>
+                            attrs="{'invisible': [('meeting_state','in',['open', 'done'])]}"/>
+                    <field name="meeting_state" widget="statusbar"/>
                 </header>
             </xpath>
 
             <xpath expr="//field[@name='partner_ids']" position="attributes">
-                <attribute name="domain">[('is_company','=',False),('parent_id','=',partner_id)]</attribute>
+                <attribute name="domain">
+                    [('is_company','=',False),('parent_id','=',partner_id)]
+                </attribute>
             </xpath>
 
             <xpath expr="//notebook" position="inside">
                 <page string="Project">
-                    <group col="12">
+                    <group>
                         <field name="project_id"
                                domain="[('partner_ids', '=', partner_id)]"/>
                         <field name="task_id"
@@ -71,7 +69,8 @@
     <record id="view_calendar_event_form_popup" model="ir.ui.view">
         <field name="name">calendar.event.form.popup</field>
         <field name="model">calendar.event</field>
-        <field name="inherit_id" ref="calendar.view_calendar_event_form_popup"/>
+        <field name="inherit_id"
+               ref="calendar.view_calendar_event_form_popup"/>
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='partner_ids']" position="before">

@@ -11,8 +11,7 @@
                 <button name="action_make_meeting" class="oe_stat_button"
                         icon="fa-calendar" type="object"
                         help="Schedule meeting with this applicant">
-                    <field name="meeting_number" widget="statinfo"
-                           string="Meetings"/>
+                    <field name="meeting_number" widget="statinfo" string="Meetings"/>
                 </button>
             </xpath>
 
@@ -39,7 +38,7 @@
                             <field name="stop_datetime"/>
                             <field name="location"/>
                             <field name="duration"/>
-                            <field name="state" invisible="1"/>
+                            <field name="meeting_state"/>
                         </tree>
                     </field>
                 </page>
@@ -55,8 +54,7 @@
                         <field name="user_id" required="1"/>
                         <field name="name"/>
                         <field name="project_task_type_id" readonly="1"/>
-                        <field name="unit_amount" string="Duration"
-                               widget="float_time"/>
+                        <field name="unit_amount" string="Duration" widget="float_time"/>
                         <field name="to_invoice"/>
                         <field name="project_id" invisible="1"/>
                     </tree>
