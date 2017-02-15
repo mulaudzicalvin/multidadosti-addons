@@ -1,0 +1,155 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_phonecall_support
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-13 13:10+0000\n"
+"PO-Revision-Date: 2017-02-13 11:11-0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_contact_partner_id
+msgid "Contact"
+msgstr "Contato"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_name
+msgid "Description"
+msgstr "Descrição"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_display_name
+msgid "Display Name"
+msgstr "Nome para Exibição"
+
+#. module: helpdesk_phonecall_support
+#: selection:helpdesk.phonecall.service,state:0
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+msgid "Done"
+msgstr "Encerrado"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+msgid "Filters"
+msgstr "Filtros"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_finish_date_hour
+msgid "Finish Date"
+msgstr "Data Final"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_tree
+msgid "Finish call"
+msgstr "Encerrar ligação"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+msgid "Group By"
+msgstr "Agrupar Por"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.menu,name:helpdesk_phonecall_support.menuitem_phonecall_service
+msgid "Helpdesk PhoneCall"
+msgstr "Atendimento"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_id
+msgid "ID"
+msgstr "ID"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service___last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: helpdesk_phonecall_support
+#: selection:helpdesk.phonecall.service,state:0
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+msgid "Open"
+msgstr "Aberto"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_partner_id
+msgid "Partner"
+msgstr "Parceiro"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+msgid "Partners"
+msgstr "Parceiros"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.actions.act_window,name:helpdesk_phonecall_support.action_helpdesk_phonecall_service
+msgid "PhoneCall Service"
+msgstr "Atendimento"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_project_id
+msgid "Project"
+msgstr "Projeto"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_start_date_hour
+msgid "Start Date"
+msgstr "Data de Início"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_state
+msgid "State"
+msgstr "Estado"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_project_tag_id
+msgid "Tags"
+msgstr "Marcadores"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_user_id
+msgid "User"
+msgstr "Usuário"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+msgid "Users"
+msgstr "Usuários"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model,name:helpdesk_phonecall_support.model_helpdesk_phonecall_service
+msgid "helpdesk.phonecall.service"
+msgstr "helpdesk.phonecall.service"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_tree
+msgid "phonecall"
+msgstr "phonecall"

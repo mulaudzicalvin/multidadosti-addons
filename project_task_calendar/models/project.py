@@ -25,6 +25,7 @@ class ProjectProject(models.Model):
 
     @api.model
     def create(self, vals):
+        vals['partner_ids'] = [(4, vals['partner_id'])]
         res = super(ProjectProject, self).create(vals)
 
         if vals.get('bring_default_task_type'):
@@ -33,7 +34,6 @@ class ProjectProject(models.Model):
             for rec in task_types:
                 rec.project_ids = [(4, res.id)]
 
-        self.partner_ids = [(4, self.partner_id.id)]
         return res
 
     @api.multi
