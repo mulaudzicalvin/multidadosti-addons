@@ -47,17 +47,6 @@
                 </attribute>
             </xpath>
 
-
-            <xpath expr="//field[@name='user_id']" position="after">
-                <field name="meeting_feedback"
-                       string="Feedback"
-                       attrs="{'invisible': [('meeting_state','!=','done')]}"/>
-                <field name="meeting_duration"
-                       widget="float_time"
-                       string="Duration"
-                       attrs="{'invisible': [('meeting_state','!=','done')]}"/>
-            </xpath>
-
             <xpath expr="//notebook" position="inside">
                 <page string="Projeto">
                     <group>
@@ -66,6 +55,13 @@
                         <!--domain="[('partner_id', 'in', partner_ids and partner_ids[0][2])]"/>-->
                         <field name="task_id"
                                domain="[('project_id', '=', project_id)]"/>
+                        <field name="meeting_feedback"
+                               string="Feedback"
+                               attrs="{'invisible': [('meeting_state','!=','done')]}"/>
+                        <field name="meeting_duration"
+                               widget="float_time"
+                               string="Duration"
+                               attrs="{'invisible': [('meeting_state','!=','done')]}"/>
                     </group>
                 </page>
             </xpath>
@@ -84,14 +80,14 @@
                         <field name="meeting_feedback"
                                class="oe_inline"/>
                     </group>
-                        <div class="oe_title">
-                            <div class="oe_edit_only">
-                                <label for="meeting_duration"/>
-                            </div>
-                            <field name="meeting_duration" widget="float_time"
-                                   class="oe_inline"/>
-                            <span>hours</span>
+                    <div class="oe_title">
+                        <div class="oe_edit_only">
+                            <label for="meeting_duration"/>
                         </div>
+                        <field name="meeting_duration" widget="float_time"
+                               class="oe_inline"/>
+                        <span>hours</span>
+                    </div>
                 </sheet>
                 <footer>
                     <button name="finish" string="Finish" type="object"
