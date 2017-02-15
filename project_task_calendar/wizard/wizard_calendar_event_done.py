@@ -11,8 +11,8 @@ from odoo import api, fields, models
 class WizardCalendarEventDone(models.TransientModel):
     _name = 'wizard.calendar.event'
 
-    meeting_feedback = fields.Text(string='Feedback', required=True)
-    meeting_duration = fields.Float(string='Duration', required=True)
+    meeting_feedback = fields.Text(string='Meeting Feedback', required=True)
+    meeting_duration = fields.Float(string='Meeting Duration', required=True)
     calendar_event_id = fields.Many2one('calendar.event')
 
     @api.multi
