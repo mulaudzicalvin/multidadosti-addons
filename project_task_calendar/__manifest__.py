@@ -15,6 +15,7 @@
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
         'Michell Stuttgart <michellstut@gmail.com>',
+        'Rodrigo Ferreira <rodrigo.santos@multidadosti.com.br>',
     ],
     'depends': [
         'project',
