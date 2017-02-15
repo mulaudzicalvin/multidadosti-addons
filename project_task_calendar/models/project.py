@@ -112,4 +112,3 @@ class ProjectTaskType(models.Model):
 
     _sql_constraints = [('project_task_type_name_uniq', 'unique (name)',
                          'Already stage with same name!')]
-
