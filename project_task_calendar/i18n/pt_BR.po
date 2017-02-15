@@ -1,0 +1,193 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_task_calendar
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-15 11:26+0000\n"
+"PO-Revision-Date: 2017-02-15 09:28-0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.wizard_calendar_event_form
+msgid "<span>hours</span>"
+msgstr "<span>hours</span>"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,help:project_task_calendar.field_project_project_bring_default_task_type
+msgid "Atribui ao atual projeto, todos os estágios que foram criados com status Padrão"
+msgstr "Atribui ao atual projeto, todos os estágios que foram criados com status Padrão"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_calendar_event_id
+msgid "Calendar event id"
+msgstr "Calendar event id"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_project_project_adjust_form
+msgid "Calendario"
+msgstr "Calendario"
+
+#. module: project_task_calendar
+#: selection:calendar.event,meeting_state:0
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+#: model:ir.ui.view,arch_db:project_task_calendar.wizard_calendar_event_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_partner_id
+msgid "Cliente"
+msgstr "Cliente"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_display_name
+msgid "Display Name"
+msgstr "Nome para Exibição"
+
+#. module: project_task_calendar
+#: selection:calendar.event,meeting_state:0
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+msgid "Done"
+msgstr "Encerrado"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_meeting_duration
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_meeting_duration
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+msgid "Duration"
+msgstr "Duração"
+
+#. module: project_task_calendar
+#: model:ir.model,name:project_task_calendar.model_calendar_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_calendar_event_ids
+msgid "Eventos de Calendário"
+msgstr "Eventos de Calendário"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_meeting_feedback
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_meeting_feedback
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+msgid "Feedback"
+msgstr "Feedback"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.wizard_calendar_event_form
+msgid "Finish"
+msgstr "Finalizar"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_task_calendar
+#: sql_constraint:project.task.type:0
+msgid "Já existe um estágio com esse mesmo nome!"
+msgstr "Já existe um estágio com esse mesmo nome!"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event___last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: project_task_calendar
+#: selection:calendar.event,meeting_state:0
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+msgid "Open"
+msgstr "Aberto"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_task_type_is_default
+msgid "Padrão"
+msgstr "Padrão"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_partner_ids
+#: model:ir.ui.view,arch_db:project_task_calendar.view_project_project_adjust_form
+msgid "Parceiros Relacionados"
+msgstr "Parceiros Relacionados"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+msgid "Partner"
+msgstr "Parceiro"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,help:project_task_calendar.field_project_task_type_is_default
+msgid "Permite Atribuição do atual estágio a novos projetos que serão criados"
+msgstr "Permite Atribuição do atual estágio a novos projetos que serão criados"
+
+#. module: project_task_calendar
+#: model:ir.model,name:project_task_calendar.model_project_project
+msgid "Project"
+msgstr "Projeto"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_project_id
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+msgid "Projeto"
+msgstr "Projeto"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_meeting_state
+msgid "State"
+msgstr "Estado"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_task_id
+msgid "Tarefa"
+msgstr "Tarefa"
+
+#. module: project_task_calendar
+#: model:ir.model,name:project_task_calendar.model_project_task_type
+msgid "Task Stage"
+msgstr "Estágios de Tarefas"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_bring_default_task_type
+msgid "Trazer estágios padronizados"
+msgstr "Trazer estágios padronizados"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.wizard_calendar_event_form
+msgid "or"
+msgstr "ou"
+
+#. module: project_task_calendar
+#: model:ir.model,name:project_task_calendar.model_wizard_calendar_event
+msgid "wizard.calendar.event"
+msgstr "wizard.calendar.event"
