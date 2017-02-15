@@ -19,6 +19,7 @@
     'depends': [
         'project',
         'calendar',
+        'hr_timesheet',
     ],
     'data': [
         'security/ir.model.access.csv',
