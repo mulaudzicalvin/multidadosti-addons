@@ -10,6 +10,7 @@ from odoo import api, fields, models
 
 class WizardCalendarEventDone(models.TransientModel):
     _name = 'wizard.calendar.event'
+    _description = 'Wizard to add feedback and real duration time of meeting'
 
     meeting_feedback = fields.Text(string='Meeting Feedback', required=True)
     meeting_duration = fields.Float(string='Meeting Duration', required=True)
