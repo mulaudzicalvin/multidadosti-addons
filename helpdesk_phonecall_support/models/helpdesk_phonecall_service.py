@@ -32,9 +32,10 @@ class HelpDeskPhoneCall(models.Model):
 
     project_tag_id = fields.Many2one('project.tags', string='Tags')
 
-    state = fields.Selection(string='State', selection=(
-        [('open', 'Open'),
-         ('done', 'Done')]), readonly=True,
+    state = fields.Selection(string='State', 
+                             readonly=True, 
+                             selection=[('open', 'Open'), 
+                                        ('done', 'Done')], 
                              default='open')
 
     @api.multi
@@ -48,13 +49,4 @@ class HelpDeskPhoneCall(models.Model):
             'view_mode': 'form',
             'views': [(False, "form")],
             'target': 'new',
-            # 'context': {
-            #     'default_calendar_event_id': self.id,
-            #     'default_meeting_duration': self.duration,
-            # }
         }
-
-        # for rec in self:
-        #     if rec.state == 'open':
-        #         rec.finish_date_hour = fields.Datetime.now()
-        #         rec.state = "done"
