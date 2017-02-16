@@ -8,15 +8,20 @@
             <tree string="phonecall" editable="top">
                 <field name="start_date_hour"/>
                 <field name="partner_id" domain="[('is_company','=',True)]"
-                       options="{'no_create':True}"/>
+                       options="{'no_create':True}"
+                       attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="project_id"
                        domain="[('partner_id','=',partner_id)]"
-                       options="{'no_create':True}"/>
+                       options="{'no_create':True}"
+                       attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="contact_partner_id"
                        domain="[('is_company','=',False),('parent_id','=',partner_id)]"
-                       options="{'no_create':True}"/>
-                <field name="name"/>
-                <field name="project_tag_id" required="True"/>
+                       options="{'no_create':True}"
+                       attrs="{'readonly':[('state','=','done')]}"/>
+                <field name="name"
+                       attrs="{'readonly':[('state','=','done')]}"/>
+                <field name="project_tag_id" required="True"
+                       attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="finish_date_hour"/>
                 <field name="user_id"/>
                 <field name="state" readonly="True"/>
