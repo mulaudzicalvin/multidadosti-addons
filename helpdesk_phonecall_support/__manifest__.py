@@ -18,10 +18,11 @@
         'project',
     ],
     'data': [
+        'data/helpdesk_data.xml',
         'security/ir.model.access.csv',
         'security/helpdesk_phonecall_support.xml',
         'views/helpdesk_phonecall_service_view.xml',
-        'data/helpdesk_data.xml',
+        'wizard/wizard_helpdesk_phonecall_confirm_view.xml',
     ],
     'installable': True,
 }

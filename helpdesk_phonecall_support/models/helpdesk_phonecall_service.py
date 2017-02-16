@@ -3,7 +3,7 @@
 # @author Rodrigo Ferreira <rodrigosferreira91@gmail.com>
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class HelpDeskPhoneCall(models.Model):
@@ -34,8 +34,27 @@ class HelpDeskPhoneCall(models.Model):
 
     state = fields.Selection(string='State', selection=(
         [('open', 'Open'),
-         ('done', 'Done')]), default='open')
+         ('done', 'Done')]), readonly=True,
+                             default='open')
 
-    def button_finish_data(self):
-        self.finish_date_hour = fields.Datetime.now()
-        self.state = "done"
+    @api.multi
+    def finish_phonecall(self):
+        self.ensure_one()
+
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'wizard.helpdesk.phonecall.confirm',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'views': [(False, "form")],
+            'target': 'new',
+            # 'context': {
+            #     'default_calendar_event_id': self.id,
+            #     'default_meeting_duration': self.duration,
+            # }
+        }
+
+        # for rec in self:
+        #     if rec.state == 'open':
+        #         rec.finish_date_hour = fields.Datetime.now()
+        #         rec.state = "done"
