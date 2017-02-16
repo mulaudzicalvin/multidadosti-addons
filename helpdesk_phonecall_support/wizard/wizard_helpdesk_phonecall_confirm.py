@@ -7,7 +7,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
 
-class WizardHelpDeskPhoneCallConfirm(models.Model):
+class WizardHelpDeskPhoneCallConfirm(models.TransientModel):
 
     _name = 'wizard.helpdesk.phonecall.confirm'
     _description = 'Wizard to confirm phonecall'
@@ -23,7 +23,7 @@ class WizardHelpDeskPhoneCallConfirm(models.Model):
             if record.state != 'open':
                 raise UserError(_("Selected phonecalls cannot be confirmed "
                                   "as they are not in 'Open' state."))
-            # record.finish_phonecall()
+                
             record.finish_date_hour = fields.Datetime.now()
             record.state = 'done'
 
