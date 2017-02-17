@@ -19,6 +19,7 @@ class ProjectProject(models.Model):
 
     bring_default_task_type = fields.Boolean(
         string='Get default stages',
+        deafult=True,
         help='Add to this project, all stage defined like default')
 
     allow_meetings = fields.Boolean('Allow Meetings', default=True)
@@ -32,6 +33,7 @@ class ProjectProject(models.Model):
         res = super(ProjectProject, self).create(values)
 
         if values.get('bring_default_task_type'):
+
             task_types = self.env['project.task.type'].search([(
                 'is_default', '=', 'True')])
             for rec in task_types:
