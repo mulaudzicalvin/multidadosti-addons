@@ -21,7 +21,7 @@
                 <div style="width: 50%; float: right; margin-top: -80px">
                     <group>
                         <field name="project_classification" widget="priority" readonly="0"/>
-                        <field name="planned_time"/>
+                        <field name="planned_time" widget="float_time"/>
                         <field name="project_tags_ids" widget="many2many_tags"/>
                     </group>
                 </div>
@@ -118,7 +118,7 @@
     </record>
 
     <menuitem id="menu_project_tags"
-              name="Project Tags"
+              name="Categories"
               parent="project.menu_project_config"
               sequence="100"
               action="action_project_project_tags"/>
