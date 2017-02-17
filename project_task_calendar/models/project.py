@@ -27,7 +27,7 @@ class ProjectProject(models.Model):
                                     string='Number of Meetings')
 
     project_classification = fields.Selection(
-        string="Project Classification",
+        string="Classification",
         selection=([('0', 'Without Classification'),
                     ('1', 'Terrible'),
                     ('2', 'Bad'),
@@ -35,6 +35,8 @@ class ProjectProject(models.Model):
                     ('4', 'Great'),
                     ('5', 'Excellent')]),
         default='without_classification')
+
+    planned_time = fields.Float(string="Planned Time")
 
     @api.model
     def create(self, values):
