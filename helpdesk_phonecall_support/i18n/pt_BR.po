@@ -163,7 +163,7 @@ msgstr "Data de Início"
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_state
 msgid "State"
-msgstr "Estado"
+msgstr "Situação"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_project_tag_id
