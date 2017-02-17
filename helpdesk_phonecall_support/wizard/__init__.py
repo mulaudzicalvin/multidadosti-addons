@@ -3,4 +3,4 @@
 # @author Rodrigo Ferreira <rodrigosferreira91@gmail.com>
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
-from . import helpdesk_phonecall_service
+from . import wizard_helpdesk_phonecall_confirm
