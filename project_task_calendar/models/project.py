@@ -26,6 +26,16 @@ class ProjectProject(models.Model):
     meeting_number = fields.Integer(compute='_get_meeting_number',
                                     string='Number of Meetings')
 
+    project_classification = fields.Selection(
+        string="Project Classification",
+        selection=([('0', 'Without Classification'),
+                    ('1', 'Terrible'),
+                    ('2', 'Bad'),
+                    ('3', 'Good'),
+                    ('4', 'Great'),
+                    ('5', 'Excellent')]),
+        default='without_classification')
+
     @api.model
     def create(self, values):
         values['partner_ids'] = [(4, values['partner_id'])]

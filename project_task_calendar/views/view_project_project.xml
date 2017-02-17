@@ -15,6 +15,7 @@
                 <group>
                     <field name="partner_id"/>
                     <field name="user_id"/>
+                    <field name="project_classification" widget="priority" readonly="0"/>
                 </group>
             </xpath>
 
@@ -48,6 +49,10 @@
             <xpath expr="//field[@name='partner_id']" position="attributes">
                 <attribute name="required">1</attribute>
             </xpath>
+
+            <!--<xpath expr="//field[@name='label_tasks']" position="after">-->
+                <!--<field name="project_classification" widget="priority"/>-->
+            <!--</xpath>-->
 
         </field>
     </record>
