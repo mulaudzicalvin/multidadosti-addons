@@ -70,7 +70,7 @@
                 <field name="bring_default_task_type"/>
             </xpath>
             <xpath expr="//field[@name='name']" position="after">
-                <field name="partner_id" required="True"/>
+                <field name="partner_id" domain="[('is_company','=',True)]" required="True"/>
             </xpath>
         </field>
     </record>
