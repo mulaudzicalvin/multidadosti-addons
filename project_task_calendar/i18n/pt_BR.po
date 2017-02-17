@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-15 19:04+0000\n"
-"PO-Revision-Date: 2017-02-15 17:12-0200\n"
+"POT-Creation-Date: 2017-02-17 19:23+0000\n"
+"PO-Revision-Date: 2017-02-17 17:28-0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,11 @@ msgid "Analytic Line"
 msgstr "Linha Analítica"
 
 #. module: project_task_calendar
+#: selection:project.project,project_classification:0
+msgid "Bad"
+msgstr "Ruim"
+
+#. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_billable
 msgid "Billable"
 msgstr "Faturável"
@@ -88,9 +93,19 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_project_classification
+msgid "Classification"
+msgstr "Classificação"
+
+#. module: project_task_calendar
 #: model:ir.actions.act_window,help:project_task_calendar.act_calendar_event_meetings_line_by_project
 msgid "Click to record activities."
 msgstr "Clique para registrar as atividades."
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_color
+msgid "Color Index"
+msgstr "Índice de Cores"
 
 #. module: project_task_calendar
 #: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
@@ -98,12 +113,14 @@ msgid "Confirm"
 msgstr "Confirmar"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_create_uid
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_create_uid
 #: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_create_uid
 msgid "Created by"
 msgstr "Criado por"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_create_date
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_create_date
 #: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_create_date
 msgid "Created on"
@@ -120,6 +137,7 @@ msgid "Discount (%)"
 msgstr "Desconto (%)"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_display_name
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_display_name
 #: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_display_name
 msgid "Display Name"
@@ -141,6 +159,11 @@ msgid "Event"
 msgstr "Evento"
 
 #. module: project_task_calendar
+#: selection:project.project,project_classification:0
+msgid "Excellent"
+msgstr "Excelente"
+
+#. module: project_task_calendar
 #: model:ir.ui.view,arch_db:project_task_calendar.wizard_calendar_event_form
 msgid "Finish"
 msgstr "Finalizar"
@@ -151,24 +174,38 @@ msgid "Get default stages"
 msgstr "Obter estágios padrões"
 
 #. module: project_task_calendar
+#: selection:project.project,project_classification:0
+msgid "Good"
+msgstr "Bom"
+
+#. module: project_task_calendar
+#: selection:project.project,project_classification:0
+msgid "Great"
+msgstr "Ótimo"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_id
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_id
 #: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_id
 msgid "ID"
 msgstr "ID"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags___last_update
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice___last_update
 #: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event___last_update
 msgid "Last Modified on"
 msgstr "Última Modificação em"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_write_uid
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_write_uid
 #: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_write_uid
 msgid "Last Updated by"
 msgstr "Última atualização por"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_write_date
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_write_date
 #: model:ir.model.fields,field_description:project_task_calendar.field_wizard_calendar_event_write_date
 msgid "Last Updated on"
@@ -198,6 +235,7 @@ msgid "Meetings"
 msgstr "Reuniões"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_name
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_name
 msgid "Name"
 msgstr "Nome"
@@ -221,11 +259,22 @@ msgid "Partner"
 msgstr "Parceiro"
 
 #. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_planned_time
+msgid "Planned Time"
+msgstr "Horas Planejadas"
+
+#. module: project_task_calendar
 #: model:ir.model,name:project_task_calendar.model_project_project
 #: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_project_id
 #: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
 msgid "Project"
 msgstr "Projeto"
+
+#. module: project_task_calendar
+#: model:ir.model,name:project_task_calendar.model_project_project_tags
+#: model:ir.ui.menu,name:project_task_calendar.menu_project_tags
+msgid "Project Tags"
+msgstr "Tags de Projeto"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_account_analytic_line_project_task_type_id
@@ -249,6 +298,16 @@ msgid "Select partner..."
 msgstr "Selecionar cliente..."
 
 #. module: project_task_calendar
+#: sql_constraint:project.project.tags:0
+msgid "Tag name already exists !"
+msgstr "O nome dessa tag ja existe !"
+
+#. module: project_task_calendar
+#: model:ir.model.fields,field_description:project_task_calendar.field_project_project_project_tags_ids
+msgid "Tags"
+msgstr "Marcadores"
+
+#. module: project_task_calendar
 #: model:ir.model,name:project_task_calendar.model_project_task
 #: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_task_id
 msgid "Task"
@@ -260,6 +319,16 @@ msgid "Task Stage"
 msgstr "Estágios de Tarefas"
 
 #. module: project_task_calendar
+#: model:ir.actions.act_window,name:project_task_calendar.action_project_project_tags
+msgid "Tasks"
+msgstr "Tarefas"
+
+#. module: project_task_calendar
+#: selection:project.project,project_classification:0
+msgid "Terrible"
+msgstr "Péssimo"
+
+#. module: project_task_calendar
 #: model:ir.ui.view,arch_db:project_task_calendar.view_project_task_adjust_form
 msgid "Timesheet Activities"
 msgstr "Atividades da Planilha de Horas"
@@ -268,6 +337,11 @@ msgstr "Atividades da Planilha de Horas"
 #: model:ir.model.fields,field_description:project_task_calendar.field_account_analytic_line_to_invoice
 msgid "To Invoice"
 msgstr "Para Faturar"
+
+#. module: project_task_calendar
+#: selection:project.project,project_classification:0
+msgid "Without Classification"
+msgstr "Sem Classificação"
 
 #. module: project_task_calendar
 #: model:ir.model,name:project_task_calendar.model_wizard_calendar_event
