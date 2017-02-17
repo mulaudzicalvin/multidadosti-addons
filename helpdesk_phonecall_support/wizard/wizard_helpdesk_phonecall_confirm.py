@@ -20,7 +20,6 @@ class WizardHelpDeskPhoneCallConfirm(models.TransientModel):
         active_ids = context.get('active_ids', []) or []
 
         for rec in self.env['helpdesk.phonecall.service'].browse(active_ids):
-            
             if rec.state != 'open':
                 raise UserError(_("Selected phonecalls cannot be confirmed "
                                   "as they are not in 'Open' state."))
