@@ -32,10 +32,8 @@ class HelpDeskPhoneCall(models.Model):
 
     project_tag_id = fields.Many2one('project.tags', string='Tags')
 
-    state = fields.Selection(string='State', 
-                             readonly=True, 
-                             selection=[('open', 'Open'), 
-                                        ('done', 'Done')], 
+    state = fields.Selection(string='State', readonly=True,
+                             selection=[('open', 'Open'), ('done', 'Done')],
                              default='open')
 
     @api.multi
