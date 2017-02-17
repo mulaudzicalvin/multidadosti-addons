@@ -24,6 +24,7 @@ class HelpDeskPhoneCall(models.Model):
                                  comodel_name='project.project')
 
     contact_partner_id = fields.Many2one(string='Contact',
+                                         required=True,
                                          comodel_name='res.partner')
 
     user_id = fields.Many2one('res.users', string='User', readonly=True,
