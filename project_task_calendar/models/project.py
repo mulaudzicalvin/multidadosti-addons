@@ -38,6 +38,9 @@ class ProjectProject(models.Model):
 
     planned_time = fields.Float(string="Planned Time")
 
+    project_tags_ids = fields.Many2many(comodel_name='project.project.tags',
+                                        string='Tags')
+
     @api.model
     def create(self, values):
         values['partner_ids'] = [(4, values['partner_id'])]
@@ -124,3 +127,16 @@ class ProjectTaskType(models.Model):
 
     _sql_constraints = [('project_task_type_name_uniq', 'unique (name)',
                          'Already stage with same name!')]
+
+
+class ProjectProjectTags(models.Model):
+    """ Tags of project's tasks (or issues) """
+    _name = "project.project.tags"
+    _description = "Project Tags"
+
+    name = fields.Char(required=True)
+    color = fields.Integer(string='Color Index')
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', "Tag name already exists !"),
+    ]
