@@ -19,6 +19,7 @@ class ProjectProject(models.Model):
 
     bring_default_task_type = fields.Boolean(
         string='Get default stages',
+        deafult=True,
         help='Add to this project, all stage defined like default')
 
     allow_meetings = fields.Boolean('Allow Meetings', default=True)
@@ -26,12 +27,28 @@ class ProjectProject(models.Model):
     meeting_number = fields.Integer(compute='_get_meeting_number',
                                     string='Number of Meetings')
 
+    project_classification = fields.Selection(
+        string="Classification",
+        selection=([('0', 'Without Classification'),
+                    ('1', 'Terrible'),
+                    ('2', 'Bad'),
+                    ('3', 'Good'),
+                    ('4', 'Great'),
+                    ('5', 'Excellent')]),
+        default='without_classification')
+
+    planned_time = fields.Float(string="Planned Time")
+
+    project_tags_ids = fields.Many2many(comodel_name='project.project.tags',
+                                        string='Tags')
+
     @api.model
     def create(self, values):
         values['partner_ids'] = [(4, values['partner_id'])]
         res = super(ProjectProject, self).create(values)
 
         if values.get('bring_default_task_type'):
+
             task_types = self.env['project.task.type'].search([(
                 'is_default', '=', 'True')])
             for rec in task_types:
@@ -112,3 +129,16 @@ class ProjectTaskType(models.Model):
 
     _sql_constraints = [('project_task_type_name_uniq', 'unique (name)',
                          'Already stage with same name!')]
+
+
+class ProjectProjectTags(models.Model):
+    """ Tags of project's tasks (or issues) """
+    _name = "project.project.tags"
+    _description = "Project Tags"
+
+    name = fields.Char(required=True)
+    color = fields.Integer(string='Color Index')
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', "Tag name already exists !"),
+    ]

@@ -10,7 +10,7 @@
                 <field name="project_id"/>
                 <field name="task_id"/>
                 <field name="meeting_state"/>
-                <field name="state" invisible="0"/>
+                <field name="state" invisible="1"/>
             </xpath>
         </field>
     </record>
@@ -24,6 +24,7 @@
                 <label for="partner_id" string="Partner" class="oe_edit_only"/>
                 <h2>
                     <field name="partner_id" placeholder="Select partner..." nolabel="1" class="oe_inline"/>
+                    <field name="company_partner_id" invisible="1"/>
                 </h2>
             </xpath>
 
@@ -42,22 +43,23 @@
 
             <xpath expr="//field[@name='partner_ids']" position="attributes">
                 <attribute name="domain">
-                    [('is_company','=',False),('parent_id','=',partner_id)]
+                    [('is_company','=',False),'|',('parent_id','=',partner_id),('parent_id','=',company_partner_id)]
                 </attribute>
             </xpath>
 
             <xpath expr="//notebook" position="inside">
+                <page string="After Meeting" attrs="{'invisible': [('meeting_state','!=','done')]}">
+                    <group>
+                        <field name="meeting_feedback"/>
+                        <field name="meeting_duration"/>
+                    </group>
+                </page>
                 <page string="Project">
                     <group>
                         <field name="project_id"
                                domain="[('partner_ids', '=', partner_id)]"/>
                         <field name="task_id"
                                domain="[('project_id', '=', project_id)]"/>
-                        <field name="meeting_feedback"
-                               attrs="{'invisible': [('meeting_state','!=','done')]}"/>
-                        <field name="meeting_duration"
-                               widget="float_time"
-                               attrs="{'invisible': [('meeting_state','!=','done')]}"/>
                     </group>
                 </page>
             </xpath>
@@ -73,11 +75,30 @@
 
             <xpath expr="//field[@name='partner_ids']" position="before">
                 <field name="partner_id"/>
+                <field name="meeting_state"/>
             </xpath>
 
             <xpath expr="//field[@name='location']" position="before">
                 <field name="project_id"/>
                 <field name="task_id"/>
+            </xpath>
+
+            <xpath expr="//form" position="inside">
+                <!-- Add your fields or attributes here -->
+                <notebook attrs="{'invisible': [('description','=', False),('meeting_state','!=','done')]}">
+
+                    <page string="Description" attrs="{'invisible': [('description','=', False)]}">
+                        <field name="description" style="margin: 10px 0px 10px 0px;"/>
+                    </page>
+
+                    <page string="After Meeting" attrs="{'invisible': [('meeting_state','!=','done')]}">
+                        <group>
+                            <field name="meeting_feedback"/>
+                            <field name="meeting_duration"/>
+                        </group>
+                    </page>
+
+                </notebook>
             </xpath>
 
         </field>

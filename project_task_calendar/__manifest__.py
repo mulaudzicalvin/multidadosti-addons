@@ -21,6 +21,7 @@
         'project',
         'calendar',
         'hr_timesheet',
+        'project_team',
     ],
     'data': [
         'security/ir.model.access.csv',
