@@ -36,6 +36,7 @@
                             <field name="location"/>
                             <field name="duration"/>
                             <field name="meeting_state"/>
+                            <field name="state" invisible="1"/>
                         </tree>
                     </field>
                 </page>
