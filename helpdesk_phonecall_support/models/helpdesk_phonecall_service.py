@@ -9,16 +9,18 @@ from odoo import api, fields, models
 class HelpDeskPhoneCall(models.Model):
     _name = 'helpdesk.phonecall.service'
 
-    name = fields.Text(string='Description')
+    name = fields.Text(string='Description', required=True)
 
     start_date_hour = fields.Datetime(string='Start Date',
                                       readonly=True,
                                       default=lambda s: fields.Datetime.now())
 
     partner_id = fields.Many2one(string='Partner',
+                                 required=True,
                                  comodel_name='res.partner')
 
     project_id = fields.Many2one(string="Project",
+                                 required=True,
                                  comodel_name='project.project')
 
     contact_partner_id = fields.Many2one(string='Contact',
