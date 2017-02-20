@@ -46,7 +46,6 @@ class HelpDeskPhoneCall(models.Model):
         else:
             self.contact_partner_id = False
 
-
     @api.multi
     def finish_phonecall(self):
         self.ensure_one()

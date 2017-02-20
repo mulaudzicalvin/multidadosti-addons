@@ -14,38 +14,40 @@
                             icon="fa-check"
                             attrs="{'invisible':[('state','=','done')]}"/>
                 </header>
-                <group>
+                <sheet>
                     <group>
-                        <field name="start_date_hour"/>
-                        <field name="partner_id"
-                               domain="[('customer','=',True),('company_name','=',False)]"
-                               options="{'no_create':True}"
-                               attrs="{'readonly':[('state','=','done')]}"/>
-                        <field name="project_id"
-                               domain="[('partner_id','=',partner_id)]"
-                               options="{'no_create':True}"
-                               attrs="{'readonly':[('state','=','done')]}"/>
-                        <field name="contact_partner_id"
-                               domain="[('is_company','=',False),('parent_id','=',partner_id)]"
-                               options="{'no_create':True}"
-                               attrs="{'readonly':[('state','=','done')]}"/>
-                    </group>
-                    <group>
-                        <field name="finish_date_hour"/>
-                        <field name="project_tag_id"
-                               required="True"
-                               attrs="{'readonly':[('state','=','done')]}"/>
-                        <field name="user_id"/>
-                        <field name="state"/>
-                    </group>
-                </group>
-                <notebook>
-                    <page string="Description">
                         <group>
-                            <field name="name" attrs="{'readonly':[('state','=','done')]}"/>
+                            <field name="start_date_hour"/>
+                            <field name="partner_id"
+                                   domain="[('customer','=',True),('company_name','=',False)]"
+                                   options="{'no_create':True}"
+                                   attrs="{'readonly':[('state','=','done')]}"/>
+                            <field name="project_id"
+                                   domain="[('partner_id','=',partner_id)]"
+                                   options="{'no_create':True}"
+                                   attrs="{'readonly':[('state','=','done')]}"/>
+                            <field name="contact_partner_id"
+                                   domain="[('is_company','=',False),('parent_id','=',partner_id)]"
+                                   options="{'no_create':True}"
+                                   attrs="{'readonly':[('state','=','done')]}"/>
                         </group>
-                    </page>
-                </notebook>
+                        <group>
+                            <field name="finish_date_hour"/>
+                            <field name="project_tag_id"
+                                   required="True"
+                                   attrs="{'readonly':[('state','=','done')]}"/>
+                            <field name="user_id"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description Service">
+                            <group style="margin: 1%; width: 98%">
+                                <field name="name" attrs="{'readonly':[('state','=','done')]}" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
             </form>
         </field>
     </record>
