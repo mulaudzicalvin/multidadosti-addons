@@ -17,12 +17,14 @@
     'depends': [
         'project',
         'hr_timesheet',
+        'project_team',
     ],
     'data': [
         'data/helpdesk_data.xml',
         'security/ir.model.access.csv',
         'security/helpdesk_phonecall_support.xml',
         'views/helpdesk_phonecall_service_view.xml',
+        'views/project_team_view.xml',
         'wizard/wizard_helpdesk_phonecall_confirm_view.xml',
     ],
     'installable': True,
