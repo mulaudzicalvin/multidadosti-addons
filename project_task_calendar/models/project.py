@@ -34,8 +34,7 @@ class ProjectProject(models.Model):
                     ('2', 'Bad'),
                     ('3', 'Good'),
                     ('4', 'Great'),
-                    ('5', 'Excellent')]),
-        default='without_classification')
+                    ('5', 'Excellent')]), default='0')
 
     planned_time = fields.Float(string="Planned Time")
 
