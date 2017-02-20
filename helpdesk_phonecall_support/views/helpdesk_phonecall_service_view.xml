@@ -10,9 +10,9 @@
                     <button string="Finish call"
                             name="finish_phonecall"
                             type="object"
-                            style="margin: 5px"
                             icon="fa-check"
                             attrs="{'invisible':[('state','=','done')]}"/>
+                            <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
                     <group>
@@ -37,7 +37,6 @@
                                    required="True"
                                    attrs="{'readonly':[('state','=','done')]}"/>
                             <field name="user_id"/>
-                            <field name="state"/>
                         </group>
                     </group>
                     <notebook>
