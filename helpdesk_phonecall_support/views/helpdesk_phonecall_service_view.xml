@@ -5,7 +5,7 @@
         <field name="name">helpdesk.phonecall.service.tree</field>
         <field name="model">helpdesk.phonecall.service</field>
         <field name="arch" type="xml">
-            <tree string="phonecall" editable="top">
+            <tree string="phonecall">
                 <field name="start_date_hour"/>
                 <field name="partner_id"
                        domain="[('customer','=',True),('company_name','=',False)]"
