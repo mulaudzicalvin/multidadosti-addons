@@ -16,4 +16,11 @@
             <link type="image/x-icon" rel="shortcut icon" t-att-href= "x_icon or '/general_views_customize/static/src/img/favicon.ico'"/>
         </xpath>
     </template>
+
+    <template id="custom_crash_manager" name="Multi Backend" inherit_id="web.assets_backend">
+        <xpath expr="//script[@src='/web/static/src/js/framework/crash_manager.js']" position="replace">
+            <script type="text/javascript" src="/general_views_customize/static/src/js/framework/crash_manager.js"></script>
+        </xpath>
+    </template>
+
 </odoo>
