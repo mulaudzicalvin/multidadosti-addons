@@ -19,6 +19,7 @@
         'sale_crm',
     ],
     'data': [
+        'views/sale_views.xml',
         'views/view_sale_crm.xml',
         'views/res_partner_views.xml',
     ],
