@@ -20,6 +20,7 @@
     ],
     'data': [
         'views/view_sale_crm.xml',
+        'views/res_partner_views.xml',
     ],
     'installable': True,
 }
