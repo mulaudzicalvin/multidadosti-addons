@@ -104,6 +104,17 @@
         </field>
     </record>
 
+    <record id="view_multi_calendar_event_calendar" model="ir.ui.view">
+        <field name="name">calendar.event.calendar</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+        <field name="arch" type="xml">
+            <xpath expr="//calendar" position="attributes">
+                <attribute name="quick_add">False</attribute>
+            </xpath>
+        </field>
+    </record>
+
     <record id="view_multi_calendar_event_search" model="ir.ui.view">
         <field name="name">multi.calendar.event.search</field>
         <field name="model">calendar.event</field>
@@ -116,8 +127,7 @@
         </field>
     </record>
 
-    <record id="act_calendar_event_meetings_line_by_project"
-            model="ir.actions.act_window">
+    <record id="act_calendar_event_meetings_line_by_project" model="ir.actions.act_window">
         <field name="name">Activities</field>
         <field name="res_model">calendar.event</field>
         <field name="view_type">form</field>
