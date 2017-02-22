@@ -3,7 +3,9 @@
 # @author Aldo Soares <soares_aldo@hotmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
+from lxml import etree
 from odoo import api, models, fields
+from odoo.osv.orm import setup_modifiers
 
 
 class CalendarEvent(models.Model):
@@ -34,6 +36,26 @@ class CalendarEvent(models.Model):
     #         self.env['res.company']._company_default_get('calendar.event'))
     #
     #     self.company_partner_id = company_id.partner_id.id
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form',
+                        toolbar=False, submenu=False):
+
+        result = super(CalendarEvent, self).fields_view_get(view_id,
+                                                            view_type,
+                                                            toolbar=toolbar,
+                                                            submenu=submenu)
+
+        if view_type == 'form':
+            doc = etree.XML(result['arch'])
+            for node in doc.xpath("//field"):
+                node.set('attrs',
+                         "{'readonly': [('meeting_state', '=', 'done')]}")
+                node_name = node.get('name')
+                setup_modifiers(node, result['fields'][node_name])
+
+            result['arch'] = etree.tostring(doc)
+        return result
 
     @api.multi
     def done_button(self):
