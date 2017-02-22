@@ -31,7 +31,7 @@ class WizardCalendarEventDone(models.TransientModel):
                                             '%Y-%m-%d %H:%M:%S')
 
             values = {
-                'name': ce.name,
+                'name': ce.meeting_feedback,
                 'date': dt.date(),
                 'user_id': ce.user_id.id,
                 'project_id': ce.project_id.id,
