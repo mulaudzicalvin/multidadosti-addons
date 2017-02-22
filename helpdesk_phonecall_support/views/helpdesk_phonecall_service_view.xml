@@ -19,7 +19,7 @@
                         <group>
                             <field name="start_date_hour"/>
                             <field name="partner_id"
-                                   domain="[('customer','=',True),('company_name','=',False)]"
+                                   domain="[('customer','=',True),('parent_id','=',False)]"
                                    options="{'no_create':True}"
                                    attrs="{'readonly':[('state','=','done')]}"/>
                             <field name="project_id"
