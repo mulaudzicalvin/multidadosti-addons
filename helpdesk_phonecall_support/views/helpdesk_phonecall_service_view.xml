@@ -17,6 +17,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="title" invisible="1"/>
                             <field name="start_date_hour"/>
                             <field name="partner_id"
                                    domain="[('customer','=',True),('parent_id','=',False)]"
@@ -42,7 +43,7 @@
                     <notebook>
                         <page string="Description Service">
                             <group style="margin: 1%; width: 98%">
-                                <field name="name" attrs="{'readonly':[('state','=','done')]}" nolabel="1"/>
+                                <field name="description" attrs="{'readonly':[('state','=','done')]}" nolabel="1"/>
                             </group>
                         </page>
                     </notebook>
@@ -69,7 +70,7 @@
                        domain="[('is_company','=',False),('parent_id','=',partner_id)]"
                        options="{'no_create':True}"
                        attrs="{'readonly':[('state','=','done')]}"/>
-                <field name="name"
+                <field name="description"
                        attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="project_tag_id"
                        required="True"
