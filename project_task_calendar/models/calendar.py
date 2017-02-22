@@ -3,9 +3,7 @@
 # @author Aldo Soares <soares_aldo@hotmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from lxml import etree
 from odoo import api, models, fields
-from odoo.osv.orm import setup_modifiers
 
 
 class CalendarEvent(models.Model):
@@ -39,7 +37,8 @@ class CalendarEvent(models.Model):
                                                             toolbar=toolbar,
                                                             submenu=submenu)
 
-        if view_type == 'form' and result['fields'].get('meeting_state') != 'done':
+        if view_type == 'form' and \
+                        result['fields'].get('meeting_state') != 'done':
             for field in result['fields']:
                 result['fields'][field]['readonly'] = True
 
