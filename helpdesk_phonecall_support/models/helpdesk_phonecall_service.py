@@ -39,6 +39,13 @@ class HelpDeskPhoneCall(models.Model):
                              selection=[('open', 'Open'), ('done', 'Done')],
                              default='open')
 
+    @api.onchange('partner_id')
+    def on_change_partner_id(self):
+        if not self.partner_id.is_company:
+            self.contact_partner_id = self.partner_id
+        else:
+            self.contact_partner_id = False
+
     @api.multi
     def finish_phonecall(self):
         self.ensure_one()
