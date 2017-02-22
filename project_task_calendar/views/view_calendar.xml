@@ -24,13 +24,13 @@
                 <label for="partner_id" string="Partner" class="oe_edit_only"/>
                 <h2>
                     <field name="company_partner_id" invisible="1"/>
-                    <field name="partner_id" placeholder="Select partner..." nolabel="1" class="oe_inline" domain="[('customer', '=', True)]"/>
+                    <field name="partner_id" placeholder="Select partner..." nolabel="1" class="oe_inline" domain="[('parent_id', '=', False)]"/>
                 </h2>
             </xpath>
 
             <xpath expr="//sheet" position="before">
                 <header>
-                    <button name="done_button" string='Confirm' type="object"
+                    <button name="done_button" string='Done' type="object"
                             class="btn-primary"
                             attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>
                     <button name="cancel_button" string='Cancel' type="object"
