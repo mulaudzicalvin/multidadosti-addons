@@ -62,7 +62,7 @@
                        options="{'no_create':True}"
                        attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="project_id"
-                       domain="[('partner_id','=',partner_id)]"
+                       domain="[('partner_ids','=',partner_id)]"
                        options="{'no_create':True}"
                        attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="contact_partner_id"

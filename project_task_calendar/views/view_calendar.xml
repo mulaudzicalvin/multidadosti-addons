@@ -23,8 +23,8 @@
             <xpath expr="//label[@for='partner_ids']" position="before">
                 <label for="partner_id" string="Partner" class="oe_edit_only"/>
                 <h2>
-                    <field name="partner_id" placeholder="Select partner..." nolabel="1" class="oe_inline" domain="[('customer', '=', True)]"/>
                     <field name="company_partner_id" invisible="1"/>
+                    <field name="partner_id" placeholder="Select partner..." nolabel="1" class="oe_inline" domain="[('customer', '=', True)]"/>
                 </h2>
             </xpath>
 
@@ -43,7 +43,7 @@
 
             <xpath expr="//field[@name='partner_ids']" position="attributes">
                 <attribute name="domain">
-                    [('is_company','=',False),('parent_id','!=',False),'|',('parent_id','=',partner_id),('parent_id','=',company_partner_id)]
+                    [('is_company','=',False),'|',('parent_id','=',partner_id),('parent_id','=',company_partner_id)]
                 </attribute>
             </xpath>
 

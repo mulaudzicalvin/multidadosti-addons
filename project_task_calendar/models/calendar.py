@@ -9,6 +9,13 @@ from odoo import api, models, fields
 class CalendarEvent(models.Model):
     _inherit = 'calendar.event'
 
+    @api.multi
+    def get_company_partner(self):
+        company_id = \
+            self.env['res.company']._company_default_get('calendar.event')
+
+        return company_id.partner_id
+
     project_id = fields.Many2one('project.project', string='Project')
     task_id = fields.Many2one('project.task', string='Task')
     partner_id = fields.Many2one('res.partner', string='Partner')
@@ -19,14 +26,14 @@ class CalendarEvent(models.Model):
                                       ('cancel', 'Cancel')],
                                      string='Meeting State', default='open')
     company_partner_id = fields.Many2one('res.partner',
-                                         compute='get_company_partner')
+                                         default=get_company_partner)
 
-    @api.depends('company_partner_id')
-    def get_company_partner(self):
-        company_id = self.env['res.company'].browse(
-            self.env['res.company']._company_default_get('calendar.event'))
-
-        self.company_partner_id = company_id.partner_id.id
+    # # @api.depends('company_partner_id')
+    # def get_company_partner(self):
+    #     company_id = self.env['res.company'].browse(
+    #         self.env['res.company']._company_default_get('calendar.event'))
+    #
+    #     self.company_partner_id = company_id.partner_id.id
 
     @api.multi
     def done_button(self):
