@@ -16,7 +16,7 @@
 
                     <notebook>
                         <page string="Meeting Feedback">
-                            <field name="meeting_feedback" style="margin: 10px 0px 10px 0px;"/>
+                            <field name="meeting_feedback" widget="html" style="margin: 10px 0px 10px 0px;"/>
                         </page>
                     </notebook>
                 </sheet>

@@ -46,7 +46,7 @@ class CalendarEvent(models.Model):
                                                             toolbar=toolbar,
                                                             submenu=submenu)
 
-        if view_type == 'form':
+        if view_type == 'form' and result['fields'].get('meeting_state'):
             doc = etree.XML(result['arch'])
             for node in doc.xpath("//field"):
                 node.set('attrs',
