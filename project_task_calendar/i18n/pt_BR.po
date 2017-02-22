@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 18:32+0000\n"
-"PO-Revision-Date: 2017-02-22 15:32-0300\n"
+"POT-Creation-Date: 2017-02-22 19:57+0000\n"
+"PO-Revision-Date: 2017-02-22 17:06-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "Adicione a este projeto, todos os estágios definidos como padrão"
 #: model:ir.ui.view,arch_db:project_task_calendar.view_calendar_event_form_popup
 #: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
 msgid "After Meeting"
-msgstr "After Meeting"
+msgstr "Pós-Reunião"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_allow_meetings
@@ -63,6 +63,11 @@ msgstr "Já existe estágio com o mesmo nome!"
 #: model:ir.model,name:project_task_calendar.model_account_analytic_line
 msgid "Analytic Line"
 msgstr "Linha Analítica"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+msgid "Are you sure you want close this meeting?"
+msgstr "Você tem certeza que deseja cancelar esta reunião?"
 
 #. module: project_task_calendar
 #: selection:project.project,project_classification:0
@@ -167,7 +172,6 @@ msgstr "Nome para Exibição"
 
 #. module: project_task_calendar
 #: selection:calendar.event,meeting_state:0
-#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
 msgid "Done"
 msgstr "Encerrado"
 
@@ -187,6 +191,7 @@ msgid "Excellent"
 msgstr "Excelente"
 
 #. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
 #: model:ir.ui.view,arch_db:project_task_calendar.wizard_calendar_event_form
 msgid "Finish"
 msgstr "Finalizar"
@@ -284,7 +289,7 @@ msgstr "Aberto"
 #: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_partner_id
 #: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
 msgid "Partner"
-msgstr "Cliente"
+msgstr "Parceiro"
 
 #. module: project_task_calendar
 #: model:ir.actions.act_window,name:project_task_calendar.action_project_project_partners
@@ -327,12 +332,12 @@ msgstr "Situação da tarefa do projeto"
 #: model:ir.ui.view,arch_db:project_team.project_team_form_view
 #: model:ir.ui.view,arch_db:project_team.project_team_tree_view
 msgid "Project Team"
-msgstr "Project Team"
+msgstr "Equipe do Projeto"
 
 #. module: project_team
 #: model:ir.ui.view,arch_db:project_team.project_team_form_view
 msgid "Project team"
-msgstr "Project team"
+msgstr "Equipe do Projeto"
 
 #. module: project_team
 #: model:ir.model.fields,help:project_team.field_crm_team_team_members
@@ -341,9 +346,9 @@ msgid ""
 "                                     can have an access to the tasks related\n"
 "                                     to this project."
 msgstr ""
-"Project's members are users who\n"
-"                                     can have an access to the tasks related\n"
-"                                     to this project."
+"Membros dos projetos são usuários que\n"
+" tem acesso as tarefas relacionadas \n"
+" a este projeto."
 
 #. module: project_team
 #: model:ir.model.fields,help:project_team.field_project_project_members
@@ -352,15 +357,15 @@ msgid ""
 "                               have an access to the tasks related to this\n"
 "                               project."
 msgstr ""
-"Project's members are users who can\n"
-"                               have an access to the tasks related to this\n"
-"                               project."
+"Membros dos projetos são usuários que\n"
+" tem acesso as tarefas relacionadas \n"
+" a este projeto."
 
 #. module: project_team
 #: model:ir.actions.act_window,name:project_team.project_team_action_tree
 #: model:ir.ui.menu,name:project_team.project_team_menu
 msgid "Projects Team"
-msgstr "Projects Team"
+msgstr "Equipe do Projeto"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_partner_ids
@@ -371,7 +376,7 @@ msgstr "Clientes relacionados"
 #. module: project_team
 #: selection:crm.team,type_team:0
 msgid "Sale"
-msgstr "Sale"
+msgstr "Vendas"
 
 #. module: project_team
 #: model:ir.model,name:project_team.model_crm_team
@@ -391,7 +396,7 @@ msgstr "Selecionar cliente..."
 #. module: project_task_calendar
 #: sql_constraint:project.project.tags:0
 msgid "Tag name already exists !"
-msgstr "O nome dessa tag ja existe !"
+msgstr "O nome dessa tag ja existe!"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_project_tags_ids
@@ -417,7 +422,7 @@ msgstr "Tarefas"
 #. module: project_team
 #: model:ir.ui.view,arch_db:project_team.project_project_inherit_form_view
 msgid "Team"
-msgstr "Team"
+msgstr "Equipe"
 
 #. module: project_team
 #: model:ir.ui.view,arch_db:project_team.project_team_form_view
