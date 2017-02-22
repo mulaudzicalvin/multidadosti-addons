@@ -127,7 +127,7 @@ msgid ""
 "Once open phonecalls are confirmed, you will not be able\n"
 "                    to modify them and a entry in timesheet will be create.\n"
 "                    Do you want to close this phonecall?"
-msgstr "Uma vez que o atendimento estiver encerrado, não será masi possível modificá-lo e será gerado uma lançamento de horas referente a este atendimento. Você deseja encerrar este atendimento?"
+msgstr "Uma vez que o atendimento estiver encerrado, não será mais possível modificá-lo e será gerado uma lançamento de horas referente a este atendimento. Você deseja encerrar este atendimento?"
 
 #. module: helpdesk_phonecall_support
 #: selection:helpdesk.phonecall.service,state:0
