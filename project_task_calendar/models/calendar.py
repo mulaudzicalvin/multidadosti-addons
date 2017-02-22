@@ -30,13 +30,6 @@ class CalendarEvent(models.Model):
     company_partner_id = fields.Many2one('res.partner',
                                          default=get_company_partner)
 
-    # # @api.depends('company_partner_id')
-    # def get_company_partner(self):
-    #     company_id = self.env['res.company'].browse(
-    #         self.env['res.company']._company_default_get('calendar.event'))
-    #
-    #     self.company_partner_id = company_id.partner_id.id
-
     @api.model
     def fields_view_get(self, view_id=None, view_type='form',
                         toolbar=False, submenu=False):
@@ -46,15 +39,10 @@ class CalendarEvent(models.Model):
                                                             toolbar=toolbar,
                                                             submenu=submenu)
 
-        if view_type == 'form' and result['fields'].get('meeting_state'):
-            doc = etree.XML(result['arch'])
-            for node in doc.xpath("//field"):
-                node.set('attrs',
-                         "{'readonly': [('meeting_state', '=', 'done')]}")
-                node_name = node.get('name')
-                setup_modifiers(node, result['fields'][node_name])
+        if view_type == 'form' and result['fields'].get('meeting_state') != 'done':
+            for field in result['fields']:
+                result['fields'][field]['readonly'] = True
 
-            result['arch'] = etree.tostring(doc)
         return result
 
     @api.multi
