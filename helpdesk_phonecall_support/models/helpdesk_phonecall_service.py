@@ -44,10 +44,11 @@ class HelpDeskPhoneCall(models.Model):
 
     @api.depends('start_date_hour', 'partner_id.name', 'project_id.name')
     def get_phonecall_title(self):
-        self.title = ''
-        self.title += self.start_date_hour if self.start_date_hour else ''
-        self.title += ', ' + self.partner_id.name if self.partner_id else ''
-        self.title += ', ' + self.project_id.name if self.project_id else ''
+        for rec in self:
+            rec.title = ''
+            rec.title += rec.start_date_hour if rec.start_date_hour else ''
+            rec.title += ', ' + rec.partner_id.name if rec.partner_id else ''
+            rec.title += ', ' + rec.project_id.name if rec.project_id else ''
 
     @api.onchange('partner_id')
     def on_change_partner_id(self):
