@@ -102,12 +102,12 @@ msgstr "Evento do Calendário ID"
 #: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
 #: model:ir.ui.view,arch_db:project_task_calendar.wizard_calendar_event_form
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Cancelado"
 
 #. module: project_task_calendar
 #: model:ir.ui.menu,name:project_task_calendar.menu_project_tags
 msgid "Categories"
-msgstr "Categories"
+msgstr "Categorias"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_project_classification
