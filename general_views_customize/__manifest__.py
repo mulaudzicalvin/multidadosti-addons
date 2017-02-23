@@ -28,6 +28,7 @@
     'data': [
         'views/multi_assets.xml',
         'views/general_views_customize.xml',
+        'views/res_partner_view.xml',
     ],
     'qweb': [
         'static/src/xml/dashboard.xml',
