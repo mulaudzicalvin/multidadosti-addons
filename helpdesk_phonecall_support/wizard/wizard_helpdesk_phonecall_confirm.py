@@ -39,7 +39,7 @@ class WizardHelpDeskPhoneCallConfirm(models.TransientModel):
             hours_diff_decimal = (d2 - d1).total_seconds() / 3600.0
 
             values = {
-                'name': rec.name,
+                'name': rec.description,
                 'date': dt.date(),
                 'user_id': rec.user_id.id,
                 'project_id': rec.project_id.id,
