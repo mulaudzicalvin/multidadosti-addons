@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_partner_is_not_customer_form" model="ir.ui.view">
+            <field name="name">res.partner.is.not.customer.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/field[@name='child_ids']" position="attributes">
+                    <attribute name="context">"{'default_parent_id': active_id, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_supplier': supplier, 'default_customer': False, 'default_lang': lang,}"</attribute>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>
