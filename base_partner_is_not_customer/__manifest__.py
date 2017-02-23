@@ -3,8 +3,8 @@
 {
     'name': 'Partner Is Not Customer',
     'version': '10.0.1.0.0',
-    'author': 'MultidadosTi',
-    'maintainer': 'MultidadosTi',
+    'author': 'MultidadosTI',
+    'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
     'category': 'Base',
