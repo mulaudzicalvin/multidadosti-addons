@@ -19,14 +19,17 @@
                         <group>
                             <field name="title" invisible="1"/>
                             <field name="start_date_hour"/>
+
                             <field name="partner_id"
                                    domain="[('customer','=',True),('parent_id','=',False)]"
                                    options="{'no_create':True}"
                                    attrs="{'readonly':[('state','=','done')]}"/>
+
                             <field name="project_id"
-                                   domain="[('partner_id','=',partner_id)]"
+                                   domain="[('partner_ids','=',partner_id)]"
                                    options="{'no_create':True}"
                                    attrs="{'readonly':[('state','=','done')]}"/>
+
                             <field name="contact_partner_id"
                                    domain="[('is_company','=',False),('parent_id','=',partner_id)]"
                                    options="{'no_create':True}"
