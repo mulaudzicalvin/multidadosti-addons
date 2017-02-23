@@ -107,7 +107,7 @@ msgstr "Cancelar"
 #. module: project_task_calendar
 #: model:ir.ui.menu,name:project_task_calendar.menu_project_tags
 msgid "Categories"
-msgstr "Categories"
+msgstr "Categorias"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_project_classification
