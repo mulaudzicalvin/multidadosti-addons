@@ -35,7 +35,7 @@ class WizardCalendarEventDone(models.TransientModel):
                 'date': dt.date(),
                 'user_id': ce.user_id.id,
                 'project_id': ce.project_id.id,
-                'unit_amount': ce.duration,
+                'unit_amount': ce.meeting_duration,
                 'calendar_event_id': ce.id,
             }
 
