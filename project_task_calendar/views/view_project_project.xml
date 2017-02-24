@@ -111,11 +111,22 @@
         </field>
     </record>
 
+    <record id="action_project_project_partners" model="ir.actions.act_window">
+        <field name="name">Partners</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
     <record id="action_project_project_tags" model="ir.actions.act_window">
         <field name="name">Tasks</field>
         <field name="res_model">project.project.tags</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <menuitem name="Partners"
+        id="menu_project_partners"
+        parent="project.menu_project_management"
+        action="action_project_project_partners"/>
 
     <menuitem id="menu_project_tags"
               name="Categories"

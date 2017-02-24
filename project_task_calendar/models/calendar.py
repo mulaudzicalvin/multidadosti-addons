@@ -28,12 +28,21 @@ class CalendarEvent(models.Model):
     company_partner_id = fields.Many2one('res.partner',
                                          default=get_company_partner)
 
-    # # @api.depends('company_partner_id')
-    # def get_company_partner(self):
-    #     company_id = self.env['res.company'].browse(
-    #         self.env['res.company']._company_default_get('calendar.event'))
-    #
-    #     self.company_partner_id = company_id.partner_id.id
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form',
+                        toolbar=False, submenu=False):
+
+        result = super(CalendarEvent, self).fields_view_get(view_id,
+                                                            view_type,
+                                                            toolbar=toolbar,
+                                                            submenu=submenu)
+
+        if view_type == 'form' and \
+                        result['fields'].get('meeting_state') != 'done':
+            for field in result['fields']:
+                result['fields'][field]['readonly'] = True
+
+        return result
 
     @api.multi
     def done_button(self):

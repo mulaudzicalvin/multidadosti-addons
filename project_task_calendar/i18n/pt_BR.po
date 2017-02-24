@@ -1,13 +1,14 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
+# 	* project_team
 # 	* project_task_calendar
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-17 19:23+0000\n"
-"PO-Revision-Date: 2017-02-17 17:28-0200\n"
+"POT-Creation-Date: 2017-02-22 19:57+0000\n"
+"PO-Revision-Date: 2017-02-22 17:06-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -38,6 +39,12 @@ msgid "Add to this project, all stage defined like default"
 msgstr "Adicione a este projeto, todos os estágios definidos como padrão"
 
 #. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_calendar_event_form_popup
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+msgid "After Meeting"
+msgstr "Pós-Reunião"
+
+#. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_allow_meetings
 msgid "Allow Meetings"
 msgstr "Permitir Reuniões"
@@ -56,6 +63,11 @@ msgstr "Já existe estágio com o mesmo nome!"
 #: model:ir.model,name:project_task_calendar.model_account_analytic_line
 msgid "Analytic Line"
 msgstr "Linha Analítica"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+msgid "Are you sure you want close this meeting?"
+msgstr "Você tem certeza que deseja cancelar esta reunião?"
 
 #. module: project_task_calendar
 #: selection:project.project,project_classification:0
@@ -93,6 +105,11 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: project_task_calendar
+#: model:ir.ui.menu,name:project_task_calendar.menu_project_tags
+msgid "Categories"
+msgstr "Categorias"
+
+#. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_project_classification
 msgid "Classification"
 msgstr "Classificação"
@@ -107,10 +124,15 @@ msgstr "Clique para registrar as atividades."
 msgid "Color Index"
 msgstr "Índice de Cores"
 
+#. module: project_team
+#: model:ir.ui.view,arch_db:project_team.project_team_form_view
+msgid "Company"
+msgstr "Empresa"
+
 #. module: project_task_calendar
-#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
-msgid "Confirm"
-msgstr "Confirmar"
+#: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_company_partner_id
+msgid "Company partner id"
+msgstr "Company partner id"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_create_uid
@@ -130,6 +152,11 @@ msgstr "Criado em"
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_task_type_is_default
 msgid "Default"
 msgstr "Padrão"
+
+#. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_calendar_event_form_popup
+msgid "Description"
+msgstr "Descrição"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_factor
@@ -164,6 +191,7 @@ msgid "Excellent"
 msgstr "Excelente"
 
 #. module: project_task_calendar
+#: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
 #: model:ir.ui.view,arch_db:project_task_calendar.wizard_calendar_event_form
 msgid "Finish"
 msgstr "Finalizar"
@@ -234,6 +262,11 @@ msgstr "Status da reunião"
 msgid "Meetings"
 msgstr "Reuniões"
 
+#. module: project_team
+#: model:ir.ui.view,arch_db:project_team.project_team_form_view
+msgid "More Info"
+msgstr "Mais Informação"
+
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_tags_name
 #: model:ir.model.fields,field_description:project_task_calendar.field_to_invoice_name
@@ -259,20 +292,33 @@ msgid "Partner"
 msgstr "Parceiro"
 
 #. module: project_task_calendar
+#: model:ir.actions.act_window,name:project_task_calendar.action_project_project_partners
+#: model:ir.ui.menu,name:project_task_calendar.menu_project_partners
+msgid "Partners"
+msgstr "Clientes"
+
+#. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_planned_time
 msgid "Planned Time"
 msgstr "Horas Planejadas"
 
-#. module: project_task_calendar
+#. modules: project_team, project_task_calendar
 #: model:ir.model,name:project_task_calendar.model_project_project
 #: model:ir.model.fields,field_description:project_task_calendar.field_calendar_event_project_id
 #: model:ir.ui.view,arch_db:project_task_calendar.view_multi_calendar_event_form
+#: selection:crm.team,type_team:0
+#: model:ir.model,name:project_team.model_project_project
 msgid "Project"
 msgstr "Projeto"
 
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_crm_team_team_members
+#: model:ir.model.fields,field_description:project_team.field_project_project_members
+msgid "Project Members"
+msgstr "Project Members"
+
 #. module: project_task_calendar
 #: model:ir.model,name:project_task_calendar.model_project_project_tags
-#: model:ir.ui.menu,name:project_task_calendar.menu_project_tags
 msgid "Project Tags"
 msgstr "Tags de Projeto"
 
@@ -281,11 +327,61 @@ msgstr "Tags de Projeto"
 msgid "Project Task State"
 msgstr "Situação da tarefa do projeto"
 
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_project_project_team_id
+#: model:ir.ui.view,arch_db:project_team.project_team_form_view
+#: model:ir.ui.view,arch_db:project_team.project_team_tree_view
+msgid "Project Team"
+msgstr "Equipe do Projeto"
+
+#. module: project_team
+#: model:ir.ui.view,arch_db:project_team.project_team_form_view
+msgid "Project team"
+msgstr "Equipe do Projeto"
+
+#. module: project_team
+#: model:ir.model.fields,help:project_team.field_crm_team_team_members
+msgid ""
+"Project's members are users who\n"
+"                                     can have an access to the tasks related\n"
+"                                     to this project."
+msgstr ""
+"Membros dos projetos são usuários que\n"
+" tem acesso as tarefas relacionadas \n"
+" a este projeto."
+
+#. module: project_team
+#: model:ir.model.fields,help:project_team.field_project_project_members
+msgid ""
+"Project's members are users who can\n"
+"                               have an access to the tasks related to this\n"
+"                               project."
+msgstr ""
+"Membros dos projetos são usuários que\n"
+" tem acesso as tarefas relacionadas \n"
+" a este projeto."
+
+#. module: project_team
+#: model:ir.actions.act_window,name:project_team.project_team_action_tree
+#: model:ir.ui.menu,name:project_team.project_team_menu
+msgid "Projects Team"
+msgstr "Equipe do Projeto"
+
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_partner_ids
 #: model:ir.ui.view,arch_db:project_task_calendar.view_project_project_adjust_form
 msgid "Related Partners"
 msgstr "Clientes relacionados"
+
+#. module: project_team
+#: selection:crm.team,type_team:0
+msgid "Sale"
+msgstr "Vendas"
+
+#. module: project_team
+#: model:ir.model,name:project_team.model_crm_team
+msgid "Sales Team"
+msgstr "Equipe de Vendas"
 
 #. module: project_task_calendar
 #: model:ir.ui.view,arch_db:project_task_calendar.view_project_task_adjust_form
@@ -300,7 +396,7 @@ msgstr "Selecionar cliente..."
 #. module: project_task_calendar
 #: sql_constraint:project.project.tags:0
 msgid "Tag name already exists !"
-msgstr "O nome dessa tag ja existe !"
+msgstr "O nome dessa tag ja existe!"
 
 #. module: project_task_calendar
 #: model:ir.model.fields,field_description:project_task_calendar.field_project_project_project_tags_ids
@@ -323,6 +419,16 @@ msgstr "Estágios de Tarefas"
 msgid "Tasks"
 msgstr "Tarefas"
 
+#. module: project_team
+#: model:ir.ui.view,arch_db:project_team.project_project_inherit_form_view
+msgid "Team"
+msgstr "Equipe"
+
+#. module: project_team
+#: model:ir.ui.view,arch_db:project_team.project_team_form_view
+msgid "Team Members"
+msgstr "Membros da Equipe"
+
 #. module: project_task_calendar
 #: selection:project.project,project_classification:0
 msgid "Terrible"
@@ -337,6 +443,11 @@ msgstr "Atividades da Planilha de Horas"
 #: model:ir.model.fields,field_description:project_task_calendar.field_account_analytic_line_to_invoice
 msgid "To Invoice"
 msgstr "Para Faturar"
+
+#. module: project_team
+#: model:ir.model.fields,field_description:project_team.field_crm_team_type_team
+msgid "Type"
+msgstr "Tipo"
 
 #. module: project_task_calendar
 #: selection:project.project,project_classification:0

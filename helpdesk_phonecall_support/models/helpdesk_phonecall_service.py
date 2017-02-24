@@ -8,8 +8,11 @@ from odoo import api, fields, models
 
 class HelpDeskPhoneCall(models.Model):
     _name = 'helpdesk.phonecall.service'
+    _rec_name = 'title'
 
-    name = fields.Text(string='Description', required=True)
+    title = fields.Char(string='Title', compute='get_phonecall_title')
+
+    description = fields.Text(string='Description', required=True)
 
     start_date_hour = fields.Datetime(string='Start Date',
                                       readonly=True,
@@ -38,6 +41,21 @@ class HelpDeskPhoneCall(models.Model):
     state = fields.Selection(string='State', readonly=True,
                              selection=[('open', 'Open'), ('done', 'Done')],
                              default='open')
+
+    @api.depends('start_date_hour', 'partner_id.name', 'project_id.name')
+    def get_phonecall_title(self):
+        for rec in self:
+            rec.title = ''
+            rec.title += rec.start_date_hour if rec.start_date_hour else ''
+            rec.title += ', ' + rec.partner_id.name if rec.partner_id else ''
+            rec.title += ', ' + rec.project_id.name if rec.project_id else ''
+
+    @api.onchange('partner_id')
+    def on_change_partner_id(self):
+        if not self.partner_id.is_company:
+            self.contact_partner_id = self.partner_id
+        else:
+            self.contact_partner_id = False
 
     @api.multi
     def finish_phonecall(self):

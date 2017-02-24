@@ -24,16 +24,17 @@
                 <label for="partner_id" string="Partner" class="oe_edit_only"/>
                 <h2>
                     <field name="company_partner_id" invisible="1"/>
-                    <field name="partner_id" placeholder="Select partner..." nolabel="1" class="oe_inline" domain="[('customer', '=', True)]"/>
+                    <field name="partner_id" placeholder="Select partner..." nolabel="1" class="oe_inline" domain="[('parent_id', '=', False)]"/>
                 </h2>
             </xpath>
 
             <xpath expr="//sheet" position="before">
                 <header>
-                    <button name="done_button" string='Confirm' type="object"
+                    <button name="done_button" string='Finish' type="object"
                             class="btn-primary"
                             attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>
                     <button name="cancel_button" string='Cancel' type="object"
+                            confirm="Are you sure you want close this meeting?"
                             attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>
                     <button name="open_button" string='Open' type="object"
                             attrs="{'invisible': [('meeting_state','in',['open', 'done'])]}"/>
@@ -43,7 +44,7 @@
 
             <xpath expr="//field[@name='partner_ids']" position="attributes">
                 <attribute name="domain">
-                    [('is_company','=',False),'|',('parent_id','=',partner_id),('parent_id','=',company_partner_id)]
+                    ['|',('parent_id','=',partner_id),('parent_id','=',company_partner_id)]
                 </attribute>
             </xpath>
 
@@ -104,6 +105,17 @@
         </field>
     </record>
 
+    <record id="view_multi_calendar_event_calendar" model="ir.ui.view">
+        <field name="name">calendar.event.calendar</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+        <field name="arch" type="xml">
+            <xpath expr="//calendar" position="attributes">
+                <attribute name="quick_add">False</attribute>
+            </xpath>
+        </field>
+    </record>
+
     <record id="view_multi_calendar_event_search" model="ir.ui.view">
         <field name="name">multi.calendar.event.search</field>
         <field name="model">calendar.event</field>
@@ -116,8 +128,7 @@
         </field>
     </record>
 
-    <record id="act_calendar_event_meetings_line_by_project"
-            model="ir.actions.act_window">
+    <record id="act_calendar_event_meetings_line_by_project" model="ir.actions.act_window">
         <field name="name">Activities</field>
         <field name="res_model">calendar.event</field>
         <field name="view_type">form</field>

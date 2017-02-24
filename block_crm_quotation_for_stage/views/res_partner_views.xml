@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_custom_partners_form_crm1" model="ir.ui.view">
+        <field name="name">view.custom.res.partner.form.crm.inherited1</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='opportunity_count']/ancestor::button[1]" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
