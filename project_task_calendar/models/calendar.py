@@ -29,8 +29,6 @@ class CalendarEvent(models.Model):
     company_partner_id = fields.Many2one('res.partner',
                                          default=get_company_partner)
 
-    api.multi
-
     @api.multi
     def unlink(self):
         for record in self:
