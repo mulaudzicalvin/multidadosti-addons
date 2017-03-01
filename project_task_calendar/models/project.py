@@ -16,9 +16,12 @@ class ProjectProject(models.Model):
         domain = [
             '|',
             '|',
-            '&', ('res_model', '=', 'project.project'), ('res_id', 'in', self.ids),
-            '&', ('res_model', '=', 'calendar.event'), ('res_id', 'in', self.calendar_event_ids.ids),
-            '&', ('res_model', '=', 'project.task'), ('res_id', 'in', self.task_ids.ids)]
+            '&', ('res_model', '=', 'project.project'),
+            ('res_id', 'in', self.ids),
+            '&', ('res_model', '=', 'calendar.event'),
+            ('res_id', 'in', self.calendar_event_ids.ids),
+            '&', ('res_model', '=', 'project.task'),
+            ('res_id', 'in', self.task_ids.ids)]
         return {
             'name': _('Attachments'),
             'domain': domain,
@@ -27,13 +30,13 @@ class ProjectProject(models.Model):
             'view_id': False,
             'view_mode': 'kanban,tree,form',
             'view_type': 'form',
-            'help': _('''<p class="oe_view_nocontent_create">
-                        Documents are attached to the tasks and issues of your project.</p><p>
-                        Send messages or log internal notes with attachments to link
-                        documents to your project.
-                    </p>'''),
+            'help': _('''<p class="oe_view_nocontent_create"> Documents are
+            attached to the tasks and issues of your project.</p><p> Send
+            messages or log internal notes with attachments to link documents
+            to your project.</p>'''),
             'limit': 80,
-            'context': "{'default_res_model': '%s','default_res_id': %d}" % (self._name, self.id)
+            'context': "{'default_res_model': '%s','default_res_id': %d}" %
+                       (self._name, self.id)
         }
 
     def _compute_attached_docs_count(self):
@@ -43,11 +46,14 @@ class ProjectProject(models.Model):
                 '|',
                 '|',
                 '&',
-                ('res_model', '=', 'project.project'), ('res_id', '=', project.id),
+                ('res_model', '=', 'project.project'),
+                ('res_id', '=', project.id),
                 '&',
-                ('res_model', '=', 'calendar.event'), ('res_id', 'in', project.calendar_event_ids.ids),
+                ('res_model', '=', 'calendar.event'),
+                ('res_id', 'in', project.calendar_event_ids.ids),
                 '&',
-                ('res_model', '=', 'project.task'), ('res_id', 'in', project.task_ids.ids)
+                ('res_model', '=', 'project.task'),
+                ('res_id', 'in', project.task_ids.ids)
             ])
 
     partner_ids = fields.Many2many(comodel_name='res.partner',
@@ -130,7 +136,8 @@ class ProjectTask(models.Model):
 
     @api.multi
     def action_make_meeting(self):
-        """ This opens Meeting's calendar view to schedule meeting on current applicant
+        """ This opens Meeting's calendar view to schedule meeting on
+        current applicant
             @return: Dictionary value for created Meeting view
         """
         self.ensure_one()

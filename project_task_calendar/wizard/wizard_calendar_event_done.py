@@ -30,9 +30,10 @@ class WizardCalendarEventDone(models.TransientModel):
             dt = datetime.datetime.strptime(ce.start_datetime,
                                             '%Y-%m-%d %H:%M:%S')
 
-            # partners = ce.partner_ids.filtered(lambda r: r.parent_id.id == ce.partner_id.id)
-            partners = [item.id for item in ce.partner_ids if item.parent_id == ce.company_partner_id]
-            users = self.env['res.users'].search([('partner_id', 'in', partners)])
+            partners = [item.id for item in ce.partner_ids
+                        if item.parent_id == ce.company_partner_id]
+            users = self.env['res.users'].search(
+                [('partner_id', 'in', partners)])
             for user in users:
 
                 values = {
