@@ -38,7 +38,7 @@
                         <group>
                             <field name="finish_date_hour"/>
                             <field name="project_tag_id"
-                                   required="True"
+                                   required="False"
                                    attrs="{'readonly':[('state','=','done')]}"/>
                             <field name="user_id"/>
                         </group>
@@ -76,16 +76,10 @@
                 <field name="description"
                        attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="project_tag_id"
-                       required="True"
                        attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="finish_date_hour"/>
                 <field name="user_id"/>
                 <field name="state"/>
-                <button string="Finish call"
-                        name="finish_phonecall"
-                        type="object"
-                        icon="fa-check"
-                        attrs="{'invisible':[('state','=','done')]}"/>
             </tree>
         </field>
     </record>
