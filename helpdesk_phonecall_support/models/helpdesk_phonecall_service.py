@@ -63,7 +63,8 @@ class HelpDeskPhoneCall(models.Model):
     def finish_phonecall(self):
         self.ensure_one()
         if (not self.project_tag_id) or (not self.description):
-            raise UserError(_('Please make sure the marker or description fields are filled in.'))
+            raise UserError(_('Please make sure the marker or '
+                              'description fields are filled in.'))
 
         return {
             'type': 'ir.actions.act_window',
