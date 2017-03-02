@@ -20,14 +20,17 @@
             <xpath expr="//notebook" position="before">
                 <div style="width: 50%; float: right; margin-top: -80px">
                     <group>
-                        <field name="project_classification" widget="priority" readonly="0"/>
+                        <field name="project_classification" widget="priority"
+                               readonly="0"/>
                         <field name="planned_time" widget="float_time"/>
-                        <field name="project_tags_ids" widget="many2many_tags"/>
+                        <field name="project_tags_ids"
+                               widget="many2many_tags"/>
                     </group>
                 </div>
             </xpath>
 
-            <xpath expr="//field[@name='privacy_visibility']" position="replace">
+            <xpath expr="//field[@name='privacy_visibility']"
+                   position="replace">
                 <field name="privacy_visibility" widget="radio"/>
                 <field name="sequence" groups="base.group_no_one"/>
                 <field name="resource_calendar_id" groups="base.group_no_one"/>
@@ -64,49 +67,60 @@
     <record id="project_project_view_form_simplified" model="ir.ui.view">
         <field name="name">project.project.view.form.simplified</field>
         <field name="model">project.project</field>
-        <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+        <field name="inherit_id"
+               ref="project.project_project_view_form_simplified"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='use_tasks']" position="before">
                 <field name="bring_default_task_type"/>
             </xpath>
             <xpath expr="//field[@name='name']" position="after">
-                <field name="partner_id" domain="[('is_company','=',True)]" required="True"/>
+                <field name="partner_id" domain="[('is_company','=',True)]"
+                       required="True"/>
             </xpath>
         </field>
     </record>
 
     <record id="view_project_meeting_kanban" model="ir.ui.view">
-            <field name="name">project.project.meeting.kanban</field>
-            <field name="model">project.project</field>
-            <field name="inherit_id" ref="project.view_project_kanban"/>
-            <field name="priority">24</field>
-            <field name="arch" type="xml">
-                <field name="use_tasks" position="after">
-                    <field name="allow_meetings" invisible="1"/>
-                    <field name="meeting_number" invisible="1"/>
-                </field>
-
-                <xpath expr="//div[contains(@class, 'o_project_kanban_box')]/div[last()]" position="before">
-
-                    <div attrs="{'invisible': [('allow_meetings', '=', False)]}" class="o_project_kanban_box">
-                        <a name="%(act_calendar_event_meetings_line_by_project)d" type="action">
-                            <span class="o_value"><t t-esc="record.meeting_number.value"/></span>
-                        </a>
-                        <a t-if="record.allow_meetings.raw_value" name="%(act_calendar_event_meetings_line_by_project)d" type="action">
-                            <span class="o_label">Meetings</span>
-                        </a>
-                    </div>
-                </xpath>
+        <field name="name">project.project.meeting.kanban</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="priority">24</field>
+        <field name="arch" type="xml">
+            <field name="use_tasks" position="after">
+                <field name="allow_meetings" invisible="1"/>
+                <field name="meeting_number" invisible="1"/>
             </field>
-        </record>
+
+            <xpath expr="//div[contains(@class, 'o_project_kanban_box')]/div[last()]"
+                   position="before">
+
+                <div attrs="{'invisible': [('allow_meetings', '=', False)]}"
+                     class="o_project_kanban_box">
+                    <a name="%(act_calendar_event_meetings_line_by_project)d"
+                       type="action">
+                        <span class="o_value">
+                            <t t-esc="record.meeting_number.value"/>
+                        </span>
+                    </a>
+                    <a t-if="record.allow_meetings.raw_value"
+                       name="%(act_calendar_event_meetings_line_by_project)d"
+                       type="action">
+                        <span class="o_label">Meetings</span>
+                    </a>
+                </div>
+            </xpath>
+        </field>
+    </record>
 
     <record id="multi_view_config_settings" model="ir.ui.view">
         <field name="name">multi project settings</field>
         <field name="model">project.config.settings</field>
         <field name="inherit_id" ref="project.view_config_settings"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='module_project_forecast']" position="replace"/>
-            <xpath expr="//label[@for='module_project_forecast']" position="replace"/>
+            <xpath expr="//field[@name='module_project_forecast']"
+                   position="replace"/>
+            <xpath expr="//label[@for='module_project_forecast']"
+                   position="replace"/>
             <xpath expr="//a" position="replace"/>
         </field>
     </record>
@@ -124,9 +138,9 @@
     </record>
 
     <menuitem name="Partners"
-        id="menu_project_partners"
-        parent="project.menu_project_management"
-        action="action_project_project_partners"/>
+              id="menu_project_partners"
+              parent="project.menu_project_management"
+              action="action_project_project_partners"/>
 
     <menuitem id="menu_project_tags"
               name="Categories"
@@ -134,4 +148,10 @@
               sequence="100"
               action="action_project_project_tags"/>
 
+    <menuitem
+            id="calendar.mail_menu_calendar"
+            name="Calendar"
+            parent="project.menu_project_management"
+            sequence="3"
+            action="calendar.action_calendar_event"/>
 </odoo>
