@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
-# @author Rodrigo Ferreira <rodrigosferreira91@gmail.com>
-# License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
-from odoo import api, fields, models
+from odoo.exceptions import UserError
+from odoo import api, fields, models, _
 
 
 class HelpDeskPhoneCall(models.Model):
+
     _name = 'helpdesk.phonecall.service'
     _rec_name = 'title'
 
     title = fields.Char(string='Title', compute='get_phonecall_title')
 
-    description = fields.Text(string='Description', required=True)
+    description = fields.Text(string='Description')
 
     start_date_hour = fields.Datetime(string='Start Date',
                                       readonly=True,
@@ -60,6 +59,9 @@ class HelpDeskPhoneCall(models.Model):
     @api.multi
     def finish_phonecall(self):
         self.ensure_one()
+        if (not self.project_tag_id) or (not self.description):
+            raise UserError(_('Please make sure the marker or '
+                              'description fields are filled in.'))
 
         return {
             'type': 'ir.actions.act_window',
@@ -67,5 +69,4 @@ class HelpDeskPhoneCall(models.Model):
             'view_type': 'form',
             'view_mode': 'form',
             'views': [(False, "form")],
-            'target': 'new',
-        }
+            'target': 'new', }
