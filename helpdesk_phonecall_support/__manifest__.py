@@ -15,8 +15,9 @@
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
-        'project',
+        'project_team',
         'hr_timesheet',
+        'project_task_calendar',
     ],
     'data': [
         'data/helpdesk_data.xml',
