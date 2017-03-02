@@ -44,7 +44,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Description Service">
+                        <page string="Description">
                             <group style="margin: 1%; width: 98%">
                                 <field name="description" attrs="{'readonly':[('state','=','done')]}" nolabel="1"/>
                             </group>
