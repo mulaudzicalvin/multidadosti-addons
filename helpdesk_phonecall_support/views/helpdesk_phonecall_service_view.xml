@@ -26,7 +26,7 @@
                                    attrs="{'readonly':[('state','=','done')]}"/>
 
                             <field name="project_id"
-                                   domain="[('partner_ids','=',partner_id)]"
+                                   domain="[('partner_ids','=',partner_id),('project_team_id.member_ids', '=', user_id)]"
                                    options="{'no_create':True}"
                                    attrs="{'readonly':[('state','=','done')]}"/>
 
