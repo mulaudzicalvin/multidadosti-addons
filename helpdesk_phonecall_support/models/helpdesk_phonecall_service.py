@@ -11,7 +11,7 @@ class HelpDeskPhoneCall(models.Model):
 
     title = fields.Char(string='Title', compute='get_phonecall_title')
 
-    description = fields.Text(string='Description', required=False)
+    description = fields.Text(string='Description')
 
     start_date_hour = fields.Datetime(string='Start Date',
                                       readonly=True,
@@ -35,8 +35,7 @@ class HelpDeskPhoneCall(models.Model):
     finish_date_hour = fields.Datetime(string='Finish Date',
                                        readonly=True, )
 
-    project_tag_id = fields.Many2one('project.tags', string='Tags',
-                                     required=False)
+    project_tag_id = fields.Many2one('project.tags', string='Tags')
 
     state = fields.Selection(string='State', readonly=True,
                              selection=[('open', 'Open'), ('done', 'Done')],
