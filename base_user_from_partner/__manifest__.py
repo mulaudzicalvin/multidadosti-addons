@@ -8,8 +8,8 @@
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
     'category': 'Base',
-    'summary': """This module checks the locate partner field to
-     make the partner_id field required or not.""",
+    'summary': """This module add feature to select specific partner when
+    a new user is create.""",
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
