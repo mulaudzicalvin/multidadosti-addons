@@ -7,7 +7,7 @@
             <field name="name">Helpdesk Phonecall Support: see only own events</field>
             <field name="model_id" ref="model_helpdesk_phonecall_service"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
-            <field name="domain_force">[('project_id.team_id.team_members', '=', user.id)]</field>
+            <field name="domain_force">[('project_id.project_team_id.member_ids', '=', user.id)]</field>
         </record>
 
         <record model="ir.rule" id="helpdesk_phonecall_service_all_rule">
