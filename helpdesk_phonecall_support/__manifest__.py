@@ -14,6 +14,7 @@
     'depends': [
         'project_team',
         'hr_timesheet',
+        'project_task_calendar',
     ],
     'data': [
         'data/helpdesk_data.xml',

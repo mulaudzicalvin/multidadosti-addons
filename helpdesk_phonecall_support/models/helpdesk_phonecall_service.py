@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models
+from odoo.exceptions import UserError
+from odoo import api, fields, models, _
 
 
 class HelpDeskPhoneCall(models.Model):
@@ -10,7 +11,7 @@ class HelpDeskPhoneCall(models.Model):
 
     title = fields.Char(string='Title', compute='get_phonecall_title')
 
-    description = fields.Text(string='Description', required=True)
+    description = fields.Text(string='Description', required=False)
 
     start_date_hour = fields.Datetime(string='Start Date',
                                       readonly=True,
@@ -34,7 +35,8 @@ class HelpDeskPhoneCall(models.Model):
     finish_date_hour = fields.Datetime(string='Finish Date',
                                        readonly=True, )
 
-    project_tag_id = fields.Many2one('project.tags', string='Tags')
+    project_tag_id = fields.Many2one('project.tags', string='Tags',
+                                     required=False)
 
     state = fields.Selection(string='State', readonly=True,
                              selection=[('open', 'Open'), ('done', 'Done')],
@@ -58,6 +60,9 @@ class HelpDeskPhoneCall(models.Model):
     @api.multi
     def finish_phonecall(self):
         self.ensure_one()
+        if (not self.project_tag_id) or (not self.description):
+            raise UserError(_('Please make sure the marker or '
+                              'description fields are filled in.'))
 
         return {
             'type': 'ir.actions.act_window',
@@ -65,5 +70,4 @@ class HelpDeskPhoneCall(models.Model):
             'view_type': 'form',
             'view_mode': 'form',
             'views': [(False, "form")],
-            'target': 'new',
-        }
+            'target': 'new', }
