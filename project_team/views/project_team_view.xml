@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_project_team_form" model="ir.ui.view">
+        <field name="name">view.project.team.form</field>
+        <field name="model">project.team</field>
+        <field name="arch" type="xml">
+            <form string="Project Team">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="lead_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Team Members" name="team_members">
+                            <field name="member_ids" widget="many2many_kanban">
+                                <kanban quick_create="false" create="true"
+                                        delete="true">
+                                    <field name="name"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click"
+                                                 style="position: relative">
+                                                <a t-if="! read_only_mode"
+                                                   type="delete"
+                                                   style="position: absolute; right: 0; padding: 4px; display: inline-block">
+                                                    X
+                                                </a>
+                                                <div class="oe_module_vignette">
+                                                    <img t-att-src="kanban_image('res.users', 'image_small', record.id.value)"
+                                                         class="oe_avatar oe_kanban_avatar_smallbox"/>
+                                                    <div class="oe_module_desc">
+                                                        <field name="name"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_project_team" model="ir.actions.act_window">
+        <field name="name">Teams</field>
+        <field name="res_model">project.team</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Teams"
+              id="menu_project_teams"
+              parent="project.menu_project_config"
+              action="action_project_team"/>
+
+</odoo>

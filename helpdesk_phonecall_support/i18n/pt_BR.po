@@ -56,8 +56,8 @@ msgstr "Descrição"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_form
-msgid "Description Service"
-msgstr "Descrição do Serviço"
+msgid "Description"
+msgstr "Descrição"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_display_name
@@ -159,7 +159,7 @@ msgstr "Phonecall"
 #: code:addons/helpdesk_phonecall_support/models/helpdesk_phonecall_service.py:66
 #, python-format
 msgid "Please make sure the marker or description fields are filled in."
-msgstr "Certifique-se de que os campos do marcador ou descrição estão preenchidos."
+msgstr "Certifique-se de que os campos 'Marcadores' e 'Descrição' estão preenchidos."
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_project_id

@@ -26,7 +26,7 @@
                                    attrs="{'readonly':[('state','=','done')]}"/>
 
                             <field name="project_id"
-                                   domain="[('partner_ids','=',partner_id)]"
+                                   domain="[('partner_ids','=',partner_id),('project_team_id.member_ids', '=', user_id)]"
                                    options="{'no_create':True}"
                                    attrs="{'readonly':[('state','=','done')]}"/>
 
@@ -44,7 +44,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Description Service">
+                        <page string="Description">
                             <group style="margin: 1%; width: 98%">
                                 <field name="description" attrs="{'readonly':[('state','=','done')]}" nolabel="1"/>
                             </group>
