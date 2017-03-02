@@ -5,13 +5,13 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="arch" type="xml">
-            <field name="company_id" position="replace"/>
             <xpath expr="//notebook/page[last()]/group" position="before">
                 <group string="Partner">
                     <group>
                         <field name="locate_partner"/>
-                        <field name="partner_id" domain="[('is_company', '=', False)]" attrs="{'invisible': [('locate_partner', '=', False)]}"/>
-                        <field name="company_id" string="Company"/>
+                        <field name="partner_id"
+                               domain="[('is_company', '=', False)]"
+                               attrs="{'invisible': [('locate_partner', '=', False),('partner_id', '=', False)], 'required': [('locate_partner', '=', True)]}"/>
                     </group>
                 </group>
             </xpath>
