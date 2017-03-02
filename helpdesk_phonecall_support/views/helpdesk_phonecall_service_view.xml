@@ -26,7 +26,7 @@
                                    attrs="{'readonly':[('state','=','done')]}"/>
 
                             <field name="project_id"
-                                   domain="[('partner_ids','=',partner_id)]"
+                                   domain="[('partner_ids','=',partner_id),('project_team_id.member_ids', '=', user_id)]"
                                    options="{'no_create':True}"
                                    attrs="{'readonly':[('state','=','done')]}"/>
 
@@ -38,13 +38,13 @@
                         <group>
                             <field name="finish_date_hour"/>
                             <field name="project_tag_id"
-                                   required="True"
+                                   required="False"
                                    attrs="{'readonly':[('state','=','done')]}"/>
                             <field name="user_id"/>
                         </group>
                     </group>
                     <notebook>
-                        <page string="Description Service">
+                        <page string="Description">
                             <group style="margin: 1%; width: 98%">
                                 <field name="description" attrs="{'readonly':[('state','=','done')]}" nolabel="1"/>
                             </group>
@@ -76,16 +76,10 @@
                 <field name="description"
                        attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="project_tag_id"
-                       required="True"
                        attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="finish_date_hour"/>
                 <field name="user_id"/>
                 <field name="state"/>
-                <button string="Finish call"
-                        name="finish_phonecall"
-                        type="object"
-                        icon="fa-check"
-                        attrs="{'invisible':[('state','=','done')]}"/>
             </tree>
         </field>
     </record>
