@@ -16,9 +16,10 @@
         'sale_crm',
     ],
     'data': [
-        'views/sale_views.xml',
-        'views/view_sale_crm.xml',
-        'views/res_partner_views.xml',
+        'views/crm_lead.xml',
+        'views/crm_stage.xml',
+        'views/res_partner.xml',
+        'views/sale_order.xml',
     ],
     'installable': True,
 }

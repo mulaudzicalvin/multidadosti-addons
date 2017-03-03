@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="crm_case_form_view_oppor" model="ir.ui.view">
+        <field name="name">block.crm.quotation.for.stage.crm.lead.view.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[not(@attrs)]" position="attributes">
+                <attribute name="attrs">{'invisible': [('send_quotation','!=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="send_quotation"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
