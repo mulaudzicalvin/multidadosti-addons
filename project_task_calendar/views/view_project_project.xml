@@ -185,7 +185,7 @@
               action="action_project_project_partners"/>
     
     <menuitem
-            id="calendar.mail_menu_calendar"
+            id="project_menu_calendar"
             name="Calendar"
             parent="project.menu_project_management"
             sequence="3"
