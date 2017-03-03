@@ -179,12 +179,6 @@
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
-    <record id="action_project_tags" model="ir.actions.act_window">
-        <field name="name">Tasks</field>
-        <field name="res_model">project.tags</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
     <menuitem name="Partners"
               id="menu_project_partners"
               parent="project.menu_project_management"
