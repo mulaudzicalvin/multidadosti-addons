@@ -30,17 +30,23 @@ class WizardCalendarEventDone(models.TransientModel):
             dt = datetime.datetime.strptime(ce.start_datetime,
                                             '%Y-%m-%d %H:%M:%S')
 
-            values = {
-                'name': ce.meeting_feedback,
-                'date': dt.date(),
-                'user_id': ce.user_id.id,
-                'project_id': ce.project_id.id,
-                'unit_amount': ce.meeting_duration,
-                'calendar_event_id': ce.id,
-            }
+            partners = [item.id for item in ce.partner_ids
+                        if item.parent_id == ce.company_partner_id]
+            users = self.env['res.users'].search(
+                [('partner_id', 'in', partners)])
+            for user in users:
 
-            if ce.task_id:
-                values['task_id'] = ce.task_id.id
-                values['project_task_type_id'] = ce.task_id.stage_id.id
+                values = {
+                    'name': ce.meeting_feedback,
+                    'date': dt.date(),
+                    'user_id': user.id,
+                    'project_id': ce.project_id.id,
+                    'unit_amount': ce.meeting_duration,
+                    'calendar_event_id': ce.id,
+                }
 
-            self.env['account.analytic.line'].create(values)
+                if ce.task_id:
+                    values['task_id'] = ce.task_id.id
+                    values['project_task_type_id'] = ce.task_id.stage_id.id
+
+                self.env['account.analytic.line'].create(values)

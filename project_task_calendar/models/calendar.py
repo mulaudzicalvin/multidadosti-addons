@@ -28,7 +28,16 @@ class CalendarEvent(models.Model):
                                      string='Meeting State', default='open')
     company_partner_id = fields.Many2one('res.partner',
                                          default=get_company_partner)
+      
+    attachment_ids = fields.One2many('ir.attachment', 'res_id',
+                                     domain=lambda self: [
+                                         ('res_model', '=', self._name)],
+                                     auto_join=True, string='Attachments')
 
+    doc_count = fields.Integer(
+        compute='_compute_attached_docs_count',
+        string="Number of documents attached")
+    
     @api.multi
     def unlink(self):
         for record in self:
@@ -36,6 +45,56 @@ class CalendarEvent(models.Model):
                 raise UserError(_('You cannot delete a calendar meeting which'
                                   ' is done or cancelled.'))
         return super(CalendarEvent, self).unlink()
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form',
+                        toolbar=False, submenu=False):
+
+        result = super(CalendarEvent, self).fields_view_get(view_id,
+                                                            view_type,
+                                                            toolbar=toolbar,
+                                                            submenu=submenu)
+
+        if view_type == 'form' and \
+                        result['fields'].get('meeting_state') != 'done':
+            for field in result['fields']:
+                result['fields'][field]['readonly'] = True
+
+        return result
+
+    @api.multi
+    def attachment_tree_view(self):
+        self.ensure_one()
+        domain = [
+            '&',
+            ('res_model', '=', 'calendar.event'), ('res_id', '=', self.id)
+        ]
+        return {
+            'name': _('Attachments'),
+            'domain': domain,
+            'res_model': 'ir.attachment',
+            'type': 'ir.actions.act_window',
+            'view_id': False,
+            'view_mode': 'kanban,tree,form',
+            'view_type': 'form',
+            'help': _('''<p class="oe_view_nocontent_create">
+                        Documents are attached to the tasks and issues of your
+                        project.</p><p> Send messages or log internal notes
+                        with attachments to link documents to your project.
+                    </p>'''),
+            'limit': 80,
+            'context': "{'default_res_model': '%s','default_res_id': %d}" %
+                       (self._name, self.id)
+        }
+
+    def _compute_attached_docs_count(self):
+        Attachment = self.env['ir.attachment']
+        for meeting in self:
+            meeting.doc_count = Attachment.search_count([
+                '&',
+                ('res_model', '=', 'calendar.event'),
+                ('res_id', '=', meeting.id)
+            ])
 
     @api.multi
     def done_button(self):

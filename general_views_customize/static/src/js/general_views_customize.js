@@ -2,6 +2,7 @@ odoo.define('general_views_customize.general_views_customize', function (require
 "use strict";
 
     var WebClient = require('web.WebClient');
+    var Dialog = require('web.Dialog');
 
     WebClient.include({
         init: function(parent, client_options) {
