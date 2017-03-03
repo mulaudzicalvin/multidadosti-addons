@@ -28,16 +28,16 @@ class CalendarEvent(models.Model):
                                      string='Meeting State', default='open')
     company_partner_id = fields.Many2one('res.partner',
                                          default=get_company_partner)
-      
-    attachment_ids = fields.One2many('ir.attachment', 'res_id',
-                                     domain=lambda self: [
-                                         ('res_model', '=', self._name)],
+
+    attachment_ids = fields.One2many('ir.attachment',
+                                     'res_id',
+                                     domain=lambda self:
+                                     [('res_model', '=', self._name)],
                                      auto_join=True, string='Attachments')
 
-    doc_count = fields.Integer(
-        compute='_compute_attached_docs_count',
-        string="Number of documents attached")
-    
+    doc_count = fields.Integer(compute='_compute_attached_docs_count',
+                               string="Number of documents attached")
+
     @api.multi
     def unlink(self):
         for record in self:
