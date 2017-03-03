@@ -3,6 +3,7 @@
 # @author Aldo Soares <soares_aldo@hotmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
+from odoo.exceptions import UserError
 from odoo import api, models, fields, _
 
 
@@ -28,14 +29,22 @@ class CalendarEvent(models.Model):
     company_partner_id = fields.Many2one('res.partner',
                                          default=get_company_partner)
 
-    attachment_ids = fields.One2many('ir.attachment', 'res_id',
-                                     domain=lambda self: [
-                                         ('res_model', '=', self._name)],
+    attachment_ids = fields.One2many('ir.attachment',
+                                     'res_id',
+                                     domain=lambda self:
+                                     [('res_model', '=', self._name)],
                                      auto_join=True, string='Attachments')
 
-    doc_count = fields.Integer(
-        compute='_compute_attached_docs_count',
-        string="Number of documents attached")
+    doc_count = fields.Integer(compute='_compute_attached_docs_count',
+                               string="Number of documents attached")
+
+    @api.multi
+    def unlink(self):
+        for record in self:
+            if record.meeting_state in ('done', 'cancel'):
+                raise UserError(_('You cannot delete a calendar meeting which'
+                                  ' is done or cancelled.'))
+        return super(CalendarEvent, self).unlink()
 
     @api.model
     def fields_view_get(self, view_id=None, view_type='form',
