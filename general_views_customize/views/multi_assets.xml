@@ -11,6 +11,12 @@
         </xpath>
     </template>
 
+    <template id="custom_backend_common" name="custom_backend_common" inherit_id="web.assets_common">
+        <xpath expr="//script[@src='/web/static/src/js/framework/dialog.js']" position="replace">
+            <script type="text/javascript" src="/general_views_customize/static/src/js/dialog.js"></script>
+        </xpath>
+    </template>
+
     <template id="multi_assets_backend_favicon" name="Multi Backend" inherit_id="web.layout">
         <xpath expr="//link[@t-att-href=x_icon or '/web/static/src/img/favicon.ico']" position="replace">
             <link type="image/x-icon" rel="shortcut icon" t-att-href= "x_icon or '/general_views_customize/static/src/img/favicon.ico'"/>

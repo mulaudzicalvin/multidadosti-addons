@@ -64,6 +64,15 @@
                     </group>
                 </page>
             </xpath>
+
+            <xpath expr="//field[@name='attendee_status']" position="after">
+                <div class="oe_button_box" name="button_box" groups="base.group_user">
+                    <button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
+                        <field string="Documents" name="doc_count" widget="statinfo"/>
+                    </button>
+                </div>
+            </xpath>
+
         </field>
     </record>
 
