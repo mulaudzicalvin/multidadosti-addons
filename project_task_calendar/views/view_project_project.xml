@@ -24,7 +24,8 @@
                                readonly="0"/>
                         <field name="planned_time" widget="float_time"/>
                         <field name="project_tags_ids"
-                               widget="many2many_tags"/>
+                               widget="many2many_tags"
+                               options="{'no_create': True}"/>
                     </group>
                 </div>
             </xpath>
@@ -81,15 +82,62 @@
     </record>
 
     <record id="view_project_meeting_kanban" model="ir.ui.view">
-        <field name="name">project.project.meeting.kanban</field>
-        <field name="model">project.project</field>
-        <field name="inherit_id" ref="project.view_project_kanban"/>
-        <field name="priority">24</field>
-        <field name="arch" type="xml">
-            <field name="use_tasks" position="after">
-                <field name="allow_meetings" invisible="1"/>
-                <field name="meeting_number" invisible="1"/>
-            </field>
+            <field name="name">project.project.meeting.kanban</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="priority">24</field>
+            <field name="arch" type="xml">
+                <field name="use_tasks" position="after">
+                    <field name="allow_meetings" invisible="1"/>
+                    <field name="meeting_number" invisible="1"/>
+                </field>
+                <xpath expr="//kanban/templates/t/div/child::div[1]" position="replace">
+                    <field name="allow_meetings" invisible="1"/>
+                    <field name="meeting_number" invisible="1"/>
+                    <div class="o_project_kanban_main" style="display: flex;">
+                        <a type="edit">
+                            <div class="o_kanban_card_content o_visible">
+                                <div class="o_kanban_primary_left">
+                                    <div class="o_primary">
+                                        <span><t t-esc="record.name.value"/></span>
+                                    </div>
+                                    <div t-if="record.alias_name.value and record.alias_domain.value">
+                                        <span><i class="fa fa-envelope"></i> <t t-esc="record.alias_id.value"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_card_manage_pane o_invisible">
+                                <div class="o_kanban_card_manage_section o_kanban_manage_reports">
+                                    <div groups="project.group_project_manager">
+                                        <a type="edit">Settings</a>
+                                    </div>
+                                    <div attrs="{'invisible': [('use_tasks', '=', False)]}">
+                                        <a name="%(project.action_project_task_user_tree_filtered)d" type="action">Tasks</a>
+                                    </div>
+                                </div>
+                                <div t-if="widget.editable" class="o_project_kanban_colorpicker">
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="o_project_kanban_manage">
+                            <a class="o_kanban_manage_toggle_button o_left" href="#">More <i class="fa fa-caret-down"/></a>
+                            <a type="object" name="toggle_favorite" class="o_right"><i t-attf-class="oe_inline fa o_dashboard_star #{record.is_favorite.raw_value ? 'fa-star' : 'fa-star-o'}" title="Add/remove from favorite"/></a>
+                        </div>
+                    </div>
+                </xpath>
+
+                <xpath expr="//div[contains(@class, 'o_project_kanban_box')]/div[last()]" position="before">
+
+                    <div attrs="{'invisible': [('allow_meetings', '=', False)]}" class="o_project_kanban_box">
+                        <a name="%(act_calendar_event_meetings_line_by_project)d" type="action">
+                            <span class="o_value"><t t-esc="record.meeting_number.value"/></span>
+                        </a>
+                        <a t-if="record.allow_meetings.raw_value" name="%(act_calendar_event_meetings_line_by_project)d" type="action">
+                            <span class="o_label">Meetings</span>
+                        </a>
+                    </div>
+                </xpath>            
 
             <xpath expr="//div[contains(@class, 'o_project_kanban_box')]/div[last()]"
                    position="before">
@@ -109,7 +157,7 @@
                     </a>
                 </div>
             </xpath>
-        </field>
+           </field>
     </record>
 
     <record id="multi_view_config_settings" model="ir.ui.view">
@@ -131,23 +179,11 @@
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
-    <record id="action_project_project_tags" model="ir.actions.act_window">
-        <field name="name">Tasks</field>
-        <field name="res_model">project.project.tags</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
     <menuitem name="Partners"
               id="menu_project_partners"
               parent="project.menu_project_management"
               action="action_project_project_partners"/>
-
-    <menuitem id="menu_project_tags"
-              name="Categories"
-              parent="project.menu_project_config"
-              sequence="100"
-              action="action_project_project_tags"/>
-
+    
     <menuitem
             id="project_menu_calendar"
             name="Calendar"

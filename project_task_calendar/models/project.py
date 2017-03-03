@@ -70,7 +70,7 @@ class ProjectProject(models.Model):
 
     allow_meetings = fields.Boolean('Allow Meetings', default=True)
 
-    meeting_number = fields.Integer(compute='_get_meeting_number',
+    meeting_number = fields.Integer(compute='_compute_meeting_number',
                                     string='Number of Meetings')
 
     project_classification = fields.Selection(
@@ -84,7 +84,7 @@ class ProjectProject(models.Model):
 
     planned_time = fields.Float(string="Planned Time")
 
-    project_tags_ids = fields.Many2many(comodel_name='project.project.tags',
+    project_tags_ids = fields.Many2many(comodel_name='project.tags',
                                         string='Tags')
 
     @api.model
@@ -108,7 +108,7 @@ class ProjectProject(models.Model):
         return super(ProjectProject, self).write(values)
 
     @api.multi
-    def _get_meeting_number(self):
+    def _compute_meeting_number(self):
         for record in self:
             cal_events = record.calendar_event_ids.filtered(
                 lambda r: r.meeting_state == 'open')
@@ -124,11 +124,11 @@ class ProjectTask(models.Model):
                                          readonly=True,
                                          string='Calendar Events')
 
-    meeting_number = fields.Integer(compute='_get_meeting_number',
+    meeting_number = fields.Integer(compute='_compute_meeting_number',
                                     string='Number of Meetings')
 
     @api.multi
-    def _get_meeting_number(self):
+    def _compute_meeting_number(self):
         for record in self:
             cal_events = record.calendar_event_ids.filtered(
                 lambda r: r.meeting_state == 'open')
