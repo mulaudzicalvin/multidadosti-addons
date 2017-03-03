@@ -84,7 +84,7 @@ class ProjectProject(models.Model):
 
     planned_time = fields.Float(string="Planned Time")
 
-    project_tags_ids = fields.Many2many(comodel_name='project.project.tags',
+    project_tags_ids = fields.Many2many(comodel_name='project.tags',
                                         string='Tags')
 
     @api.model

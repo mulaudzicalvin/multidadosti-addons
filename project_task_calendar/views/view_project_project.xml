@@ -24,7 +24,8 @@
                                readonly="0"/>
                         <field name="planned_time" widget="float_time"/>
                         <field name="project_tags_ids"
-                               widget="many2many_tags"/>
+                               widget="many2many_tags"
+                               options="{'no_create': True}"/>
                     </group>
                 </div>
             </xpath>
@@ -178,23 +179,11 @@
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
-    <record id="action_project_project_tags" model="ir.actions.act_window">
-        <field name="name">Tasks</field>
-        <field name="res_model">project.project.tags</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
     <menuitem name="Partners"
               id="menu_project_partners"
               parent="project.menu_project_management"
               action="action_project_project_partners"/>
-
-    <menuitem id="menu_project_tags"
-              name="Categories"
-              parent="project.menu_project_config"
-              sequence="100"
-              action="action_project_project_tags"/>
-
+    
     <menuitem
             id="calendar.mail_menu_calendar"
             name="Calendar"
