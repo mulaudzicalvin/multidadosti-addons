@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_user_from_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-02 20:33+0000\n"
+"PO-Revision-Date: 2017-03-02 17:34-0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: base_user_from_partner
+#: code:addons/base_user_from_partner/models/res_user.py:10
+#: model:ir.model.fields,help:base_user_from_partner.field_res_users_locate_partner
+#, python-format
+msgid ""
+"Allow select a existing\n"
+"                                           partner to use as base to create\n"
+"                                           this user."
+msgstr ""
+"Permite selecionar\n"
+" um parceiro para utilizá-lo como base \n"
+"para criar um novo usuário."
+
+#. module: base_user_from_partner
+#: model:ir.ui.view,arch_db:base_user_from_partner.view_custom_users_form
+msgid "Partner"
+msgstr "Parceiro"
+
+#. module: base_user_from_partner
+#: model:ir.model.fields,field_description:base_user_from_partner.field_res_users_locate_partner
+msgid "Select Existing Partner?"
+msgstr "Selecionar Parceiro Existente?"
+
+#. module: base_user_from_partner
+#: model:ir.model,name:base_user_from_partner.model_res_users
+msgid "Users"
+msgstr "Usuários"
