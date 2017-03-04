@@ -10,7 +10,7 @@
                 <attribute name="attrs">{'invisible': [('send_quotation','!=',True)]}</attribute>
             </xpath>
             <xpath expr="//field[@name='tag_ids']" position="after">
-                <field name="send_quotation"/>
+                <field name="send_quotation" invisible="True"/>
             </xpath>
         </field>
     </record>
