@@ -23,7 +23,7 @@
         'hr_timesheet',
     ],
     'data': [
-        'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
         # 'data/to_invoice_data.xml',
         'views/view_calendar.xml',
         'views/view_project_project.xml',

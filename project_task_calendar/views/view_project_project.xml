@@ -23,9 +23,9 @@
                         <!--<field name="project_classification" widget="priority"-->
                                <!--readonly="0"/>-->
                         <field name="planned_time" widget="float_time"/>
-                        <field name="project_tags_ids"
-                               widget="many2many_tags"
-                               options="{'no_create': True}"/>
+                        <!--<field name="project_tags_ids"-->
+                               <!--widget="many2many_tags"-->
+                               <!--options="{'no_create': True}"/>-->
                     </group>
                 </div>
             </xpath>
