@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="edit_project" model="ir.ui.view">
+        <field name="name">project.tags.in.project.view.form.view</field>
+        <field name="model">project.project</field>
+        <field name="view_type">form</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='sequence']" position="after">
+                <field name="project_tags_ids" widget="many2many_tags" options="{'no_create': True}"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
