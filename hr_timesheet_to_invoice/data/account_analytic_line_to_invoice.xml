@@ -2,12 +2,12 @@
 <odoo>
     <data noupdate="1">
 
-       <record id="to_invoice_yes" model="to.invoice">
+       <record id="account_analytic_line_to_invoice_yes" model="account.analytic.line.to.invoice">
            <field name="name">Sim (100 %)</field>
            <field name="factor">0.00</field>
        </record>
 
-        <record id="to_invoice_no" model="to.invoice">
+        <record id="account_analytic_line_to_invoice__no" model="account.analytic.line.to.invoice">
            <field name="name">Não</field>
            <field name="factor">0.00</field>
        </record>
