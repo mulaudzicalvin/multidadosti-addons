@@ -73,14 +73,14 @@ class ProjectProject(models.Model):
     meeting_number = fields.Integer(compute='_compute_meeting_number',
                                     string='Number of Meetings')
 
-    project_classification = fields.Selection(
-        string="Classification",
-        selection=([('0', 'Without Classification'),
-                    ('1', 'Terrible'),
-                    ('2', 'Bad'),
-                    ('3', 'Good'),
-                    ('4', 'Great'),
-                    ('5', 'Excellent')]), default='0')
+    # project_classification = fields.Selection(
+    #     string="Classification",
+    #     selection=([('0', 'Without Classification'),
+    #                 ('1', 'Terrible'),
+    #                 ('2', 'Bad'),
+    #                 ('3', 'Good'),
+    #                 ('4', 'Great'),
+    #                 ('5', 'Excellent')]), default='0')
 
     planned_time = fields.Float(string="Planned Time")
 
