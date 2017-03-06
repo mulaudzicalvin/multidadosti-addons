@@ -44,21 +44,21 @@
                 </page>
             </xpath>
 
-            <xpath expr="//field[@name='timesheet_ids']" position="replace">
-                <!-- Add your fields or attributes here -->
-                <field name="timesheet_ids" context="{'default_project_id': project_id,'default_project_task_type_id': stage_id}">
-                    <tree editable="bottom" string="Timesheet Activities" default_order="date">
-                        <field name="date"/>
-                        <field name="user_id" required="1"/>
-                        <field name="name"/>
-                        <field name="project_task_type_id" readonly="1"/>
-                        <field name="unit_amount" string="Duration" widget="float_time"/>
-                        <field name="calendar_event_id"/>
-                        <!--<field name="to_invoice"/>-->
-                        <field name="project_id" invisible="1"/>
-                    </tree>
-                </field>
-            </xpath>
+            <!--<xpath expr="//field[@name='timesheet_ids']" position="replace">-->
+                <!--&lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+                <!--<field name="timesheet_ids" context="{'default_project_id': project_id,'default_project_task_type_id': stage_id}">-->
+                    <!--<tree editable="bottom" string="Timesheet Activities" default_order="date">-->
+                        <!--<field name="date"/>-->
+                        <!--<field name="user_id" required="1"/>-->
+                        <!--<field name="name"/>-->
+                        <!--<field name="project_task_type_id" readonly="1"/>-->
+                        <!--<field name="unit_amount" string="Duration" widget="float_time"/>-->
+                        <!--<field name="calendar_event_id"/>-->
+                        <!--&lt;!&ndash;<field name="to_invoice"/>&ndash;&gt;-->
+                        <!--<field name="project_id" invisible="1"/>-->
+                    <!--</tree>-->
+                <!--</field>-->
+            <!--</xpath>-->
 
         </field>
     </record>
