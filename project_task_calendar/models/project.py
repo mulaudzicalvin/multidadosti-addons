@@ -56,8 +56,8 @@ class ProjectProject(models.Model):
                 ('res_id', 'in', project.task_ids.ids)
             ])
 
-    partner_ids = fields.Many2many(comodel_name='res.partner',
-                                   string='Related Partners')
+    # partner_ids = fields.Many2many(comodel_name='res.partner',
+    #                                string='Related Partners')
 
     calendar_event_ids = fields.One2many(comodel_name='calendar.event',
                                          inverse_name='project_id',
@@ -101,11 +101,11 @@ class ProjectProject(models.Model):
     #
     #     return res
 
-    @api.multi
-    def write(self, values):
-        if 'partner_id' in values:
-            values['partner_ids'] = [(4, values['partner_id'])]
-        return super(ProjectProject, self).write(values)
+    # @api.multi
+    # def write(self, values):
+    #     if 'partner_id' in values:
+    #         values['partner_ids'] = [(4, values['partner_id'])]
+    #     return super(ProjectProject, self).write(values)
 
     @api.multi
     def _compute_meeting_number(self):
