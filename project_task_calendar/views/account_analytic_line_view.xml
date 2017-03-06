@@ -12,18 +12,18 @@
                     <field name="partner_id" readonly="False" required="True"/>
                 </xpath>
 
-                <xpath expr="//field[@name='task_id']" position="before">
-                    <field name="project_task_type_id" domain="[('project_ids','=',project_id)]"/>
-                </xpath>
+                <!--<xpath expr="//field[@name='task_id']" position="before">-->
+                    <!--<field name="project_task_type_id" domain="[('project_ids','=',project_id)]"/>-->
+                <!--</xpath>-->
 
                 <xpath expr="//field[@name='unit_amount']" position="after">
                     <!--<field name="to_invoice"/>-->
                     <field name="calendar_event_id"/>
                 </xpath>
 
-                <xpath expr="//field[@name='task_id']" position="attributes">
-                    <attribute name="domain">[('stage_id','=',project_task_type_id)]</attribute>
-                </xpath>
+                <!--<xpath expr="//field[@name='task_id']" position="attributes">-->
+                    <!--<attribute name="domain">[('stage_id','=',project_task_type_id)]</attribute>-->
+                <!--</xpath>-->
 
                 <xpath expr="//field[@name='project_id']" position="attributes">
                     <attribute name="domain">[('partner_ids','=',partner_id)]</attribute>

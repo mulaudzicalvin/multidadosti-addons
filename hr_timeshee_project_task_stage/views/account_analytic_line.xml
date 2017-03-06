@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_timesheet_line_tree" model="ir.ui.view">
+        <field name="name">hr.timeshee.project.task.stage.view.tree</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='task_id']" position="before">
+                <field name="project_task_type_id" domain="[('project_ids','=',project_id)]"/>
+            </xpath>
+
+            <xpath expr="//field[@name='task_id']" position="attributes">
+                <attribute name="domain">[('stage_id','=',project_task_type_id)]</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
