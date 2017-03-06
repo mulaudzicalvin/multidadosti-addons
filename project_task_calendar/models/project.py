@@ -63,10 +63,10 @@ class ProjectProject(models.Model):
                                          inverse_name='project_id',
                                          string='Calendar Events')
 
-    bring_default_task_type = fields.Boolean(
-        string='Get default stages',
-        deafult=True,
-        help='Add to this project, all stage defined like default')
+    # bring_default_task_type = fields.Boolean(
+    #     string='Get default stages',
+    #     deafult=True,
+    #     help='Add to this project, all stage defined like default')
 
     allow_meetings = fields.Boolean('Allow Meetings', default=True)
 
@@ -165,16 +165,16 @@ class ProjectTask(models.Model):
         return res
 
 
-class ProjectTaskType(models.Model):
-
-    _inherit = 'project.task.type'
-
-    is_default = fields.Boolean(string='Default',
-                                help='Allows assignment of the current stage '
-                                     'to new projects that will be created.')
-
-    _sql_constraints = [('project_task_type_name_uniq', 'unique (name)',
-                         'Already stage with same name!')]
+# class ProjectTaskType(models.Model):
+#
+#     _inherit = 'project.task.type'
+#
+#     is_default = fields.Boolean(string='Default',
+#                                 help='Allows assignment of the current stage '
+#                                      'to new projects that will be created.')
+#
+#     _sql_constraints = [('project_task_type_name_uniq', 'unique (name)',
+#                          'Already stage with same name!')]
 
 
 # class ProjectProjectTags(models.Model):
