@@ -1,8 +1,6 @@
-## Project Team
+## Tags in Project
 
-This module add feature to create Project Teams.
-
-Create teams to your projects.
+This Module allow add project tags in your projects.
 
 ### Bug Tracker
 

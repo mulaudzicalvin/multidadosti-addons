@@ -1,8 +1,16 @@
-## Project Team
+## Project Quality Classification
 
-This module add feature to create Project Teams.
+This Module allow set a quality classification to your projects.
 
-Create teams to your projects.
+Set a quality classification:
+
+* Terrible
+* Bad
+* Good
+* Great
+* Excellent
+ 
+ to your projects.
 
 ### Bug Tracker
 

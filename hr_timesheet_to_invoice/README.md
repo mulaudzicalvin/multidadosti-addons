@@ -1,8 +1,6 @@
-## Project Team
+## HR Timesheet to Invoice
 
-This module add feature to create Project Teams.
-
-Create teams to your projects.
+Allow check a timesheet record will be invoiced or not
 
 ### Bug Tracker
 
@@ -12,5 +10,4 @@ In case of trouble, please check there if your issue has already been reported.
 
 ### Contributors
 
-* Aldo Soares <soares_aldo@hotmail.com>
 * Michell Stuttgart <michellstut@gmail.com>

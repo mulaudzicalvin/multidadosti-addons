@@ -56,8 +56,8 @@ class ProjectProject(models.Model):
                 ('res_id', 'in', project.task_ids.ids)
             ])
 
-    partner_ids = fields.Many2many(comodel_name='res.partner',
-                                   string='Related Partners')
+    # partner_ids = fields.Many2many(comodel_name='res.partner',
+    #                                string='Related Partners')
 
     calendar_event_ids = fields.One2many(comodel_name='calendar.event',
                                          inverse_name='project_id',
@@ -73,39 +73,39 @@ class ProjectProject(models.Model):
     meeting_number = fields.Integer(compute='_compute_meeting_number',
                                     string='Number of Meetings')
 
-    project_classification = fields.Selection(
-        string="Classification",
-        selection=([('0', 'Without Classification'),
-                    ('1', 'Terrible'),
-                    ('2', 'Bad'),
-                    ('3', 'Good'),
-                    ('4', 'Great'),
-                    ('5', 'Excellent')]), default='0')
+    # project_classification = fields.Selection(
+    #     string="Classification",
+    #     selection=([('0', 'Without Classification'),
+    #                 ('1', 'Terrible'),
+    #                 ('2', 'Bad'),
+    #                 ('3', 'Good'),
+    #                 ('4', 'Great'),
+    #                 ('5', 'Excellent')]), default='0')
 
-    planned_time = fields.Float(string="Planned Time")
+    # planned_time = fields.Float(string="Planned Time")
 
-    project_tags_ids = fields.Many2many(comodel_name='project.tags',
-                                        string='Tags')
+    # project_tags_ids = fields.Many2many(comodel_name='project.tags',
+    #                                     string='Tags')
 
-    @api.model
-    def create(self, values):
-        values['partner_ids'] = [(4, values['partner_id'])]
-        res = super(ProjectProject, self).create(values)
+    # @api.model
+    # def create(self, values):
+    #     values['partner_ids'] = [(4, values['partner_id'])]
+    #     res = super(ProjectProject, self).create(values)
+    #
+    #     if values.get('bring_default_task_type'):
+    #
+    #         task_types = self.env['project.task.type'].search([(
+    #             'is_default', '=', 'True')])
+    #         for rec in task_types:
+    #             rec.project_ids = [(4, res.id)]
+    #
+    #     return res
 
-        if values.get('bring_default_task_type'):
-
-            task_types = self.env['project.task.type'].search([(
-                'is_default', '=', 'True')])
-            for rec in task_types:
-                rec.project_ids = [(4, res.id)]
-
-        return res
-
-    @api.multi
-    def write(self, values):
-        if 'partner_id' in values:
-            values['partner_ids'] = [(4, values['partner_id'])]
-        return super(ProjectProject, self).write(values)
+    # @api.multi
+    # def write(self, values):
+    #     if 'partner_id' in values:
+    #         values['partner_ids'] = [(4, values['partner_id'])]
+    #     return super(ProjectProject, self).write(values)
 
     @api.multi
     def _compute_meeting_number(self):
@@ -177,14 +177,14 @@ class ProjectTaskType(models.Model):
                          'Already stage with same name!')]
 
 
-class ProjectProjectTags(models.Model):
-    """ Tags of project's tasks (or issues) """
-    _name = "project.project.tags"
-    _description = "Project Tags"
-
-    name = fields.Char(required=True)
-    color = fields.Integer(string='Color Index')
-
-    _sql_constraints = [
-        ('name_uniq', 'unique (name)', "Tag name already exists !"),
-    ]
+# class ProjectProjectTags(models.Model):
+#     """ Tags of project's tasks (or issues) """
+#     _name = "project.project.tags"
+#     _description = "Project Tags"
+#
+#     name = fields.Char(required=True)
+#     color = fields.Integer(string='Color Index')
+#
+#     _sql_constraints = [
+#         ('name_uniq', 'unique (name)', "Tag name already exists !"),
+#     ]

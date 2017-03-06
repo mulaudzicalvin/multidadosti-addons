@@ -16,4 +16,4 @@ class AccountAnalyticLine(models.Model):
                                         readonly=True,
                                         string='Calendar Event')
 
-    to_invoice = fields.Many2one('to.invoice', string='To Invoice')
+    # to_invoice = fields.Many2one('to.invoice', string='To Invoice')

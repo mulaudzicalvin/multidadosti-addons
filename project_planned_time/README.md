@@ -1,8 +1,6 @@
-## Project Team
+## Project Planned Time
 
-This module add feature to create Project Teams.
-
-Create teams to your projects.
+This Module allow set a planned time to your projects.
 
 ### Bug Tracker
 

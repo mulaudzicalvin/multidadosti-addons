@@ -17,18 +17,18 @@
                     <field name="user_id"/>
                 </group>
             </xpath>
-            <xpath expr="//notebook" position="before">
-                <div style="width: 50%; float: right; margin-top: -80px">
-                    <group>
-                        <field name="project_classification" widget="priority"
-                               readonly="0"/>
-                        <field name="planned_time" widget="float_time"/>
-                        <field name="project_tags_ids"
-                               widget="many2many_tags"
-                               options="{'no_create': True}"/>
-                    </group>
-                </div>
-            </xpath>
+            <!--<xpath expr="//notebook" position="before">-->
+                <!--<div style="width: 50%; float: right; margin-top: -80px">-->
+                    <!--<group>-->
+                        <!--&lt;!&ndash;<field name="project_classification" widget="priority"&ndash;&gt;-->
+                               <!--&lt;!&ndash;readonly="0"/>&ndash;&gt;-->
+                        <!--<field name="planned_time" widget="float_time"/>-->
+                        <!--&lt;!&ndash;<field name="project_tags_ids"&ndash;&gt;-->
+                               <!--&lt;!&ndash;widget="many2many_tags"&ndash;&gt;-->
+                               <!--&lt;!&ndash;options="{'no_create': True}"/>&ndash;&gt;-->
+                    <!--</group>-->
+                <!--</div>-->
+            <!--</xpath>-->
 
             <xpath expr="//field[@name='privacy_visibility']"
                    position="replace">
@@ -53,9 +53,9 @@
                         </tree>
                     </field>
                 </page>
-                <page string="Related Partners">
-                    <field name="partner_ids" widget="many2many"/>
-                </page>
+                <!--<page string="Related Partners">-->
+                    <!--<field name="partner_ids" widget="many2many"/>-->
+                <!--</page>-->
             </xpath>
 
             <xpath expr="//field[@name='partner_id']" position="attributes">

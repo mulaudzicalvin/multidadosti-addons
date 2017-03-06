@@ -1,8 +1,6 @@
-## Project Team
+## Project Related Partners
 
-This module add feature to create Project Teams.
-
-Create teams to your projects.
+This Module allow add related partner to your project.
 
 ### Bug Tracker
 
@@ -12,5 +10,4 @@ In case of trouble, please check there if your issue has already been reported.
 
 ### Contributors
 
-* Aldo Soares <soares_aldo@hotmail.com>
 * Michell Stuttgart <michellstut@gmail.com>
