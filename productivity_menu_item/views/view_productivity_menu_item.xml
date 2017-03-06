@@ -4,7 +4,7 @@
             id="custom_menu_root"
             name="Comunicações"
             sequence="10"
-            web_icon="productivity_menu_item,static/description/icon.png"/>
+            web_icon="productivity_menu_item,static/description/menu_icon.png"/>
 
     <menuitem
             id="custom_menu_submenu"
