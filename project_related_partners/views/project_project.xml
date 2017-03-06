@@ -2,13 +2,15 @@
 <odoo>
 
     <record id="edit_project" model="ir.ui.view">
-        <field name="name">project.tags.in.project.view.form</field>
+        <field name="name">project.related.partners.view.form</field>
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='sequence']" position="after">
-                <field name="project_tags_ids" widget="many2many_tags" options="{'no_create': True}"/>
+            <xpath expr="//notebook" position="inside">
+                <page string="Related Partners">
+                    <field name="partner_ids"/>
+                </page>
             </xpath>
 
         </field>

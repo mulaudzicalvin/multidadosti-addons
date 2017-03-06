@@ -53,9 +53,9 @@
                         </tree>
                     </field>
                 </page>
-                <page string="Related Partners">
-                    <field name="partner_ids" widget="many2many"/>
-                </page>
+                <!--<page string="Related Partners">-->
+                    <!--<field name="partner_ids" widget="many2many"/>-->
+                <!--</page>-->
             </xpath>
 
             <xpath expr="//field[@name='partner_id']" position="attributes">
