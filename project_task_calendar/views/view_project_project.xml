@@ -71,9 +71,9 @@
         <field name="inherit_id"
                ref="project.project_project_view_form_simplified"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='use_tasks']" position="before">
-                <field name="bring_default_task_type"/>
-            </xpath>
+            <!--<xpath expr="//field[@name='use_tasks']" position="before">-->
+                <!--<field name="bring_default_task_type"/>-->
+            <!--</xpath>-->
             <xpath expr="//field[@name='name']" position="after">
                 <field name="partner_id" domain="[('is_company','=',True)]"
                        required="True"/>

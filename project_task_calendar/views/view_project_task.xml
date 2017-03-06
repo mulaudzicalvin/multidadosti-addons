@@ -63,27 +63,27 @@
         </field>
     </record>
 
-    <record id="multi_task_type_edit" model="ir.ui.view">
-        <field name="name">multi.project.task.type.form</field>
-        <field name="model">project.task.type</field>
-        <field name="inherit_id" ref="project.task_type_edit"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='fold']" position="after">
-                <field name="is_default"/>
-            </xpath>
-        </field>
-    </record>
+    <!--<record id="multi_task_type_edit" model="ir.ui.view">-->
+        <!--<field name="name">multi.project.task.type.form</field>-->
+        <!--<field name="model">project.task.type</field>-->
+        <!--<field name="inherit_id" ref="project.task_type_edit"/>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<xpath expr="//field[@name='fold']" position="after">-->
+                <!--<field name="is_default"/>-->
+            <!--</xpath>-->
+        <!--</field>-->
+    <!--</record>-->
 
-    <record id="multi_task_type_tree" model="ir.ui.view">
-        <field name="name">project.task.type.tree</field>
-        <field name="model">project.task.type</field>
-        <field name="inherit_id" ref="project.task_type_tree"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='fold']" position="after">
-                <field name="is_default"/>
-            </xpath>
-        </field>
-    </record>
+    <!--<record id="multi_task_type_tree" model="ir.ui.view">-->
+        <!--<field name="name">project.task.type.tree</field>-->
+        <!--<field name="model">project.task.type</field>-->
+        <!--<field name="inherit_id" ref="project.task_type_tree"/>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<xpath expr="//field[@name='fold']" position="after">-->
+                <!--<field name="is_default"/>-->
+            <!--</xpath>-->
+        <!--</field>-->
+    <!--</record>-->
 
     <record id="project.action_view_task" model="ir.actions.act_window">
         <field name="name">Tasks</field>
