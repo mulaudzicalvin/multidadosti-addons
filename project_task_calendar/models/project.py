@@ -87,19 +87,19 @@ class ProjectProject(models.Model):
     # project_tags_ids = fields.Many2many(comodel_name='project.tags',
     #                                     string='Tags')
 
-    @api.model
-    def create(self, values):
-        values['partner_ids'] = [(4, values['partner_id'])]
-        res = super(ProjectProject, self).create(values)
-
-        if values.get('bring_default_task_type'):
-
-            task_types = self.env['project.task.type'].search([(
-                'is_default', '=', 'True')])
-            for rec in task_types:
-                rec.project_ids = [(4, res.id)]
-
-        return res
+    # @api.model
+    # def create(self, values):
+    #     values['partner_ids'] = [(4, values['partner_id'])]
+    #     res = super(ProjectProject, self).create(values)
+    #
+    #     if values.get('bring_default_task_type'):
+    #
+    #         task_types = self.env['project.task.type'].search([(
+    #             'is_default', '=', 'True')])
+    #         for rec in task_types:
+    #             rec.project_ids = [(4, res.id)]
+    #
+    #     return res
 
     @api.multi
     def write(self, values):
