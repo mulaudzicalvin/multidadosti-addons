@@ -82,7 +82,7 @@ class ProjectProject(models.Model):
     #                 ('4', 'Great'),
     #                 ('5', 'Excellent')]), default='0')
 
-    planned_time = fields.Float(string="Planned Time")
+    # planned_time = fields.Float(string="Planned Time")
 
     # project_tags_ids = fields.Many2many(comodel_name='project.tags',
     #                                     string='Tags')
