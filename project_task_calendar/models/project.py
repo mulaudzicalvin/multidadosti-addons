@@ -170,8 +170,8 @@ class ProjectTask(models.Model):
 #     _inherit = 'project.task.type'
 #
 #     is_default = fields.Boolean(string='Default',
-#                                 help='Allows assignment of the current stage '
-#                                      'to new projects that will be created.')
+#                                 help='Allows assignment of the current
+# stage to new projects that will be created.')
 #
 #     _sql_constraints = [('project_task_type_name_uniq', 'unique (name)',
 #                          'Already stage with same name!')]
