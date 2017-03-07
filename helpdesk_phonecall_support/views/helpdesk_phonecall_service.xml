@@ -123,7 +123,7 @@
             model="ir.actions.act_window">
         <field name="name">Tags</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">heldpesk.phonecall.service.tag</field>
+        <field name="res_model">helpdesk.phonecall.service.tag</field>
         <field name="context">{'search_default_open_filters':1}</field>
         <field name="view_mode">tree,form</field>
     </record>

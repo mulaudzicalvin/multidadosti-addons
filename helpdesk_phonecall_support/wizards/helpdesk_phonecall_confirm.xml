@@ -13,7 +13,7 @@
                 </p>
                 <footer>
                     <button string="Close Phonecall"
-                            name="_action_confirm_finish_phonecall"
+                            name="action_confirm_finish_phonecall"
                             type="object" default_focus="1"
                             class="btn-primary"/>
                     <button string="Cancel" class="btn-default"

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import datetime
-
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
@@ -45,5 +43,4 @@ class HelpDeskPhoneCallConfirm(models.TransientModel):
             #
             # self.env['account.analytic.line'].create(values)
 
-        print u'classe mãe'
         return {'type': 'ir.actions.act_window_close'}

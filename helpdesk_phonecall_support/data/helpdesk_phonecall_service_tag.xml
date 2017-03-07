@@ -3,22 +3,22 @@
 
     <data noupdate="0">
         <!-- Categories -->
-        <record id="helpdesk_phonecall_service_tag_01" model="heldpesk.phonecall.service.tag">
+        <record id="helpdesk_phonecall_service_tag_01" model="helpdesk.phonecall.service.tag">
             <field name="name">Dúvidas Gerais</field>
         </record>
-        <record id="helpdesk_phonecall_service_tag_02" model="heldpesk.phonecall.service.tag">
+        <record id="helpdesk_phonecall_service_tag_02" model="helpdesk.phonecall.service.tag">
             <field name="name">Dúvidas Nota Fiscal</field>
         </record>
-        <record id="helpdesk_phonecall_service_tag_03" model="heldpesk.phonecall.service.tag">
+        <record id="helpdesk_phonecall_service_tag_03" model="helpdesk.phonecall.service.tag">
             <field name="name">Erro NFe</field>
         </record>
-        <record id="helpdesk_phonecall_service_tag_04" model="heldpesk.phonecall.service.tag">
+        <record id="helpdesk_phonecall_service_tag_04" model="helpdesk.phonecall.service.tag">
             <field name="name">Erro NFSe</field>
         </record>
-        <record id="helpdesk_phonecall_service_tag_05" model="heldpesk.phonecall.service.tag">
+        <record id="helpdesk_phonecall_service_tag_05" model="helpdesk.phonecall.service.tag">
             <field name="name">Erro VMulti</field>
         </record>
-        <record id="helpdesk_phonecall_service_tag_06" model="heldpesk.phonecall.service.tag">
+        <record id="helpdesk_phonecall_service_tag_06" model="helpdesk.phonecall.service.tag">
             <field name="name">Nova Solicitação</field>
         </record>
     </data>

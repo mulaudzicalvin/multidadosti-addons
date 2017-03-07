@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'PhoneCall Timesheet',
+    'name': 'HelpDesk PhoneCall Timesheet',
     'license': 'LGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
-    'summary': """Integration Phone and Timesheet to Odoo by MultidadosTI""",
+    'summary': """Integration PhoneCall and Timesheet to Odoo""",
     'category': 'Project',
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
@@ -15,7 +15,7 @@
         'helpdesk_phonecall_support',
     ],
     'data': [
-
+        'wizards/helpdesk_phonecall_confirm.xml',
     ],
     'installable': True,
 }

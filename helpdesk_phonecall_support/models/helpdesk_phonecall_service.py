@@ -61,9 +61,9 @@ class HelpDeskPhoneCallService(models.Model):
             self.contact_partner_id = False
 
     @api.multi
-    def _action_finish_phonecall(self):
+    def action_finish_phonecall(self):
         self.ensure_one()
-        if (not self.project_tag_id) or (not self.description):
+        if (not self.phonecall_tag_id) or (not self.description):
             raise UserError(_('Please make sure the marker or '
                               'description fields are filled in.'))
 
