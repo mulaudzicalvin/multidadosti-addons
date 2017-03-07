@@ -65,21 +65,21 @@
         </field>
     </record>
 
-    <record id="project_project_view_form_simplified" model="ir.ui.view">
-        <field name="name">project.project.view.form.simplified</field>
-        <field name="model">project.project</field>
-        <field name="inherit_id"
-               ref="project.project_project_view_form_simplified"/>
-        <field name="arch" type="xml">
-            <!--<xpath expr="//field[@name='use_tasks']" position="before">-->
-                <!--<field name="bring_default_task_type"/>-->
+    <!--<record id="project_project_view_form_simplified" model="ir.ui.view">-->
+        <!--<field name="name">project.project.view.form.simplified</field>-->
+        <!--<field name="model">project.project</field>-->
+        <!--<field name="inherit_id"-->
+               <!--ref="project.project_project_view_form_simplified"/>-->
+        <!--<field name="arch" type="xml">-->
+            <!--&lt;!&ndash;<xpath expr="//field[@name='use_tasks']" position="before">&ndash;&gt;-->
+                <!--&lt;!&ndash;<field name="bring_default_task_type"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;</xpath>&ndash;&gt;-->
+            <!--<xpath expr="//field[@name='name']" position="after">-->
+                <!--<field name="partner_id" domain="[('is_company','=',True)]"-->
+                       <!--required="True"/>-->
             <!--</xpath>-->
-            <xpath expr="//field[@name='name']" position="after">
-                <field name="partner_id" domain="[('is_company','=',True)]"
-                       required="True"/>
-            </xpath>
-        </field>
-    </record>
+        <!--</field>-->
+    <!--</record>-->
 
     <record id="view_project_meeting_kanban" model="ir.ui.view">
             <field name="name">project.project.meeting.kanban</field>
@@ -173,21 +173,21 @@
         </field>
     </record>
 
-    <record id="action_project_project_partners" model="ir.actions.act_window">
-        <field name="name">Partners</field>
-        <field name="res_model">res.partner</field>
-        <field name="view_mode">kanban,tree,form</field>
-    </record>
+    <!--<record id="action_project_project_partners" model="ir.actions.act_window">-->
+        <!--<field name="name">Partners</field>-->
+        <!--<field name="res_model">res.partner</field>-->
+        <!--<field name="view_mode">kanban,tree,form</field>-->
+    <!--</record>-->
 
-    <menuitem name="Partners"
-              id="menu_project_partners"
-              parent="project.menu_project_management"
-              action="action_project_project_partners"/>
+    <!--<menuitem name="Partners"-->
+              <!--id="menu_project_partners"-->
+              <!--parent="project.menu_project_management"-->
+              <!--action="action_project_project_partners"/>-->
     
-    <menuitem
-            id="project_menu_calendar"
-            name="Calendar"
-            parent="project.menu_project_management"
-            sequence="3"
-            action="calendar.action_calendar_event"/>
+    <!--<menuitem-->
+            <!--id="project_menu_calendar"-->
+            <!--name="Calendar"-->
+            <!--parent="project.menu_project_management"-->
+            <!--sequence="3"-->
+            <!--action="calendar.action_calendar_event"/>-->
 </odoo>
