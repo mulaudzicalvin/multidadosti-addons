@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="hr_timesheet_line_tree" model="ir.ui.view">
-        <field name="name">hr.timeshee.project.task.stage.view.tree</field>
+        <field name="name">hr.timesheet.project.task.stage.view.tree</field>
         <field name="model">account.analytic.line</field>
         <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
         <field name="arch" type="xml">
