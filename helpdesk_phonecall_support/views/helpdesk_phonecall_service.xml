@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <record id="view_helpdesk_phonecall_service_form" model="ir.ui.view">
-        <field name="name">helpdesk.phonecall.service.form</field>
+    <record id="helpdesk_phonecall_service_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.view.form</field>
         <field name="model">helpdesk.phonecall.service</field>
         <field name="arch" type="xml">
             <form string="Phonecall">
                 <header>
                     <button string="Finish call"
-                            name="finish_phonecall"
+                            name="action_finish_phonecall"
                             type="object"
                             icon="fa-check"
                             attrs="{'invisible':[('state','=','done')]}"/>
@@ -37,8 +37,7 @@
                         </group>
                         <group>
                             <field name="finish_date_hour"/>
-                            <field name="project_tag_id"
-                                   required="False"
+                            <field name="phonecall_tag_id"
                                    attrs="{'readonly':[('state','=','done')]}"/>
                             <field name="user_id"/>
                         </group>
@@ -55,8 +54,8 @@
         </field>
     </record>
 
-    <record id="view_helpdesk_phonecall_service_tree" model="ir.ui.view">
-        <field name="name">helpdesk.phonecall.service.tree</field>
+    <record id="helpdesk_phonecall_service_view_tree" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.view.tree</field>
         <field name="model">helpdesk.phonecall.service</field>
         <field name="arch" type="xml">
             <tree string="Phonecall">
@@ -75,7 +74,7 @@
                        attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="description"
                        attrs="{'readonly':[('state','=','done')]}"/>
-                <field name="project_tag_id"
+                <field name="phonecall_tag_id"
                        attrs="{'readonly':[('state','=','done')]}"/>
                 <field name="finish_date_hour"/>
                 <field name="user_id"/>
@@ -84,8 +83,8 @@
         </field>
     </record>
 
-    <record id="view_helpdesk_phonecall_service_search" model="ir.ui.view">
-        <field name="name">helpdesk.phonecall.service.search</field>
+    <record id="helpdesk_phonecall_service_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.view.search</field>
         <field name="model">helpdesk.phonecall.service</field>
         <field name="arch" type="xml">
             <search string="Filters">
@@ -119,11 +118,31 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+
+    <record id="action_helpdesk_phonecall_service_tag"
+            model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">heldpesk.phonecall.service.tag</field>
+        <field name="context">{'search_default_open_filters':1}</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
     <menuitem id="menuitem_phonecall_service"
               name="Helpdesk PhoneCall"
               action="action_helpdesk_phonecall_service"
               sequence="10"
               web_icon="helpdesk_phonecall_support,static/description/icon_phone.png"
     />
+
+    <menuitem id="phonecall_service_sub_menu" name="Helpdesk PhoneCall" sequence="1"
+              parent="menuitem_phonecall_service" action="action_helpdesk_phonecall_service"/>
+
+    <menuitem id="phonecall_service_menu" name="Configuration" sequence="2"
+              parent="menuitem_phonecall_service"/>
+
+    <menuitem id="phonecall_service_configuration_sub_menu" name="Tags" sequence="2"
+              parent="phonecall_service_menu" action="action_helpdesk_phonecall_service_tag"/>
 
 </odoo>

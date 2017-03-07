@@ -13,15 +13,15 @@
     ],
     'depends': [
         'project_team',
-        'hr_timesheet',
         'project_task_calendar',
+        'project_related_partners',
     ],
     'data': [
-        'data/helpdesk_data.xml',
+        'data/helpdesk_phonecall_service_tag.xml',
         'security/ir.model.access.csv',
-        'security/helpdesk_phonecall_support.xml',
-        'views/helpdesk_phonecall_service_view.xml',
-        'wizard/wizard_helpdesk_phonecall_confirm_view.xml',
+        'security/helpdesk_phonecall_service.xml',
+        'views/helpdesk_phonecall_service.xml',
+        'wizards/helpdesk_phonecall_confirm.xml',
     ],
     'installable': True,
 }

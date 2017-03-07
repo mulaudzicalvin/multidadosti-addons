@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-     <record id="view_wizard_helpdesk_phonecall_service_confirm_form" model="ir.ui.view">
-        <field name="name">wizard.helpdesk.phonecall.service.confirm.form</field>
-        <field name="model">wizard.helpdesk.phonecall.confirm</field>
+     <record id="action_create_timesheet" model="ir.ui.view">
+        <field name="name">wizard.helpdesk.timesheet.create.view.form</field>
+        <field name="model">wizard.helpdesk.timesheet.create</field>
         <field name="arch" type="xml">
-            <form string="Confirm Draft PhoneCalls">
+            <form string="Create Timesheet">
                 <p>
                     Once open phonecalls are confirmed, you will not be able
                     to modify them and a entry in timesheet will be create.
                     Do you want to close this phonecall?
                 </p>
                 <footer>
-                    <button string="Close Phonecall"
-                            name="confirm_finish_phonecall"
+                    <button string="Create Timesheet"
+                            name="confirm_create_timesheet"
                             type="object" default_focus="1"
                             class="btn-primary"/>
                     <button string="Cancel" class="btn-default"
