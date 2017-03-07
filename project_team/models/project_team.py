@@ -8,7 +8,7 @@ class ProjectTeam(models.Model):
     _name = 'project.team'
     _description = 'Project Team'
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(required=True)
 
     lead_id = fields.Many2one(comodel_name='res.users',
                               string='Team Lead',
