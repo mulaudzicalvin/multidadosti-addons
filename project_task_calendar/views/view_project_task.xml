@@ -15,18 +15,18 @@
                 </button>
             </xpath>
 
-            <xpath expr="//field[@name='partner_id']" position="replace"/>
-            <xpath expr="//field[@name='user_id']" position="replace"/>
+            <!--<xpath expr="//field[@name='partner_id']" position="replace"/>-->
+            <!--<xpath expr="//field[@name='user_id']" position="replace"/>-->
 
-            <xpath expr="//field[@name='displayed_image_id']" position="replace"/>
-            <xpath expr="//field[@name='project_id']" position="after">
-                <field name="partner_id" readonly="1"/>
-                <field name="user_id"/>
-            </xpath>
+            <!--<xpath expr="//field[@name='displayed_image_id']" position="replace"/>-->
+            <!--<xpath expr="//field[@name='project_id']" position="after">-->
+                <!--<field name="partner_id" readonly="1"/>-->
+                <!--<field name="user_id"/>-->
+            <!--</xpath>-->
 
-            <xpath expr="//field[@name='partner_id']" position="attributes">
-                <attribute name="related">project_id.partner_id</attribute>
-            </xpath>
+            <!--<xpath expr="//field[@name='partner_id']" position="attributes">-->
+                <!--<attribute name="related">project_id.partner_id</attribute>-->
+            <!--</xpath>-->
 
             <xpath expr="//notebook" position="inside">
                 <page string="Calendar Events">

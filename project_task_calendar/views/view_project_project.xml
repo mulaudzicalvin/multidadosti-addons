@@ -8,15 +8,15 @@
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='partner_id']" position="replace"/>
-            <xpath expr="//field[@name='user_id']" position="replace"/>
+            <!--<xpath expr="//field[@name='partner_id']" position="replace"/>-->
+            <!--<xpath expr="//field[@name='user_id']" position="replace"/>-->
 
-            <xpath expr="//div[@name='options_active']" position="before">
-                <group>
-                    <field name="partner_id"/>
-                    <field name="user_id"/>
-                </group>
-            </xpath>
+            <!--<xpath expr="//div[@name='options_active']" position="before">-->
+                <!--<group>-->
+                    <!--<field name="partner_id"/>-->
+                    <!--<field name="user_id"/>-->
+                <!--</group>-->
+            <!--</xpath>-->
             <!--<xpath expr="//notebook" position="before">-->
                 <!--<div style="width: 50%; float: right; margin-top: -80px">-->
                     <!--<group>-->
@@ -30,14 +30,14 @@
                 <!--</div>-->
             <!--</xpath>-->
 
-            <xpath expr="//field[@name='privacy_visibility']"
-                   position="replace">
-                <field name="privacy_visibility" widget="radio"/>
-                <field name="sequence" groups="base.group_no_one"/>
-                <field name="resource_calendar_id" groups="base.group_no_one"/>
-            </xpath>
+            <!--<xpath expr="//field[@name='privacy_visibility']"-->
+                   <!--position="replace">-->
+                <!--<field name="privacy_visibility" widget="radio"/>-->
+                <!--<field name="sequence" groups="base.group_no_one"/>-->
+                <!--<field name="resource_calendar_id" groups="base.group_no_one"/>-->
+            <!--</xpath>-->
 
-            <xpath expr="//group[@name='misc']" position="replace"/>
+            <!--<xpath expr="//group[@name='misc']" position="replace"/>-->
 
             <xpath expr="//notebook" position="inside">
                 <page string="Calendar Events">
