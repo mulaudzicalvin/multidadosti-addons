@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Project Default Stages',
+    'name': 'Project Choose Partner on Create',
     'version': '10.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
     'category': 'Project',
-    'summary': 'Allow create projects with default stages',
+    'summary': 'Allow choose a partner when create a new project',
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
         'Michell Stuttgart <michellstut@gmail.com>',
@@ -17,8 +17,7 @@
         'project',
     ],
     'data': [
-        'views/project_project.xml',
-        'views/project_task_type.xml',
+            'views/project_project.xml',
     ],
     'installable': True,
     'auto_install': False,
