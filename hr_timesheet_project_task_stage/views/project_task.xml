@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="view_task_form2_inherited" model="ir.ui.view">
-        <field name="name">hr.timeshee.project.task.stage.view.form</field>
+        <field name="name">hr.timesheet.project.task.stage.view.form</field>
         <field name="model">project.task</field>
         <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
         <field name="arch" type="xml">

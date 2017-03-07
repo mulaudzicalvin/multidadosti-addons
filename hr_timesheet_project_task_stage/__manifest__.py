@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'HR Timeshee Project Task Stage',
+    'name': 'HR Timesheet Project Task Stage',
     'version': '10.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',

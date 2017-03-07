@@ -1,4 +1,4 @@
-## HR Timeshee Project Task Stage
+## HR Timesheet Project Task Stage
 
 Allow use project task stage to filter stages in timesheet.
 
