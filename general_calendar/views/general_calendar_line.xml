@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record model="ir.ui.view" id="general_calendar_line_tree">
+    <menuitem id="general_calendar_menu_configuration" name="Configuration" sequence="2"
+              parent="general_calendar_menu_root" groups="base.group_system"/>
+
+    <record model="ir.ui.view" id="general_calendar_line_view_tree">
         <field name="name">general.calendar.line.tree</field>
         <field name="model">general.calendar.line</field>
         <field name="arch" type="xml">
@@ -11,7 +14,7 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="general_calendar_line_form">
+    <record id="general_calendar_line_view_form" model="ir.ui.view">
         <field name="name">general.calendar.line.form</field>
         <field name="model">general.calendar.line</field>
         <field name="arch" type="xml">
@@ -48,18 +51,15 @@
 
 
     <!-- This Menu Item must have a parent and an action -->
-    <record id="action_general_calendar_line" model="ir.actions.act_window">
+    <record id="general_calendar_line_action" model="ir.actions.act_window">
         <field name="name">General Calendar Line</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">general.calendar.line</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="general_calendar_configuration_menu" name="Configuration" sequence="2"
-              parent="general_calendar_root" groups="base.group_system"/>
-
     <menuitem id="general_calendar_line_menu" name="Add Calendars"
               sequence="2"
-              parent="general_calendar_configuration_menu"
-              action="action_general_calendar_line"/>
+              parent="general_calendar_menu_configuration"
+              action="general_calendar_line_action"/>
 </odoo>
