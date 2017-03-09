@@ -1,6 +1,6 @@
 ## Calendar Event Stage
 
-This Module Add stage to your calendar events.
+This Module add stage to your calendar events.
 
 ### Bug Tracker
 
