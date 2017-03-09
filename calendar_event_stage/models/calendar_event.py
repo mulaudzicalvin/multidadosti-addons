@@ -14,6 +14,7 @@ class CalendarEvent(models.Model):
                                        ('done', 'Done'),
                                        ('cancel', 'Cancelled'),
                                    ],
+                                   copy=False,
                                    default='open')
 
     @api.multi

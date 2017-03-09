@@ -9,6 +9,10 @@
     'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': 'Add feedback to your calendar events',
+    'contributors': [
+        'Michell Stuttgart <michellstut@gmail.com>',
+        'Rodrigo Ferreira <rodrigo.santos@multidadosti.com.br>',
+    ],
     'depends': [
         'calendar_event_stage',
     ],
