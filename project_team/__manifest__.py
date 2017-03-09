@@ -17,8 +17,8 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'views/project_project_view.xml',
-        'views/project_team_view.xml',
+        'views/project_project.xml',
+        'views/project_team.xml',
     ],
     'installable': True,
 }
