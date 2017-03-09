@@ -9,14 +9,15 @@ class CalendarEventFinish(models.TransientModel):
     _name = 'calendar.event.finish'
     _description = 'Wizard to finish calendar event'
 
-    calendar_event_id = fields.Many2one('calendar.event')
+    calendar_event_id = fields.Many2one(comodel_name='calendar.event',
+                                        string='Calendar Event')
 
     @api.multi
     def finish_calendar_event(self):
         self.ensure_one()
 
-        if self.calendar_event_id.meeting_state != 'open':
+        if self.calendar_event_id.event_state != 'open':
             raise UserError(_("To finish this event, it must be in 'Open' "
                               "state!"))
         else:
-            self.calendar_event_id.meeting_state = 'done'
+            self.calendar_event_id.event_state = 'done'

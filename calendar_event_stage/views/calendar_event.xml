@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_ids']" position="after">
-                <field name="state"/>
+                <field name="event_state"/>
             </xpath>
         </field>
     </record>
@@ -23,88 +23,88 @@
                     <button name="action_finish_calendar_event" string='Finish'
                             type="object"
                             class="btn-primary"
-                            attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>
+                            attrs="{'invisible': [('event_state','in',['done', 'cancel'])]}"/>
                     <button name="action_cancel_calendar_event" string='Cancel'
                             type="object"
                             confirm="Are you sure you want close this meeting?"
-                            attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>
+                            attrs="{'invisible': [('event_state','in',['done', 'cancel'])]}"/>
                     <button name="action_open_calendar_event" string='Open'
                             type="object"
-                            attrs="{'invisible': [('meeting_state','in',['open', 'done'])]}"/>
-                    <field name="meeting_state" widget="statusbar"/>
+                            attrs="{'invisible': [('event_state','in',['open', 'done'])]}"/>
+                    <field name="event_state" widget="statusbar"/>
                 </header>
             </xpath>
 
             <xpath expr="//field[@name='partner_ids']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='name']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='privacy']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='show_as']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='attendee_ids']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='user_id']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='alarm_ids']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='location']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='recurrency']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
 
             <xpath expr="//field[@name='allday']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='description']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='categ_ids']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='start_datetime']"
                    position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='duration']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
 
@@ -119,12 +119,12 @@
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='partner_ids']" position="before">
-                <field name="meeting_state"/>
+                <field name="event_state"/>
             </xpath>
 
             <xpath expr="//form" position="inside">
                 <notebook
-                        attrs="{'invisible': [('description','=', False),('meeting_state','!=','done')]}">
+                        attrs="{'invisible': [('description','=', False),('event_state','!=','done')]}">
                     <page string="Description"
                           attrs="{'invisible': [('description','=', False)]}">
                         <field name="description"

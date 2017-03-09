@@ -8,13 +8,13 @@ from odoo.tools.translate import _
 class CalendarEvent(models.Model):
     _inherit = 'calendar.event'
 
-    meeting_state = fields.Selection(string='Meeting State',
-                                     selection=[
-                                         ('open', 'Open'),
-                                         ('done', 'Done'),
-                                         ('cancel', 'Cancel'),
-                                     ],
-                                     default='open')
+    event_state = fields.Selection(string='Event State',
+                                   selection=[
+                                       ('open', 'Open'),
+                                       ('done', 'Done'),
+                                       ('cancel', 'Cancel'),
+                                   ],
+                                   default='open')
 
     @api.multi
     def action_finish_calendar_event(self):
@@ -33,17 +33,17 @@ class CalendarEvent(models.Model):
         }
 
     def action_cancel_calendar_event(self):
-        if self.meeting_state == 'open':
-            self.meeting_state = 'cancel'
+        if self.event_state == 'open':
+            self.event_state = 'cancel'
 
     def action_open_calendar_event(self):
-        if self.meeting_state == 'cancel':
-            self.meeting_state = 'open'
+        if self.event_state == 'cancel':
+            self.event_state = 'open'
 
     @api.multi
     def unlink(self):
         for record in self:
-            if record.meeting_state in ('done', 'cancel'):
-                raise UserError(_('You cannot delete a calendar meeting which'
+            if record.event_state in ('done', 'cancel'):
+                raise UserError(_('You cannot delete a calendar event which'
                                   ' is done or cancelled.'))
         return super(CalendarEvent, self).unlink()
