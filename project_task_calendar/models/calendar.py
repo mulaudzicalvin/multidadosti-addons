@@ -3,7 +3,7 @@
 # @author Aldo Soares <soares_aldo@hotmail.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo.exceptions import UserError
+# from odoo.exceptions import UserError
 from odoo import api, models, fields, _
 
 
@@ -42,7 +42,8 @@ class CalendarEvent(models.Model):
     # def unlink(self):
     #     for record in self:
     #         if record.meeting_state in ('done', 'cancel'):
-    #             raise UserError(_('You cannot delete a calendar meeting which'
+    #             raise UserError(_('You cannot delete a calendar meeting
+    # which'
     #                               ' is done or cancelled.'))
     #     return super(CalendarEvent, self).unlink()
 

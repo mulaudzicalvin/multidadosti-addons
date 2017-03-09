@@ -17,7 +17,7 @@
         'project',
     ],
     'data': [
-            'views/project_project.xml',
+        'views/project_project.xml',
     ],
     'installable': True,
     'auto_install': False,
