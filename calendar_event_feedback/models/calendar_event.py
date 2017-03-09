@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class CalendarEvent(models.Model):
@@ -12,3 +12,13 @@ class CalendarEvent(models.Model):
     event_duration = fields.Float(string='Event Duration',
                                   copy=False,
                                   readonly=True)
+
+    @api.multi
+    def action_finish_calendar_event(self):
+        self.ensure_one()
+        res = super(CalendarEvent, self).action_finish_calendar_event()
+
+        res['context']['default_event_feedback'] = self.event_feedback
+        res['context']['default_event_duration'] = self.event_duration
+
+        return res
