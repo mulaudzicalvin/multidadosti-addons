@@ -30,7 +30,7 @@
                             confirm="Are you sure you want cancel this event?"
                             attrs="{'invisible': [('event_state','in',['done', 'cancel'])]}"/>
 
-                    <button name="action_open_calendar_event" string='Open'
+                    <button name="action_open_calendar_event" string='Return to Open'
                             type="object"
                             attrs="{'invisible': [('event_state','in',['open', 'done'])]}"/>
 
@@ -121,7 +121,7 @@
                ref="calendar.view_calendar_event_form_popup"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='partner_ids']" position="before">
+            <xpath expr="//field[@name='alarm_ids']" position="after">
                 <field name="event_state"/>
             </xpath>
 
