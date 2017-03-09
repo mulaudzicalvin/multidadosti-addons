@@ -8,6 +8,9 @@ from odoo.tools.translate import _
 class CalendarEventFinish(models.TransientModel):
     _name = 'calendar.event.finish'
     _description = 'Wizard to finish calendar event'
+    # _rec_name = 'message'
+
+    # message = fields.Char(string='Message', required=False, )
 
     calendar_event_id = fields.Many2one(comodel_name='calendar.event',
                                         string='Calendar Event')
@@ -21,3 +24,4 @@ class CalendarEventFinish(models.TransientModel):
                               "state!"))
         else:
             self.calendar_event_id.event_state = 'done'
+            return {'type': 'ir.actions.act_window_close'}
