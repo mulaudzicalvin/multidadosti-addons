@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="edit_project" model="ir.ui.view">
+        <field name="name">project.team.view.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Team">
+                    <group string="Lead" name="lead">
+                        <field name="project_team_id" nolabel="1" style="width: 50%"/>
+                    </group>
+                    <group string="Team" name="team" colspan="8">
+                        <field colspan="4" name="team_member_ids" widget="many2many_kanban" nolabel="1">
+                            <kanban quick_create="false" create="false" delete="false">
+                                <field name="name"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div style="position: relative">
+                                            <div class="oe_module_vignette">
+                                                <img t-att-src="kanban_image('res.users', 'image_small', record.id.value)"
+                                                     class="oe_avatar oe_kanban_avatar_smallbox"/>
+                                                <div class="oe_module_desc">
+                                                    <field name="name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_project" model="ir.ui.view">
+        <field name="name">project.team.view.tree</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="project_team_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
