@@ -1,6 +1,6 @@
 ## Project Task Partner Customize
 
-This Module replace partner field on project task screen.
+This Module move partner field on project task screen to above project field.
 
 ### Bug Tracker
 
