@@ -12,7 +12,7 @@ class CalendarEvent(models.Model):
                                    selection=[
                                        ('open', 'Open'),
                                        ('done', 'Done'),
-                                       ('cancel', 'Cancel'),
+                                       ('cancel', 'Cancelled'),
                                    ],
                                    default='open')
 
