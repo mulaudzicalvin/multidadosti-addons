@@ -10,24 +10,24 @@ from odoo import api, models, fields, _
 class CalendarEvent(models.Model):
     _inherit = 'calendar.event'
 
-    @api.multi
-    def get_company_partner(self):
-        company_id = \
-            self.env['res.company']._company_default_get('calendar.event')
-
-        return company_id.partner_id
+    # @api.multi
+    # def get_company_partner(self):
+    #     company_id = \
+    #         self.env['res.company']._company_default_get('calendar.event')
+    #
+    #     return company_id.partner_id
 
     project_id = fields.Many2one('project.project', string='Project')
     task_id = fields.Many2one('project.task', string='Task')
-    partner_id = fields.Many2one('res.partner', string='Partner')
+    # partner_id = fields.Many2one('res.partner', string='Partner')
     # meeting_feedback = fields.Text(string='Meeting Feedback', readonly=True)
     # meeting_duration = fields.Float(string='Meeting Duration', readonly=True)
     # meeting_state = fields.Selection([('open', 'Open'),
     #                                   ('done', 'Done'),
     #                                   ('cancel', 'Cancel')],
     #                                  string='Meeting State', default='open')
-    company_partner_id = fields.Many2one('res.partner',
-                                         default=get_company_partner)
+    # company_partner_id = fields.Many2one('res.partner',
+    #                                      default=get_company_partner)
 
     attachment_ids = fields.One2many('ir.attachment',
                                      'res_id',
