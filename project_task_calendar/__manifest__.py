@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
-# @author Aldo Soares <soares_aldo@hotmail.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
     'name': 'Project Task in Calendar',
@@ -19,8 +16,7 @@
     ],
     'depends': [
         'project',
-        'calendar',
-        'hr_timesheet',
+        'calendar_event_partner_readonly_on_done',
     ],
     'data': [
         # 'security/ir.model.access.csv',
@@ -29,8 +25,8 @@
         'views/view_project_project.xml',
         'views/view_project_task.xml',
         # 'views/to_invoice_view.xml',
-        'views/account_analytic_line_view.xml',
-        'wizard/wizard_calendar_event_done.xml',
+        # 'views/account_analytic_line_view.xml',
+        # 'wizard/wizard_calendar_event_done.xml',
     ],
     'installable': True,
 }

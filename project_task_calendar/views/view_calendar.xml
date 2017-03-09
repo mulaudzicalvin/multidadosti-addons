@@ -20,13 +20,13 @@
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//label[@for='partner_ids']" position="before">
-                <label for="partner_id" string="Partner" class="oe_edit_only"/>
-                <h2>
-                    <field name="company_partner_id" invisible="1"/>
-                    <field name="partner_id" placeholder="Select partner..." nolabel="1" class="oe_inline" domain="[('parent_id', '=', False)]"/>
-                </h2>
-            </xpath>
+            <!--<xpath expr="//label[@for='partner_ids']" position="before">-->
+                <!--<label for="partner_id" string="Partner" class="oe_edit_only"/>-->
+                <!--<h2>-->
+                    <!--<field name="company_partner_id" invisible="1"/>-->
+                    <!--<field name="partner_id" placeholder="Select partner..." nolabel="1" class="oe_inline" domain="[('parent_id', '=', False)]"/>-->
+                <!--</h2>-->
+            <!--</xpath>-->
 
             <!--<xpath expr="//sheet" position="before">-->
                 <!--<header>-->
@@ -59,24 +59,24 @@
                 </page>
             </xpath>
 
-            <xpath expr="//field[@name='partner_ids']" position="attributes">
-                <attribute name="domain">
-                    ['|',('parent_id','=',partner_id),('parent_id','=',company_partner_id)]
-                </attribute>
+            <!--<xpath expr="//field[@name='partner_ids']" position="attributes">-->
+                <!--<attribute name="domain">-->
+                    <!--['|',('parent_id','=',partner_id),('parent_id','=',company_partner_id)]-->
+                <!--</attribute>-->
                 <!--<attribute name="attrs">-->
                     <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
                 <!--</attribute>-->
-            </xpath>
+            <!--</xpath>-->
             <!--<xpath expr="//field[@name='name']" position="attributes">-->
                 <!--<attribute name="attrs">-->
                     <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
                 <!--</attribute>-->
             <!--</xpath>-->
-            <xpath expr="//field[@name='partner_id']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
+            <!--<xpath expr="//field[@name='partner_id']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
             <!--<xpath expr="//field[@name='privacy']" position="attributes">-->
                 <!--<attribute name="attrs">-->
                     <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
@@ -130,7 +130,7 @@
             <!--</xpath>-->
             <xpath expr="//field[@name='task_id']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
             <!--<xpath expr="//field[@name='start_datetime']" position="attributes">-->
@@ -155,16 +155,16 @@
             <!--</xpath>-->
             <xpath expr="//field[@name='project_id']" position="attributes">
                 <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
+                    {'readonly': [('event_state', '!=', 'open')]}
                 </attribute>
             </xpath>
-            <xpath expr="//field[@name='attendee_status']" position="after">
-                <div class="oe_button_box" name="button_box" groups="base.group_user">
-                    <button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
-                        <field string="Documents" name="doc_count" widget="statinfo"/>
-                    </button>
-                </div>
-            </xpath>
+            <!--<xpath expr="//field[@name='attendee_status']" position="after">-->
+                <!--<div class="oe_button_box" name="button_box" groups="base.group_user">-->
+                    <!--<button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">-->
+                        <!--<field string="Documents" name="doc_count" widget="statinfo"/>-->
+                    <!--</button>-->
+                <!--</div>-->
+            <!--</xpath>-->
 
         </field>
     </record>
@@ -176,10 +176,10 @@
         <field name="inherit_id" ref="calendar.view_calendar_event_form_popup"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='partner_ids']" position="before">
-                <field name="partner_id"/>
-                <!--<field name="meeting_state"/>-->
-            </xpath>
+            <!--<xpath expr="//field[@name='partner_ids']" position="before">-->
+                <!--<field name="partner_id"/>-->
+                <!--&lt;!&ndash;<field name="meeting_state"/>&ndash;&gt;-->
+            <!--</xpath>-->
 
             <xpath expr="//field[@name='location']" position="before">
                 <field name="project_id"/>
@@ -207,16 +207,16 @@
         </field>
     </record>
 
-    <record id="view_multi_calendar_event_calendar" model="ir.ui.view">
-        <field name="name">calendar.event.calendar</field>
-        <field name="model">calendar.event</field>
-        <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
-        <field name="arch" type="xml">
-            <xpath expr="//calendar" position="attributes">
-                <attribute name="quick_add">False</attribute>
-            </xpath>
-        </field>
-    </record>
+    <!--<record id="view_multi_calendar_event_calendar" model="ir.ui.view">-->
+        <!--<field name="name">calendar.event.calendar</field>-->
+        <!--<field name="model">calendar.event</field>-->
+        <!--<field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<xpath expr="//calendar" position="attributes">-->
+                <!--<attribute name="quick_add">False</attribute>-->
+            <!--</xpath>-->
+        <!--</field>-->
+    <!--</record>-->
 
     <record id="view_multi_calendar_event_search" model="ir.ui.view">
         <field name="name">multi.calendar.event.search</field>
@@ -230,27 +230,27 @@
         </field>
     </record>
 
-    <record id="act_calendar_event_meetings_line_by_project" model="ir.actions.act_window">
-        <field name="name">Activities</field>
-        <field name="res_model">calendar.event</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">calendar,form</field>
-        <field name="view_id" ref="calendar.view_calendar_event_calendar"/>
-        <field name="domain">[('project_id', '!=', False)]</field>
-        <field name="context">{"default_project_id": active_id, "search_default_project_id": [active_id]}
-        </field>
-        <field name="search_view_id"
-               ref="calendar.view_calendar_event_search"/>
-        <field name="help" type="html">
-            <p class="oe_view_nocontent_create">
-                Click to record activities.
-            </p>
-            <p>
-                You can register and track your calendar events by project
-                every
-                day.
-            </p>
-        </field>
-    </record>
+    <!--<record id="act_calendar_event_meetings_line_by_project" model="ir.actions.act_window">-->
+        <!--<field name="name">Activities</field>-->
+        <!--<field name="res_model">calendar.event</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">calendar,form</field>-->
+        <!--<field name="view_id" ref="calendar.view_calendar_event_calendar"/>-->
+        <!--<field name="domain">[('project_id', '!=', False)]</field>-->
+        <!--<field name="context">{"default_project_id": active_id, "search_default_project_id": [active_id]}-->
+        <!--</field>-->
+        <!--<field name="search_view_id"-->
+               <!--ref="calendar.view_calendar_event_search"/>-->
+        <!--<field name="help" type="html">-->
+            <!--<p class="oe_view_nocontent_create">-->
+                <!--Click to record activities.-->
+            <!--</p>-->
+            <!--<p>-->
+                <!--You can register and track your calendar events by project-->
+                <!--every-->
+                <!--day.-->
+            <!--</p>-->
+        <!--</field>-->
+    <!--</record>-->
 
 </odoo>
