@@ -22,10 +22,10 @@ class CalendarEvent(models.Model):
     partner_id = fields.Many2one('res.partner', string='Partner')
     meeting_feedback = fields.Text(string='Meeting Feedback', readonly=True)
     meeting_duration = fields.Float(string='Meeting Duration', readonly=True)
-    meeting_state = fields.Selection([('open', 'Open'),
-                                      ('done', 'Done'),
-                                      ('cancel', 'Cancel')],
-                                     string='Meeting State', default='open')
+    # meeting_state = fields.Selection([('open', 'Open'),
+    #                                   ('done', 'Done'),
+    #                                   ('cancel', 'Cancel')],
+    #                                  string='Meeting State', default='open')
     company_partner_id = fields.Many2one('res.partner',
                                          default=get_company_partner)
 
@@ -38,29 +38,29 @@ class CalendarEvent(models.Model):
     doc_count = fields.Integer(compute='_compute_attached_docs_count',
                                string="Number of documents attached")
 
-    @api.multi
-    def unlink(self):
-        for record in self:
-            if record.meeting_state in ('done', 'cancel'):
-                raise UserError(_('You cannot delete a calendar meeting which'
-                                  ' is done or cancelled.'))
-        return super(CalendarEvent, self).unlink()
+    # @api.multi
+    # def unlink(self):
+    #     for record in self:
+    #         if record.meeting_state in ('done', 'cancel'):
+    #             raise UserError(_('You cannot delete a calendar meeting which'
+    #                               ' is done or cancelled.'))
+    #     return super(CalendarEvent, self).unlink()
 
-    @api.model
-    def fields_view_get(self, view_id=None, view_type='form',
-                        toolbar=False, submenu=False):
-
-        result = super(CalendarEvent, self).fields_view_get(view_id,
-                                                            view_type,
-                                                            toolbar=toolbar,
-                                                            submenu=submenu)
-
-        if view_type == 'form' and \
-                        result['fields'].get('meeting_state') != 'done':
-            for field in result['fields']:
-                result['fields'][field]['readonly'] = True
-
-        return result
+    # @api.model
+    # def fields_view_get(self, view_id=None, view_type='form',
+    #                     toolbar=False, submenu=False):
+    #
+    #     result = super(CalendarEvent, self).fields_view_get(view_id,
+    #                                                         view_type,
+    #                                                         toolbar=toolbar,
+    #                                                         submenu=submenu)
+    #
+    #     if view_type == 'form' and \
+    #                     result['fields'].get('meeting_state') != 'done':
+    #         for field in result['fields']:
+    #             result['fields'][field]['readonly'] = True
+    #
+    #     return result
 
     @api.multi
     def attachment_tree_view(self):
@@ -96,27 +96,27 @@ class CalendarEvent(models.Model):
                 ('res_id', '=', meeting.id)
             ])
 
-    @api.multi
-    def done_button(self):
-        self.ensure_one()
-
-        return {
-            'type': 'ir.actions.act_window',
-            'res_model': 'wizard.calendar.event',
-            'view_type': 'form',
-            'view_mode': 'form',
-            'views': [(False, "form")],
-            'target': 'new',
-            'context': {
-                'default_calendar_event_id': self.id,
-                'default_meeting_duration': self.duration,
-            }
-        }
-
-    def cancel_button(self):
-        if self.meeting_state == 'open':
-            self.meeting_state = 'cancel'
-
-    def open_button(self):
-        if self.meeting_state == 'cancel':
-            self.meeting_state = 'open'
+    # @api.multi
+    # def done_button(self):
+    #     self.ensure_one()
+    #
+    #     return {
+    #         'type': 'ir.actions.act_window',
+    #         'res_model': 'wizard.calendar.event',
+    #         'view_type': 'form',
+    #         'view_mode': 'form',
+    #         'views': [(False, "form")],
+    #         'target': 'new',
+    #         'context': {
+    #             'default_calendar_event_id': self.id,
+    #             'default_meeting_duration': self.duration,
+    #         }
+    #     }
+    #
+    # def cancel_button(self):
+    #     if self.meeting_state == 'open':
+    #         self.meeting_state = 'cancel'
+    #
+    # def open_button(self):
+    #     if self.meeting_state == 'cancel':
+    #         self.meeting_state = 'open'
