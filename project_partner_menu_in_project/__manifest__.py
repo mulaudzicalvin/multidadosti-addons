@@ -17,7 +17,7 @@
         'project',
     ],
     'data': [
-            'views/res_partner.xml',
+        'views/res_partner.xml',
     ],
     'installable': True,
     'auto_install': False,
