@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem
+            id="custom_menu_root"
+            name="Communications"
+            sequence="10"
+            web_icon="productivity_menu_item,static/description/menu_icon.png"/>
+
+    <menuitem
+            id="custom_menu_submenu"
+            name="Organizer"
+            parent="custom_menu_root"
+            sequence="1"/>
+
+    <menuitem
+            id="custom_menu_configuration"
+            name="Configurations"
+            parent="custom_menu_root"
+            sequence="99"/>
+</odoo>
