@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record model="ir.ui.view" id="general_calendar_form">
-        <field name="name">view.general.calendar.form</field>
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="general_calendar_menu_root" name="General Calendar" sequence="2"
+              web_icon="calendar,static/description/icon.png"/>
+
+    <menuitem id="general_calendar_menu_sub" name="Calendar" sequence="2"
+              parent="general_calendar_menu_root" groups="base.group_user"/>
+
+    <record id="general_calendar_view_form" model="ir.ui.view">
+        <field name="name">general.calendar.view.form</field>
         <field name="model">general.calendar</field>
         <field name="arch" type="xml">
             <form string="Calendar">
@@ -22,8 +29,8 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="general_calendar_tree">
-        <field name="name">view.general.calendar.tree</field>
+    <record id="general_calendar_view_tree" model="ir.ui.view">
+        <field name="name">general.calendar.view.tree</field>
         <field name="model">general.calendar</field>
         <field name="arch" type="xml">
             <tree string="Calendar">
@@ -38,21 +45,21 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="view_general_calendar_calendar">
-        <field name="name">view.general.calendar.calendar</field>
+    <record id="general_calendar_view_calendar" model="ir.ui.view">
+        <field name="name">general.calendar.view.calendar</field>
         <field name="model">general.calendar</field>
         <field name="arch" type="xml">
             <calendar string="Calendar" color="model_id"
                       date_start="date_start" date_stop="date_stop"
                       all_day="allday" quick_add="false"
-                      event_open_popup="%(general_calendar.general_calendar_form)s">
+                      event_open_popup="%(general_calendar.general_calendar_view_form)s">
                 <field name="name"/>
             </calendar>
         </field>
     </record>
 
-    <record model="ir.ui.view" id="general_calendar_search">
-        <field name="name">general_calendar_search</field>
+    <record id="general_calendar_view_search" model="ir.ui.view">
+        <field name="name">general.calendar.view.search</field>
         <field name="model">general.calendar</field>
         <field name="arch" type="xml">
             <search string="Search Calendar">
@@ -120,7 +127,7 @@
     </record>
 
     <!-- This Menu Item must have a parent and an action -->
-    <record id="action_general_calendar" model="ir.actions.act_window">
+    <record id="general_calendar_action" model="ir.actions.act_window">
         <field name="name">General Calendar</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">general.calendar</field>
@@ -128,17 +135,9 @@
         <field name="context">{'search_default_user_filter': 1}</field>
     </record>
 
-    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
-    <menuitem id="general_calendar_root" name="General Calendar" sequence="2"
-              web_icon="calendar,static/description/icon.png"/>
-
-    <menuitem id="general_calendar_sub_menu" name="Calendar" sequence="2"
-              parent="general_calendar_root" groups="base.group_user"/>
-
     <menuitem id="general_calendar_menu" name="General Calendar"
               sequence="1"
-              parent="general_calendar_sub_menu"
-              action="action_general_calendar"/>
-
+              parent="general_calendar_menu_sub"
+              action="general_calendar_action"/>
 
 </odoo>
