@@ -10,7 +10,7 @@
                 <field name="project_id"/>
                 <field name="task_id"/>
                 <field name="meeting_state"/>
-                <field name="state" invisible="1"/>
+                <!--<field name="state" invisible="1"/>-->
             </xpath>
         </field>
     </record>
@@ -28,19 +28,19 @@
                 </h2>
             </xpath>
 
-            <xpath expr="//sheet" position="before">
-                <header>
-                    <button name="done_button" string='Finish' type="object"
-                            class="btn-primary"
-                            attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>
-                    <button name="cancel_button" string='Cancel' type="object"
-                            confirm="Are you sure you want close this meeting?"
-                            attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>
-                    <button name="open_button" string='Open' type="object"
-                            attrs="{'invisible': [('meeting_state','in',['open', 'done'])]}"/>
-                    <field name="meeting_state" widget="statusbar"/>
-                </header>
-            </xpath>
+            <!--<xpath expr="//sheet" position="before">-->
+                <!--<header>-->
+                    <!--<button name="done_button" string='Finish' type="object"-->
+                            <!--class="btn-primary"-->
+                            <!--attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>-->
+                    <!--<button name="cancel_button" string='Cancel' type="object"-->
+                            <!--confirm="Are you sure you want close this meeting?"-->
+                            <!--attrs="{'invisible': [('meeting_state','in',['done', 'cancel'])]}"/>-->
+                    <!--<button name="open_button" string='Open' type="object"-->
+                            <!--attrs="{'invisible': [('meeting_state','in',['open', 'done'])]}"/>-->
+                    <!--<field name="meeting_state" widget="statusbar"/>-->
+                <!--</header>-->
+            <!--</xpath>-->
 
             <xpath expr="//notebook" position="inside">
                 <page string="After Meeting" attrs="{'invisible': [('meeting_state','!=','done')]}">
@@ -63,96 +63,96 @@
                 <attribute name="domain">
                     ['|',('parent_id','=',partner_id),('parent_id','=',company_partner_id)]
                 </attribute>
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
             </xpath>
-            <xpath expr="//field[@name='name']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
+            <!--<xpath expr="//field[@name='name']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
             <xpath expr="//field[@name='partner_id']" position="attributes">
                 <attribute name="attrs">
                     {'readonly': [('meeting_state', '!=', 'open')]}
                 </attribute>
             </xpath>
-            <xpath expr="//field[@name='privacy']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='show_as']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='attendee_ids']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='user_id']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='alarm_ids']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='location']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='recurrency']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
+            <!--<xpath expr="//field[@name='privacy']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='show_as']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='attendee_ids']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='user_id']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='alarm_ids']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='location']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='recurrency']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
 
-            <xpath expr="//field[@name='allday']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='description']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='categ_ids']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
+            <!--<xpath expr="//field[@name='allday']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='description']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='categ_ids']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
             <xpath expr="//field[@name='task_id']" position="attributes">
                 <attribute name="attrs">
                     {'readonly': [('meeting_state', '!=', 'open')]}
                 </attribute>
             </xpath>
-            <xpath expr="//field[@name='start_datetime']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='duration']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='meeting_feedback']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-            <xpath expr="//field[@name='meeting_duration']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('meeting_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
+            <!--<xpath expr="//field[@name='start_datetime']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='duration']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='meeting_feedback']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
+            <!--<xpath expr="//field[@name='meeting_duration']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
             <xpath expr="//field[@name='project_id']" position="attributes">
                 <attribute name="attrs">
                     {'readonly': [('meeting_state', '!=', 'open')]}
@@ -178,7 +178,7 @@
 
             <xpath expr="//field[@name='partner_ids']" position="before">
                 <field name="partner_id"/>
-                <field name="meeting_state"/>
+                <!--<field name="meeting_state"/>-->
             </xpath>
 
             <xpath expr="//field[@name='location']" position="before">
@@ -190,9 +190,9 @@
                 <!-- Add your fields or attributes here -->
                 <notebook attrs="{'invisible': [('description','=', False),('meeting_state','!=','done')]}">
 
-                    <page string="Description" attrs="{'invisible': [('description','=', False)]}">
-                        <field name="description" style="margin: 10px 0px 10px 0px;"/>
-                    </page>
+                    <!--<page string="Description" attrs="{'invisible': [('description','=', False)]}">-->
+                        <!--<field name="description" style="margin: 10px 0px 10px 0px;"/>-->
+                    <!--</page>-->
 
                     <page string="After Meeting" attrs="{'invisible': [('meeting_state','!=','done')]}">
                         <group>
