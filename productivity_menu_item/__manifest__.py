@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
-# @author Aldo Soares <soares_aldo@hotmail.com>
-# License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 {
     'name': 'Productivity Menu Item',
@@ -14,18 +11,14 @@
     'sequence': 99,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
-        'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'general_calendar',
-        'note',
-        'mail',
-    ],
-    'data': [
-        'views/view_productivity_menu_item.xml',
-    ],
-    'qweb': [
-        'static/src/xml/client_action.xml'
+        'general_calendar_custom_menu_location',
+        'mail_custom_menu_location',
+        'mail_custom_permission_message',
+        'note_custom_menu_location',
+        'note_disable_tag_creation_option',
+        'note_filter_my_items',
     ],
     'installable': True,
 }
