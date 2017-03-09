@@ -21,12 +21,6 @@
                 </attribute>
             </xpath>
 
-            <xpath expr="//field[@name='partner_id']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('event_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
-
         </field>
     </record>
 
