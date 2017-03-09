@@ -5,7 +5,6 @@ from odoo.exceptions import UserError
 
 
 class HelpDeskPhoneCallConfirm(models.TransientModel):
-
     _name = 'helpdesk.phonecall.confirm'
     _description = 'Wizard to confirm phonecall'
 
@@ -44,3 +43,5 @@ class HelpDeskPhoneCallConfirm(models.TransientModel):
             # self.env['account.analytic.line'].create(values)
 
         return {'type': 'ir.actions.act_window_close'}
+
+
