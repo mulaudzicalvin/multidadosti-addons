@@ -6,10 +6,11 @@
         <field name="model">calendar.event.finish</field>
         <field name="arch" type="xml">
             <form>
-                <p>
+                <p><b>
                     Once open calendar events are confirmed, you will not be able
                     to modify them.
                     Do you want to close this event?
+                    </b>
                 </p>
                 <footer>
                     <button name="finish_calendar_event" string="Finish" type="object"

@@ -20,8 +20,8 @@ class CalendarEvent(models.Model):
     project_id = fields.Many2one('project.project', string='Project')
     task_id = fields.Many2one('project.task', string='Task')
     partner_id = fields.Many2one('res.partner', string='Partner')
-    meeting_feedback = fields.Text(string='Meeting Feedback', readonly=True)
-    meeting_duration = fields.Float(string='Meeting Duration', readonly=True)
+    # meeting_feedback = fields.Text(string='Meeting Feedback', readonly=True)
+    # meeting_duration = fields.Float(string='Meeting Duration', readonly=True)
     # meeting_state = fields.Selection([('open', 'Open'),
     #                                   ('done', 'Done'),
     #                                   ('cancel', 'Cancel')],

@@ -9,7 +9,7 @@
             <xpath expr="//field[@name='partner_ids']" position="after">
                 <field name="project_id"/>
                 <field name="task_id"/>
-                <field name="meeting_state"/>
+                <!--<field name="meeting_state"/>-->
                 <!--<field name="state" invisible="1"/>-->
             </xpath>
         </field>
@@ -43,12 +43,12 @@
             <!--</xpath>-->
 
             <xpath expr="//notebook" position="inside">
-                <page string="After Meeting" attrs="{'invisible': [('meeting_state','!=','done')]}">
-                    <group>
-                        <field name="meeting_feedback"/>
-                        <field name="meeting_duration"/>
-                    </group>
-                </page>
+                <!--<page string="After Meeting" attrs="{'invisible': [('meeting_state','!=','done')]}">-->
+                    <!--<group>-->
+                        <!--<field name="meeting_feedback"/>-->
+                        <!--<field name="meeting_duration"/>-->
+                    <!--</group>-->
+                <!--</page>-->
                 <page string="Project">
                     <group>
                         <field name="project_id"
@@ -186,23 +186,23 @@
                 <field name="task_id"/>
             </xpath>
 
-            <xpath expr="//form" position="inside">
-                <!-- Add your fields or attributes here -->
-                <notebook attrs="{'invisible': [('description','=', False),('meeting_state','!=','done')]}">
+            <!--<xpath expr="//form" position="inside">-->
+                <!--&lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+                <!--<notebook attrs="{'invisible': [('description','=', False),('meeting_state','!=','done')]}">-->
 
-                    <!--<page string="Description" attrs="{'invisible': [('description','=', False)]}">-->
-                        <!--<field name="description" style="margin: 10px 0px 10px 0px;"/>-->
+                    <!--&lt;!&ndash;<page string="Description" attrs="{'invisible': [('description','=', False)]}">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<field name="description" style="margin: 10px 0px 10px 0px;"/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</page>&ndash;&gt;-->
+
+                    <!--<page string="After Meeting" attrs="{'invisible': [('meeting_state','!=','done')]}">-->
+                        <!--<group>-->
+                            <!--<field name="meeting_feedback"/>-->
+                            <!--<field name="meeting_duration"/>-->
+                        <!--</group>-->
                     <!--</page>-->
 
-                    <page string="After Meeting" attrs="{'invisible': [('meeting_state','!=','done')]}">
-                        <group>
-                            <field name="meeting_feedback"/>
-                            <field name="meeting_duration"/>
-                        </group>
-                    </page>
-
-                </notebook>
-            </xpath>
+                <!--</notebook>-->
+            <!--</xpath>-->
 
         </field>
     </record>
