@@ -1,18 +1,10 @@
 # -*- coding: utf-8 -*-
 
-# from odoo.exceptions import UserError
-from odoo import api, models, fields, _
+from odoo import models, fields
 
 
 class CalendarEvent(models.Model):
     _inherit = 'calendar.event'
-
-    # @api.multi
-    # def get_company_partner(self):
-    #     company_id = \
-    #         self.env['res.company']._company_default_get('calendar.event')
-    #
-    #     return company_id.partner_id
 
     project_id = fields.Many2one('project.project', string='Project')
     task_id = fields.Many2one('project.task', string='Task')
@@ -34,15 +26,6 @@ class CalendarEvent(models.Model):
     #
     # doc_count = fields.Integer(compute='_compute_attached_docs_count',
     #                            string="Number of documents attached")
-
-    # @api.multi
-    # def unlink(self):
-    #     for record in self:
-    #         if record.meeting_state in ('done', 'cancel'):
-    #             raise UserError(_('You cannot delete a calendar meeting
-    # which'
-    #                               ' is done or cancelled.'))
-    #     return super(CalendarEvent, self).unlink()
 
     # @api.model
     # def fields_view_get(self, view_id=None, view_type='form',
