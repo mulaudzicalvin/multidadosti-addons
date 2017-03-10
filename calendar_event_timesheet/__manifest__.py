@@ -13,9 +13,10 @@
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'calendar_event_stage',
+        'calendar_event_feedback',
+        'calendar_event_partner_readonly_on_done',
+        'calendar_event_project_readonly_on_done',
         'hr_timesheet_project_task_stage',
-        'project_task_calendar',
     ],
     'data': [
     ],
