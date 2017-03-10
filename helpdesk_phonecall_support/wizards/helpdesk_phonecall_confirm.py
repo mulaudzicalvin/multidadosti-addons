@@ -43,5 +43,3 @@ class HelpDeskPhoneCallConfirm(models.TransientModel):
             # self.env['account.analytic.line'].create(values)
 
         return {'type': 'ir.actions.act_window_close'}
-
-

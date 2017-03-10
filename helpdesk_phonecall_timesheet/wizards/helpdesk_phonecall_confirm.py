@@ -6,7 +6,6 @@ from odoo import api, models
 
 
 class HelpDeskPhoneCallConfirm(models.TransientModel):
-
     _inherit = 'helpdesk.phonecall.confirm'
     _description = 'Wizard to confirm phonecall'
 
@@ -19,7 +18,6 @@ class HelpDeskPhoneCallConfirm(models.TransientModel):
         active_ids = context.get('active_ids', []) or []
 
         for rec in self.env['helpdesk.phonecall.service'].browse(active_ids):
-
             dt = datetime.datetime.strptime(rec.start_date_hour,
                                             '%Y-%m-%d %H:%M:%S')
 
@@ -43,4 +41,3 @@ class HelpDeskPhoneCallConfirm(models.TransientModel):
             self.env['account.analytic.line'].create(values)
 
         return ret
-
