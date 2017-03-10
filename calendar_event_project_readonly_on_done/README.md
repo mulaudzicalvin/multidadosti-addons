@@ -1,6 +1,6 @@
-## Calendar Event Partner
+## Calendar Event Project
 
-This Module make partner readonly when calendar event is done.
+This Module make project and task readonly when calendar event is done.
 
 ### Bug Tracker
 
@@ -11,4 +11,3 @@ In case of trouble, please check there if your issue has already been reported.
 ### Contributors
 
 * Michell Stuttgart <michellstut@gmail.com>
-* Rodrigo Ferreira <rodrigo.santos@multidadosti.com.br>
