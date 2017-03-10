@@ -17,7 +17,7 @@
         'calendar',
     ],
     'data': [
-        'views/calendar.xml',
+        'views/calendar_event.xml',
     ],
     'installable': True,
     'auto_install': False,
