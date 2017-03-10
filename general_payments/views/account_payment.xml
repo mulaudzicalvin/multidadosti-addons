@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="view_general_payment_form_inherit" model="ir.ui.view">
-        <field name="name">view.general.payment.form.inherit</field>
+    <record id="view_br_account_payment_payment_form_inherit" model="ir.ui.view">
+        <field name="name">account.detached.payment.form.inherit</field>
         <field name="model">account.payment</field>
         <field name="inherit_id" ref="br_account_payment.view_br_account_payment_payment_form_inherit"/>
         <field name="arch" type="xml">
