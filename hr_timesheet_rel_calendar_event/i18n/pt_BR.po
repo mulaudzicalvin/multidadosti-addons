@@ -1,0 +1,28 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_timesheet_rel_calendar_event
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-10 14:24+0000\n"
+"PO-Revision-Date: 2017-03-10 11:30-0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: hr_timesheet_rel_calendar_event
+#: model:ir.model,name:hr_timesheet_rel_calendar_event.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Linha Analítica"
+
+#. module: hr_timesheet_rel_calendar_event
+#: model:ir.model.fields,field_description:hr_timesheet_rel_calendar_event.field_account_analytic_line_calendar_event_id
+msgid "Calendar Event"
+msgstr "Evento do Calendário"
