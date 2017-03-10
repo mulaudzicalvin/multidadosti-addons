@@ -6,14 +6,13 @@
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
-    'summary': """Phonecall service to Odoo by MultidadosTI""",
+    'summary': """Add feature of phonecall service""",
     'category': 'Project',
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
         'project_team',
-        'project_task_calendar',
         'project_related_partners',
     ],
     'data': [
@@ -24,4 +23,6 @@
         'wizards/helpdesk_phonecall_confirm.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

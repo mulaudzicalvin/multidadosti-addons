@@ -26,8 +26,7 @@ msgid ""
 "                    Do you want to close this phonecall?"
 msgstr ""
 "Uma vez que os atendimentos abertos são confirmados, não será possível \n"
-"                      modificá-los e uma entrada no timesheet será\n"
-"                     criada.\n"
+"                      modificá-los e será criado um lançamento na planilha de horas.\n"
 "                     Deseja fechar este atendimento?"
 
 #. module: helpdesk_phonecall_timesheet
