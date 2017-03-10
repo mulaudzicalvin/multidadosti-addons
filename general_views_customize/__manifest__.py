@@ -17,7 +17,7 @@
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'web_add_partner_filter',
+        'base_add_partner_filter',
         'web_custom_dashboard',
         'web_custom_dialogs',
         'web_custom_login_page',
