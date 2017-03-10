@@ -8,7 +8,7 @@ class ProjectTask(models.Model):
     _inherit = 'project.task'
 
     event_number = fields.Integer(compute='_compute_event_number',
-                                    string='Number of Meetings')
+                                  string='Number of Meetings')
 
     @api.multi
     def _compute_event_number(self):

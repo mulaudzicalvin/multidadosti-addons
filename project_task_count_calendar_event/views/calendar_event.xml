@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
     <record id="act_calendar_event_meetings_line_by_project" model="ir.actions.act_window">
         <field name="name">Activities</field>
         <field name="res_model">calendar.event</field>
@@ -9,8 +10,7 @@
         <field name="domain">[('project_id', '!=', False)]</field>
         <field name="context">{"default_project_id": active_id, "search_default_project_id": [active_id]}
         </field>
-        <field name="search_view_id"
-               ref="calendar.view_calendar_event_search"/>
+        <field name="search_view_id" ref="calendar.view_calendar_event_search"/>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Click to record activities.
@@ -22,4 +22,5 @@
             </p>
         </field>
     </record>
+
 </odoo>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Project Task - Create and Count Meetings',
+    'name': 'Project Task - Count Calendar Event',
     'version': '10.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
@@ -9,13 +9,11 @@
     'license': 'LGPL-3',
     'category': 'Project',
     'summary': """Count meeting records at kanban view and
-                creates new meetings from project's task view form""",
+                creates new calendar events from project's task view form""",
     'contributors': [
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'calendar',
-        'project',
         'project_task_calendar',
     ],
     'data': [

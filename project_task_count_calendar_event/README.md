@@ -1,6 +1,6 @@
-## Project Task - Create and Count Meetings
+## Project Task - Count Calendar Event
 
-Count meeting records at kanban view and creates new meetings from project's task view form.
+Count meeting records at kanban view and creates new calendar events from project's task view form
 
 ### Bug Tracker
 

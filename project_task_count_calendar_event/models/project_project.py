@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
+from odoo import api, fields, models
 
 
 class ProjectProject(models.Model):
@@ -8,7 +8,7 @@ class ProjectProject(models.Model):
     _inherit = 'project.project'
 
     event_number = fields.Integer(compute='_compute_event_number',
-                                    string='Number of Meetings')
+                                  string='Number of Meetings')
 
     @api.multi
     def _compute_event_number(self):
