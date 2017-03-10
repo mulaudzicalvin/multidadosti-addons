@@ -7,51 +7,51 @@ class ProjectProject(models.Model):
 
     _inherit = 'project.project'
 
-    @api.multi
-    def attachment_tree_view(self):
-        self.ensure_one()
-        domain = [
-            '|',
-            '|',
-            '&', ('res_model', '=', 'project.project'),
-            ('res_id', 'in', self.ids),
-            '&', ('res_model', '=', 'calendar.event'),
-            ('res_id', 'in', self.calendar_event_ids.ids),
-            '&', ('res_model', '=', 'project.task'),
-            ('res_id', 'in', self.task_ids.ids)]
-        return {
-            'name': _('Attachments'),
-            'domain': domain,
-            'res_model': 'ir.attachment',
-            'type': 'ir.actions.act_window',
-            'view_id': False,
-            'view_mode': 'kanban,tree,form',
-            'view_type': 'form',
-            'help': _('''<p class="oe_view_nocontent_create"> Documents are
-            attached to the tasks and issues of your project.</p><p> Send
-            messages or log internal notes with attachments to link documents
-            to your project.</p>'''),
-            'limit': 80,
-            'context': "{'default_res_model': '%s','default_res_id': %d}" %
-                       (self._name, self.id)
-        }
+    # @api.multi
+    # def attachment_tree_view(self):
+    #     self.ensure_one()
+    #     domain = [
+    #         '|',
+    #         '|',
+    #         '&', ('res_model', '=', 'project.project'),
+    #         ('res_id', 'in', self.ids),
+    #         '&', ('res_model', '=', 'calendar.event'),
+    #         ('res_id', 'in', self.calendar_event_ids.ids),
+    #         '&', ('res_model', '=', 'project.task'),
+    #         ('res_id', 'in', self.task_ids.ids)]
+    #     return {
+    #         'name': _('Attachments'),
+    #         'domain': domain,
+    #         'res_model': 'ir.attachment',
+    #         'type': 'ir.actions.act_window',
+    #         'view_id': False,
+    #         'view_mode': 'kanban,tree,form',
+    #         'view_type': 'form',
+    #         'help': _('''<p class="oe_view_nocontent_create"> Documents are
+    #         attached to the tasks and issues of your project.</p><p> Send
+    #         messages or log internal notes with attachments to link documents
+    #         to your project.</p>'''),
+    #         'limit': 80,
+    #         'context': "{'default_res_model': '%s','default_res_id': %d}" %
+    #                    (self._name, self.id)
+    #     }
 
-    def _compute_attached_docs_count(self):
-        Attachment = self.env['ir.attachment']
-        for project in self:
-            project.doc_count = Attachment.search_count([
-                '|',
-                '|',
-                '&',
-                ('res_model', '=', 'project.project'),
-                ('res_id', '=', project.id),
-                '&',
-                ('res_model', '=', 'calendar.event'),
-                ('res_id', 'in', project.calendar_event_ids.ids),
-                '&',
-                ('res_model', '=', 'project.task'),
-                ('res_id', 'in', project.task_ids.ids)
-            ])
+    # def _compute_attached_docs_count(self):
+    #     Attachment = self.env['ir.attachment']
+    #     for project in self:
+    #         project.doc_count = Attachment.search_count([
+    #             '|',
+    #             '|',
+    #             '&',
+    #             ('res_model', '=', 'project.project'),
+    #             ('res_id', '=', project.id),
+    #             '&',
+    #             ('res_model', '=', 'calendar.event'),
+    #             ('res_id', 'in', project.calendar_event_ids.ids),
+    #             '&',
+    #             ('res_model', '=', 'project.task'),
+    #             ('res_id', 'in', project.task_ids.ids)
+    #         ])
 
     # partner_ids = fields.Many2many(comodel_name='res.partner',
     #                                string='Related Partners')
@@ -67,8 +67,8 @@ class ProjectProject(models.Model):
 
     # allow_meetings = fields.Boolean('Allow Meetings', default=True)
 
-    meeting_number = fields.Integer(compute='_compute_meeting_number',
-                                    string='Number of Meetings')
+    # meeting_number = fields.Integer(compute='_compute_meeting_number',
+    #                                 string='Number of Meetings')
 
     # project_classification = fields.Selection(
     #     string="Classification",
@@ -104,12 +104,12 @@ class ProjectProject(models.Model):
     #         values['partner_ids'] = [(4, values['partner_id'])]
     #     return super(ProjectProject, self).write(values)
 
-    @api.multi
-    def _compute_meeting_number(self):
-        for record in self:
-            cal_events = record.calendar_event_ids.filtered(
-                lambda r: r.meeting_state == 'open')
-            record.meeting_number = len(cal_events)
+    # @api.multi
+    # def _compute_meeting_number(self):
+    #     for record in self:
+    #         cal_events = record.calendar_event_ids.filtered(
+    #             lambda r: r.meeting_state == 'open')
+    #         record.meeting_number = len(cal_events)
 
 
 # class ProjectTaskType(models.Model):

@@ -12,15 +12,15 @@ class ProjectTask(models.Model):
                                          readonly=True,
                                          string='Calendar Events')
 
-    meeting_number = fields.Integer(compute='_compute_meeting_number',
-                                    string='Number of Meetings')
-
-    @api.multi
-    def _compute_meeting_number(self):
-        for record in self:
-            cal_events = record.calendar_event_ids.filtered(
-                lambda r: r.meeting_state == 'open')
-            record.meeting_number = len(cal_events)
+    # meeting_number = fields.Integer(compute='_compute_meeting_number',
+    #                                 string='Number of Meetings')
+    #
+    # @api.multi
+    # def _compute_meeting_number(self):
+    #     for record in self:
+    #         cal_events = record.calendar_event_ids.filtered(
+    #             lambda r: r.meeting_state == 'open')
+    #         record.meeting_number = len(cal_events)
 
     # @api.multi
     # def action_make_meeting(self):

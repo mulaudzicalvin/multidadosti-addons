@@ -52,8 +52,10 @@
                 <page string="Project">
                     <group>
                         <field name="project_id"
+                               options="{'no_create': True}"
                                domain="[('partner_ids', '=', partner_id)]"/>
                         <field name="task_id"
+                               options="{'no_create': True}"
                                domain="[('project_id', '=', project_id)]"/>
                     </group>
                 </page>
@@ -128,11 +130,11 @@
                     <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
                 <!--</attribute>-->
             <!--</xpath>-->
-            <xpath expr="//field[@name='task_id']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('event_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
+            <!--<xpath expr="//field[@name='task_id']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('event_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
             <!--<xpath expr="//field[@name='start_datetime']" position="attributes">-->
                 <!--<attribute name="attrs">-->
                     <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
@@ -153,11 +155,11 @@
                     <!--{'readonly': [('meeting_state', '!=', 'open')]}-->
                 <!--</attribute>-->
             <!--</xpath>-->
-            <xpath expr="//field[@name='project_id']" position="attributes">
-                <attribute name="attrs">
-                    {'readonly': [('event_state', '!=', 'open')]}
-                </attribute>
-            </xpath>
+            <!--<xpath expr="//field[@name='project_id']" position="attributes">-->
+                <!--<attribute name="attrs">-->
+                    <!--{'readonly': [('event_state', '!=', 'open')]}-->
+                <!--</attribute>-->
+            <!--</xpath>-->
             <!--<xpath expr="//field[@name='attendee_status']" position="after">-->
                 <!--<div class="oe_button_box" name="button_box" groups="base.group_user">-->
                     <!--<button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">-->

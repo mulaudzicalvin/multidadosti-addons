@@ -2,21 +2,19 @@
 
 {
     'name': 'Project Task in Calendar',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
-    'summary': """Custom module developed for visual improvement on project
-               module and integration with calendar Support by MultidadosTI""",
+    'summary': """Add Project and Project Task relation in Calendar Events""",
     'category': 'Project',
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
         'Michell Stuttgart <michellstut@gmail.com>',
-        'Rodrigo Ferreira <rodrigo.santos@multidadosti.com.br>',
     ],
     'depends': [
-        'project',
-        'calendar_event_partner_readonly_on_done',
+        'project_related_partners',
+        'calendar_event_partner',
     ],
     'data': [
         # 'security/ir.model.access.csv',
