@@ -10,7 +10,7 @@
                 <button name="action_make_meeting" class="oe_stat_button"
                         icon="fa-calendar" type="object"
                         help="Schedule meeting with this applicant">
-                    <field name="meeting_number" widget="statinfo" string="Meetings"/>
+                    <field name="event_number" widget="statinfo" string="Meetings"/>
                 </button>
             </xpath>
         </field>

@@ -7,15 +7,15 @@ class ProjectTask(models.Model):
 
     _inherit = 'project.task'
 
-    meeting_number = fields.Integer(compute='_compute_meeting_number',
+    event_number = fields.Integer(compute='_compute_event_number',
                                     string='Number of Meetings')
 
     @api.multi
-    def _compute_meeting_number(self):
+    def _compute_event_number(self):
         for record in self:
             cal_events = record.calendar_event_ids.filtered(
-                lambda r: r.meeting_state == 'open')
-            record.meeting_number = len(cal_events)
+                lambda r: r.event_state == 'open')
+            record.event_number = len(cal_events)
 
     @api.multi
     def action_make_meeting(self):
