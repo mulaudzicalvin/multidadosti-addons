@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="helpdesk_phonecall_service_confirm" model="ir.ui.view">
+        <field name="name">helpdesk.timesheet.create.view.form</field>
+        <field name="model">helpdesk.phonecall.confirm</field>
+        <field name="inherit_id"
+               ref="helpdesk_phonecall_support.helpdesk_phonecall_service_confirm"/>
+        <field name="arch" type="xml">
+            <xpath expr="//p" position="replace">
+                <p>
+                    Once open phonecalls are confirmed, you will not be able
+                    to modify them and an entry in the timesheet will be
+                    created.
+                    Do you want to close this phonecall?
+                </p>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

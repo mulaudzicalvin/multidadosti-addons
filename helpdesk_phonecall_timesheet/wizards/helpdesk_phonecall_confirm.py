@@ -1,31 +1,23 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2017 MultidadosTI (http://www.multidadosti.com.br)
-# @author Michell Stuttgart <m.faria@itimpacta.org.br>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import datetime
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from odoo import api, models
 
 
-class WizardHelpDeskPhoneCallConfirm(models.TransientModel):
-
-    _name = 'wizard.helpdesk.phonecall.confirm'
+class HelpDeskPhoneCallConfirm(models.TransientModel):
+    _inherit = 'helpdesk.phonecall.confirm'
     _description = 'Wizard to confirm phonecall'
 
     @api.multi
-    def confirm_finish_phonecall(self):
+    def action_confirm_finish_phonecall(self):
+        ret = super(HelpDeskPhoneCallConfirm,
+                    self).action_confirm_finish_phonecall()
+
         context = dict(self._context or {})
         active_ids = context.get('active_ids', []) or []
 
         for rec in self.env['helpdesk.phonecall.service'].browse(active_ids):
-            if rec.state != 'open':
-                raise UserError(_("Selected phonecalls cannot be confirmed "
-                                  "as they are not in 'Open' state."))
-            rec.finish_date_hour = fields.Datetime.now()
-            rec.state = 'done'
-
             dt = datetime.datetime.strptime(rec.start_date_hour,
                                             '%Y-%m-%d %H:%M:%S')
 
@@ -48,4 +40,4 @@ class WizardHelpDeskPhoneCallConfirm(models.TransientModel):
 
             self.env['account.analytic.line'].create(values)
 
-        return {'type': 'ir.actions.act_window_close'}
+        return ret
