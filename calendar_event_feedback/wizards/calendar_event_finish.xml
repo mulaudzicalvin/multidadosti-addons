@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="calendar_event_finish_view_form" model="ir.ui.view">
-        <field name="name">calendar.feedback.finish.view.form</field>
+        <field name="name">calendar.event.feedback.finish.view.form</field>
         <field name="model">calendar.event.finish</field>
         <field name="inherit_id" ref="calendar_event_stage.calendar_event_finish_view_form"/>
         <field name="arch" type="xml">
