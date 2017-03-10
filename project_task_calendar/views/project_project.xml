@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Inherit Form View to Modify it -->
-    <record id="view_project_project_adjust_form" model="ir.ui.view">
-        <field name="name">view.project.project.adjust.form</field>
+    <record id="edit_project" model="ir.ui.view">
+        <field name="name">project.task.calendar.project.view.form</field>
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
@@ -48,14 +47,11 @@
                             <field name="stop_datetime"/>
                             <field name="location"/>
                             <field name="duration"/>
-                            <field name="meeting_state"/>
+                            <field name="event_state"/>
                             <field name="state" invisible="1"/>
                         </tree>
                     </field>
                 </page>
-                <!--<page string="Related Partners">-->
-                <!--<field name="partner_ids" widget="many2many"/>-->
-                <!--</page>-->
             </xpath>
 
             <!--<xpath expr="//field[@name='partner_id']" position="attributes">-->

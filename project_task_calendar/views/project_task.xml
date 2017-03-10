@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <record id="view_project_task_adjust_form" model="ir.ui.view">
-        <field name="name">view.project.task.adjust.form</field>
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="name">project.task.calendar.task.view.form</field>
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
@@ -37,7 +37,7 @@
                             <field name="stop_datetime"/>
                             <field name="location"/>
                             <field name="duration"/>
-                            <field name="meeting_state"/>
+                            <field name="event_state"/>
                             <field name="state" invisible="1"/>
                         </tree>
                     </field>

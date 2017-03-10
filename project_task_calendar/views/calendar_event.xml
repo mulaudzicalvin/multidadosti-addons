@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="view_multi_calendar_event_tree" model="ir.ui.view">
-        <field name="name">calendar.event.tree</field>
+    <record id="view_calendar_event_tree" model="ir.ui.view">
+        <field name="name">project.task.calendar.calendar.view.tree</field>
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
         <field name="arch" type="xml">
@@ -15,8 +15,8 @@
         </field>
     </record>
 
-    <record id="view_multi_calendar_event_form" model="ir.ui.view">
-        <field name="name">multi.calendar.event</field>
+    <record id="view_calendar_event_form" model="ir.ui.view">
+        <field name="name">project.task.calendar.calendar.view.form</field>
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
         <field name="arch" type="xml">
@@ -171,7 +171,7 @@
 
     <!-- Inherit Form View to Modify it -->
     <record id="view_calendar_event_form_popup" model="ir.ui.view">
-        <field name="name">calendar.event.form.popup</field>
+        <field name="name">project.task.calendar.project.view.popup</field>
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_form_popup"/>
         <field name="arch" type="xml">
@@ -218,8 +218,8 @@
         <!--</field>-->
     <!--</record>-->
 
-    <record id="view_multi_calendar_event_search" model="ir.ui.view">
-        <field name="name">multi.calendar.event.search</field>
+    <record id="view_calendar_event_search" model="ir.ui.view">
+        <field name="name">project.task.calendar.calendar.view.search</field>
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
         <field name="arch" type="xml">
