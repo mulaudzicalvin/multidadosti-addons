@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="edit_project" model="ir.ui.view">
-        <field name="name">project.planned.time.form.view</field>
+        <field name="name">project.planned.time.view.form</field>
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">

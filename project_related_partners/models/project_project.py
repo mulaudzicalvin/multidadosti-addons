@@ -12,10 +12,11 @@ class ProjectProject(models.Model):
     @api.model
     def create(self, values):
         # Copy partner_id to partner_ids field
-        if not values['partner_ids']:
-            values['partner_ids'] = [(4, values['partner_id'])]
-        else:
-            values['partner_ids'][0][2].append(values['partner_id'])
+        if 'partner_ids' in values:
+            if not values['partner_ids']:
+                values['partner_ids'] = [(4, values['partner_id'])]
+            else:
+                values['partner_ids'][0][2].append(values['partner_id'])
 
         return super(ProjectProject, self).create(values)
 

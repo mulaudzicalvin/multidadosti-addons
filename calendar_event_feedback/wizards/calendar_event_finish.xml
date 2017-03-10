@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="calendar_event_finish_view_form" model="ir.ui.view">
+        <field name="name">calendar.event.feedback.finish.view.form</field>
+        <field name="model">calendar.event.finish</field>
+        <field name="inherit_id" ref="calendar_event_stage.calendar_event_finish_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//p" position="after">
+                <div class="oe_edit_only">
+                    <label for="event_duration"/>
+                    <field name="event_duration" widget="float_time" class="oe_inline" required="1"/>
+                    <span> hours</span>
+                </div>
+
+                <notebook>
+                    <page string="Event Feedback">
+                        <field name="event_feedback" required="1" style="margin: 10px 0px 10px 0px;"/>
+                    </page>
+                </notebook>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2017 MultidadosTI (http://www.multidadosti.com.br)
-# @author Michell Stuttgart <michellstut@gmail.com>
-# License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
-
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -14,9 +10,11 @@ class AccountPayment(models.Model):
 
     general_account_id = fields.Many2one(comodel_name='account.account',
                                          string='Account')
+
     analytic_account_id = fields.Many2one('account.analytic.account',
                                           string='Analytic Account')
-    description = fields.Text('Description')
+
+    description = fields.Text(string='Description')
 
     @api.multi
     @api.depends('invoice_ids', 'payment_type', 'partner_type', 'partner_id')
@@ -64,7 +62,7 @@ class AccountPayment(models.Model):
         return res
 
     @api.constrains('general_account_id', 'payment_type')
-    def _check_journal(self):
+    def _check_general_account(self):
 
         for record in self:
 

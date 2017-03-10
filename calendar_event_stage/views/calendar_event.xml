@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_calendar_event_tree" model="ir.ui.view">
+        <field name="name">calendar.event.stage.view.tree</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="event_state"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_form" model="ir.ui.view">
+        <field name="name">calendar.event.stage.view.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="action_finish_calendar_event" string='Finish'
+                            type="object"
+                            class="btn-primary"
+                            attrs="{'invisible': [('event_state','in',['done', 'cancel'])]}"/>
+
+                    <button name="action_cancel_calendar_event" string='Cancel'
+                            type="object"
+                            confirm="Are you sure you want cancel this event?"
+                            attrs="{'invisible': [('event_state','in',['done', 'cancel'])]}"/>
+
+                    <button name="action_open_calendar_event" string='Return to Open'
+                            type="object"
+                            attrs="{'invisible': [('event_state','in',['open', 'done'])]}"/>
+
+                    <field name="event_state" widget="statusbar"/>
+                </header>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_ids']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='privacy']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='show_as']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='attendee_ids']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='alarm_ids']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='location']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='recurrency']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='allday']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='description']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_ids']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='start_datetime']"
+                   position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='duration']" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('event_state', '!=', 'open')]}
+                </attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_calendar_event_form_popup" model="ir.ui.view">
+        <field name="name">calendar.event.stage.view.form.popup</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id"
+               ref="calendar.view_calendar_event_form_popup"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='alarm_ids']" position="after">
+                <field name="event_state"/>
+            </xpath>
+
+            <xpath expr="//form" position="inside">
+                <notebook
+                        attrs="{'invisible': [('description','=', False),('event_state','!=','done')]}">
+                    <page string="Description"
+                          attrs="{'invisible': [('description','=', False)]}">
+                        <field name="description"
+                               style="margin: 10px 0px 10px 0px;"/>
+                    </page>
+                </notebook>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

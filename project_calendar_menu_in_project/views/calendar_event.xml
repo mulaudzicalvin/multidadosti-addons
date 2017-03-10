@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="project_menu_calendar"
+              name="Calendar"
+              parent="project.menu_project_management"
+              sequence="3"
+              action="calendar.action_calendar_event"/>
+
+</odoo>

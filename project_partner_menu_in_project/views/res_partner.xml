@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="project_project_partner_action" model="ir.actions.act_window">
+        <field name="name">Partner</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem id="project_partner_menu"
+              name="Partner"
+              action="project_project_partner_action"
+              parent="project.menu_project_management"
+              sequence="10"/>
+
+</odoo>
