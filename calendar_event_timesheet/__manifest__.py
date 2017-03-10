@@ -19,6 +19,7 @@
         'hr_timesheet_project_task_stage',
     ],
     'data': [
+        'wizards/calendar_event_finish.xml',
     ],
     'installable': True,
     'auto_install': False,
