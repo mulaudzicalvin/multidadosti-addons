@@ -8,7 +8,7 @@
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
     'category': 'Project',
-    'summary': 'On Click in kanban items at kanban view Redirect to Project',
+    'summary': 'On Click in kanban view Redirect to Project view',
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
