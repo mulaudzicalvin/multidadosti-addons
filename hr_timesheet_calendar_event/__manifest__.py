@@ -17,7 +17,7 @@
         'hr_timesheet',
     ],
     'data': [
-        'views/hr_timesheet.xml',
+        'views/account_analytic_line.xml',
     ],
     'installable': True,
     'auto_install': False,

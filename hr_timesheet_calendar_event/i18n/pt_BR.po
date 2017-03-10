@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* hr_timesheet_rel_calendar_event
+# 	* hr_timesheet_calendar_event
 #
 msgid ""
 msgstr ""
@@ -17,12 +17,12 @@ msgstr ""
 "Language: pt_BR\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#. module: hr_timesheet_rel_calendar_event
-#: model:ir.model,name:hr_timesheet_rel_calendar_event.model_account_analytic_line
+#. module: hr_timesheet_calendar_event
+#: model:ir.model,name:hr_timesheet_calendar_event.model_account_analytic_line
 msgid "Analytic Line"
 msgstr "Linha Analítica"
 
-#. module: hr_timesheet_rel_calendar_event
-#: model:ir.model.fields,field_description:hr_timesheet_rel_calendar_event.field_account_analytic_line_calendar_event_id
+#. module: hr_timesheet_calendar_event
+#: model:ir.model.fields,field_description:hr_timesheet_calendar_event.field_account_analytic_line_calendar_event_id
 msgid "Calendar Event"
 msgstr "Evento do Calendário"
