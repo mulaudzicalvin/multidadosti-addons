@@ -4,12 +4,12 @@ from odoo.exceptions import UserError
 from odoo import api, fields, models, _
 
 
-class HelpDeskPhoneCall(models.Model):
+class HelpDeskPhoneCallService(models.Model):
 
     _name = 'helpdesk.phonecall.service'
     _rec_name = 'title'
 
-    title = fields.Char(string='Title', compute='get_phonecall_title')
+    title = fields.Char(string='Title', compute='_onchange_title')
 
     description = fields.Text(string='Description')
 
@@ -35,14 +35,18 @@ class HelpDeskPhoneCall(models.Model):
     finish_date_hour = fields.Datetime(string='Finish Date',
                                        readonly=True, )
 
-    project_tag_id = fields.Many2one('project.tags', string='Tags')
+    phonecall_tag_id = fields.Many2one('helpdesk.phonecall.service.tag',
+                                       string='Tags')
 
     state = fields.Selection(string='State', readonly=True,
-                             selection=[('open', 'Open'), ('done', 'Done')],
+                             selection=[
+                                 ('open', 'Open'),
+                                 ('done', 'Done')
+                             ],
                              default='open')
 
-    @api.depends('start_date_hour', 'partner_id.name', 'project_id.name')
-    def get_phonecall_title(self):
+    @api.onchange('start_date_hour', 'partner_id', 'project_id')
+    def _onchange_title(self):
         for rec in self:
             rec.title = ''
             rec.title += rec.start_date_hour if rec.start_date_hour else ''
@@ -50,23 +54,24 @@ class HelpDeskPhoneCall(models.Model):
             rec.title += ', ' + rec.project_id.name if rec.project_id else ''
 
     @api.onchange('partner_id')
-    def on_change_partner_id(self):
+    def _onchange_partner_id(self):
         if not self.partner_id.is_company:
             self.contact_partner_id = self.partner_id
         else:
             self.contact_partner_id = False
 
     @api.multi
-    def finish_phonecall(self):
+    def action_finish_phonecall(self):
         self.ensure_one()
-        if (not self.project_tag_id) or (not self.description):
+        if (not self.phonecall_tag_id) or (not self.description):
             raise UserError(_('Please make sure the marker or '
                               'description fields are filled in.'))
 
         return {
             'type': 'ir.actions.act_window',
-            'res_model': 'wizard.helpdesk.phonecall.confirm',
+            'res_model': 'helpdesk.phonecall.confirm',
             'view_type': 'form',
             'view_mode': 'form',
             'views': [(False, "form")],
-            'target': 'new', }
+            'target': 'new',
+        }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_calendar_event_form" model="ir.ui.view">
+        <field name="name">calendar.event.feedback.view.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook" position="inside">
+                <page string="After Event"
+                      attrs="{'invisible': [('event_state','!=','done')]}">
+                    <group>
+                        <field name="event_feedback"/>
+                        <field name="event_duration"/>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_calendar_event_form_popup" model="ir.ui.view">
+        <field name="name">calendar.event.stage.view.form.popup</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form_popup"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook" position="inside">
+                <page string="After Event" attrs="{'invisible': [('event_state','!=','done')]}">
+                    <group>
+                        <field name="event_feedback"/>
+                        <field name="event_duration"/>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

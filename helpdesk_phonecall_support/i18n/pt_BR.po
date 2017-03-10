@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 19:23+0000\n"
-"PO-Revision-Date: 2017-03-01 16:25-0300\n"
+"POT-Creation-Date: 2017-03-08 13:09+0000\n"
+"PO-Revision-Date: 2017-03-08 10:11-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,17 +18,22 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_wizard_helpdesk_phonecall_service_confirm_form
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_confirm
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_wizard_helpdesk_phonecall_service_confirm_form
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_confirm
 msgid "Close Phonecall"
 msgstr "Encerrar Atendimento"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_wizard_helpdesk_phonecall_service_confirm_form
+#: model:ir.ui.menu,name:helpdesk_phonecall_support.phonecall_service_menu
+msgid "Configuration"
+msgstr "Configuração"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_confirm
 msgid "Confirm Draft PhoneCalls"
 msgstr "Confirmar atendimentos em aberto"
 
@@ -38,41 +43,40 @@ msgid "Contact"
 msgstr "Contato"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_confirm_create_uid
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_create_uid
-#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_wizard_helpdesk_phonecall_confirm_create_uid
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag_create_uid
 msgid "Created by"
 msgstr "Criado por"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_confirm_create_date
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_create_date
-#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_wizard_helpdesk_phonecall_confirm_create_date
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag_create_date
 msgid "Created on"
 msgstr "Criado em"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_description
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_form
 msgid "Description"
 msgstr "Descrição"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_form
-msgid "Description"
-msgstr "Descrição"
-
-#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_confirm_display_name
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_display_name
-#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_wizard_helpdesk_phonecall_confirm_display_name
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag_display_name
 msgid "Display Name"
 msgstr "Nome para Exibição"
 
 #. module: helpdesk_phonecall_support
 #: selection:helpdesk.phonecall.service,state:0
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
 msgid "Done"
 msgstr "Encerrado"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
 msgid "Filters"
 msgstr "Filtros"
 
@@ -82,55 +86,68 @@ msgid "Finish Date"
 msgstr "Data Final"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_form
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_form
 msgid "Finish call"
-msgstr "Encerrar ligação"
+msgstr "Encerrar atendimento"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
 msgid "Group By"
 msgstr "Agrupar Por"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.ui.menu,name:helpdesk_phonecall_support.menuitem_phonecall_service
+#: model:ir.ui.menu,name:helpdesk_phonecall_support.phonecall_service_sub_menu
 msgid "Helpdesk PhoneCall"
 msgstr "Atendimento"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_confirm_id
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_id
-#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_wizard_helpdesk_phonecall_confirm_id
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag_id
 msgid "ID"
 msgstr "ID"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_confirm___last_update
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service___last_update
-#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_wizard_helpdesk_phonecall_confirm___last_update
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag___last_update
 msgid "Last Modified on"
 msgstr "Última Modificação em"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_confirm_write_uid
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag_write_uid
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_write_uid
-#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_wizard_helpdesk_phonecall_confirm_write_uid
 msgid "Last Updated by"
 msgstr "Última atualização por"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_confirm_write_date
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag_write_date
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_write_date
-#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_wizard_helpdesk_phonecall_confirm_write_date
 msgid "Last Updated on"
 msgstr "Última atualização em"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_wizard_helpdesk_phonecall_service_confirm_form
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag_name
+msgid "Name"
+msgstr "Nome"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_confirm
 msgid ""
 "Once open phonecalls are confirmed, you will not be able\n"
-"                    to modify them and a entry in timesheet will be create.\n"
+"                    to modify them.\n"
 "                    Do you want to close this phonecall?"
-msgstr "Uma vez que o atendimento estiver encerrado, não será mais possível modificá-lo e será gerado uma lançamento de horas referente a este atendimento. Você deseja encerrar este atendimento?"
+msgstr ""
+"Depois que as chamadas abertas são confirmadas,\n"
+" você não poderá modificá-las. \n"
+"Deseja encerrar este atendimento?"
 
 #. module: helpdesk_phonecall_support
 #: selection:helpdesk.phonecall.service,state:0
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
 msgid "Open"
 msgstr "Aberto"
 
@@ -140,7 +157,7 @@ msgid "Partner"
 msgstr "Parceiro"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
 msgid "Partners"
 msgstr "Parceiros"
 
@@ -150,13 +167,13 @@ msgid "PhoneCall Service"
 msgstr "Atendimento"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_form
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_tree
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_form
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_tree
 msgid "Phonecall"
-msgstr "Phonecall"
+msgstr "Atendimento"
 
 #. module: helpdesk_phonecall_support
-#: code:addons/helpdesk_phonecall_support/models/helpdesk_phonecall_service.py:66
+#: code:addons/helpdesk_phonecall_support/models/helpdesk_phonecall_service.py:67
 #, python-format
 msgid "Please make sure the marker or description fields are filled in."
 msgstr "Certifique-se de que os campos 'Marcadores' e 'Descrição' estão preenchidos."
@@ -167,10 +184,10 @@ msgid "Project"
 msgstr "Projeto"
 
 #. module: helpdesk_phonecall_support
-#: code:addons/helpdesk_phonecall_support/wizard/wizard_helpdesk_phonecall_confirm.py:24
+#: code:addons/helpdesk_phonecall_support/wizards/helpdesk_phonecall_confirm.py:19
 #, python-format
 msgid "Selected phonecalls cannot be confirmed as they are not in 'Open' state."
-msgstr "Atendimentos não podem ser encerrados se eles não estiverem 'Em Aberto'."
+msgstr "Os atendimentos selecionados não podem ser confirmados porque não estão no estado 'Aberto'."
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_start_date_hour
@@ -183,7 +200,9 @@ msgid "State"
 msgstr "Estado"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_project_tag_id
+#: model:ir.actions.act_window,name:helpdesk_phonecall_support.action_helpdesk_phonecall_service_tag
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_phonecall_tag_id
+#: model:ir.ui.menu,name:helpdesk_phonecall_support.phonecall_service_configuration_sub_menu
 msgid "Tags"
 msgstr "Marcadores"
 
@@ -198,16 +217,27 @@ msgid "User"
 msgstr "Usuário"
 
 #. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_search
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
 msgid "Users"
 msgstr "Usuários"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.model,name:helpdesk_phonecall_support.model_helpdesk_phonecall_confirm
 #: model:ir.model,name:helpdesk_phonecall_support.model_wizard_helpdesk_phonecall_confirm
 msgid "Wizard to confirm phonecall"
 msgstr "Wizard para encerramento de atendimentos"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.model,name:helpdesk_phonecall_support.model_heldpesk_phonecall_service_tag
+msgid "heldpesk.phonecall.service.tag"
+msgstr "heldpesk.phonecall.service.tag"
+
+#. module: helpdesk_phonecall_support
 #: model:ir.model,name:helpdesk_phonecall_support.model_helpdesk_phonecall_service
 msgid "helpdesk.phonecall.service"
 msgstr "helpdesk.phonecall.service"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model,name:helpdesk_phonecall_support.model_helpdesk_phonecall_service_tag
+msgid "helpdesk.phonecall.service.tag"
+msgstr "helpdesk.phonecall.service.tag"
