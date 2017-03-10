@@ -15,7 +15,7 @@ class CalendarEventFinish(models.TransientModel):
 
         ce = self.calendar_event_id
 
-        if ce.project_id and ce.meeting_state == 'done':
+        if ce.project_id and ce.event_state == 'done':
             dt = datetime.datetime.strptime(ce.start_datetime,
                                             '%Y-%m-%d %H:%M:%S')
 
@@ -28,11 +28,11 @@ class CalendarEventFinish(models.TransientModel):
             for user in users:
 
                 values = {
-                    'name': ce.meeting_feedback,
+                    'name': ce.event_feedback,
                     'date': dt.date(),
                     'user_id': user.id,
                     'project_id': ce.project_id.id,
-                    'unit_amount': ce.meeting_duration,
+                    'unit_amount': ce.event_duration,
                     'calendar_event_id': ce.id,
                 }
 
