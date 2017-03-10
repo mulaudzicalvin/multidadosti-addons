@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2016 MultidadosTI (http://www.multidadosti.com.br)
-# @author Michell Stuttgart <michellstut@gmail.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
     'name': 'General Calendar',
@@ -19,13 +16,13 @@
     'depends': [
         'base',
         'calendar',
+        'web_calendar_read_only',
     ],
     'data': [
         'security/ir.model.access.csv',
-        'security/general_calendar_security.xml',
-        'views/web_calendar_templates.xml',
-        'views/general_calendar_view.xml',
-        'views/general_calendar_line_view.xml',
+        'security/general_calendar.xml',
+        'views/general_calendar.xml',
+        'views/general_calendar_line.xml',
     ],
     'installable': True,
 }

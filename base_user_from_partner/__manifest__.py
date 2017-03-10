@@ -17,7 +17,7 @@
         'base',
     ],
     'data': [
-        'views/res_user_view.xml',
+        'views/res_users.xml',
     ],
     'installable': True,
 }
