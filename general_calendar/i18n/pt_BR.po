@@ -1,19 +1,26 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* general_calendar
+# 	* general_calendar
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-21 00:58+0000\n"
-"PO-Revision-Date: 2016-12-21 00:58+0000\n"
+"POT-Creation-Date: 2017-03-06 19:46+0000\n"
+"PO-Revision-Date: 2017-03-06 16:54-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: general_calendar
+#: model:ir.ui.menu,name:general_calendar.general_calendar_line_menu
+msgid "Add Calendars"
+msgstr "Adicionar Calendários"
 
 #. module: general_calendar
 #: model:ir.model.fields,field_description:general_calendar.field_general_calendar_allday
@@ -26,44 +33,12 @@ msgid "All Day field"
 msgstr "Campo dia todo"
 
 #. module: general_calendar
-#. openerp-web
-#: code:addons/general_calendar/static/src/js/web_calendar.js:52
-#, python-format
-msgid "All day"
-msgstr "Dia todo"
-
-#. module: general_calendar
-#. openerp-web
-#: code:addons/general_calendar/static/src/js/web_calendar.js:993
-#, python-format
-msgid "Are you sure you want to delete this record ?"
-msgstr "Tem certeza que deseja excluir este registro ?"
-
-#. module: general_calendar
-#. openerp-web
-#: code:addons/general_calendar/static/src/js/web_calendar.js:98
-#: model:ir.ui.menu,name:general_calendar.general_calendar_sub_menu
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_form
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_tree
-#: model:ir.ui.view,arch_db:general_calendar.view_general_calendar_calendar
-#, python-format
+#: model:ir.ui.menu,name:general_calendar.general_calendar_menu_sub
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_calendar
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_form
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_tree
 msgid "Calendar"
 msgstr "Calendário"
-
-#. module: general_calendar
-#. openerp-web
-#: code:addons/general_calendar/static/src/js/web_calendar.js:123
-#, python-format
-msgid "Calendar view has not defined 'date_start' attribute."
-msgstr "View Calendar não possui atributo 'date_start' definido."
-
-#. module: general_calendar
-#. openerp-web
-#: code:addons/general_calendar/static/src/js/web_calendar.js:938
-#: code:addons/general_calendar/static/src/js/web_calendar.js:939
-#, python-format
-msgid "Close"
-msgstr "Fechar"
 
 #. module: general_calendar
 #: selection:general.calendar.line,description_type:0
@@ -71,13 +46,13 @@ msgid "Code"
 msgstr "Código"
 
 #. module: general_calendar
-#: model:ir.ui.menu,name:general_calendar.general_calendar_configuration_menu
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_line_tree
+#: model:ir.ui.menu,name:general_calendar.general_calendar_menu_configuration
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_line_view_tree
 msgid "Configuration"
 msgstr "Configuração"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_line_form
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_line_view_form
 msgid "Configurator"
 msgstr "Configurator"
 
@@ -92,30 +67,23 @@ msgid "Created on"
 msgstr "Criado em"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Current month"
-msgstr "Mês atual"
+msgstr "Este Mês"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Current week"
-msgstr "Semana atual"
+msgstr "Esta Semana"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Day"
 msgstr "Dia"
 
 #. module: general_calendar
-#. openerp-web
-#: code:addons/general_calendar/static/src/js/web_calendar.js:934
-#, python-format
-msgid "Delete"
-msgstr "Excluir"
-
-#. module: general_calendar
 #: model:ir.model.fields,field_description:general_calendar.field_general_calendar_name
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_line_form
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_line_view_form
 msgid "Description"
 msgstr "Descrição"
 
@@ -137,24 +105,24 @@ msgid "Display Name"
 msgstr "Nome para Exibição"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Display all elements in the current month."
-msgstr "Exibe todos os elementos deste no mês."
+msgstr "Exibir todos os elementos deste mês."
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Display all elements in the current week."
-msgstr "Exibe todos os elementos desta semana."
+msgstr "Exibir todos os elementos desta semana."
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Display all elements in the next month."
-msgstr "Exibe todos os elementos do próximo mês."
+msgstr "Exibir todos os elementos do próximo mês."
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Display all elements in the next week."
-msgstr "Exibe todos os elementos da próxima semana."
+msgstr "Exibir todos os elementos da próxima semana."
 
 #. module: general_calendar
 #: model:ir.model.fields,field_description:general_calendar.field_general_calendar_line_domain
@@ -162,19 +130,12 @@ msgid "Domain"
 msgstr "Domínio"
 
 #. module: general_calendar
-#. openerp-web
-#: code:addons/general_calendar/static/src/js/web_calendar.js:929
-#, python-format
-msgid "Edit"
-msgstr "Editar"
-
-#. module: general_calendar
 #: model:ir.model.fields,field_description:general_calendar.field_general_calendar_line_date_stop_field_id
 msgid "End date field"
-msgstr "Campo Data Final
+msgstr "Campo Data Fina"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Extended Filters..."
 msgstr "Filtros Extendidos..."
 
@@ -184,47 +145,46 @@ msgid "Field"
 msgstr "Campo"
 
 #. module: general_calendar
-#: model:ir.actions.act_window,name:general_calendar.action_general_calendar
+#: model:ir.actions.act_window,name:general_calendar.general_calendar_action
 #: model:ir.ui.menu,name:general_calendar.general_calendar_menu
-#: model:ir.ui.menu,name:general_calendar.general_calendar_root
+#: model:ir.ui.menu,name:general_calendar.general_calendar_menu_root
 msgid "General Calendar"
 msgstr "Calendário Geral"
 
 #. module: general_calendar
-#: model:ir.actions.act_window,name:general_calendar.action_general_calendar_line
-#: model:ir.ui.menu,name:general_calendar.general_calendar_line_menu
-msgid "Add Calendars"
-msgstr "Adicionar Calendários"
+#: model:ir.actions.act_window,name:general_calendar.general_calendar_line_action
+msgid "General Calendar Line"
+msgstr "General Calendar Line"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Group By"
 msgstr "Agrupar Por"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Group all elements in the same day."
-msgstr "Agrupar todos os elementos de um mesmo dia."
+msgstr "Agrupar todos os elementos no mesmo dia."
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Group all elements in the same month."
-msgstr "Agrupar todos os elementos de um mesmo mês."
+msgstr "Agrupar todos os elementos no mesmo mẽs."
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Group all elements in the same quarter."
-msgstr "Agrupar todos os elementos de um mesmo trimestre."
+msgstr "Agrupar todos os elementos no mesmo trimestre."
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Group all elements in the same week."
-msgstr "Agrupar todos os elementos de uma mesma semana."
+msgstr "Agrupar todos os elementos na mesma semana."
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Group all elements in the same year."
-msgstr "Agrupar todos os elementos de um mesmo ano."
+msgstr "Agrupar todos os elementos no mesmo ano."
 
 #. module: general_calendar
 #: model:ir.model.fields,field_description:general_calendar.field_general_calendar_id
@@ -255,37 +215,37 @@ msgid "Model"
 msgstr "Modelo"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Month"
 msgstr "Mês"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "My Items"
-msgstr "Meus Itens"
+msgstr "Meus Items"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Next month"
 msgstr "Próximo Mês"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Next week"
-msgstr "Próxima Semana"
+msgstr "Próxima semana"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Others"
 msgstr "Outros"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Period"
 msgstr "Período"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Quarter"
 msgstr "Trimestre"
 
@@ -297,12 +257,12 @@ msgstr "Recurso"
 #. module: general_calendar
 #: model:ir.model,name:general_calendar.model_general_calendar
 msgid "SQL view to union calendars of Odoo"
-msgstr "SQL view to union calendars of Odoo"
+msgstr "View Sql para unir calendários do Odoo"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Search Calendar"
-msgstr "Buscar no Calendário"
+msgstr "Procurar no Calendário"
 
 #. module: general_calendar
 #: model:ir.model.fields,field_description:general_calendar.field_general_calendar_date_start
@@ -321,17 +281,19 @@ msgstr "Data final"
 
 #. module: general_calendar
 #: model:ir.model.fields,help:general_calendar.field_general_calendar_line_description_code
-msgid "Use '${o}' para referenciar\n"
-"                                   objeto relacionado.\n"
+msgid ""
+"Use '${o}' to refer\n"
+"                                   to the involved object.\n"
 "                                   E.g.: '${o.project_id.name}'"
-msgstr "Use '${o}' para referenciar\n"
-"                                   objeto relacionado.\n"
+msgstr ""
+"Use '${o}' to refer\n"
+"                                   to the involved object.\n"
 "                                   E.g.: '${o.project_id.name}'"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_line_form
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_line_view_form
 msgid "Use '${o}' to refer to the involved object. E.g.: '${o.project_id.name}'"
-msgstr "Use '${o}' para referenciar a um objeto relacionado. E.g.: '${o.project_id.name}'"
+msgstr "Use '${o}' to refer to the involved object. E.g.: '${o.project_id.name}'"
 
 #. module: general_calendar
 #: model:ir.model.fields,field_description:general_calendar.field_general_calendar_user_id
@@ -344,19 +306,12 @@ msgid "User field"
 msgstr "Campo usuário"
 
 #. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Week"
 msgstr "Semana"
 
 #. module: general_calendar
-#. openerp-web
-#: code:addons/general_calendar/static/src/js/web_calendar.js:312
-#, python-format
-msgid "Week "
-msgstr "Semana "
-
-#. module: general_calendar
-#: model:ir.ui.view,arch_db:general_calendar.general_calendar_search
+#: model:ir.ui.view,arch_db:general_calendar.general_calendar_view_search
 msgid "Year"
 msgstr "Ano"
 
@@ -364,4 +319,3 @@ msgstr "Ano"
 #: model:ir.model,name:general_calendar.model_general_calendar_line
 msgid "general.calendar.line"
 msgstr "general.calendar.line"
-

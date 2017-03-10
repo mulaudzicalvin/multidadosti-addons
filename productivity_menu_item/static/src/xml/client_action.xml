@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<templates>
-    <t t-extend="mail.client_action">
-        <t t-jquery=".o_mail_request_permission" t-operation="replace">
-            <span class="o_mail_request_permission">ERP@VMulti necessita de sua permissão para <a href="#"> habilitar notificações na área de trabalho</a>.</span>
-        </t>
-    </t>
-</templates>
