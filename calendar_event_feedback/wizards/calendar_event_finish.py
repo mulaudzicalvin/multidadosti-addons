@@ -6,8 +6,8 @@ from odoo import api, fields, models
 class CalendarEventFinish(models.TransientModel):
     _inherit = 'calendar.event.finish'
 
-    event_feedback = fields.Text(string='Event Feedback', required=True)
-    event_duration = fields.Float(string='Event Duration', required=True)
+    event_feedback = fields.Text(string='Event Feedback')
+    event_duration = fields.Float(string='Event Duration')
 
     @api.multi
     def finish_calendar_event(self):
