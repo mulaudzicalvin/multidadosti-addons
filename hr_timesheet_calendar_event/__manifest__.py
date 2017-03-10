@@ -13,8 +13,7 @@
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'calendar',
-        'hr_timesheet',
+        'calendar_event_timesheet',
     ],
     'data': [
         'views/account_analytic_line.xml',
