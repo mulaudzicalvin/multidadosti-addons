@@ -121,7 +121,6 @@
         <field name="inherit_id"
                ref="calendar.view_calendar_event_form_popup"/>
         <field name="arch" type="xml">
-
             <xpath expr="//field[@name='alarm_ids']" position="after">
                 <field name="event_state"/>
             </xpath>
@@ -131,12 +130,11 @@
                         attrs="{'invisible': [('description','=', False),('event_state','!=','done')]}">
                     <page string="Description"
                           attrs="{'invisible': [('description','=', False)]}">
-                        <field name="description"
-                               style="margin: 10px 0px 10px 0px;"/>
+                        <field name="description" style="margin: 10px 0px 10px 0px;"/>
                     </page>
                 </notebook>
             </xpath>
         </field>
     </record>
-    
+
 </odoo>

@@ -18,6 +18,8 @@ class CalendarEvent(models.Model):
                                    copy=False,
                                    default='open')
 
+    start_datetime = fields.Datetime(track_visibility='onchange')
+
     @api.multi
     def action_finish_calendar_event(self):
         self.ensure_one()
