@@ -7,27 +7,6 @@
         <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
 
-            <!--<xpath expr="//button[@name='toggle_active']" position="before">-->
-                <!--<button name="action_make_meeting" class="oe_stat_button"-->
-                        <!--icon="fa-calendar" type="object"-->
-                        <!--help="Schedule meeting with this applicant">-->
-                    <!--<field name="meeting_number" widget="statinfo" string="Meetings"/>-->
-                <!--</button>-->
-            <!--</xpath>-->
-
-            <!--<xpath expr="//field[@name='partner_id']" position="replace"/>-->
-            <!--<xpath expr="//field[@name='user_id']" position="replace"/>-->
-
-            <!--<xpath expr="//field[@name='displayed_image_id']" position="replace"/>-->
-            <!--<xpath expr="//field[@name='project_id']" position="after">-->
-                <!--<field name="partner_id" readonly="1"/>-->
-                <!--<field name="user_id"/>-->
-            <!--</xpath>-->
-
-            <!--<xpath expr="//field[@name='partner_id']" position="attributes">-->
-                <!--<attribute name="related">project_id.partner_id</attribute>-->
-            <!--</xpath>-->
-
             <xpath expr="//notebook" position="inside">
                 <page string="Calendar Events">
                     <field name="calendar_event_ids">
@@ -41,53 +20,7 @@
                 </page>
             </xpath>
 
-            <!--<xpath expr="//field[@name='timesheet_ids']" position="replace">-->
-                <!--&lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
-                <!--<field name="timesheet_ids" context="{'default_project_id': project_id,'default_project_task_type_id': stage_id}">-->
-                    <!--<tree editable="bottom" string="Timesheet Activities" default_order="date">-->
-                        <!--<field name="date"/>-->
-                        <!--<field name="user_id" required="1"/>-->
-                        <!--<field name="name"/>-->
-                        <!--<field name="project_task_type_id" readonly="1"/>-->
-                        <!--<field name="unit_amount" string="Duration" widget="float_time"/>-->
-                        <!--<field name="calendar_event_id"/>-->
-                        <!--&lt;!&ndash;<field name="to_invoice"/>&ndash;&gt;-->
-                        <!--<field name="project_id" invisible="1"/>-->
-                    <!--</tree>-->
-                <!--</field>-->
-            <!--</xpath>-->
-
         </field>
     </record>
-
-    <!--<record id="multi_task_type_edit" model="ir.ui.view">-->
-        <!--<field name="name">multi.project.task.type.form</field>-->
-        <!--<field name="model">project.task.type</field>-->
-        <!--<field name="inherit_id" ref="project.task_type_edit"/>-->
-        <!--<field name="arch" type="xml">-->
-            <!--<xpath expr="//field[@name='fold']" position="after">-->
-                <!--<field name="is_default"/>-->
-            <!--</xpath>-->
-        <!--</field>-->
-    <!--</record>-->
-
-    <!--<record id="multi_task_type_tree" model="ir.ui.view">-->
-        <!--<field name="name">project.task.type.tree</field>-->
-        <!--<field name="model">project.task.type</field>-->
-        <!--<field name="inherit_id" ref="project.task_type_tree"/>-->
-        <!--<field name="arch" type="xml">-->
-            <!--<xpath expr="//field[@name='fold']" position="after">-->
-                <!--<field name="is_default"/>-->
-            <!--</xpath>-->
-        <!--</field>-->
-    <!--</record>-->
-
-    <!--<record id="project.action_view_task" model="ir.actions.act_window">-->
-        <!--<field name="name">Tasks</field>-->
-        <!--<field name="res_model">project.task</field>-->
-        <!--<field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>-->
-        <!--<field name="context">{'search_default_Stage': 1}</field>-->
-        <!--<field name="search_view_id" ref="project.view_task_search_form"/>-->
-    <!--</record>-->
 
 </odoo>
