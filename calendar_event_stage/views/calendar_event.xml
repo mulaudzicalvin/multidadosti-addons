@@ -30,7 +30,8 @@
                             confirm="Are you sure you want cancel this event?"
                             attrs="{'invisible': [('event_state','in',['done', 'cancel'])]}"/>
 
-                    <button name="action_open_calendar_event" string='Return to Open'
+                    <button name="action_open_calendar_event"
+                            string='Return to Open'
                             type="object"
                             attrs="{'invisible': [('event_state','in',['open', 'done'])]}"/>
 
@@ -135,8 +136,7 @@
                     </page>
                 </notebook>
             </xpath>
-
         </field>
     </record>
-
+    
 </odoo>
