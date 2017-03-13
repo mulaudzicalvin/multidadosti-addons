@@ -43,10 +43,10 @@ class CalendarEvent(models.Model):
             self.event_state = 'open'
 
     @api.multi
-    def unlink(self):
+    def unlink(self, can_be_deleted=True):
         for record in self:
             if record.event_state in ('done', 'cancel'):
                 raise UserError(_('You cannot delete a calendar event which'
                                   ' is done or cancelled.'))
-        return super(CalendarEvent, self).unlink()
 
+        return super(CalendarEvent, self).unlink(can_be_deleted=can_be_deleted)
