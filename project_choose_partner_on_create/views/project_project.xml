@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                <field name="partner_id" domain="['|',('costumer','=',True),('supplier','=',True)]" required="True"/>
+                <field name="partner_id" domain="['|',('customer','=',True),('supplier','=',True)]" required="True"/>
             </xpath>
         </field>
     </record>

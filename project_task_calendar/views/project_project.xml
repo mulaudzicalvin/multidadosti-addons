@@ -136,6 +136,7 @@
                     <!--</div>-->
                 <!--</div>-->
             <!--</xpath>-->
+<<<<<<< HEAD:project_task_calendar/views/view_project_project.xml
 
             <!--<xpath expr="//div[contains(@class, 'o_project_kanban_box')]/div[last()]"-->
                    <!--position="before">-->
@@ -156,24 +157,6 @@
                 <!--</div>-->
             <!--</xpath>-->
 
-            <!--&lt;!&ndash;<xpath expr="//div[contains(@class, 'o_project_kanban_box')]/div[last()]"&ndash;&gt;-->
-                   <!--&lt;!&ndash;position="before">&ndash;&gt;-->
-
-                <!--&lt;!&ndash;<div attrs="{'invisible': [('allow_meetings', '=', False)]}"&ndash;&gt;-->
-                     <!--&lt;!&ndash;class="o_project_kanban_box">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<a name="%(act_calendar_event_meetings_line_by_project)d"&ndash;&gt;-->
-                       <!--&lt;!&ndash;type="action">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<span class="o_value">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<t t-esc="record.meeting_number.value"/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</span>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<a t-if="record.allow_meetings.raw_value"&ndash;&gt;-->
-                       <!--&lt;!&ndash;name="%(act_calendar_event_meetings_line_by_project)d"&ndash;&gt;-->
-                       <!--&lt;!&ndash;type="action">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<span class="o_label">Meetings</span>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</xpath>&ndash;&gt;-->
         <!--</field>-->
     <!--</record>-->
 

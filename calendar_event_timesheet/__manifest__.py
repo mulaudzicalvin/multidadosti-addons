@@ -19,6 +19,7 @@
         'hr_timesheet_project_task_stage',
     ],
     'data': [
+        'views/account_analytic_line.xml',
         'wizards/calendar_event_finish.xml',
     ],
     'installable': True,
