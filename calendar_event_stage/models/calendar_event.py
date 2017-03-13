@@ -9,6 +9,7 @@ class CalendarEvent(models.Model):
     _inherit = 'calendar.event'
 
     event_state = fields.Selection(string='Event State',
+                                   track_visibility='onchange',
                                    selection=[
                                        ('open', 'Open'),
                                        ('done', 'Done'),
@@ -48,3 +49,4 @@ class CalendarEvent(models.Model):
                 raise UserError(_('You cannot delete a calendar event which'
                                   ' is done or cancelled.'))
         return super(CalendarEvent, self).unlink()
+
