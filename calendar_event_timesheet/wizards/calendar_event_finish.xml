@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="calendar_event_finish_view_form" model="ir.ui.view">
+        <field name="name">calendar.event.finish.timesheet.view.form</field>
+        <field name="model">calendar.event.finish</field>
+        <field name="inherit_id" ref="calendar_event_feedback.calendar_event_finish_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//p" position="replace">
+                <p><b>
+                    Once open calendar events are confirmed, you will not be able
+                    to modify them and create a entry in timesheet.
+                    Do you want to close this event?
+                    </b>
+                </p>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
