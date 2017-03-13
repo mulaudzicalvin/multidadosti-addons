@@ -8,7 +8,6 @@
         <field name="arch" type="xml">
             <xpath expr="//div[contains(@class, 'o_project_kanban_box')]/div[last()]"
                    position="before">
-                <field name="allow_meetings" invisible="1"/>
                 <field name="event_number" invisible="1"/>
                 <div attrs="{'invisible': [('allow_meetings', '=', False)]}"
                      class="o_project_kanban_box">
@@ -18,8 +17,7 @@
                             <t t-esc="record.event_number.value"/>
                         </span>
                     </a>
-                    <a t-if="record.allow_meetings.raw_value"
-                       name="%(act_calendar_event_meetings_line_by_project)d"
+                    <a name="%(act_calendar_event_meetings_line_by_project)d"
                        type="action">
                         <span class="o_label">Meetings</span>
                     </a>
