@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from odoo import api, fields, models
+from odoo.tools.translate import _
 from odoo.exceptions import UserError
-from odoo import api, fields, models, _
 
 
 class HelpDeskPhoneCallService(models.Model):
@@ -9,7 +10,7 @@ class HelpDeskPhoneCallService(models.Model):
     _name = 'helpdesk.phonecall.service'
     _rec_name = 'title'
 
-    title = fields.Char(string='Title', compute='_onchange_title')
+    title = fields.Char(string='Title', required=True)
 
     description = fields.Text(string='Description')
 
