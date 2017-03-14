@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='sequence']" position="after">
+            <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="project_tags_ids" widget="many2many_tags" options="{'no_create': True}"/>
             </xpath>
 
