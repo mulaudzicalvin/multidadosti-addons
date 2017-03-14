@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 13:09+0000\n"
-"PO-Revision-Date: 2017-03-14 10:11-0300\n"
+"POT-Creation-Date: 2017-03-14 20:08+0000\n"
+"PO-Revision-Date: 2017-03-14 17:08-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Criado em"
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_team_display_name
 msgid "Display Name"
-msgstr "Nome para Exibição"
+msgstr "Nome para Mostrar"
 
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_team_id
@@ -55,7 +55,7 @@ msgstr "Última atualização em"
 #. module: project_team
 #: model:ir.ui.view,arch_db:project_team.edit_project
 msgid "Lead"
-msgstr "Equipe"
+msgstr "Líder"
 
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_team_name
@@ -75,9 +75,14 @@ msgid "Project Team"
 msgstr "Equipe do Projeto"
 
 #. module: project_team
+#: model:ir.model,name:project_team.model_crm_team
+msgid "Sales Team"
+msgstr "Equipe de Vendas"
+
+#. module: project_team
 #: model:ir.ui.view,arch_db:project_team.edit_project
 msgid "Team"
-msgstr "Membros da Equipe"
+msgstr "Equipe"
 
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_team_lead_id
