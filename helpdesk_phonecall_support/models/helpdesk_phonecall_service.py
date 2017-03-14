@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from odoo import api, fields, models
+from odoo.tools.translate import _
 from odoo.exceptions import UserError
-from odoo import api, fields, models, _
 
 
 class HelpDeskPhoneCallService(models.Model):
