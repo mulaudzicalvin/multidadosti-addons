@@ -10,7 +10,7 @@ class HelpDeskPhoneCallService(models.Model):
     _name = 'helpdesk.phonecall.service'
     _rec_name = 'title'
 
-    title = fields.Char(string='Title', required=True)
+    title = fields.Char(string='Title')
 
     description = fields.Text(string='Description')
 
