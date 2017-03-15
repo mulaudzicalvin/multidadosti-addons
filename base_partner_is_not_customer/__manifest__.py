@@ -20,4 +20,6 @@
         'views/res_partner.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }
