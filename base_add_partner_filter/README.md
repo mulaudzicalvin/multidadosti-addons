@@ -1,6 +1,6 @@
 ## Base - Add Partner Filter
 
-This Module adds a partner filter.
+This module adds new filter in res_partner views.
 
 ### Bug Tracker
 
