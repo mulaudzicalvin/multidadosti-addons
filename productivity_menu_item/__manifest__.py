@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Group calendar, productivity(post-it) and messages',
     'category': 'Web',
-    'sequence': 99,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
@@ -21,4 +20,6 @@
         'note_filter_my_items',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

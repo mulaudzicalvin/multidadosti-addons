@@ -20,4 +20,6 @@
         'views/general_calendar_menu.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }
