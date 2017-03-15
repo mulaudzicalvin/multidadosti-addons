@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Custom Dialogs and Warnings',
     'category': 'Web',
-    'sequence': 99,
     'description': """
         This module customize appearance of dialogs and warnings
     """,
@@ -23,4 +22,6 @@
         'templates/web.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

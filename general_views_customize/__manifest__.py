@@ -26,4 +26,6 @@
         'res_config_settings_enterprise_remove',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

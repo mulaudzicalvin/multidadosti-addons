@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Disable tag creation option in tag_ids field at form view',
     'category': 'Web',
-    'sequence': 99,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
@@ -19,4 +18,6 @@
         'views/note_note.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

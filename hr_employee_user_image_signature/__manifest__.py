@@ -19,4 +19,6 @@
         'views/hr_employee.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

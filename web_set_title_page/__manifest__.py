@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Set Title Page',
     'category': 'Web',
-    'sequence': 99,
     'description': """
         This module sets title page
     """,
@@ -24,4 +23,6 @@
         'templates/web.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }
