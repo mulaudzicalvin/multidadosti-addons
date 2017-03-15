@@ -9,9 +9,9 @@
             <xpath expr="//header/button[not(@attrs)]" position="attributes">
                 <attribute name="attrs">{'invisible': [('send_quotation','!=',True)]}</attribute>
             </xpath>
-            <fiels name="tag_ids" position="after">
+            <field name="tag_ids" position="after">
                 <field name="send_quotation" invisible="True"/>
-            </fiels>
+            </field>
         </field>
     </record>
 
