@@ -6,7 +6,7 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor"/>
         <field name="arch" type="xml">
-            <xpath expr="//button[name='323']" position="attributes">
+            <xpath expr="//header/button[not(@attrs)]" position="attributes">
                 <attribute name="attrs">{'invisible': [('send_quotation','!=',True)]}</attribute>
             </xpath>
             <fiels name="tag_ids" position="after">
