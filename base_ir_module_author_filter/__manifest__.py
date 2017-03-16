@@ -7,7 +7,7 @@
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
     'summary': """Author Filter to Module """,
-    'category': 'Project',
+    'category': 'Others',
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
@@ -16,7 +16,8 @@
     ],
     'data': [
         'views/base_ir_module_author_filter.xml',
-
     ],
     'installable': True,
+    'auto_install': True,
+    'application': False,
 }
