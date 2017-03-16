@@ -14,7 +14,8 @@ class CalendarEvent(models.Model):
         return company_id.partner_id
 
     partner_id = fields.Many2one(comodel_name='res.partner',
-                                 string='Partner')
+                                 string='Partner',
+                                 track_visibility='onchange')
 
     company_partner_id = fields.Many2one(comodel_name='res.partner',
                                          default=get_company_partner)
