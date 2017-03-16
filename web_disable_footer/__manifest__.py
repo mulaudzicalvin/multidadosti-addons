@@ -19,4 +19,6 @@
         'templates/br_base.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

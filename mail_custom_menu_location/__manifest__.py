@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Customizes menus from mail',
     'category': 'Web',
-    'sequence': 99,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
@@ -20,4 +19,6 @@
         'views/mail_menu.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

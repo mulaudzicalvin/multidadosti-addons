@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Customize menus from note',
     'category': 'Web',
-    'sequence': 99,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
@@ -20,4 +19,6 @@
         'views/note_menu.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

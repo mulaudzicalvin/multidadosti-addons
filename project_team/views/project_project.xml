@@ -9,10 +9,10 @@
 
             <xpath expr="//notebook" position="inside">
                 <page string="Team">
-                    <group string="Lead" name="lead">
+                    <group string="Team" name="team">
                         <field name="project_team_id" nolabel="1" style="width: 50%"/>
                     </group>
-                    <group string="Team" name="team" colspan="8">
+                    <group string="Team Members" name="team_members" colspan="8">
                         <field colspan="4" name="team_member_ids" widget="many2many_kanban" nolabel="1">
                             <kanban quick_create="false" create="false" delete="false">
                                 <field name="name"/>

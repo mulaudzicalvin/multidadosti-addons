@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Custom Login Page',
     'category': 'Web',
-    'sequence': 99,
     'description': """
         This module customize login page appearance
     """,
@@ -24,4 +23,6 @@
         'templates/web.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

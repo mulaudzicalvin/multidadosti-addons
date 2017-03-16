@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 14:41+0000\n"
-"PO-Revision-Date: 2017-03-02 11:42-0300\n"
+"POT-Creation-Date: 2017-03-15 00:55+0000\n"
+"PO-Revision-Date: 2017-03-14 21:55-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Criado em"
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_team_display_name
 msgid "Display Name"
-msgstr "Nome para Exibição"
+msgstr "Nome para Mostrar"
 
 #. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_team_id
@@ -53,11 +53,6 @@ msgid "Last Updated on"
 msgstr "Última atualização em"
 
 #. module: project_team
-#: model:ir.ui.view,arch_db:project_team.view_project_project_team_form
-msgid "Lead"
-msgstr "Líder"
-
-#. module: project_team
 #: model:ir.model.fields,field_description:project_team.field_project_team_name
 msgid "Name"
 msgstr "Nome"
@@ -70,12 +65,17 @@ msgstr "Projeto"
 #. module: project_team
 #: model:ir.model,name:project_team.model_project_team
 #: model:ir.model.fields,field_description:project_team.field_project_project_project_team_id
-#: model:ir.ui.view,arch_db:project_team.view_project_team_form
+#: model:ir.ui.view,arch_db:project_team.project_team_view_form
 msgid "Project Team"
 msgstr "Equipe do Projeto"
 
 #. module: project_team
-#: model:ir.ui.view,arch_db:project_team.view_project_project_team_form
+#: model:ir.model.fields,field_description:project_team.field_project_project_team_member_ids
+msgid "Project Team Members"
+msgstr "Membros da Equipe do Projeto"
+
+#. module: project_team
+#: model:ir.ui.view,arch_db:project_team.edit_project
 msgid "Team"
 msgstr "Equipe"
 
@@ -85,9 +85,9 @@ msgid "Team Lead"
 msgstr "Líder da Equipe"
 
 #. module: project_team
-#: model:ir.model.fields,field_description:project_team.field_project_project_team_member_ids
 #: model:ir.model.fields,field_description:project_team.field_project_team_member_ids
-#: model:ir.ui.view,arch_db:project_team.view_project_team_form
+#: model:ir.ui.view,arch_db:project_team.edit_project
+#: model:ir.ui.view,arch_db:project_team.project_team_view_form
 msgid "Team Members"
 msgstr "Membros da Equipe"
 

@@ -9,8 +9,7 @@
             <xpath expr="//div[contains(@class, 'o_project_kanban_box')]/div[last()]"
                    position="before">
                 <field name="event_number" invisible="1"/>
-                <div attrs="{'invisible': [('allow_meetings', '=', False)]}"
-                     class="o_project_kanban_box">
+                <div class="o_project_kanban_box">
                     <a name="%(act_calendar_event_meetings_line_by_project)d"
                        type="action">
                         <span class="o_value">

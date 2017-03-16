@@ -11,6 +11,6 @@ class ProjectProject(models.Model):
                                       string='Project Team')
 
     team_member_ids = fields.Many2many(comodel_name='res.users',
-                                       string='Team Members',
+                                       string='Project Team Members',
                                        readonly=True,
                                        related='project_team_id.member_ids')

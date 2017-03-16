@@ -6,12 +6,8 @@
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
-    'summary': 'Add Partner Filter',
+    'summary': 'This module adds new filter in partner views',
     'category': 'Web',
-    'sequence': 99,
-    'description': """
-        This module adds new filter in res_partner views
-    """,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
         'Michell Stuttgart <michellstut@gmail.com>',
@@ -23,4 +19,6 @@
         'views/res_partner.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

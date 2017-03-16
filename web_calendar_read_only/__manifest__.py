@@ -20,4 +20,6 @@
         'templates/web_calendar.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }
