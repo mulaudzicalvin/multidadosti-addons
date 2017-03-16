@@ -20,4 +20,6 @@
         'views/res_users.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

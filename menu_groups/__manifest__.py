@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Container of customized menus',
     'category': 'Web',
-    'sequence': 99,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],

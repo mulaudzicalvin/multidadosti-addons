@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Customize Permission Message',
     'category': 'Web',
-    'sequence': 99,
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
@@ -19,4 +18,6 @@
         'static/src/xml/client_action.xml'
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

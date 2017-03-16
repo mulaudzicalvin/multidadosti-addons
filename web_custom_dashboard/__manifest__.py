@@ -8,7 +8,6 @@
     'website': 'www.multidadosti.com.br',
     'summary': 'Custom Dashboard',
     'category': 'Web',
-    'sequence': 99,
     'description': """
         This module customize appearance of dashboard
     """,
@@ -23,4 +22,6 @@
         'static/src/xml/dashboard.xml',
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }
