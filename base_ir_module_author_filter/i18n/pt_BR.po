@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* base_ir_module_author_filter
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-09 20:02+0000\n"
+"PO-Revision-Date: 2017-03-09 20:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_ir_module_author_filter
+#: model:ir.ui.view,arch_db:base_ir_module_author_filter.view_module_filter
+msgid "Author"
+msgstr "Autor"
+
+#. module: base_ir_module_author_filter
+#: model:ir.ui.view,arch_db:base_ir_module_author_filter.view_module_filter
+msgid "MultidadosTI"
+msgstr "MultidadosTI"
+
