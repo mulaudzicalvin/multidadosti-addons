@@ -10,14 +10,12 @@
                    position="before">
                 <field name="event_number" invisible="1"/>
                 <div class="o_project_kanban_box">
-                    <a name="%(act_calendar_event_meetings_line_by_project)d"
-                       type="action">
+                    <a name="action_make_meeting" type="object">
                         <span class="o_value">
                             <t t-esc="record.event_number.value"/>
                         </span>
                     </a>
-                    <a name="%(act_calendar_event_meetings_line_by_project)d"
-                       type="action">
+                    <a name="action_make_meeting" type="object">
                         <span class="o_label">Meetings</span>
                     </a>
                 </div>
