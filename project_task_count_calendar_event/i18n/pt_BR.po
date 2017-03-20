@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-10 14:26+0000\n"
-"PO-Revision-Date: 2017-03-10 11:34-0300\n"
+"POT-Creation-Date: 2017-03-20 12:41+0000\n"
+"PO-Revision-Date: 2017-03-20 09:42-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,25 +23,16 @@ msgid "<span class=\"o_label\">Meetings</span>"
 msgstr "<span class=\"o_label\">Eventos</span>"
 
 #. module: project_task_count_calendar_event
-#: model:ir.actions.act_window,name:project_task_count_calendar_event.act_calendar_event_meetings_line_by_project
-msgid "Activities"
-msgstr "Atividades"
-
-#. module: project_task_count_calendar_event
-#: model:ir.actions.act_window,help:project_task_count_calendar_event.act_calendar_event_meetings_line_by_project
-msgid "Click to record activities."
-msgstr "Clique para registrar as atividades."
-
-#. module: project_task_count_calendar_event
+#: model:ir.ui.view,arch_db:project_task_count_calendar_event.view_project_form
 #: model:ir.ui.view,arch_db:project_task_count_calendar_event.view_task_form2
 msgid "Meetings"
 msgstr "Reuniões"
 
 #. module: project_task_count_calendar_event
-#: model:ir.model.fields,field_description:project_task_count_calendar_event.field_project_project_meeting_number
-#: model:ir.model.fields,field_description:project_task_count_calendar_event.field_project_task_meeting_number
+#: model:ir.model.fields,field_description:project_task_count_calendar_event.field_project_project_event_number
+#: model:ir.model.fields,field_description:project_task_count_calendar_event.field_project_task_event_number
 msgid "Number of Meetings"
-msgstr "Número de Eventos"
+msgstr "Número de reuniões"
 
 #. module: project_task_count_calendar_event
 #: model:ir.model,name:project_task_count_calendar_event.model_project_project
@@ -49,6 +40,7 @@ msgid "Project"
 msgstr "Projeto"
 
 #. module: project_task_count_calendar_event
+#: model:ir.ui.view,arch_db:project_task_count_calendar_event.view_project_form
 #: model:ir.ui.view,arch_db:project_task_count_calendar_event.view_task_form2
 msgid "Schedule meeting with this applicant"
 msgstr "Agendar reuniões com esta aplicação"
@@ -57,14 +49,3 @@ msgstr "Agendar reuniões com esta aplicação"
 #: model:ir.model,name:project_task_count_calendar_event.model_project_task
 msgid "Task"
 msgstr "Tarefa"
-
-#. module: project_task_count_calendar_event
-#: model:ir.actions.act_window,help:project_task_count_calendar_event.act_calendar_event_meetings_line_by_project
-msgid ""
-"You can register and track your calendar events by project\n"
-"                every\n"
-"                day."
-msgstr ""
-"Você pode registrar e seguir seus eventos de calendário por projeto\n"
-"                todo\n"
-"                dia."
