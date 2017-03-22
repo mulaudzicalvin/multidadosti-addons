@@ -18,5 +18,6 @@ class CalendarEvent(models.Model):
     def _compute_record_name(self):
         super(CalendarEvent, self)._compute_record_name()
         for rec in self:
-            rec.project_name = ' * ' + rec.project_id.name if rec.project_id else ''
+            rec.project_name = ' * ' + rec.project_id.name \
+                if rec.project_id else ''
             rec.task_name = ' * ' + rec.task_id.name if rec.task_id else ''

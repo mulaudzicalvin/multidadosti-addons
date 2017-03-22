@@ -25,4 +25,5 @@ class CalendarEvent(models.Model):
     @api.depends('partner_id')
     def _compute_record_name(self):
         for rec in self:
-            rec.partner_name = ' * ' + rec.partner_id.name if rec.partner_id else ''
+            rec.partner_name = ' * ' + rec.partner_id.name \
+                if rec.partner_id else ''
