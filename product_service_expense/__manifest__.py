@@ -6,10 +6,10 @@
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
-    'summary': 'Group calendar, productivity(post-it) and messages',
+    'summary': 'Expense registration to use in contracts.',
     'category': 'Other',
     'contributors': [
-        'Aldo Soares <soares_aldo@hotmail.com>',
+        'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
         'br_account', 'hr_expense'
