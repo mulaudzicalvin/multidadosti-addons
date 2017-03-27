@@ -67,8 +67,6 @@
                 <filter name="task_id" string="Task" domain="[]"
                         context="{'group_by':'task_id'}"/>
             </xpath>
-
-
         </field>
     </record>
 
