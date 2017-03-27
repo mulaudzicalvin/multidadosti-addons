@@ -7,7 +7,7 @@
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
     'summary': 'Expense registration to use in contracts.',
-    'category': 'Other',
+    'category': 'Base',
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
@@ -18,6 +18,6 @@
         'views/product_service_expense.xml',
     ],
     'installable': True,
-    'auto_install': False,
+    'auto_install': True,
     'application': False,
 }
