@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* product_service_expense
+# 	* base_product_type_expense
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-24 14:33+0000\n"
-"PO-Revision-Date: 2017-03-24 11:33-0300\n"
+"POT-Creation-Date: 2017-03-27 14:42+0000\n"
+"PO-Revision-Date: 2017-03-27 11:46-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,17 +17,37 @@ msgstr ""
 "Language: pt_BR\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#. module: product_service_expense
-#: model:ir.ui.view,arch_db:product_service_expense.br_account_product_template_form_view
+#. module: base_product_type_expense
+#: model:ir.ui.view,arch_db:base_product_type_expense.product_template_search_view
+msgid "Can be Debited"
+msgstr "Pode ser Debitado"
+
+#. module: base_product_type_expense
+#: model:ir.model.fields,field_description:base_product_type_expense.field_product_template_debit_ok
+msgid "Can be debited"
+msgstr "Pode ser Debitado"
+
+#. module: base_product_type_expense
+#: model:ir.ui.view,arch_db:base_product_type_expense.br_account_product_template_form_view
 msgid "Cost"
 msgstr "Custo"
 
-#. module: product_service_expense
-#: model:ir.ui.view,arch_db:product_service_expense.br_account_product_template_form_view
+#. module: base_product_type_expense
+#: model:ir.ui.view,arch_db:base_product_type_expense.br_account_product_template_form_view
 msgid "Costs"
 msgstr "Custos"
 
-#. module: product_service_expense
-#: model:ir.model,name:product_service_expense.model_product_template
+#. module: base_product_type_expense
+#: model:ir.ui.view,arch_db:base_product_type_expense.product_template_search_view
+msgid "Expenses"
+msgstr "Despesas"
+
+#. module: base_product_type_expense
+#: model:ir.model,name:base_product_type_expense.model_product_template
 msgid "Product Template"
 msgstr "Modelo de Produto"
+
+#. module: base_product_type_expense
+#: model:ir.model.fields,help:base_product_type_expense.field_product_template_debit_ok
+msgid "Specify whether the product can be debited in an HR expense."
+msgstr "Especifica se um produto pode ser lançado em uma nota de débito"
