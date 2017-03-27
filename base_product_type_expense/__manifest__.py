@@ -12,7 +12,7 @@
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
-        'product',
+        'hr_expense',
         'br_account',
     ],
     'data': [
