@@ -1,4 +1,4 @@
-## Product Service Expense
+## Product Type Expense
 
 This module refers to the expense register for use in service contracts.
 
