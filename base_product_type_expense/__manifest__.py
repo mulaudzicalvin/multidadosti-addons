@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Service Expense',
+    'name': 'Base Product Type Expense',
     'license': 'LGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
@@ -12,10 +12,11 @@
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
-        'br_account', 'hr_expense'
+        'product',
+        'br_account',
     ],
     'data': [
-        'views/product_service_expense.xml',
+        'views/product_template.xml',
     ],
     'installable': True,
     'auto_install': True,
