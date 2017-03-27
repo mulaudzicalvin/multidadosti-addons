@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="br_account_product_template_form_view" model="ir.ui.view">
+        <field name="name">product.service.expense.form.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id"
+               ref="br_account.br_account_product_template_form_view"/>
+        <field name="arch" type="xml">
+
+            <!--Invisibles Pages-->
+            <xpath expr="//page[@name='sales']" position="attributes">
+                <attribute name="attrs">{'invisible':[('type','=','expense')]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='invoicing']" position="attributes">
+                <attribute name="attrs">{'invisible':[('type','=','expense')]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='notes']" position="attributes">
+                <attribute name="attrs">{'invisible':[('type','=','expense')]}
+                </attribute>
+            </xpath>
+
+            <!--Invisible div Options-->
+            <xpath expr="//div[@name='options']" position="attributes">
+                <attribute name="attrs">{'invisible':'1'}
+                </attribute>
+            </xpath>
+
+            <!--Attrs Fields-->
+            <xpath expr="//field[@name='fiscal_classification_id']"
+                   position="attributes">
+                <attribute name="attrs">{'required':[('type','!=','expense')]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//group[@name='group_general']" position="after">
+                <group>
+                    <field name="sale_ok"/>
+                    <field name="purchase_ok"/>
+                    <field name="debit_ok"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='list_price']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible':[('type','=','expense')]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//group[@name='group_standard_price']" position="attributes">
+                <attribute name="attrs">{'invisible':'1'}
+                </attribute>
+            </xpath>
+
+            <field name="standard_price" position="replace"/>
+
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Costs">
+                    <group>
+                        <field name="standard_price" string="Cost"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_view_form_procurement_button"
+            model="ir.ui.view">
+        <field name="name">product.template.procurement.stat.button</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id"
+               ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='%(procurement.procurement_order_action_product_template_stat)d']" position="attributes">
+                <attribute name="attrs">{'invisible':[('type','!=','consu')]}
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view"
+            id="product_template_form_view_sale_order_button">
+        <field name="name">product.template.sale.order.button</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id"
+               ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_sales']"
+                   position="attributes">
+                <attribute name="attrs">
+                    {'invisible':[('type','=','expense')]}
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="name">product.template.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+
+            <filter name="consumable" position="after">
+                <filter string="Expenses" name="expense" domain="[('type','=','expense')]"/>
+            </filter>
+
+            <filter name="filter_to_purchase" position="after">
+                <filter string="Can be Debited" name="filter_to_expense" domain="[('debit_ok', '=', 1)]"/>
+            </filter>
+
+        </field>
+    </record>
+
+</odoo>
