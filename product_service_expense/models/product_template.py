@@ -7,9 +7,9 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     type = fields.Selection(selection_add=[('expense', 'Expense')])
-    can_be_expensed = fields.Boolean(help="Specify whether the product can be "
-                                          "selected in an HR expense.",
-                                     string="Can be Expensed")
+    can_be_expensed = fields.Boolean(string="Can be Expensed",
+                                     help="Specify whether the product can be "
+                                     "selected in an HR expense.")
 
     @api.onchange('type')
     def _onchange_type(self):
@@ -19,5 +19,5 @@ class ProductTemplate(models.Model):
             self.purchase_ok = False
         else:
             self.can_be_expensed = False
-            self.sale_ok = True
-            self.purchase_ok = True
+            self.sale_ok = False
+            self.purchase_ok = False
