@@ -8,10 +8,13 @@
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='timesheet_ids']" position="replace">
-                <field name="timesheet_ids" context="{'default_project_id': project_id,'default_project_task_type_id': stage_id}">
+                <field name="timesheet_ids" context="{'default_project_id': project_id,'default_project_task_type_id': stage_id,
+                'default_partner_id': partner_id, 'default_company_id': company_id}">
                     <tree editable="bottom" string="Timesheet Activities" default_order="date">
                         <field name="project_id" invisible="1"/>
                         <field name="date"/>
+                        <field name="partner_id"/>
+                        <field name="company_id"/>
                         <field name="user_id" readonly="1"/>
                         <field name="name"/>
                         <field name="project_task_type_id" readonly="1"/>
