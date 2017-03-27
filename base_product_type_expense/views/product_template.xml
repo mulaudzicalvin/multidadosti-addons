@@ -45,15 +45,13 @@
                 </group>
             </xpath>
 
-            <xpath expr="//field[@name='list_price']"
-                   position="attributes">
+            <xpath expr="//field[@name='list_price']" position="attributes">
                 <attribute name="attrs">
                     {'invisible':[('type','=','expense')]}
                 </attribute>
             </xpath>
 
-            <xpath expr="//group[@name='group_standard_price']"
-                   position="attributes">
+            <xpath expr="//group[@name='group_standard_price']" position="attributes">
                 <attribute name="attrs">{'invisible':'1'}
                 </attribute>
             </xpath>
@@ -77,8 +75,7 @@
         <field name="inherit_id"
                ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//button[@name='%(procurement.procurement_order_action_product_template_stat)d']"
-                   position="attributes">
+            <xpath expr="//button[@name='%(procurement.procurement_order_action_product_template_stat)d']" position="attributes">
                 <attribute name="attrs">{'invisible':[('type','!=','consu')]}
                 </attribute>
             </xpath>
