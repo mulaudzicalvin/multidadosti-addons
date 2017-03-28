@@ -9,4 +9,4 @@ class AccountFinancialOperation(models.Model):
 
     description = fields.Char(string='Description')
 
-    active = fields.Boolean(string='Active')
+    active = fields.Boolean(string='Active', default=True)
