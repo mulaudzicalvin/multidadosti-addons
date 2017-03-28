@@ -18,7 +18,8 @@
     ],
     'data': [
         'data/account_financial_operation.xml',
-        'data/account_title_type.xml'
+        'data/account_title_type.xml',
+        'views/account_move_line.xml',
     ],
     'installable': True,
     'auto_install': False,
