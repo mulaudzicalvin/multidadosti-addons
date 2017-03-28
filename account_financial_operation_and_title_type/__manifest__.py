@@ -16,7 +16,10 @@
     'depends': [
         'br_account_payment',
     ],
-    'data': [],
+    'data': [
+        'data/account_financial_operation.xml',
+        'data/account_title_type.xml'
+    ],
     'installable': True,
     'auto_install': False,
     'application': False,
