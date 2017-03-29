@@ -7,8 +7,8 @@
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
-    'category': 'Others',
-    'summary': """Module to create web.base.url.freeze parameter.""",
+    'category': 'Tools',
+    'summary': """Module to create web.base.url.freeze system parameter.""",
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
