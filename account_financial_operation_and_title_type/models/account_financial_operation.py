@@ -7,6 +7,6 @@ class AccountFinancialOperation(models.Model):
 
     _name = 'account.financial.operation'
 
-    description = fields.Char(string='Description')
+    name = fields.Char(string='Description')
 
     active = fields.Boolean(string='Active', default=True)

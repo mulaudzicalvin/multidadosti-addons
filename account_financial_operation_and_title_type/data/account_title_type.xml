@@ -4,37 +4,37 @@
 
         <record id="account_title_type_1" model="account.title.type">
             <field name="initials">CH</field>
-            <field name="description">Cheque</field>
+            <field name="name">Cheque</field>
         </record>
 
         <record id="account_title_type_2" model="account.title.type">
             <field name="initials">DEP</field>
-            <field name="description">Depósito</field>
+            <field name="name">Depósito</field>
         </record>
 
         <record id="account_title_type_3" model="account.title.type">
             <field name="initials">DIN</field>
-            <field name="description">Dinheiro</field>
+            <field name="name">Dinheiro</field>
         </record>
 
         <record id="account_title_type_4" model="account.title.type">
             <field name="initials">BL</field>
-            <field name="description">Boleto</field>
+            <field name="name">Boleto</field>
         </record>
 
         <record id="account_title_type_5" model="account.title.type">
             <field name="initials">OC</field>
-            <field name="description">Ordem de Cobrança</field>
+            <field name="name">Ordem de Cobrança</field>
         </record>
 
         <record id="account_title_type_6" model="account.title.type">
             <field name="initials">DP</field>
-            <field name="description">Duplicata</field>
+            <field name="name">Duplicata</field>
         </record>
 
         <record id="account_title_type_7" model="account.title.type">
             <field name="initials">NP</field>
-            <field name="description">Nota Promissória</field>
+            <field name="name">Nota Promissória</field>
         </record>
 
     </data>

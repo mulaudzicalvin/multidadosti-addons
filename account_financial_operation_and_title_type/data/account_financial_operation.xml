@@ -3,43 +3,43 @@
     <data noupdate="0">
 
         <record id="account_financial_operation_1" model="account.financial.operation">
-            <field name="description">Cheque</field>
+            <field name="name">Cheque</field>
         </record>
 
         <record id="account_financial_operation_2" model="account.financial.operation">
-            <field name="description">Depósito</field>
+            <field name="name">Depósito</field>
         </record>
 
         <record id="account_financial_operation_3" model="account.financial.operation">
-            <field name="description">Dinheiro</field>
+            <field name="name">Dinheiro</field>
         </record>
 
         <record id="account_financial_operation_4" model="account.financial.operation">
-            <field name="description">Boleto</field>
+            <field name="name">Boleto</field>
         </record>
 
         <record id="account_financial_operation_5" model="account.financial.operation">
-            <field name="description">Ordem de Cobrança</field>
+            <field name="name">Ordem de Cobrança</field>
         </record>
 
         <record id="account_financial_operation_6" model="account.financial.operation">
-            <field name="description">Cobrança Simples</field>
+            <field name="name">Cobrança Simples</field>
         </record>
 
         <record id="account_financial_operation_7" model="account.financial.operation">
-            <field name="description">Cobrança Registrada</field>
+            <field name="name">Cobrança Registrada</field>
         </record>
 
         <record id="account_financial_operation_8" model="account.financial.operation">
-            <field name="description">Carteira</field>
+            <field name="name">Carteira</field>
         </record>
 
         <record id="account_financial_operation_9" model="account.financial.operation">
-            <field name="description">Duplicata</field>
+            <field name="name">Duplicata</field>
         </record>
 
         <record id="account_financial_operation_10" model="account.financial.operation">
-            <field name="description">Nota Promissória</field>
+            <field name="name">Nota Promissória</field>
         </record>
 
     </data>
