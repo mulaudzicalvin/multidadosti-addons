@@ -1,7 +1,8 @@
 ## Account - New fields: Financial Operation and Title Type
 
 This Module adds new fields: Financial Operations and Title
-     Type in account.move.line model.
+     Type in account.move.line model, and reformats the 
+     account.move.line view.
 
 ### Bug Tracker
 

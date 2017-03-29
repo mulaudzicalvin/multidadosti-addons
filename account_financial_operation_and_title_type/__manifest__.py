@@ -9,12 +9,14 @@
     'license': 'LGPL-3',
     'category': 'Account',
     'summary': """This Module adds new fields: Financial Operations and Title
-     Type in account.move.line model""",
+     Type in account.move.line model, and reformats the account.move.line
+     view""",
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
     ],
     'depends': [
         'br_account_payment',
+        'br_boleto',
     ],
     'data': [
         'data/account_financial_operation.xml',
