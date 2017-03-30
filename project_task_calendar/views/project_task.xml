@@ -12,8 +12,10 @@
                     <field name="calendar_event_ids">
                         <tree>
                             <field name="name"/>
+                            <field name="partner_ids"/>
                             <field name="start_datetime"/>
                             <field name="stop_datetime"/>
+                            <field name="event_state"/>
                             <field name="state" invisible="1"/>
                         </tree>
                     </field>
