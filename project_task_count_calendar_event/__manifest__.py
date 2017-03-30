@@ -17,7 +17,6 @@
         'project_task_calendar',
     ],
     'data': [
-        'views/calendar_event.xml',
         'views/project_project.xml',
         'views/project_task.xml',
     ],
