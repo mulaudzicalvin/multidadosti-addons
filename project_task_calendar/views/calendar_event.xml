@@ -20,7 +20,8 @@
         <field name="arch" type="xml">
 
             <xpath expr="//notebook" position="inside">
-                <page string="Project" attrs="{'invisible': [('partner_id', '=', False)]}">
+                <page string="Project"
+                      attrs="{'invisible': [('partner_id', '=', False)]}">
                     <group>
                         <field name="project_id" attrs="{'required': [('partner_id', '!=', False)]}"
                                options="{'no_create': True}"
@@ -38,7 +39,8 @@
     <record id="view_calendar_event_form_popup" model="ir.ui.view">
         <field name="name">project.task.calendar.project.view.popup</field>
         <field name="model">calendar.event</field>
-        <field name="inherit_id" ref="calendar.view_calendar_event_form_popup"/>
+        <field name="inherit_id"
+               ref="calendar.view_calendar_event_form_popup"/>
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='location']" position="before">
@@ -66,6 +68,21 @@
             <xpath expr="//field[@name='name']" position="after">
                 <filter name="task_id" string="Task" domain="[]"
                         context="{'group_by':'task_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_calendar" model="ir.ui.view">
+        <field name="name">project.task.calendar.calendar.view.calendar</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar_event_partner.view_calendar_event_calendar"/>
+        <field name="arch" type="xml">
+            <xpath expr="//calendar" position="attributes">
+                <attribute name="display">[name] [partner_name] [project_name] [task_name]</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_ids']" position="after">
+                <field name="project_name"/>
+                <field name="task_name"/>
             </xpath>
         </field>
     </record>
