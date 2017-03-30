@@ -4,18 +4,29 @@
     <record id="view_task_form2_inherited" model="ir.ui.view">
         <field name="name">hr.timesheet.project.task.stage.view.form</field>
         <field name="model">project.task</field>
-        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+        <field name="inherit_id"
+               ref="sale_timesheet.view_sale_service_inherit_form2"/>
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='timesheet_ids']" position="replace">
-                <field name="timesheet_ids" context="{'default_project_id': project_id,'default_project_task_type_id': stage_id}">
-                    <tree editable="bottom" string="Timesheet Activities" default_order="date">
+                <field name="timesheet_ids"
+                       context="{
+                       'default_project_id': project_id,
+                       'default_project_task_type_id': stage_id,
+                       'default_partner_id': partner_id,
+                       'default_company_id': partner_id.company_id,
+                       }">
+                    <tree editable="bottom" string="Timesheet Activities"
+                          default_order="date">
                         <field name="project_id" invisible="1"/>
                         <field name="date"/>
+                        <field name="partner_id"/>
+                        <field name="company_id"/>
                         <field name="user_id" readonly="1"/>
                         <field name="name"/>
                         <field name="project_task_type_id" readonly="1"/>
-                        <field name="unit_amount" string="Duration" widget="float_time"/>
+                        <field name="unit_amount" string="Duration"
+                               widget="float_time"/>
                     </tree>
                 </field>
             </xpath>
