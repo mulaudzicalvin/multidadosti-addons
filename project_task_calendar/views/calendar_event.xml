@@ -23,7 +23,7 @@
                 <page string="Project"
                       attrs="{'invisible': [('partner_id', '=', False)]}">
                     <group>
-                        <field name="project_id"
+                        <field name="project_id" attrs="{'required': [('partner_id', '!=', False)]}"
                                options="{'no_create': True}"
                                domain="[('partner_ids', '=', partner_id)]"/>
                         <field name="task_id"
