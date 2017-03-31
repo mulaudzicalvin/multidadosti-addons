@@ -12,6 +12,7 @@
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
+        'sale',
         'hr_expense',
         'br_account',
     ],
@@ -19,6 +20,6 @@
         'views/product_template.xml',
     ],
     'installable': True,
-    'auto_install': True,
+    'auto_install': False,
     'application': False,
 }
