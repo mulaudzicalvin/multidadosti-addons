@@ -8,33 +8,13 @@
         </record>
 
         <record id="account_title_type_2" model="account.title.type">
-            <field name="initials">DEP</field>
-            <field name="name">Depósito</field>
-        </record>
-
-        <record id="account_title_type_3" model="account.title.type">
-            <field name="initials">DIN</field>
-            <field name="name">Dinheiro</field>
-        </record>
-
-        <record id="account_title_type_4" model="account.title.type">
             <field name="initials">BL</field>
             <field name="name">Boleto</field>
         </record>
 
-        <record id="account_title_type_5" model="account.title.type">
+        <record id="account_title_type_3" model="account.title.type">
             <field name="initials">OC</field>
             <field name="name">Ordem de Cobrança</field>
-        </record>
-
-        <record id="account_title_type_6" model="account.title.type">
-            <field name="initials">DP</field>
-            <field name="name">Duplicata</field>
-        </record>
-
-        <record id="account_title_type_7" model="account.title.type">
-            <field name="initials">NP</field>
-            <field name="name">Nota Promissória</field>
         </record>
 
     </data>
