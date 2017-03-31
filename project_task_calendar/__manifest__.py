@@ -14,6 +14,7 @@
     'depends': [
         'project_related_partners',
         'calendar_event_partner',
+        'calendar_event_stage',
     ],
     'data': [
         'views/calendar_event.xml',

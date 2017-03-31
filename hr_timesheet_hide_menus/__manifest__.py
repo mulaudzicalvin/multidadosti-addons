@@ -1,25 +1,24 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'HR Timesheet Project Task Stage',
+    'name': 'HR Timesheet - Hide Menus',
     'version': '10.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
     'category': 'Timesheets',
-    'summary': 'Use project task stage to filter stages in timesheet',
+    'summary': 'Make some menu items invisible',
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
-        'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'hr_timesheet',
-        'sale_timesheet',
+        'hr_timesheet_attendance',
+        'hr_timesheet_sheet',
     ],
     'data': [
-        'views/account_analytic_line.xml',
-        'views/project_task.xml',
+        'security/hr_timesheet.xml',
+        'views/hr_timesheet.xml',
     ],
     'installable': True,
     'auto_install': False,
