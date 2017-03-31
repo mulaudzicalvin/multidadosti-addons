@@ -10,7 +10,7 @@ class AccountTitleType(models.Model):
 
     initials = fields.Char(string='Initials', size=3)
 
-    name = fields.Char(string='Description')
+    name = fields.Char(string='Name')
 
     minimum_plot_value = fields.Float(string='Minimum Plot Value',
                                       digits=dp.get_precision('Product Price'))

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-29 13:59+0000\n"
-"PO-Revision-Date: 2017-03-29 11:02-0300\n"
+"POT-Creation-Date: 2017-03-31 14:47+0000\n"
+"PO-Revision-Date: 2017-03-31 11:48-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,6 @@ msgstr ""
 #: model:ir.ui.view,arch_db:account_financial_operation_and_title_type.view_move_line_form
 msgid "Accounting"
 msgstr "Contabilidade"
-
-#. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_active
-msgid "Active"
-msgstr "Ativo"
 
 #. module: account_financial_operation_and_title_type
 #: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_allow_cnab_sending
@@ -55,12 +50,6 @@ msgid "Dates"
 msgstr "Datas"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_name
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_name
-msgid "Description"
-msgstr "Descrição"
-
-#. module: account_financial_operation_and_title_type
 #: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_display_name
 #: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_display_name
 msgid "Display Name"
@@ -75,6 +64,12 @@ msgstr "Financeiro"
 #: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_move_line_financial_operation
 msgid "Financial Operation"
 msgstr "Operação Financeira"
+
+#. module: account_financial_operation_and_title_type
+#: model:ir.actions.act_window,name:account_financial_operation_and_title_type.account_financial_operation_action
+#: model:ir.ui.menu,name:account_financial_operation_and_title_type.account_financial_operation_menu
+msgid "Financial Operations"
+msgstr "Operações Financeiras"
 
 #. module: account_financial_operation_and_title_type
 #: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_id
@@ -117,6 +112,12 @@ msgid "Minimum Plot Value"
 msgstr "Valor Mínimo de Parcela"
 
 #. module: account_financial_operation_and_title_type
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_name
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_name
+msgid "Name"
+msgstr "Nome"
+
+#. module: account_financial_operation_and_title_type
 #: model:ir.ui.view,arch_db:account_financial_operation_and_title_type.view_move_line_form
 msgid "Operation"
 msgstr "Operação"
@@ -127,7 +128,9 @@ msgid "States"
 msgstr "Situações"
 
 #. module: account_financial_operation_and_title_type
+#: model:ir.actions.act_window,name:account_financial_operation_and_title_type.account_title_type_action
 #: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_move_line_title_type
+#: model:ir.ui.menu,name:account_financial_operation_and_title_type.account_title_type_menu
 msgid "Title Type"
 msgstr "Tipo de Titulo"
 
