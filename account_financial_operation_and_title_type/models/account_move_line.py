@@ -8,14 +8,11 @@ class AccountMoveLine(models.Model):
 
     _inherit = 'account.move.line'
 
-    financial_operation = fields.Many2one(
-        string='Financial Operation',
-        comodel_name='account.financial.operation')
+    financial_operation_id = fields.Many2one('account.financial.operation',
+                                             string='Financial Operation')
 
-    title_type = fields.Many2one(
-        string='Title Type',
-        comodel_name='account.title.type')
+    title_type_id = fields.Many2one('account.title.type',
+                                    string='Title Type')
 
-    title_value = fields.Float(
-        string='Minimum Plot Value',
-        digits=dp.get_precision('Product Price'))
+    title_value = fields.Float(string='Minimum Plot Value',
+                               digits=dp.get_precision('Product Price'))

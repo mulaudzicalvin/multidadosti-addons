@@ -28,8 +28,8 @@
                 <page string="Financial">
                     <group>
                         <group name="operation" string="Operation">
-                            <field name="financial_operation"/>
-                            <field name="title_type"/>
+                            <field name="financial_operation_id"/>
+                            <field name="title_type_id"/>
                         </group>
                         <group name="billet" string="Billet">
                             <field name="payment_mode_id" />
