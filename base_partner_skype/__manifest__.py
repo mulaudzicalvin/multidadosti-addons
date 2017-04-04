@@ -7,8 +7,8 @@
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
-    'category': 'Extra tools',
-    'summary': 'Sets the default filter in project task module',
+    'category': 'Base',
+    'summary': 'Add skype field in partner view',
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
@@ -16,7 +16,7 @@
         'base',
     ],
     'data': [
-        'views/res_partner_skype.xml',
+        'views/res_partner.xml',
     ],
     'installable': True,
     'auto_install': False,
