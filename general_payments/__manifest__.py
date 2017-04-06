@@ -16,7 +16,6 @@
         'br_account_payment',
     ],
     'data': [
-        'views/account_account.xml',
         'views/account_analytic.xml',
         'views/account_payment.xml',
     ],
