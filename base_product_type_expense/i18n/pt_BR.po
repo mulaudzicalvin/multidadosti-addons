@@ -28,6 +28,11 @@ msgid "Can be debited"
 msgstr "Pode ser Debitado"
 
 #. module: base_product_type_expense
+#: selection:product.template,type:0
+msgid "Expense"
+msgstr "Despesa"
+
+#. module: base_product_type_expense
 #: model:ir.ui.view,arch_db:base_product_type_expense.br_account_product_template_form_view
 msgid "Cost"
 msgstr "Custo"
