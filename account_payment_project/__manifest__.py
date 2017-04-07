@@ -16,6 +16,7 @@
     ],
     'depends': [
         'general_payments',
+        'project_related_partners',
     ],
     'data': [
         'views/account_payment.xml',
