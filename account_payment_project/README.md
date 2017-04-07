@@ -1,4 +1,4 @@
-## Account Payment - Defines a relation between account.payment and project.project
+## Account Payment - Project
 
 This module defines a relation between account.payment and project.project
 

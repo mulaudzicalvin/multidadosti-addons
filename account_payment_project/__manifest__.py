@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Account Payment - Defines a relation between account.payment and '
-            'project.project',
+    'name': 'Account Payment - Project',
     'version': '10.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
