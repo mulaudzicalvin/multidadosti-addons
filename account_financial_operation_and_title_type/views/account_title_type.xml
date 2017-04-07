@@ -13,6 +13,8 @@
                             <field name="initials"/>
                             <field name="minimum_plot_value"/>
                             <field name="allow_cnab_sending"/>
+                            <field name="company_currency_id"
+                                           invisible="1"/>
                         </group>
                     </group>
                 </sheet>
