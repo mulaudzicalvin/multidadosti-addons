@@ -41,6 +41,15 @@ msgid "Analytic Account"
 msgstr "Centro de Custo"
 
 #. module: general_payments
+#: model:ir.ui.view,arch_db:account.view_payment_term_form
+msgid ""
+"The last line's computation type should be \"Balance\" to ensure that the "
+"whole amount will be allocated."
+msgstr ""
+"O Tipo de cálculo da última linha deve ser \"Saldo\" para garantir que "
+"todo o montante seja alocado."
+
+#. module: general_payments
 #: model:ir.model.fields,field_description:general_payments.field_account_account_code_first_digit
 msgid "Code first digit"
 msgstr "Code first digit"
