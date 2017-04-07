@@ -14,7 +14,8 @@
                 </attribute>
             </xpath>
 
-            <xpath expr="//page[@name='invoicing']" position="attributes">
+            <xpath expr="//page/group[@name='accounting']"
+                   position="attributes">
                 <attribute name="attrs">{'invisible':[('type','=','expense')]}
                 </attribute>
             </xpath>
@@ -51,7 +52,8 @@
                 </attribute>
             </xpath>
 
-            <xpath expr="//group[@name='group_standard_price']" position="attributes">
+            <xpath expr="//group[@name='group_standard_price']"
+                   position="attributes">
                 <attribute name="attrs">{'invisible':'1'}
                 </attribute>
             </xpath>
@@ -59,35 +61,62 @@
             <field name="standard_price" position="replace"/>
 
             <xpath expr="//page[@name='general_information']" position="after">
-                <page string="Costs">
+                <page string="Costs" attrs="{'invisible': [('type', '=', 'expense')]}">
                     <group>
                         <field name="standard_price" string="Cost"/>
                     </group>
                 </page>
             </xpath>
+
         </field>
     </record>
 
-    <record id="product_template_view_form_procurement_button"
+    <record id="product_template_form_view_invoice_policy" model="ir.ui.view">
+        <field name="name">product.template.invoice.policy</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id"
+               ref="sale.product_template_form_view_invoice_policy"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='invoicing']/separator"
+                   position="attributes">
+                <attribute name="attrs">{'invisible':[('type','=','expense')]}
+                </attribute>
+            </xpath>
+            <xpath expr="//page[@name='invoicing']/group[last()]"
+                   position="attributes">
+                <attribute name="attrs">{'invisible':[('type','=','expense')]}
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_only_form_view"
             model="ir.ui.view">
         <field name="name">product.template.procurement.stat.button</field>
         <field name="model">product.template</field>
         <field name="inherit_id"
                ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//button[@name='%(procurement.procurement_order_action_product_template_stat)d']" position="attributes">
+            <xpath expr="//button[@name='%(procurement.procurement_order_action_product_template_stat)d']"
+                   position="attributes">
                 <attribute name="attrs">{'invisible':[('type','!=','consu')]}
                 </attribute>
             </xpath>
         </field>
     </record>
 
-    <record id="product_template_form_view_sale_order_button" model="ir.ui.view">
+    <record id="product_template_only_form_view" model="ir.ui.view">
         <field name="name">product.template.sale.order.button</field>
         <field name="model">product.template</field>
         <field name="inherit_id"
                ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="attributes">
+                <attribute name="attrs">{'invisible': [('type', '=', 'expense')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='default_code']" position="attributes">
+                <attribute name="attrs">{'invisible': [('type', '=', 'expense')]}</attribute>
+            </xpath>
             <xpath expr="//button[@name='action_view_sales']"
                    position="attributes">
                 <attribute name="attrs">
@@ -105,11 +134,13 @@
         <field name="arch" type="xml">
 
             <filter name="consumable" position="after">
-                <filter string="Expenses" name="expense" domain="[('type','=','expense')]"/>
+                <filter string="Expenses" name="expense"
+                        domain="[('type','=','expense')]"/>
             </filter>
 
             <filter name="filter_to_purchase" position="after">
-                <filter string="Can be Debited" name="filter_to_expense" domain="[('can_be_expensed', '=', 1)]"/>
+                <filter string="Can be Debited" name="filter_to_expense"
+                        domain="[('can_be_expensed', '=', 1)]"/>
             </filter>
 
         </field>
