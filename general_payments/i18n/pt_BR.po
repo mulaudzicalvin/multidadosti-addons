@@ -38,7 +38,7 @@ msgstr "Conta para o tipo de pagamento 'Enviar Dinheiro' deve começar com o dí
 #. module: general_payments
 #: model:ir.model.fields,field_description:general_payments.field_account_payment_analytic_account_id
 msgid "Analytic Account"
-msgstr "Centro de Custo"
+msgstr "Conta Analítica"
 
 #. module: general_payments
 #: model:ir.model.fields,field_description:general_payments.field_account_account_code_first_digit
