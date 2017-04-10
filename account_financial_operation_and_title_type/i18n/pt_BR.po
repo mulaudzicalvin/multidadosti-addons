@@ -23,7 +23,7 @@ msgid "Accounting"
 msgstr "Contabilidade"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_allow_cnab_sending
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id_allow_cnab_sending
 msgid "Allow CNAB Sending"
 msgstr "Permitir envio CNAB"
 
@@ -33,14 +33,14 @@ msgid "Billet"
 msgstr "Boletos"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_create_uid
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_create_uid
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_id_create_uid
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id_create_uid
 msgid "Created by"
 msgstr "Criado por"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_create_date
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_create_date
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_id_create_date
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id_create_date
 msgid "Created on"
 msgstr "Criado em"
 
@@ -50,8 +50,8 @@ msgid "Dates"
 msgstr "Datas"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_display_name
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_display_name
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_id_display_name
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id_display_name
 msgid "Display Name"
 msgstr "Nome para Exibição"
 
@@ -61,7 +61,7 @@ msgid "Financial"
 msgstr "Financeiro"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_move_line_financial_operation
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_move_line_financial_operation_id
 msgid "Financial Operation"
 msgstr "Operação Financeira"
 
@@ -78,7 +78,7 @@ msgid "ID"
 msgstr "ID"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_initials
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id_initials
 msgid "Initials"
 msgstr "Sigla"
 
@@ -88,32 +88,32 @@ msgid "Journal Item"
 msgstr "Item de Diário"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation___last_update
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type___last_update
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_id___last_update
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id___last_update
 msgid "Last Modified on"
 msgstr "Última Modificação em"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_write_uid
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_write_uid
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_id_write_uid
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id_write_uid
 msgid "Last Updated by"
 msgstr "Última atualização por"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_write_date
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_write_date
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_id_write_date
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id_write_date
 msgid "Last Updated on"
 msgstr "Última atualização em"
 
 #. module: account_financial_operation_and_title_type
 #: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_move_line_title_value
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_minimum_plot_value
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id_minimum_plot_value
 msgid "Minimum Plot Value"
 msgstr "Valor Mínimo de Parcela"
 
 #. module: account_financial_operation_and_title_type
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_name
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_name
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_financial_operation_id_name
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_title_type_id_name
 msgid "Name"
 msgstr "Nome"
 
@@ -129,7 +129,7 @@ msgstr "Situações"
 
 #. module: account_financial_operation_and_title_type
 #: model:ir.actions.act_window,name:account_financial_operation_and_title_type.account_title_type_action
-#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_move_line_title_type
+#: model:ir.model.fields,field_description:account_financial_operation_and_title_type.field_account_move_line_title_type_id
 #: model:ir.ui.menu,name:account_financial_operation_and_title_type.account_title_type_menu
 msgid "Title Type"
 msgstr "Tipo de Titulo"
