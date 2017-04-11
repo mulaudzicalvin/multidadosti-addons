@@ -14,7 +14,7 @@
                        'default_project_id': project_id,
                        'default_project_task_type_id': stage_id,
                        'default_partner_id': partner_id,
-                       'default_company_id': partner_id.company_id,
+                       'default_company_id': company_id,
                        }">
                     <tree editable="bottom" string="Timesheet Activities"
                           default_order="date">
