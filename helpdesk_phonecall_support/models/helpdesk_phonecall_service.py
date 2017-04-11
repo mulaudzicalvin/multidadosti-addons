@@ -39,6 +39,8 @@ class HelpDeskPhoneCallService(models.Model):
     phonecall_tag_id = fields.Many2one('helpdesk.phonecall.service.tag',
                                        string='Tags')
 
+    external_code = fields.Char(string='External Code')
+
     state = fields.Selection(string='State', readonly=True,
                              selection=[
                                  ('open', 'Open'),

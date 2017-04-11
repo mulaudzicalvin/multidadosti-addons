@@ -184,6 +184,11 @@ msgid "Project"
 msgstr "Projeto"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_external_code
+msgid "External Code"
+msgstr "Código Externo"
+
+#. module: helpdesk_phonecall_support
 #: code:addons/helpdesk_phonecall_support/wizards/helpdesk_phonecall_confirm.py:19
 #, python-format
 msgid "Selected phonecalls cannot be confirmed as they are not in 'Open' state."
