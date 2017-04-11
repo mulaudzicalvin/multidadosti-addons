@@ -37,6 +37,7 @@
                         </group>
                         <group>
                             <field name="finish_date_hour"/>
+                            <field name="external_code"/>
                             <field name="phonecall_tag_id"
                                    attrs="{'readonly':[('state','=','done')]}"/>
                             <field name="user_id"/>
