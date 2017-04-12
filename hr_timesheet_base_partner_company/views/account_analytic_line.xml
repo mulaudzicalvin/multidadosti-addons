@@ -7,10 +7,14 @@
         <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='user_id']" position="before">
+            <field name="user_id" position="before">
                 <field name="partner_id"/>
                 <field name="company_id"/>
-            </xpath>
+            </field>
+
+             <field name="unit_amount" position="after">
+                <field name="helpdesk_id" invisible="1"/>
+            </field>
 
         </field>
     </record>

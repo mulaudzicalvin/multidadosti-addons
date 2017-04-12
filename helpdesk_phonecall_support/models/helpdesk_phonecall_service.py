@@ -41,6 +41,14 @@ class HelpDeskPhoneCallService(models.Model):
 
     external_code = fields.Char(string='External Code')
 
+    company_id = fields.Many2one('res.company',
+                                 string='Company',
+                                 readonly=True,
+                                 states={
+                                     'done': [('readonly', False)],
+                                 },
+                                 default=lambda self: self.env.user.company_id)
+
     state = fields.Selection(string='State', readonly=True,
                              selection=[
                                  ('open', 'Open'),

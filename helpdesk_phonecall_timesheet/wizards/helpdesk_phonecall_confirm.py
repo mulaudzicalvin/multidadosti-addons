@@ -35,7 +35,8 @@ class HelpDeskPhoneCallConfirm(models.TransientModel):
                 'date': dt.date(),
                 'user_id': rec.user_id.id,
                 'partner_id': rec.partner_id.id,
-                'company_id': rec.partner_id.company_id.id,
+                'helpdesk_id': rec.id,
+                'company_id': rec.company_id.id,
                 'project_id': rec.project_id.id,
                 'unit_amount': hours_diff_decimal,
             }
