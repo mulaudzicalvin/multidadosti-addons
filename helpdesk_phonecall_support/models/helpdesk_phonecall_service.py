@@ -16,6 +16,7 @@ class HelpDeskPhoneCallService(models.Model):
 
     start_date_hour = fields.Datetime(string='Start Date',
                                       readonly=True,
+                                      copy=False,
                                       default=lambda s: fields.Datetime.now())
 
     partner_id = fields.Many2one(string='Partner',
@@ -34,12 +35,13 @@ class HelpDeskPhoneCallService(models.Model):
                               default=lambda self: self._uid)
 
     finish_date_hour = fields.Datetime(string='Finish Date',
+                                       copy=False,
                                        readonly=True, )
 
     phonecall_tag_id = fields.Many2one('helpdesk.phonecall.service.tag',
                                        string='Tags')
 
-    external_code = fields.Char(string='External Code')
+    external_code = fields.Char(string='External Code', copy=False,)
 
     company_id = fields.Many2one('res.company',
                                  string='Company',
@@ -54,6 +56,7 @@ class HelpDeskPhoneCallService(models.Model):
                                  ('open', 'Open'),
                                  ('done', 'Done')
                              ],
+                             copy=False,
                              default='open')
 
     @api.onchange('start_date_hour', 'partner_id', 'project_id')
