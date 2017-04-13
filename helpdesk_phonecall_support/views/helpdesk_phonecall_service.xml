@@ -21,7 +21,7 @@
                             <field name="start_date_hour"/>
 
                             <field name="partner_id"
-                                   domain="[('customer','=',True),('parent_id','=',False)]"
+                                   domain="[('customer','=',True)]"
                                    options="{'no_create':True}"
                                    attrs="{'readonly':[('state','=','done')]}"/>
 

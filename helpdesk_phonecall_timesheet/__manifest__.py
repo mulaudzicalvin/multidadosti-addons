@@ -13,7 +13,7 @@
     ],
     'depends': [
         'helpdesk_phonecall_support',
-        'hr_timesheet',
+        'hr_timesheet_base_partner_company',
     ],
     'data': [
         'wizards/helpdesk_phonecall_confirm.xml',

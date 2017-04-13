@@ -15,6 +15,7 @@
     'depends': [
         'hr_timesheet',
         'sale_timesheet',
+        'helpdesk_phonecall_support',
     ],
     'data': [
         'views/account_analytic_line.xml'
