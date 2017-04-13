@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Uma vez que os atendimentos abertos são confirmados, não será possível \n"
 "                      modificá-los e será criado um lançamento na planilha de horas.\n"
-"                     Deseja fechar este atendimento?"
+"                     Deseja encerrar este atendimento?"
 
 #. module: helpdesk_phonecall_timesheet
 #: model:ir.model,name:helpdesk_phonecall_timesheet.model_helpdesk_phonecall_confirm
