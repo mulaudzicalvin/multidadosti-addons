@@ -7,7 +7,7 @@ class ProjectProject(models.Model):
     _inherit = 'project.project'
 
     bring_default_task_type = fields.Boolean(string='Get default stages',
-                                             deafult=True,
+                                             default=True,
                                              help='Add to this project, '
                                                   'all stage defined like '
                                                   'default')
