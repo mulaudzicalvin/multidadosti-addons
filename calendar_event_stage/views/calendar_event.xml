@@ -35,7 +35,7 @@
                             type="object"
                             attrs="{'invisible': [('event_state','in',['open', 'done'])]}"/>
 
-                    <field name="event_state" widget="statusbar"/>
+                    <field name="event_state" widget="statusbar" statusbar_visible="open"/>
                 </header>
             </xpath>
 
