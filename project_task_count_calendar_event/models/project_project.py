@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models
+from odoo.tools.translate import _
 
 
 class ProjectProject(models.Model):
-
     _inherit = 'project.project'
 
     event_number = fields.Integer(compute='_compute_event_number',
                                   string='Number of Meetings')
+
+    label_tasks = fields.Char(translate=True,
+                              default=lambda self: _("Tasks"),
+                              help="Gives label to tasks on project's kanban "
+                                   "view.")
 
     @api.multi
     def _compute_event_number(self):
