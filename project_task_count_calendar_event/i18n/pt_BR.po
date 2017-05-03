@@ -20,7 +20,7 @@ msgstr ""
 #. module: project_task_count_calendar_event
 #: model:ir.ui.view,arch_db:project_task_count_calendar_event.view_project_kanban
 msgid "<span class=\"o_label\">Meetings</span>"
-msgstr "<span class=\"o_label\">Eventos</span>"
+msgstr "<span class=\"o_label\">Reuniões</span>"
 
 #. module: project_task_count_calendar_event
 #: code:addons/project_task_count_calendar_event/models/project_project.py:19
@@ -43,7 +43,7 @@ msgstr "Reuniões"
 #: model:ir.model.fields,field_description:project_task_count_calendar_event.field_project_project_event_number
 #: model:ir.model.fields,field_description:project_task_count_calendar_event.field_project_task_event_number
 msgid "Number of Meetings"
-msgstr "Número de reuniões"
+msgstr "Número de Reuniões"
 
 #. module: project_task_count_calendar_event
 #: model:ir.model,name:project_task_count_calendar_event.model_project_project
