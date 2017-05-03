@@ -15,6 +15,9 @@ class ProjectProject(models.Model):
                               help="Gives label to tasks on project's kanban "
                                    "view.")
 
+    label_issues = fields.Char(translate=True,
+                               default=lambda self: _("Issues"))
+
     @api.multi
     def _compute_event_number(self):
         for record in self:
