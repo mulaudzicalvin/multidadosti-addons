@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* crm_lead_is_customer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-09 13:52+0000\n"
+"PO-Revision-Date: 2017-05-09 13:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_lead_is_customer
+#: model:ir.model,name:crm_lead_is_customer.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Prospecção/Oportunidade"
+
+#. module: crm
+#: model:ir.ui.menu,name:crm.menu_crm_opportunities
+msgid "My Pipeline"
+msgstr "Propostas"
+
+#. module: crm
+#: model:ir.actions.act_window,name:crm.crm_lead_opportunities_tree_view
+msgid "Your Pipeline"
+msgstr "Suas Propostas"
