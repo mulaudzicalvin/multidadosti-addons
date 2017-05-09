@@ -28,23 +28,95 @@
                 <page string="Financial">
                     <group>
                         <group name="operation" string="Operation">
-                            <field name="financial_operation_id"/>
-                            <field name="title_type_id"/>
+                            <field name="financial_operation_id"
+                                   attrs="{'readonly':[('reconciled','=', True)]}"/>
+                            <field name="title_type_id"
+                                   attrs="{'readonly':[('reconciled','=', True)]}"/>
                         </group>
                         <group name="billet" string="Billet">
-                            <field name="payment_mode_id" />
-                            <field name="nosso_numero" />
+                            <field name="payment_mode_id"
+                                   attrs="{'readonly':[('reconciled','=', True)]}"/>
+                            <field name="nosso_numero"
+                                   attrs="{'readonly':[('reconciled','=', True)]}"/>
                         </group>
                         <group name="dates" string="Dates">
-                            <field name="date_maturity"/>
+                            <field name="date_maturity"
+                                   attrs="{'readonly':[('reconciled','=', True)]}"/>
                         </group>
                         <group name="states" string="States">
-                            <field name="blocked"/>
+                            <field name="blocked"
+                                   attrs="{'readonly':[('reconciled','=', True)]}"/>
                         </group>
                     </group>
                 </page>
             </xpath>
 
+            <field name="account_id" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+            <field name="debit" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+            <field name="credit" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+            <field name="quantity" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+            <field name="move_id" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+             <field name="full_reconcile_id" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+            <field name="name" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+            <field name="ref" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+            <field name="partner_id" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+            <field name="journal_id" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+
+            <field name="date" position="attributes">
+                <attribute name="attrs">
+                    {'readonly': [('reconciled','=',True)]}
+                </attribute>
+            </field>
+            
         </field>
     </record>
 </odoo>
