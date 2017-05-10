@@ -18,14 +18,20 @@ class ProjectProject(models.Model):
     @api.depends('planned_time')
     def _compute_hours_left(self):
 
-        records = self.env['account.analytic.line'].search([
-            ('project_id', '=', self.id)]).mapped('unit_amount')
+        for rec in self:
 
-        total_horas = sum(records)
+            records = self.env['account.analytic.line'].search([
+                ('project_id', '=', rec.id)]).mapped('unit_amount')
 
-        if self.planned_time > 0 and total_horas > 0:
-            self.hours_left = self.planned_time - total_horas
-            self.progress = 100 * (total_horas / self.planned_time)
-        else:
-            self.hours_left = 0
-            self.progress = 0
+            total_horas = sum(records)
+
+            if rec.planned_time > 0 and total_horas > 0:
+                rec.hours_left = rec.planned_time - total_horas
+                rec.progress = 100 * (total_horas / rec.planned_time)
+
+            elif rec.planned_time > 0 and total_horas == 0:
+                rec.hours_left = rec.planned_time
+
+            else:
+                rec.hours_left = 0
+                rec.progress = 0
