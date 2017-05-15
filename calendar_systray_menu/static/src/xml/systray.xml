@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates>
+    <t t-name="calendar_systray_menu.CalendarItem">
+        <li class="o_calendar_navbar_item">
+            <a href="#" title="Calendar">
+                <i class="fa fa-calendar"/>
+            </a>
+        </li>
+    </t>
+</templates>
