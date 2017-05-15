@@ -18,7 +18,7 @@
     'data': [
         'templates/br_base.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }
