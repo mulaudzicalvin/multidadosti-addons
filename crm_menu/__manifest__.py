@@ -13,6 +13,7 @@
     ],
     'depends': [
         'crm',
+        'sales_team',
     ],
     'data': [
         'views/crm_menu.xml'
