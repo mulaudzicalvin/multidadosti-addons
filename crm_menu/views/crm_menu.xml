@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="crm_menu_root" name="CRM" sequence="300"
+              web_icon="crm_menu,static/description/icon.png"/>
+
+    <!--Menu CRM-->
+    <menuitem id="crm_menu_crm" name="CRM"
+              parent="crm_menu_root"/>
+
+    <!--Menu Reports-->
+    <menuitem id="crm_menu_report" name="Reports"
+              parent="crm_menu_root"/>
+
+    <!--Menu Configuration-->
+    <menuitem id="crm_menu_configuration" name="Sale Settings"
+              parent="crm_menu_root"/>
+
+
+    <!--Menu Painel-->
+    <menuitem id="sales_team.menu_sales_team_act"
+              parent="crm_menu_root"/>
+
+    <!--Submenus CRM-->
+    <menuitem id="crm.menu_crm_opportunities"
+              parent="crm_menu_crm"/>
+
+    <menuitem id="crm.crm_lead_menu_activities"
+              parent="crm_menu_crm"/>
+
+    <!--Submenus Reports-->
+    <menuitem id="crm.crm_opportunity_report_menu"
+              parent="crm_menu_report"/>
+
+    <menuitem id="crm.crm_activity_report_menu"
+              parent="crm_menu_report"/>
+
+    <!--Submenus Configuration-->
+    <menuitem id="crm.menu_crm_lead_stage_act"
+              parent="crm_menu_configuration"/>
+
+    <menuitem id="crm.menu_crm_lead_categ"
+              name="Lead Tags"
+              parent="crm_menu_configuration"/>
+
+    <menuitem id="crm.menu_crm_lost_reason"
+              parent="crm_menu_configuration"/>
+
+    <menuitem id="sales_team.sales_team_config"
+              parent="crm_menu_configuration"/>
+
+    <menuitem id="crm.crm_activity_menu"
+              parent="crm_menu_configuration"/>
+
+</odoo>
