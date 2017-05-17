@@ -16,9 +16,10 @@
     ],
     'depends': [
         'crm',
-        'sales_team',
+        'base_add_partner_filter',
     ],
     'data': [
+        'views/res_partner.xml',
         'views/res_config_view.xml',
         'views/crm_menu.xml',
     ],

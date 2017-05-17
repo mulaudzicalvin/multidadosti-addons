@@ -1,33 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <menuitem id="crm_menu_root" name="CRM"
-              sequence="6"
+    <menuitem id="crm_menu_root"
+              name="CRM"
+              sequence="100"
               web_icon="crm_menu,static/description/icon.png"/>
-
-    <!--Menu CRM-->
-    <menuitem id="crm_menu_crm" name="CRM"
-              parent="crm_menu_root"/>
-
-    <!--Menu Reports-->
-    <menuitem id="crm_menu_report" name="Reports"
-              parent="crm_menu_root"/>
-
-    <!--Menu Configuration-->
-    <menuitem id="crm_menu_configuration"
-              name="Settings"
-              sequence="15"
-              parent="crm_menu_root"/>
 
     <!--Menu Painel-->
     <menuitem id="sales_team.menu_sales_team_act"
               parent="crm_menu_root"/>
 
+    <!--Menu CRM-->
+    <menuitem id="crm_menu_crm"
+              name="CRM"
+              groups="sales_team.group_sale_salesman,sales_team.group_sale_manager"
+              parent="crm_menu_root"/>
+
+    <!--Menu Reports-->
+    <menuitem id="crm_menu_report"
+              groups="sales_team.group_sale_manager"
+              name="Reports"
+              parent="crm_menu_root"/>
+
+    <!--Menu Configuration-->
+    <menuitem id="crm_menu_configuration"
+              name="Settings"
+              groups="base.group_system"
+              sequence="15"
+              parent="crm_menu_root"/>
+
     <!--Submenus CRM-->
+    <menuitem id="menu_crm_partners"
+              parent="crm_menu_crm"
+              sequence="1"
+              action="crm_menu.view_res_partner_filter"/>
+
     <menuitem id="crm.menu_crm_opportunities"
+              sequence="2"
               parent="crm_menu_crm"/>
 
     <menuitem id="crm.crm_lead_menu_activities"
+              sequence="3"
+              parent="crm_menu_crm"/>
+
+    <menuitem id="crm_quotation_menu"
+              sequence="4"
+              action="sale.action_quotations"
               parent="crm_menu_crm"/>
 
     <!--Submenus Reports-->
@@ -42,8 +60,7 @@
               name="Settings"
               parent="crm_menu_configuration"
               sequence="1"
-              action="crm_menu.action_crm_config"
-              groups="base.group_system"/>
+              action="crm_menu.action_crm_config"/>
 
     <menuitem id="crm.menu_crm_lead_stage_act"
               sequence="2"
