@@ -32,3 +32,19 @@ msgstr "Relatórios"
 #: model:ir.ui.menu,name:crm_menu.crm_menu_configuration
 msgid "Sale Settings"
 msgstr "Configurações de vendas"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.view_create_opportunity_simplified
+msgid "Opportunity Title"
+msgstr "Nome da Oportunidade"
+
+#. module: crm
+#: model:ir.actions.act_window,name:crm.create_opportunity_simplified
+#: model:ir.ui.view,arch_db:crm.view_create_opportunity_simplified
+msgid "Create an Opportunity"
+msgstr "Criar uma Oportunidade"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.view_create_opportunity_simplified
+msgid "e.g. Customer Deal"
+msgstr "ex. Acordo com o Cliente"
