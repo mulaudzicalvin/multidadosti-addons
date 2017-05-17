@@ -19,7 +19,8 @@
         'sales_team',
     ],
     'data': [
-        'views/crm_menu.xml'
+        'views/res_config_view.xml',
+        'views/crm_menu.xml',
     ],
     'installable': True,
     'auto_install': False,

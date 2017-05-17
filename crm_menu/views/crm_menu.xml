@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <menuitem id="crm_menu_root" name="CRM" sequence="300"
+    <menuitem id="crm_menu_root" name="CRM"
+              sequence="6"
               web_icon="crm_menu,static/description/icon.png"/>
 
     <!--Menu CRM-->
@@ -13,9 +14,10 @@
               parent="crm_menu_root"/>
 
     <!--Menu Configuration-->
-    <menuitem id="crm_menu_configuration" name="Sale Settings"
+    <menuitem id="crm_menu_configuration"
+              name="Settings"
+              sequence="15"
               parent="crm_menu_root"/>
-
 
     <!--Menu Painel-->
     <menuitem id="sales_team.menu_sales_team_act"
@@ -36,10 +38,19 @@
               parent="crm_menu_report"/>
 
     <!--Submenus Configuration-->
+    <menuitem id="menu_crm_general_settings"
+              name="Settings"
+              parent="crm_menu_configuration"
+              sequence="1"
+              action="crm_menu.action_crm_config"
+              groups="base.group_system"/>
+
     <menuitem id="crm.menu_crm_lead_stage_act"
+              sequence="2"
               parent="crm_menu_configuration"/>
 
     <menuitem id="crm.menu_crm_lead_categ"
+              sequence="3"
               name="Lead Tags"
               parent="crm_menu_configuration"/>
 
