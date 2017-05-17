@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 
+
 {
-    'name': 'CRM Menu',
-    'license': 'LGPL-3',
-    'author': 'MultidadosTI',
+    'name': 'CRM Replace Menu',
     'version': '10.0.1.0.0',
+    'author': 'MultidadosTI',
+    'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
-    'summary': 'This module creates the CRM menu',
-    'category': 'Web',
+    'license': 'LGPL-3',
+    'category': 'CRM',
+    'summary': 'This module replace CRM to exclusive menu',
     'contributors': [
+        'Michell Stuttgart <michellstut@gmail.com>',
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
@@ -17,7 +20,8 @@
     ],
     'data': [
         'views/crm_menu.xml'
-
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }
