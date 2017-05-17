@@ -16,6 +16,7 @@
     ],
     'depends': [
         'crm',
+        'sale',
         'base_add_partner_filter',
     ],
     'data': [
