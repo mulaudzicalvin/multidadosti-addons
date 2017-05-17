@@ -48,3 +48,12 @@ msgstr "Criar uma Oportunidade"
 #: model:ir.ui.view,arch_db:crm.view_create_opportunity_simplified
 msgid "e.g. Customer Deal"
 msgstr "ex. Acordo com o Cliente"
+
+#. module: crm
+#. openerp-web
+#: code:addons/crm/static/src/js/tour.js:23
+#, python-format
+msgid ""
+"Click here to <b>create your first opportunity</b> and add it to your "
+"pipeline."
+msgstr "Clique aqui para <b> criar a sua primeira oportunidade </b> e adicione-a ao seu Pipeline"
