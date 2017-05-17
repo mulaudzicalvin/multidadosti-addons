@@ -37,6 +37,11 @@
               sequence="3"
               parent="crm_menu_crm"/>
 
+    <menuitem id="crm_quotation_menu"
+              sequence="4"
+              action="sale.action_quotations"
+              parent="crm_menu_crm"/>
+
     <!--Submenus Reports-->
     <menuitem id="crm.crm_opportunity_report_menu"
               parent="crm_menu_report"/>
