@@ -5,6 +5,10 @@
               sequence="6"
               web_icon="crm_menu,static/description/icon.png"/>
 
+    <!--Menu Painel-->
+    <menuitem id="sales_team.menu_sales_team_act"
+              parent="crm_menu_root"/>
+
     <!--Menu CRM-->
     <menuitem id="crm_menu_crm" name="CRM"
               parent="crm_menu_root"/>
@@ -19,15 +23,18 @@
               sequence="15"
               parent="crm_menu_root"/>
 
-    <!--Menu Painel-->
-    <menuitem id="sales_team.menu_sales_team_act"
-              parent="crm_menu_root"/>
-
     <!--Submenus CRM-->
+    <menuitem id="menu_crm_partners"
+              parent="crm_menu_crm"
+              sequence="1"
+              action="crm_menu.view_res_partner_filter"/>
+
     <menuitem id="crm.menu_crm_opportunities"
+              sequence="2"
               parent="crm_menu_crm"/>
 
     <menuitem id="crm.crm_lead_menu_activities"
+              sequence="3"
               parent="crm_menu_crm"/>
 
     <!--Submenus Reports-->
