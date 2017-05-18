@@ -26,4 +26,20 @@
             </field>
         </field>
     </record>
+
+    <record id="view_crm_case_opportunities_filter" model="ir.ui.view">
+        <field name="name">crm.lead.search.opportunity</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='message_needaction']" position="before" >
+                <filter string="Filed" domain="[('active', '=', False),('stage_id', '=', %(crm.stage_lead4)d)]"/>
+            </xpath>
+
+            <xpath expr="//filter[10]" position="replace">
+                <filter name="opportunity_lost" string="Lost" domain="[('active', '=', False),('stage_id', '!=', %(crm.stage_lead4)d)]"/>
+            </xpath>
+
+        </field>
+    </record>
 </odoo>
