@@ -10,8 +10,7 @@ class ProjectProject(models.Model):
                                 help='Project planned time in hours')
 
     progress = fields.Float(compute='_compute_hours_left',
-                            string='Hours: Planned x Performed in the Task',
-                            group_operator="avg")
+                            string='Performed Hours')
 
     hours_left = fields.Float(compute='_compute_hours_left',
                               string='Hours Left')
@@ -34,5 +33,5 @@ class ProjectProject(models.Model):
                 rec.hours_left = rec.planned_time
 
             else:
-                rec.hours_left = 0
-                rec.progress = 0
+                rec.hours_left = 0.0
+                rec.progress = 0.0
