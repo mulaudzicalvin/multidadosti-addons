@@ -4,7 +4,7 @@
     <menuitem id="account.menu_action_invoice_tree1"
               action="account.action_invoice_tree1"
               parent="sales_team.menu_sales"
-              sequence="1"/>
+              sequence="13"/>
 
     <record id="account.menu_account_customer" model="ir.ui.menu">
         <field name="active" eval="True"/>
@@ -18,12 +18,18 @@
         <field name="active" eval="False"/>
     </record>
 
-    <record id="purchase.menu_product_normal_action_puchased" model="ir.ui.menu">
+    <record id="purchase.menu_product_normal_action_puchased"
+            model="ir.ui.menu">
         <field name="active" eval="False"/>
     </record>
 
-    <record id="account.menu_action_account_payments_receivable" model="ir.ui.menu">
+    <record id="account.menu_action_account_payments_receivable"
+            model="ir.ui.menu">
         <field name="name">Receipts</field>
+    </record>
+
+    <record id="sale.menu_sale_order_upselling" model="ir.ui.menu">
+        <field name="active" eval="False"/>
     </record>
 
 </odoo>

@@ -1,24 +1,25 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Account Invoice in Sales',
+    'name': 'Account Replace Invoice Menu',
     'version': '10.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
     'category': 'Tools',
-    'summary': """Account Invoice in Sales .""",
+    'summary': """Account Replace Invoice Menu.""",
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
+        'purchase',
         'account',
         'sales_team',
-        'purchase',
     ],
     'data': [
-        'views/account_invoice_in_sales.xml'
+        'views/account_replace_invoice_menu.xml',
+        'views/purchase_views.xml',
     ],
     'installable': True,
     'auto_install': False,
