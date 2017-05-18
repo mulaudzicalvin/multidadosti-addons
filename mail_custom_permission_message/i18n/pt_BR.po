@@ -30,3 +30,10 @@ msgstr "ERP@VMulti precisa de sua permissão para"
 #, python-format
 msgid "enable notifications in desktop"
 msgstr "habilitar notificações na área de trabalho"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/tour.js:11
+#, python-format
+msgid "<p>Channels make it easy to organize information across different topics and groups.</p> <p>Try to <b>create your first channel</b> (e.g. sales, marketing, product XYZ, after work party, etc).</p>"
+msgstr "<p>Os canais facilitam a organização de informações em diferentes tópicos e grupos.</p> <p>Tente <b>criar seu primeiro canal</b> (por exemplo, vendas, marketing, produto XYZ, após a festa de trabalho, etc).</p>"
