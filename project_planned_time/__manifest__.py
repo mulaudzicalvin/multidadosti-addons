@@ -15,6 +15,7 @@
     ],
     'depends': [
         'project',
+        'hr_timesheet',
     ],
     'data': [
         'views/project_project.xml',
