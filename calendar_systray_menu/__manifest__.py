@@ -21,7 +21,7 @@
     'data': [
         'views/web_templates.xml',
     ],
-    'qweb':[
+    'qweb': [
         'static/src/xml/systray.xml',
     ],
     'installable': True,
