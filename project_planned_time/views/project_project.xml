@@ -9,6 +9,8 @@
 
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="planned_time" widget="float_time"/>
+                <field name="hours_left" widget="float_time"/>
+                <field name="progress" widget="progressbar"/>
             </xpath>
 
         </field>
