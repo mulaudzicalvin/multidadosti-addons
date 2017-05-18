@@ -6,7 +6,8 @@ from odoo import api, models, fields
 class ProjectProject(models.Model):
     _inherit = 'project.project'
 
-    planned_time = fields.Float(string='Planned Time')
+    planned_time = fields.Float(string='Planned Time',
+                                help='Project planned time in hours')
 
     progress = fields.Float(compute='_compute_hours_left',
                             string='Hours: Planned x Performed in the Task',
