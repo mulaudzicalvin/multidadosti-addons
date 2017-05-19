@@ -33,7 +33,7 @@
     <menuitem id="menu_crm_partners"
               parent="crm_menu_crm"
               sequence="1"
-              action="crm_menu.view_res_partner_filter"/>
+              action="crm_menu.res_partner_action"/>
 
     <menuitem id="crm.menu_crm_opportunities"
               sequence="2"
