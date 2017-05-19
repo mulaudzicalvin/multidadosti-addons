@@ -35,7 +35,8 @@
                             type="object"
                             attrs="{'invisible': [('event_state','in',['open', 'done'])]}"/>
 
-                    <field name="event_state" widget="statusbar" statusbar_visible="open,done"/>
+                    <field name="event_state" widget="statusbar"
+                           statusbar_visible="open,done"/>
                 </header>
             </xpath>
 
@@ -146,12 +147,21 @@
             <xpath expr="//field[@name='name']" position="after">
                 <field name="event_state" string="Event State"/>
             </xpath>
-
             <xpath expr="//field[@name='privacy']" position="after">
                 <filter name="event_state" string="Event State" domain="[]"
                         context="{'group_by':'event_state'}"/>
             </xpath>
+            <xpath expr="//filter[@name='mymeetings']" position="after">
+                <filter name='events_open' string="Open Event"
+                        domain="[('event_state','=','open')]"/>
+                <filter name='events_done' string="Done Event"
+                        domain="[('event_state','=','done')]"/>
+            </xpath>
         </field>
+    </record>
+
+   <record id="calendar.action_calendar_event" model="ir.actions.act_window">
+        <field name="context">{"search_default_events_open":1,"search_default_events_done":1}</field>
     </record>
 
 </odoo>
