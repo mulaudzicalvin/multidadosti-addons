@@ -34,7 +34,8 @@
             <!--Attrs Fields-->
             <xpath expr="//field[@name='fiscal_classification_id']"
                    position="attributes">
-                <attribute name="attrs">{'required':[('type','!=','expense')]}
+                <attribute name="attrs">{'required':[('type','=','product')],
+                    'invisible':[('type','=','service')]}
                 </attribute>
             </xpath>
 
