@@ -35,3 +35,25 @@ msgid ""
 msgstr ""
 "A maioria das proposições de pedidos de compra são criadas automaticamente\n"
 "pelo ERP@Vmulti com base nas necessidades de inventário."
+
+#. module: account
+#: model:ir.ui.menu,name:account.account_account_menu
+#: model:ir.ui.menu,name:account.menu_finance
+#: model:ir.ui.view,arch_db:account.view_partner_property_form
+msgid "Accounting"
+msgstr "Financeiro"
+
+
+#. module: account
+#: model:ir.actions.act_window,name:account.open_account_journal_dashboard_kanban
+msgid "Accounting Dashboard"
+msgstr "Dashboard Financeiro"
+
+#. module: account
+#: model:ir.actions.act_window,help:account.open_account_journal_dashboard_kanban
+msgid ""
+"This is the accounting dashboard. If you have not yet\n"
+"                installed a chart of account, please install one first."
+msgstr ""
+"Este é o dashboard financeiro. Se você ainda não\n"
+"instalou um plano de contas, por favor instale primeiro."
