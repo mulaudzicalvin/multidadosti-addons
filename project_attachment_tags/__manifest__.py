@@ -16,6 +16,7 @@
         'project',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/ir_attachment.xml',
         'views/attachment_category.xml',
         'views/project_project.xml',
