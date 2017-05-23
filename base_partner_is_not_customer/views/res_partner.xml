@@ -26,14 +26,6 @@
                 <attribute name="invisible">1</attribute>
             </field>
 
-            <field name="company_type" position="attributes">
-                <attribute name="default">company</attribute>
-            </field>
-
-            <field name="is_company" position="attributes">
-                <attribute name="default">True</attribute>
-            </field>
-
         </field>
     </record>
 
