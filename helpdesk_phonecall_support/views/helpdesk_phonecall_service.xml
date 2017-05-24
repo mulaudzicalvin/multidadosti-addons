@@ -15,6 +15,14 @@
                             <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
+
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button"
+                                icon="fa-archive" groups="base.group_system, base.group_user">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+
                     <group>
                         <group>
                             <field name="title" invisible="1"/>
@@ -98,6 +106,9 @@
 
                 <filter name="done_filters" string="Done"
                         domain="[('state', '=', 'done')]"/>
+
+                <filter name="to_file_filters" string="To file"
+                        domain="[('active', '=', False)]"/>
 
                 <group string="Group By">
                     <filter name="group_by_partner" string="Partners"

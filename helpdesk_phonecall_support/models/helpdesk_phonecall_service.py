@@ -54,10 +54,13 @@ class HelpDeskPhoneCallService(models.Model):
     state = fields.Selection(string='State', readonly=True,
                              selection=[
                                  ('open', 'Open'),
-                                 ('done', 'Done')
+                                 ('done', 'Done'),
+                                 ('to_file', 'To File')
                              ],
                              copy=False,
                              default='open')
+
+    active = fields.Boolean(default=True)
 
     @api.onchange('start_date_hour', 'partner_id', 'project_id')
     def _onchange_title(self):
