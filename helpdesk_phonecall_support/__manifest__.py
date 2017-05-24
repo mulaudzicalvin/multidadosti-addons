@@ -17,8 +17,8 @@
     ],
     'data': [
         'data/helpdesk_phonecall_service_tag.xml',
-        'security/ir.model.access.csv',
         'security/helpdesk_phonecall_service.xml',
+        'security/ir.model.access.csv',
         'views/helpdesk_phonecall_service.xml',
         'wizards/helpdesk_phonecall_confirm.xml',
     ],
