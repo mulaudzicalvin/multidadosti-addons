@@ -10,6 +10,12 @@ class HelpDeskPhoneCallService(models.Model):
     _name = 'helpdesk.phonecall.service'
     _rec_name = 'title'
 
+    @api.multi
+    @api.depends('state')
+    def _compute_teste(self):
+        self.teste_ex = 1.0 if self.state == 'open' else 0.0
+        self.teste_ex2 = 1.0 if self.state == 'done' else 0.0
+
     title = fields.Char(string='Title')
 
     description = fields.Text(string='Description')
@@ -58,6 +64,11 @@ class HelpDeskPhoneCallService(models.Model):
                              ],
                              copy=False,
                              default='open')
+
+    teste_ex = fields.Float(compute='_compute_teste',
+                            store=True)
+    teste_ex2 = fields.Float(compute='_compute_teste',
+                             store=True)
 
     @api.onchange('start_date_hour', 'partner_id', 'project_id')
     def _onchange_title(self):
