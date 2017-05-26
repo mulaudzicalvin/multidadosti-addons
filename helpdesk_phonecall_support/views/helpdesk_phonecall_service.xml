@@ -217,8 +217,6 @@
             <graph string="Helpdesk" type="bar">
                 <field name="partner_id" type="row"/>
                 <field name="phonecall_tag_id" type="col"/>
-                <field name="teste_ex" type="row"/>
-                <field name="teste_ex2" type="row"/>
             </graph>
         </field>
     </record>
