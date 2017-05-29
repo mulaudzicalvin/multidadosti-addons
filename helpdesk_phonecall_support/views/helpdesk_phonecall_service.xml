@@ -158,10 +158,21 @@
 
     <record id="action_helpdesk_phonecall_service_report_graph_all"
             model="ir.actions.act_window">
-        <field name="name">Reports</field>
+        <field name="name">Graph - Tags vs Users</field>
         <field name="res_model">helpdesk.phonecall.service</field>
         <field name="view_type">form</field>
         <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_helpdesk_phonecall_service_graph"/>
+        <field name="context">{'search_default_current_week': 1}</field>
+    </record>
+
+    <record id="action_helpdesk_phonecall_service_report_graph_all_2"
+            model="ir.actions.act_window">
+        <field name="name">Graph - Partner vs Tags</field>
+        <field name="res_model">helpdesk.phonecall.service</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_helpdesk_phonecall_service_report_graph_all_2"/>
         <field name="context">{'search_default_current_week': 1}</field>
     </record>
 
@@ -169,8 +180,7 @@
               name="Helpdesk PhoneCall"
               action="action_helpdesk_phonecall_service"
               sequence="10"
-              web_icon="helpdesk_phonecall_support,static/description/icon_phone.png"
-    />
+              web_icon="helpdesk_phonecall_support,static/description/icon_phone.png"/>
 
     <menuitem id="phonecall_service_sub_menu" name="Helpdesk PhoneCall"
               sequence="1"
@@ -193,11 +203,17 @@
               parent="phonecall_service_report"
               action="action_helpdesk_phonecall_service_report_all"/>
 
-    <menuitem id="phonecall_service_report_sub_menu_2" name="Graph"
+    <menuitem id="phonecall_service_report_sub_menu_2"
+              name="Graph - Tags vs Users"
               sequence="2"
               parent="phonecall_service_report"
               action="action_helpdesk_phonecall_service_report_graph_all"/>
 
+    <menuitem id="helpdesk_phonecall_service_report_graph_all_2"
+              name="Graph - Partner vs Tags"
+              sequence="3"
+              parent="phonecall_service_report"
+              action="action_helpdesk_phonecall_service_report_graph_all_2"/>
 
     <record id="view_helpdesk_phonecall_service_pivot" model="ir.ui.view">
         <field name="name">helpdesk.phonecall.service.pivot</field>
@@ -215,6 +231,17 @@
         <field name="model">helpdesk.phonecall.service</field>
         <field name="arch" type="xml">
             <graph string="Helpdesk" type="bar">
+                <field name="phonecall_tag_id" type="row"/>
+                <field name="user_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_phonecall_service_report_graph_all_2" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.graph.2</field>
+        <field name="model">helpdesk.phonecall.service</field>
+        <field name="arch" type="xml">
+            <graph string="Helpdesk_2" type="bar">
                 <field name="partner_id" type="row"/>
                 <field name="phonecall_tag_id" type="col"/>
             </graph>
