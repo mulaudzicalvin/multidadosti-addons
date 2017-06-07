@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
 
             <field name="partner_id" position="after">
-                <field name="attachment_category" options="{'no_create': True}"/>
+                <field name="attachment_category_id" options="{'no_create': True}"/>
             </field>
 
         </field>
