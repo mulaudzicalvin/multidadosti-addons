@@ -8,11 +8,7 @@
             <form string="Attachment Categories">
                 <sheet>
                     <group>
-                        <group>
-                            <field name="name"/>
-                        </group>
-                    </group>
-                    <group>
+                        <field name="name"/>
                         <field name="line_ids" widget="many2many_tags"/>
                     </group>
                 </sheet>
@@ -27,9 +23,7 @@
             <form string="Attachment Categories Lines">
                 <sheet>
                     <group>
-                        <group>
-                            <field name="name"/>
-                        </group>
+                        <field name="name"/>
                     </group>
                 </sheet>
             </form>
