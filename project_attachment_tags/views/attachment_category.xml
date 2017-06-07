@@ -9,18 +9,18 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="line_ids" widget="many2many_tags"/>
+                        <field name="tag_ids" widget="many2many_tags"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <record id="attachment_category_lines_form" model="ir.ui.view">
-        <field name="name">attach.category.lines.form</field>
-        <field name="model">attach.category.line</field>
+    <record id="attachment_category_tag_form" model="ir.ui.view">
+        <field name="name">attach.category.tag.form</field>
+        <field name="model">attach.category.tag</field>
         <field name="arch" type="xml">
-            <form string="Attachment Categories Lines">
+            <form string="Attachment Categories Tags">
                 <sheet>
                     <group>
                         <field name="name"/>
@@ -30,16 +30,16 @@
         </field>
     </record>
 
-    <record id="action_attachment_category_line" model="ir.actions.act_window">
-        <field name="name">Attachment Category Tags</field>
-        <field name="res_model">attach.category.line</field>
+    <record id="action_attachment_category" model="ir.actions.act_window">
+        <field name="name">Attachment Categories</field>
+        <field name="res_model">attach.category</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_attachment_category" model="ir.actions.act_window">
-        <field name="name">Attachment Categories</field>
-        <field name="res_model">attach.category</field>
+    <record id="action_attachment_category_tag" model="ir.actions.act_window">
+        <field name="name">Attachment Category Tag</field>
+        <field name="res_model">attach.category.tag</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
@@ -49,8 +49,8 @@
               name="Attachment Categories"
               action="action_attachment_category"/>
 
-    <menuitem id="menu_attachment_category_lines"
+    <menuitem id="menu_attachment_category_tag"
               parent="project.menu_project_config"
               name="Attachment Category Tags"
-              action="action_attachment_category_line"/>
+              action="action_attachment_category_tag"/>
 </odoo>

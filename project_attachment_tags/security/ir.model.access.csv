@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_attach_category_user,attach_category_user,model_attach_category,base.group_user,1,0,0,0
 access_attach_category_admin,attach_category_admin,model_attach_category,base.group_system,1,1,1,1
-access_attach_category_line_user,attach_category_line_user,model_attach_category_line,base.group_user,1,0,0,0
-access_attach_category_line_admin,attach_category_line_admin,model_attach_category_line,base.group_system,1,1,1,1
+access_attach_category_tag_user,attach_category_tag_user,model_attach_category_tag,base.group_user,1,0,0,0
+access_attach_category_tag_admin,attach_category_tag_admin,model_attach_category_tag,base.group_system,1,1,1,1

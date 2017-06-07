@@ -7,18 +7,17 @@ class IrAttachment(models.Model):
 
     _inherit = "ir.attachment"
 
-    category_id = fields.Many2one(comodel_name='attach.category',
-                                  string='Category')
-
-    tag_id = fields.Many2one(comodel_name='attach.category.line',
+    tag_id = fields.Many2one(comodel_name='attach.category.tag',
                              string='Tag')
 
     @api.onchange('res_id')
-    def _onchange_category(self):
+    def _onchange_res_id(self):
+        # TODO Corrigir uso do domain quando o record é editado
         if self.res_model == 'project.project':
-            self.category_id = self.env['project.project'].browse(
-                self.res_id).attachment_category_id
+            category_id = self.env['project.project'].browse(
+                self.res_id.id).attachment_category_id
+        else:
+            category_id = False
 
-        lista_ids = self.category_id.line_ids.ids if self.category_id else []
-        domain = {'domain': {'tag_id': [('id', '=', lista_ids)]}}
-        return domain
+        tag_ids = category_id.tag_ids.ids if category_id else []
+        return {'domain': {'tag_id': [('id', 'in', tag_ids)]}}

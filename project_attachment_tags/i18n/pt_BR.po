@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-24 13:02+0000\n"
-"PO-Revision-Date: 2017-05-24 10:03-0300\n"
+"POT-Creation-Date: 2017-06-07 18:30+0000\n"
+"PO-Revision-Date: 2017-06-07 15:31-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,66 +25,65 @@ msgid "Attachment Categories"
 msgstr "Categorias de Anexo"
 
 #. module: project_attachment_tags
-#: model:ir.ui.view,arch_db:project_attachment_tags.attachment_category_lines_form
-msgid "Attachment Categories Lines"
-msgstr "Tags de Anexo"
+#: model:ir.ui.view,arch_db:project_attachment_tags.attachment_category_tag_form
+msgid "Attachment Categories Tags"
+msgstr "Tags de Categorias de Anexo"
 
 #. module: project_attachment_tags
-#: model:ir.actions.act_window,name:project_attachment_tags.action_attachment_category_line
-#: model:ir.ui.menu,name:project_attachment_tags.menu_attachment_category_lines
+#: model:ir.actions.act_window,name:project_attachment_tags.action_attachment_category_tag
+msgid "Attachment Category Tag"
+msgstr "Tag de Categorias de Anexo"
+
+#. module: project_attachment_tags
+#: model:ir.ui.menu,name:project_attachment_tags.menu_attachment_category_tag
 msgid "Attachment Category Tags"
 msgstr "Tags de Anexo"
 
 #. module: project_attachment_tags
-#: model:ir.model.fields,field_description:project_attachment_tags.field_ir_attachment_category_id
-msgid "Category"
-msgstr "Categoria"
-
-#. module: project_attachment_tags
 #: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_create_uid
-#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_line_create_uid
+#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag_create_uid
 msgid "Created by"
 msgstr "Criado por"
 
 #. module: project_attachment_tags
 #: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_create_date
-#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_line_create_date
+#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag_create_date
 msgid "Created on"
 msgstr "Criado em"
 
 #. module: project_attachment_tags
 #: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_display_name
-#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_line_display_name
+#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag_display_name
 msgid "Display Name"
 msgstr "Nome para Exibição"
 
 #. module: project_attachment_tags
 #: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_id
-#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_line_id
+#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag_id
 msgid "ID"
 msgstr "ID"
 
 #. module: project_attachment_tags
 #: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category___last_update
-#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_line___last_update
+#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag___last_update
 msgid "Last Modified on"
 msgstr "Última Modificação em"
 
 #. module: project_attachment_tags
-#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_line_write_uid
+#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag_write_uid
 #: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_write_uid
 msgid "Last Updated by"
 msgstr "Última atualização por"
 
 #. module: project_attachment_tags
-#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_line_write_date
+#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag_write_date
 #: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_write_date
 msgid "Last Updated on"
 msgstr "Última atualização em"
 
 #. module: project_attachment_tags
-#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_line_name
 #: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_name
+#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag_name
 msgid "Name"
 msgstr "Nome"
 
@@ -94,7 +93,6 @@ msgid "Project"
 msgstr "Projeto"
 
 #. module: project_attachment_tags
-#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_line_ids
 #: model:ir.model.fields,field_description:project_attachment_tags.field_ir_attachment_tag_id
 msgid "Tag"
 msgstr "Tag"
@@ -105,7 +103,8 @@ msgid "Tag Name"
 msgstr "Tag"
 
 #. module: project_attachment_tags
-#: model:ir.model.fields,field_description:project_attachment_tags.field_project_project_attachment_category
+#: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag_ids
+#: model:ir.model.fields,field_description:project_attachment_tags.field_project_project_attachment_category_id
 msgid "Tags"
 msgstr "Marcadores"
 
@@ -118,6 +117,11 @@ msgstr "attach.category"
 #: model:ir.model,name:project_attachment_tags.model_attach_category_line
 msgid "attach.category.line"
 msgstr "attach.category.line"
+
+#. module: project_attachment_tags
+#: model:ir.model,name:project_attachment_tags.model_attach_category_tag
+msgid "attach.category.tag"
+msgstr "attach.category.tag"
 
 #. module: project_attachment_tags
 #: model:ir.model,name:project_attachment_tags.model_ir_attachment
