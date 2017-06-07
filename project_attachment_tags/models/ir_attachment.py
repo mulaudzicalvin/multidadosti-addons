@@ -7,13 +7,11 @@ class IrAttachment(models.Model):
 
     _inherit = "ir.attachment"
 
-    category_id = fields.Many2one(
-        string='Category',
-        comodel_name='attach.category')
+    category_id = fields.Many2one(comodel_name='attach.category',
+                                  string='Category')
 
-    tag_id = fields.Many2one(
-        string='Tag',
-        comodel_name='attach.category.line')
+    tag_id = fields.Many2one(comodel_name='attach.category.line',
+                             string='Tag')
 
     @api.onchange('res_id')
     def _onchange_category(self):
