@@ -31,7 +31,10 @@ class HelpDeskPhoneCallService(models.Model):
                                          required=True,
                                          comodel_name='res.partner')
 
-    user_id = fields.Many2one('res.users', string='User', readonly=True,
+    user_id = fields.Many2one('res.users',
+                              string='User',
+                              readonly=True,
+                              copy=False,
                               default=lambda self: self._uid)
 
     finish_date_hour = fields.Datetime(string='Finish Date',
@@ -41,7 +44,9 @@ class HelpDeskPhoneCallService(models.Model):
     phonecall_tag_id = fields.Many2one('helpdesk.phonecall.service.tag',
                                        string='Tags')
 
-    external_code = fields.Char(string='External Code', copy=False,)
+    external_code = fields.Char(string='External Code',
+                                readonly=True,
+                                copy=False)
 
     company_id = fields.Many2one('res.company',
                                  string='Company',
