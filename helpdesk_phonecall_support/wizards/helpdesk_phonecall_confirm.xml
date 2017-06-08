@@ -14,9 +14,11 @@
                 <footer>
                     <button string="Close Phonecall"
                             name="action_confirm_finish_phonecall"
-                            type="object" default_focus="1"
+                            type="object"
+                            default_focus="1"
                             class="btn-primary"/>
-                    <button string="Cancel" class="btn-default"
+                    <button string="Cancel"
+                            class="btn-default"
                             special="cancel"/>
                 </footer>
             </form>
