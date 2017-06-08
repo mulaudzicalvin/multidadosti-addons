@@ -21,6 +21,11 @@
                     }"
                 </attribute>
             </field>
+
+            <field name="parent_id" position="attributes">
+                <attribute name="placeholder">Parceiro Relacionado</attribute>
+            </field>
+
         </field>
     </record>
 

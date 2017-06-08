@@ -12,7 +12,7 @@
                             type="object"
                             icon="fa-check"
                             attrs="{'invisible':[('state','=','done')]}"/>
-                            <field name="state" widget="statusbar"/>
+                    <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
 
@@ -54,7 +54,9 @@
                     <notebook>
                         <page string="Description">
                             <group style="margin: 1%; width: 98%">
-                                <field name="description" attrs="{'readonly':[('state','=','done')]}" nolabel="1"/>
+                                <field name="description"
+                                       attrs="{'readonly':[('state','=','done')]}"
+                                       nolabel="1"/>
                             </group>
                         </page>
                     </notebook>
@@ -113,6 +115,23 @@
                         string="Inactive"
                         domain="[('active', '=', False)]"/>
 
+                <filter string="Expired"
+                        name="expired"
+                        domain="[('finish_date_hour','&lt;', context_today().strftime('%%Y-%%m-%%d'))]"
+                        help="Display all move lines that as expired."/>
+                <filter string="Maturity Today"
+                        name="today"
+                        domain="[('finish_date_hour','=', context_today().strftime('%%Y-%%m-%%d'))]"
+                        help="Display all move lines that will mature today."/>
+                <filter string="Maturity This Week"
+                        name="current_week"
+                        domain="[('finish_date_hour','&lt;=', (context_today() + relativedelta(weeks=0, weekday=6)).strftime('%%Y-%%m-%%d')),('finish_date_hour','&gt;',(context_today() - relativedelta(weeks=1, weekday=6)).strftime('%%Y-%%m-%%d'))]"
+                        help="Display all move lines that will  mature in the current Week."/>
+                <filter string="Maturity This Month"
+                        name="current_month"
+                        domain="[('finish_date_hour','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')),('finish_date_hour','&gt;=',time.strftime('%%Y-%%m-01'))]"
+                        help="Display all move lines that will  mature in the current month."/>
+
                 <group string="Group By">
                     <filter name="group_by_partner"
                             string="Partners"
@@ -123,6 +142,39 @@
                             context="{'group_by': 'user_id'}"/>
                 </group>
             </search>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_phonecall_service_pivot" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.pivot</field>
+        <field name="model">helpdesk.phonecall.service</field>
+        <field name="arch" type="xml">
+            <pivot string="Helpdesk">
+                <field name="user_id" type="col"/>
+                <field name="partner_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_phonecall_service_graph" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.graph</field>
+        <field name="model">helpdesk.phonecall.service</field>
+        <field name="arch" type="xml">
+            <graph string="Helpdesk" type="bar">
+                <field name="phonecall_tag_id" type="row"/>
+                <field name="user_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_phonecall_service_report_graph_all_2" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.graph.2</field>
+        <field name="model">helpdesk.phonecall.service</field>
+        <field name="arch" type="xml">
+            <graph string="Helpdesk_2" type="bar">
+                <field name="partner_id" type="row"/>
+                <field name="phonecall_tag_id" type="col"/>
+            </graph>
         </field>
     </record>
 
@@ -144,20 +196,72 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_helpdesk_phonecall_service_report_all"
+            model="ir.actions.act_window">
+        <field name="name">Reports</field>
+        <field name="res_model">helpdesk.phonecall.service</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">pivot</field>
+        <field name="context">{'search_default_current_week': 1}</field>
+    </record>
+
+    <record id="action_helpdesk_phonecall_service_report_graph_all"
+            model="ir.actions.act_window">
+        <field name="name">Graph - Tags vs Users</field>
+        <field name="res_model">helpdesk.phonecall.service</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_helpdesk_phonecall_service_graph"/>
+        <field name="context">{'search_default_current_week': 1}</field>
+    </record>
+
+    <record id="action_helpdesk_phonecall_service_report_graph_all_2"
+            model="ir.actions.act_window">
+        <field name="name">Graph - Partner vs Tags</field>
+        <field name="res_model">helpdesk.phonecall.service</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_helpdesk_phonecall_service_report_graph_all_2"/>
+        <field name="context">{'search_default_current_week': 1}</field>
+    </record>
+
     <menuitem id="menuitem_phonecall_service"
               name="Helpdesk PhoneCall"
               action="action_helpdesk_phonecall_service"
               sequence="10"
-              web_icon="helpdesk_phonecall_support,static/description/icon_phone.png"
-    />
+              web_icon="helpdesk_phonecall_support,static/description/icon_phone.png"/>
 
-    <menuitem id="phonecall_service_sub_menu" name="Helpdesk PhoneCall" sequence="1"
-              parent="menuitem_phonecall_service" action="action_helpdesk_phonecall_service"/>
+    <menuitem id="phonecall_service_sub_menu" name="Helpdesk PhoneCall"
+              sequence="1"
+              parent="menuitem_phonecall_service"
+              action="action_helpdesk_phonecall_service"/>
 
     <menuitem id="phonecall_service_menu" name="Configuration" sequence="2"
               parent="menuitem_phonecall_service"/>
 
-    <menuitem id="phonecall_service_configuration_sub_menu" name="Tags" sequence="2"
-              parent="phonecall_service_menu" action="action_helpdesk_phonecall_service_tag"/>
+    <menuitem id="phonecall_service_configuration_sub_menu" name="Tags"
+              sequence="2"
+              parent="phonecall_service_menu"
+              action="action_helpdesk_phonecall_service_tag"/>
+
+    <menuitem id="phonecall_service_report" name="Reports" sequence="4"
+              parent="menuitem_phonecall_service"/>
+
+    <menuitem id="phonecall_service_report_sub_menu" name="Pivot"
+              sequence="1"
+              parent="phonecall_service_report"
+              action="action_helpdesk_phonecall_service_report_all"/>
+
+    <menuitem id="phonecall_service_report_sub_menu_2"
+              name="Graph - Tags vs Users"
+              sequence="2"
+              parent="phonecall_service_report"
+              action="action_helpdesk_phonecall_service_report_graph_all"/>
+
+    <menuitem id="helpdesk_phonecall_service_report_graph_all_2"
+              name="Graph - Partner vs Tags"
+              sequence="3"
+              parent="phonecall_service_report"
+              action="action_helpdesk_phonecall_service_report_graph_all_2"/>
 
 </odoo>

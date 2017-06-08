@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="attachment_category_form" model="ir.ui.view">
+        <field name="name">attach.category.form</field>
+        <field name="model">attach.category</field>
+        <field name="arch" type="xml">
+            <form string="Attachment Categories">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="tag_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="attachment_category_tag_form" model="ir.ui.view">
+        <field name="name">attach.category.tag.form</field>
+        <field name="model">attach.category.tag</field>
+        <field name="arch" type="xml">
+            <form string="Attachment Categories Tags">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_attachment_category" model="ir.actions.act_window">
+        <field name="name">Attachment Categories</field>
+        <field name="res_model">attach.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_attachment_category_tag" model="ir.actions.act_window">
+        <field name="name">Attachment Category Tag</field>
+        <field name="res_model">attach.category.tag</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_attachment_category"
+              parent="project.menu_project_config"
+              name="Attachment Categories"
+              action="action_attachment_category"/>
+
+    <menuitem id="menu_attachment_category_tag"
+              parent="project.menu_project_config"
+              name="Attachment Category Tags"
+              action="action_attachment_category_tag"/>
+</odoo>

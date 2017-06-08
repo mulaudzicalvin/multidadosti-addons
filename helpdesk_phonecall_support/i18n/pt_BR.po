@@ -78,10 +78,40 @@ msgid "Display Name"
 msgstr "Nome para Exibição"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
+msgid "Display all move lines that as expired."
+msgstr "Exibir todas as linhas de atendimento que expiraram."
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
+msgid "Display all move lines that will  mature in the current Week."
+msgstr "Exibir todas as linhas de atendimento da semana atual."
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
+msgid "Display all move lines that will  mature in the current month."
+msgstr "Exibir todas as linhas de atendimento do mês atual."
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
+msgid "Display all move lines that will mature today."
+msgstr "Exibir todas as linhas de atendimento de hoje"
+
+#. module: helpdesk_phonecall_support
 #: selection:helpdesk.phonecall.service,state:0
 #: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
 msgid "Done"
 msgstr "Encerrado"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_external_code
+msgid "External Code"
+msgstr "Código Externo"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
+msgid "Expired"
+msgstr "Expirado"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_external_code
@@ -104,15 +134,38 @@ msgid "Finish call"
 msgstr "Encerrar ligação"
 
 #. module: helpdesk_phonecall_support
+#: model:ir.actions.act_window,name:helpdesk_phonecall_support.action_helpdesk_phonecall_service_report_graph_all_2
+#: model:ir.ui.menu,name:helpdesk_phonecall_support.helpdesk_phonecall_service_report_graph_all_2
+msgid "Graph - Partner vs Tags"
+msgstr "Gráfico - Clientes vs Tarefas"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.actions.act_window,name:helpdesk_phonecall_support.action_helpdesk_phonecall_service_report_graph_all
+#: model:ir.ui.menu,name:helpdesk_phonecall_support.phonecall_service_report_sub_menu_2
+msgid "Graph - Tags vs Users"
+msgstr "Gráfico - Tarefas vs Usuários"
+
+#. module: helpdesk_phonecall_support
 #: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
 msgid "Group By"
 msgstr "Agrupar Por"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_graph
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_pivot
+msgid "Helpdesk"
+msgstr "Atendimento"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.ui.menu,name:helpdesk_phonecall_support.menuitem_phonecall_service
 #: model:ir.ui.menu,name:helpdesk_phonecall_support.phonecall_service_sub_menu
 msgid "Helpdesk PhoneCall"
 msgstr "Atendimento"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.view_helpdesk_phonecall_service_report_graph_all_2
+msgid "Helpdesk_2"
+msgstr "Helpdesk_2"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_confirm_id
@@ -146,6 +199,21 @@ msgstr "Última atualização por"
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_write_date
 msgid "Last Updated on"
 msgstr "Última atualização em"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
+msgid "Maturity This Month"
+msgstr "Mês atual"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
+msgid "Maturity This Week"
+msgstr "Semana atual"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
+msgid "Maturity Today"
+msgstr "Hoje"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag_name
@@ -189,7 +257,12 @@ msgid "Phonecall"
 msgstr "Phonecall"
 
 #. module: helpdesk_phonecall_support
-#: code:addons/helpdesk_phonecall_support/models/helpdesk_phonecall_service.py:83
+#: model:ir.ui.menu,name:helpdesk_phonecall_support.phonecall_service_report_sub_menu
+msgid "Pivot"
+msgstr "Pivô"
+
+#. module: helpdesk_phonecall_support
+#: code:addons/helpdesk_phonecall_support/models/helpdesk_phonecall_service.py:81
 #, python-format
 msgid "Please make sure the marker or description fields are filled in."
 msgstr "Certifique-se de que os campos 'Marcadores' e 'Descrição' estão preenchidos."
@@ -198,6 +271,12 @@ msgstr "Certifique-se de que os campos 'Marcadores' e 'Descrição' estão preen
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_project_id
 msgid "Project"
 msgstr "Projeto"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.actions.act_window,name:helpdesk_phonecall_support.action_helpdesk_phonecall_service_report_all
+#: model:ir.ui.menu,name:helpdesk_phonecall_support.phonecall_service_report
+msgid "Reports"
+msgstr "Relatórios"
 
 #. module: helpdesk_phonecall_support
 #: code:addons/helpdesk_phonecall_support/wizards/helpdesk_phonecall_confirm.py:18

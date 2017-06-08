@@ -1,8 +1,6 @@
-## Account - New fields: Financial Operation and Title Type
+## Project Attachment Category Tags
 
-This Module adds new fields: Financial Operations and Title
-     Type in account.move.line model, and reformats the 
-     account.move.line view.
+This Module adds category field, and tag field in your attachment project.
 
 ### Bug Tracker
 
