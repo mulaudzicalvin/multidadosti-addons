@@ -101,20 +101,25 @@
                 <field name="user_id"/>
                 <field name="project_id"/>
 
-                <filter name="open_filters" string="Open"
+                <filter name="open_filters"
+                        string="Open"
                         domain="[('state', '=', 'open')]"/>
 
-                <filter name="done_filters" string="Done"
+                <filter name="done_filters"
+                        string="Done"
                         domain="[('state', '=', 'done')]"/>
 
-                <filter name="to_file_filters" string="To file"
+                <filter name="archived"
+                        string="Inactive"
                         domain="[('active', '=', False)]"/>
 
                 <group string="Group By">
-                    <filter name="group_by_partner" string="Partners"
+                    <filter name="group_by_partner"
+                            string="Partners"
                             context="{'group_by': 'partner_id'}"/>
 
-                    <filter name="group_by_user" string="Users"
+                    <filter name="group_by_user"
+                            string="Users"
                             context="{'group_by': 'user_id'}"/>
                 </group>
             </search>
@@ -130,7 +135,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-
     <record id="action_helpdesk_phonecall_service_tag"
             model="ir.actions.act_window">
         <field name="name">Tags</field>
@@ -139,7 +143,6 @@
         <field name="context">{'search_default_open_filters':1}</field>
         <field name="view_mode">tree,form</field>
     </record>
-
 
     <menuitem id="menuitem_phonecall_service"
               name="Helpdesk PhoneCall"

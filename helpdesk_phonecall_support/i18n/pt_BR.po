@@ -1,21 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* helpdesk_phonecall_support
+#	* helpdesk_phonecall_support
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-24 18:16+0000\n"
-"PO-Revision-Date: 2017-05-24 15:18-0300\n"
+"POT-Creation-Date: 2017-06-08 17:43+0000\n"
+"PO-Revision-Date: 2017-06-08 17:43+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: pt_BR\n"
-"X-Generator: Poedit 1.8.7.1\n"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_active
@@ -103,7 +101,7 @@ msgstr "Data Final"
 #. module: helpdesk_phonecall_support
 #: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_form
 msgid "Finish call"
-msgstr "Encerrar atendimento"
+msgstr "Encerrar ligação"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
@@ -122,6 +120,11 @@ msgstr "Atendimento"
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_tag_id
 msgid "ID"
 msgstr "ID"
+
+#. module: helpdesk_phonecall_support
+#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
+msgid "Inactive"
+msgstr "Inativo"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_confirm___last_update
@@ -151,12 +154,10 @@ msgstr "Nome"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_confirm
-msgid ""
-"Once open phonecalls are confirmed, you will not be able\n"
+msgid "Once open phonecalls are confirmed, you will not be able\n"
 "                    to modify them.\n"
 "                    Do you want to close this phonecall?"
-msgstr ""
-"Depois que as chamadas abertas são confirmadas,\n"
+msgstr "Depois que as chamadas abertas são confirmadas,\n"
 " você não poderá modificá-las. \n"
 "Deseja encerrar este atendimento?"
 
@@ -174,7 +175,7 @@ msgstr "Parceiro"
 #. module: helpdesk_phonecall_support
 #: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
 msgid "Partners"
-msgstr "Parceiros"
+msgstr "Clientes"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.actions.act_window,name:helpdesk_phonecall_support.action_helpdesk_phonecall_service
@@ -185,10 +186,10 @@ msgstr "Atendimento"
 #: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_form
 #: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_tree
 msgid "Phonecall"
-msgstr "Atendimento"
+msgstr "Phonecall"
 
 #. module: helpdesk_phonecall_support
-#: code:addons/helpdesk_phonecall_support/models/helpdesk_phonecall_service.py:84
+#: code:addons/helpdesk_phonecall_support/models/helpdesk_phonecall_service.py:83
 #, python-format
 msgid "Please make sure the marker or description fields are filled in."
 msgstr "Certifique-se de que os campos 'Marcadores' e 'Descrição' estão preenchidos."
@@ -227,16 +228,6 @@ msgid "Title"
 msgstr "Título"
 
 #. module: helpdesk_phonecall_support
-#: selection:helpdesk.phonecall.service,state:0
-msgid "To File"
-msgstr "Arquivado"
-
-#. module: helpdesk_phonecall_support
-#: model:ir.ui.view,arch_db:helpdesk_phonecall_support.helpdesk_phonecall_service_view_search
-msgid "To file"
-msgstr "Arquivado"
-
-#. module: helpdesk_phonecall_support
 #: model:ir.model.fields,field_description:helpdesk_phonecall_support.field_helpdesk_phonecall_service_user_id
 msgid "User"
 msgstr "Usuário"
@@ -248,8 +239,9 @@ msgstr "Usuários"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model,name:helpdesk_phonecall_support.model_helpdesk_phonecall_confirm
+#: model:ir.model,name:helpdesk_phonecall_support.model_wizard_helpdesk_phonecall_confirm
 msgid "Wizard to confirm phonecall"
-msgstr "Janela para encerramento de atendimentos"
+msgstr "Wizard para encerramento de atendimentos"
 
 #. module: helpdesk_phonecall_support
 #: model:ir.model,name:helpdesk_phonecall_support.model_helpdesk_phonecall_service
@@ -260,3 +252,4 @@ msgstr "helpdesk.phonecall.service"
 #: model:ir.model,name:helpdesk_phonecall_support.model_helpdesk_phonecall_service_tag
 msgid "helpdesk.phonecall.service.tag"
 msgstr "helpdesk.phonecall.service.tag"
+
