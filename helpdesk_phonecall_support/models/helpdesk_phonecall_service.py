@@ -23,7 +23,7 @@ class HelpDeskPhoneCallService(models.Model):
                                  required=True,
                                  comodel_name='res.partner')
 
-    project_id = fields.Many2one(string="Project",
+    project_id = fields.Many2one(string='Project',
                                  required=True,
                                  comodel_name='project.project')
 
@@ -55,7 +55,6 @@ class HelpDeskPhoneCallService(models.Model):
                              selection=[
                                  ('open', 'Open'),
                                  ('done', 'Done'),
-                                 ('to_file', 'To File')
                              ],
                              copy=False,
                              default='open')
