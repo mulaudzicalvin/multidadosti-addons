@@ -129,6 +129,39 @@
         </field>
     </record>
 
+    <record id="view_helpdesk_phonecall_service_pivot" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.pivot</field>
+        <field name="model">helpdesk.phonecall.service</field>
+        <field name="arch" type="xml">
+            <pivot string="Helpdesk">
+                <field name="user_id" type="col"/>
+                <field name="partner_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_phonecall_service_graph" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.graph</field>
+        <field name="model">helpdesk.phonecall.service</field>
+        <field name="arch" type="xml">
+            <graph string="Helpdesk" type="bar">
+                <field name="phonecall_tag_id" type="row"/>
+                <field name="user_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_phonecall_service_report_graph_all_2" model="ir.ui.view">
+        <field name="name">helpdesk.phonecall.service.graph.2</field>
+        <field name="model">helpdesk.phonecall.service</field>
+        <field name="arch" type="xml">
+            <graph string="Helpdesk_2" type="bar">
+                <field name="partner_id" type="row"/>
+                <field name="phonecall_tag_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="action_helpdesk_phonecall_service"
             model="ir.actions.act_window">
         <field name="name">PhoneCall Service</field>
@@ -214,38 +247,5 @@
               sequence="3"
               parent="phonecall_service_report"
               action="action_helpdesk_phonecall_service_report_graph_all_2"/>
-
-    <record id="view_helpdesk_phonecall_service_pivot" model="ir.ui.view">
-        <field name="name">helpdesk.phonecall.service.pivot</field>
-        <field name="model">helpdesk.phonecall.service</field>
-        <field name="arch" type="xml">
-            <pivot string="Helpdesk">
-                <field name="user_id" type="col"/>
-                <field name="partner_id" type="row"/>
-            </pivot>
-        </field>
-    </record>
-
-    <record id="view_helpdesk_phonecall_service_graph" model="ir.ui.view">
-        <field name="name">helpdesk.phonecall.service.graph</field>
-        <field name="model">helpdesk.phonecall.service</field>
-        <field name="arch" type="xml">
-            <graph string="Helpdesk" type="bar">
-                <field name="phonecall_tag_id" type="row"/>
-                <field name="user_id" type="col"/>
-            </graph>
-        </field>
-    </record>
-
-    <record id="view_helpdesk_phonecall_service_report_graph_all_2" model="ir.ui.view">
-        <field name="name">helpdesk.phonecall.service.graph.2</field>
-        <field name="model">helpdesk.phonecall.service</field>
-        <field name="arch" type="xml">
-            <graph string="Helpdesk_2" type="bar">
-                <field name="partner_id" type="row"/>
-                <field name="phonecall_tag_id" type="col"/>
-            </graph>
-        </field>
-    </record>
 
 </odoo>
