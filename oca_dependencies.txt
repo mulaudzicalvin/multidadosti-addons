@@ -1,2 +1,2 @@
 server-tools https://github.com/multidadosti-erp/server-tools.git develop
-odoo-brasil https://github.com/multidadosti-erp/odoo-brasil.git feature/nfse_paulistana
+odoo-brasil https://github.com/multidadosti-erp/odoo-brasil.git develop
