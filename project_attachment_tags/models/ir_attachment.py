@@ -15,7 +15,7 @@ class IrAttachment(models.Model):
         # TODO Corrigir uso do domain quando o record é editado
         if self.res_model == 'project.project':
             category_id = self.env['project.project'].browse(
-                self.res_id.id).attachment_category_id
+                self.res_id).attachment_category_id
         else:
             category_id = False
 
