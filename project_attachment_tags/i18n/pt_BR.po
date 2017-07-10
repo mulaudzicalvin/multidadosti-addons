@@ -106,7 +106,7 @@ msgstr "Tag"
 #: model:ir.model.fields,field_description:project_attachment_tags.field_attach_category_tag_ids
 #: model:ir.model.fields,field_description:project_attachment_tags.field_project_project_attachment_category_id
 msgid "Tags"
-msgstr "Marcadores"
+msgstr "Categoria de Anexo"
 
 #. module: project_attachment_tags
 #: model:ir.model,name:project_attachment_tags.model_attach_category
