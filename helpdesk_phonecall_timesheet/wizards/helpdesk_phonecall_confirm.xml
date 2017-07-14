@@ -4,8 +4,7 @@
     <record id="helpdesk_phonecall_service_confirm" model="ir.ui.view">
         <field name="name">helpdesk.timesheet.create.view.form</field>
         <field name="model">helpdesk.phonecall.confirm</field>
-        <field name="inherit_id"
-               ref="helpdesk_phonecall_support.helpdesk_phonecall_service_confirm"/>
+        <field name="inherit_id" ref="helpdesk_phonecall_support.helpdesk_phonecall_service_confirm"/>
         <field name="arch" type="xml">
             <xpath expr="//p" position="replace">
                 <p>
