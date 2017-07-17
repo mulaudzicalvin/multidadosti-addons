@@ -32,4 +32,16 @@
         <field name="active" eval="False"/>
     </record>
 
+    <record id="sale.menu_sale_order" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="sale.menu_sale_quotations" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="sale.menu_sale_invoicing" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
 </odoo>
