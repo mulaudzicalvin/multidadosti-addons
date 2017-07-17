@@ -6,32 +6,57 @@ from odoo.exceptions import UserError
 
 class TestHelpDeskPhoneCallConfirm(TransactionCase):
 
-    def test_action_confirm_finish_phonecall(self):
+    def setUp(self):
+        super(TestHelpDeskPhoneCallConfirm, self).setUp()
+        self.main_company = self.env.ref('base.main_company')
+
+        default_partner = {
+            'name': 'Nome Parceiro',
+            'legal_name': 'Razão Social',
+            'zip': '88037-240',
+            'street': 'Endereço Rua',
+            'number': '42',
+            'district': 'Centro',
+            'phone': '(48) 9801-6226',
+        }
 
         # Criamos o cliente
-        partner = self.env['res.partner'].create({
-            'name': 'Nome Cliente',
-            'is_company': True,
-        })
+        self.partner = self.env['res.partner'].create(dict(
+            default_partner.items(),
+            cnpj_cpf='05.075.837/0001-13',
+            company_type='company',
+            is_company=True,
+            inscr_est='433.992.727',
+            country_id=self.env.ref('base.br').id,
+            state_id=self.env.ref('base.state_br_sc').id,
+            city_id=self.env.ref('br_base.city_4205407').id,
+        ))
 
         # Criamos o contato do cliente
-        partner_contact = self.env['res.partner'].create({
-            'name': 'Nome Contato',
-            'is_company': False,
-        })
+        self.partner_contact = self.env['res.partner'].create(dict(
+            default_partner.items(),
+            cnpj_cpf='545.770.154-98',
+            company_type='person',
+            is_company=False,
+            country_id=self.env.ref('base.br').id,
+            state_id=self.env.ref('base.state_br_sc').id,
+            city_id=self.env.ref('br_base.city_4205407').id
+        ))
 
         # Criamos o projeto
-        project = self.env['project.project'].create({
+        self.project = self.env['project.project'].create({
             'name': 'Nome Projeto',
-            'partner_id': partner.id,
+            'partner_id': self.partner.id,
         })
+
+    def test_action_confirm_finish_phonecall(self):
 
         tag = 'helpdesk_phonecall_support.helpdesk_phonecall_service_tag_01'
 
         values = {
-            'partner_id': partner.id,
-            'contact_partner_id': partner_contact.id,
-            'project_id': project.id,
+            'partner_id': self.partner.id,
+            'contact_partner_id': self.partner_contact.id,
+            'project_id': self.project.id,
             'description': 'Teste',
             'phonecall_tag_id': self.env.ref(tag).id,
         }

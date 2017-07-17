@@ -1,38 +1,25 @@
 # -*- coding: utf-8 -*-
 import datetime
 
-from odoo.tests.common import TransactionCase
 from odoo.exceptions import UserError
 
+from odoo.addons.helpdesk_phonecall_support.tests.\
+    test_helpdesk_phonecall_confirm import TestHelpDeskPhoneCallConfirm
 
-class TestHelpDeskPhoneCallConfirm(TransactionCase):
+
+class TestHelpDeskPhoneCallConfirmTimesheet(TestHelpDeskPhoneCallConfirm):
+
+    def setUp(self):
+        super(TestHelpDeskPhoneCallConfirmTimesheet, self).setUp()
 
     def test_action_confirm_finish_phonecall(self):
-
-        # Criamos o cliente
-        partner = self.env['res.partner'].create({
-            'name': 'Nome Cliente',
-            'is_company': True,
-        })
-
-        # Criamos o contato do cliente
-        partner_contact = self.env['res.partner'].create({
-            'name': 'Nome Contato',
-            'is_company': False,
-        })
-
-        # Criamos o projeto
-        project = self.env['project.project'].create({
-            'name': 'Nome Projeto',
-            'partner_id': partner.id,
-        })
 
         tag = 'helpdesk_phonecall_support.helpdesk_phonecall_service_tag_01'
 
         values = {
-            'partner_id': partner.id,
-            'contact_partner_id': partner_contact.id,
-            'project_id': project.id,
+            'partner_id': self.partner.id,
+            'contact_partner_id': self.partner_contact.id,
+            'project_id': self.project.id,
             'description': 'Teste',
             'phonecall_tag_id': self.env.ref(tag).id,
         }
