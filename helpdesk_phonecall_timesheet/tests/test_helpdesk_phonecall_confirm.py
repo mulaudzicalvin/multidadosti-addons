@@ -13,7 +13,6 @@ class TestHelpDeskPhoneCallConfirm(TransactionCase):
         partner = self.env['res.partner'].create({
             'name': 'Nome Cliente',
             'is_company': True,
-            'purchase_warn': 'no - message',
         })
 
         # Criamos o contato do cliente
@@ -65,23 +64,17 @@ class TestHelpDeskPhoneCallConfirm(TransactionCase):
         self.assertEqual(phonecall.partner_id.id, timesheet.partner_id.id)
         self.assertEqual(phonecall.project_id.id, timesheet.project_id.id)
         self.assertEqual(phonecall.company_id.id, timesheet.company_id.id)
-
-        # Verificamos se a data que atendimento foi finalizado bate com a
-        # data do timesheet
-        dt = datetime.datetime.strptime(phonecall.start_date_hour,
-                                        '%Y-%m-%d %H:%M:%S')
-
-        self.assertEqual(dt.date(), timesheet.date)
+        self.assertEqual(phonecall.start_date_hour[:10], timesheet.date)
 
         # Calculamos o tempo de duracao e verificamos se o tempo correto
         # esta sendo armazenado
         fmt = '%Y-%m-%d %H:%M:%S'
-        d1 = datetime.datetime.strptime(timesheet.start_date_hour, fmt)
-        d2 = datetime.datetime.strptime(timesheet.finish_date_hour, fmt)
+        d1 = datetime.datetime.strptime(phonecall.start_date_hour, fmt)
+        d2 = datetime.datetime.strptime(phonecall.finish_date_hour, fmt)
 
         # Convert total seconds in hours in decimal format
         # When load the float field in screen, the widget
         # 'float_time' will go show time in to HH:MM format
         hours_diff_decimal = (d2 - d1).total_seconds() / 3600.0
 
-        self.assertEqual(phonecall.unit_amount, hours_diff_decimal)
+        self.assertEqual(timesheet.unit_amount, hours_diff_decimal)

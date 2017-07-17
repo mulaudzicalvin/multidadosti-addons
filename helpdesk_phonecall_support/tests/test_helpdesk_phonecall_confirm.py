@@ -12,7 +12,6 @@ class TestHelpDeskPhoneCallConfirm(TransactionCase):
         partner = self.env['res.partner'].create({
             'name': 'Nome Cliente',
             'is_company': True,
-            'purchase_warn': 'no - message',
         })
 
         # Criamos o contato do cliente
