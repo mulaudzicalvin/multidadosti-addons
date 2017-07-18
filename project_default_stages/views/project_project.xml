@@ -13,5 +13,6 @@
 
         </field>
     </record>
-
+    <menuitem action="project.project_tags_action" id="project.menu_project_tags_act"
+              parent="project.menu_project_config" groups="project.group_project_manager"/>
 </odoo>
