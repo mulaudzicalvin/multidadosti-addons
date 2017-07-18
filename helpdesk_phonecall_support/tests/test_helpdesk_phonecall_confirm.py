@@ -8,46 +8,15 @@ class TestHelpDeskPhoneCallConfirm(TransactionCase):
 
     def setUp(self):
         super(TestHelpDeskPhoneCallConfirm, self).setUp()
-        self.main_company = self.env.ref('base.main_company')
 
-        default_partner = {
-            'name': 'Nome Parceiro',
-            'legal_name': 'Razão Social',
-            'zip': '88037-240',
-            'street': 'Endereço Rua',
-            'number': '42',
-            'district': 'Centro',
-            'phone': '(48) 9801-6226',
-        }
+        # Cliente do atendimento
+        self.partner = self.env.ref('base.res_partner_3')
 
-        # Criamos o cliente
-        self.partner = self.env['res.partner'].create(dict(
-            default_partner.items(),
-            cnpj_cpf='05.075.837/0001-13',
-            company_type='company',
-            is_company=True,
-            inscr_est='433.992.727',
-            country_id=self.env.ref('base.br').id,
-            state_id=self.env.ref('base.state_br_sc').id,
-            city_id=self.env.ref('br_base.city_4205407').id,
-        ))
+        # Contato da empresa que iniciou o atendimento
+        self.partner_contact = self.env.ref('base.res_partner_address_31')
 
-        # Criamos o contato do cliente
-        self.partner_contact = self.env['res.partner'].create(dict(
-            default_partner.items(),
-            cnpj_cpf='545.770.154-98',
-            company_type='person',
-            is_company=False,
-            country_id=self.env.ref('base.br').id,
-            state_id=self.env.ref('base.state_br_sc').id,
-            city_id=self.env.ref('br_base.city_4205407').id
-        ))
-
-        # Criamos o projeto
-        self.project = self.env['project.project'].create({
-            'name': 'Nome Projeto',
-            'partner_id': self.partner.id,
-        })
+        # Projeto do cliente
+        self.project = self.env.ref('project.project_project_3')
 
     def test_action_confirm_finish_phonecall(self):
 
