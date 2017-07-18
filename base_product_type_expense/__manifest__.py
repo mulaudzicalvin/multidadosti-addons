@@ -9,11 +9,11 @@
     'summary': 'Expense registration to use in contracts.',
     'category': 'Base',
     'contributors': [
+        'Michell Stuttgart <michellstut@gmail.com>',
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
         'sale',
-        'hr_expense',
         'br_account',
     ],
     'data': [

@@ -2,14 +2,13 @@
 <odoo>
 
     <record id="hr_timesheet_line_tree" model="ir.ui.view">
-        <field name="name">hr.timesheet.base.partner.company.view.tree</field>
+        <field name="name">hr.timesheet.helpdesk.phonecall.view.tree</field>
         <field name="model">account.analytic.line</field>
         <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
         <field name="arch" type="xml">
 
-            <field name="user_id" position="before">
-                <field name="partner_id"/>
-                <field name="company_id"/>
+            <field name="unit_amount" position="after">
+                <field name="helpdesk_id"/>
             </field>
 
         </field>

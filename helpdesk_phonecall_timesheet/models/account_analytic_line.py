@@ -8,5 +8,5 @@ class AccountAnalyticLine(models.Model):
 
     partner_id = fields.Many2one(related=False)
 
-    helpdesk_id = fields.Many2one(comodel_name='helpdesk.phonecall.service',
+    helpdesk_id = fields.Many2one('helpdesk.phonecall.service',
                                   string='Helpdesk')

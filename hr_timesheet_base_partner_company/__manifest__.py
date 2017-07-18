@@ -6,16 +6,15 @@
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
-    'summary': """This module adds the collumns partner_id and
+    'summary': """This module adds the columns partner_id and
             company_id in tree view of module account_analytic_line.""",
     'category': 'Timesheets',
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
+        'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
         'hr_timesheet',
-        'sale_timesheet',
-        'helpdesk_phonecall_support',
     ],
     'data': [
         'views/account_analytic_line.xml'
