@@ -6,8 +6,15 @@
         <field name="inherit_id" ref="general_payments.view_br_account_payment_payment_form_inherit"/>
         <field name="arch" type="xml">
             <field name="partner_id" position="before">
-                <field name="project_id" domain="[('partner_ids', '=', partner_id)]" attrs="{'required': [('payment_type', 'in', ('outbound', 'inbound'))], 'invisible':[('payment_type', 'not in', ['outbound', 'inbound'])]}"/>
-                <field name="company_id" invisible="1"/>
+                <field name="project_id" domain="[('partner_ids', '=', partner_id)]"
+                       attrs="{'invisible':[('payment_type', 'not in', ['outbound', 'inbound'])]}"/>
+                <field name="company_id"/>
+            </field>
+            <field name="payment_method_id" position="replace"></field>
+            <field name="journal_id" position="after">
+                <field name="payment_method_id" string=" " widget="radio"
+                       attrs="{'invisible': [('hide_payment_method', '=', True)],
+                       'readonly': [('state', '!=', 'draft')]}"/>
             </field>
             <field name="analytic_account_id" position="attributes">
                 <attribute name="domain">
