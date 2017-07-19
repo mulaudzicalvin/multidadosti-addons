@@ -44,7 +44,7 @@
         <field name="domain" eval="False"/>
     </record>
 
-    <menuitem action="account.action_account_payments" id="account.menu_action_account_payments"
+    <menuitem action="account.action_account_payments" id="menu_action_account_payments"
               parent="br_account_payment.menu_br_payments"
               name="Financial Moves"
               sequence="20"
