@@ -69,3 +69,8 @@ msgstr "Descrição"
 #: model:ir.model,name:general_payments.model_account_payment
 msgid "Payments"
 msgstr "Pagamentos"
+
+#. module: general_payments
+#: model:ir.ui.menu,name:account.menu_action_account_payments
+msgid "Financial Moves"
+msgstr "Movimentos Financeiros"
