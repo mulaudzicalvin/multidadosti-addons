@@ -23,7 +23,7 @@ class HelpDeskPhoneCallService(models.Model):
                                  required=True,
                                  comodel_name='res.partner')
 
-    project_id = fields.Many2one(string="Project",
+    project_id = fields.Many2one(string='Project',
                                  required=True,
                                  comodel_name='project.project')
 
@@ -31,7 +31,10 @@ class HelpDeskPhoneCallService(models.Model):
                                          required=True,
                                          comodel_name='res.partner')
 
-    user_id = fields.Many2one('res.users', string='User', readonly=True,
+    user_id = fields.Many2one('res.users',
+                              string='User',
+                              readonly=True,
+                              copy=False,
                               default=lambda self: self._uid)
 
     finish_date_hour = fields.Datetime(string='Finish Date',
@@ -41,7 +44,9 @@ class HelpDeskPhoneCallService(models.Model):
     phonecall_tag_id = fields.Many2one('helpdesk.phonecall.service.tag',
                                        string='Tags')
 
-    external_code = fields.Char(string='External Code', copy=False,)
+    external_code = fields.Char(string='External Code',
+                                readonly=True,
+                                copy=False)
 
     company_id = fields.Many2one('res.company',
                                  string='Company',
@@ -54,10 +59,12 @@ class HelpDeskPhoneCallService(models.Model):
     state = fields.Selection(string='State', readonly=True,
                              selection=[
                                  ('open', 'Open'),
-                                 ('done', 'Done')
+                                 ('done', 'Done'),
                              ],
                              copy=False,
                              default='open')
+
+    active = fields.Boolean(default=True)
 
     @api.onchange('start_date_hour', 'partner_id', 'project_id')
     def _onchange_title(self):

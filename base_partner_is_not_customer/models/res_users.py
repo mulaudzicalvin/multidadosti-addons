@@ -10,7 +10,7 @@ class ResUsers(models.Model):
     def create(self, values):
         user = super(ResUsers, self).create(values)
 
-        if not values['partner_id']:
+        if not values.get('partner_id', False):
             user.partner_id.write({
                 'company_id': user.company_id.id,
                 'customer': False,
