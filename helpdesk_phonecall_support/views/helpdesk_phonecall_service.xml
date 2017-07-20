@@ -122,7 +122,8 @@
                         help="Display all move lines that as expired."/>
                 <filter string="Maturity Today"
                         name="today"
-                        domain="[('finish_date_hour','=', context_today().strftime('%%Y-%%m-%%d'))]"
+                        domain="[('finish_date_hour','&gt;', context_today().strftime('%Y-%m-%d 00:00:00')),
+                         ('finish_date_hour','&lt;', context_today().strftime('%Y-%m-%d 23:59:59'))]"
                         help="Display all move lines that will mature today."/>
                 <filter string="Maturity This Week"
                         name="current_week"
