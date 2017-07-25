@@ -24,12 +24,6 @@
                 </attribute>
             </xpath>
 
-            <!--Invisible div Options-->
-            <xpath expr="//div[@name='options']" position="attributes">
-                <attribute name="attrs">{'invisible':'1'}
-                </attribute>
-            </xpath>
-
             <!--Attrs Fields-->
             <xpath expr="//field[@name='fiscal_classification_id']"
                    position="attributes">
@@ -48,12 +42,6 @@
             <xpath expr="//field[@name='list_price']" position="attributes">
                 <attribute name="attrs">
                     {'invisible':[('type','=','expense')]}
-                </attribute>
-            </xpath>
-
-            <xpath expr="//group[@name='group_standard_price']"
-                   position="attributes">
-                <attribute name="attrs">{'invisible':'1'}
                 </attribute>
             </xpath>
 
