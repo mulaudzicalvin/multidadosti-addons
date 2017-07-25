@@ -14,7 +14,7 @@
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'base',
+        'br_base',
     ],
     'data': [
         'views/res_partner.xml',
