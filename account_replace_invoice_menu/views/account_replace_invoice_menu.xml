@@ -44,4 +44,16 @@
         <field name="active" eval="False"/>
     </record>
 
+    <record id="account.menu_account_report_bs" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="account.menu_account_report_pl" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="account.menu_account_report" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
 </odoo>
