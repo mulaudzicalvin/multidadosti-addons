@@ -16,6 +16,7 @@
         'purchase',
         'account',
         'sales_team',
+        'sale',
     ],
     'data': [
         'views/account_replace_invoice_menu.xml',
