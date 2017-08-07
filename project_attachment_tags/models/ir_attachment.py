@@ -12,7 +12,7 @@ class IrAttachment(models.Model):
 
     @api.onchange('res_id')
     def _onchange_res_id(self):
-        # TODO Corrigir uso do domain quando o record é editado
+        # TODO Corrigir uso do domain quando o record e editado
         if self.res_model == 'project.project':
             category_id = self.env['project.project'].browse(
                 self.res_id).attachment_category_id
