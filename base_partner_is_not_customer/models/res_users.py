@@ -16,6 +16,7 @@ class ResUsers(models.Model):
                 'customer': False,
                 'parent_id': user.company_id.partner_id.id,
                 'supplier': False,
+                'is_company': False,
+                'company_type': 'person',
             })
-
         return user
