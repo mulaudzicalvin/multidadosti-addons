@@ -18,11 +18,6 @@
         <field name="active" eval="False"/>
     </record>
 
-    <record id="purchase.menu_product_normal_action_puchased"
-            model="ir.ui.menu">
-        <field name="active" eval="False"/>
-    </record>
-
     <record id="account.menu_action_account_payments_receivable"
             model="ir.ui.menu">
         <field name="name">Receipts</field>

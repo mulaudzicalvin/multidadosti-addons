@@ -13,14 +13,12 @@
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
-        'purchase',
         'account',
         'sales_team',
         'sale',
     ],
     'data': [
         'views/account_replace_invoice_menu.xml',
-        'views/purchase_views.xml',
     ],
     'installable': True,
     'auto_install': False,
