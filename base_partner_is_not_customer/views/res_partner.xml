@@ -34,11 +34,11 @@
             </field>
 
             <field name="name" position="attributes">
-                <attribute name="style">min-width: 650px</attribute>
+                <attribute name="style">min-width: 350px</attribute>
             </field>
 
             <field name="legal_name" position="attributes">
-                <attribute name="style">min-width: 650px</attribute>
+                <attribute name="style">min-width: 350px</attribute>
             </field>
             
         </field>

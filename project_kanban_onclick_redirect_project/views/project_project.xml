@@ -61,4 +61,13 @@
         </field>
     </record>
 
+    <record id="project.open_create_project" model="ir.actions.act_window">
+        <field name="name">Create a Project</field>
+        <field name="res_model">project.project</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="project.edit_project"/>
+        <field name="target">current</field>
+    </record>
+
 </odoo>

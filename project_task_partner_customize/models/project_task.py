@@ -12,11 +12,14 @@ class ProjectTask(models.Model):
 
     @api.constrains('user_id')
     def _check_task(self):
-        msg = 'Tarefa: ' + self.name + u' atribuída a você.'
+        msg = u'Tarefa: %s atribuída a você.' % self.name
+
         post_vars = {
             'subject': 'Notification',
             'body':  msg,
             'partner_ids': [(4, self.user_id.partner_id.id)],
+            'message_type': 'notification',
+            'subtype': 'mt_comment',
         }
-        self.env['mail.thread'].message_post(
-            type="notification", subtype="mt_comment", **post_vars)
+
+        self.env['mail.thread'].message_post(**post_vars)
