@@ -40,7 +40,14 @@
             <field name="legal_name" position="attributes">
                 <attribute name="style">min-width: 350px</attribute>
             </field>
-            
+
         </field>
     </record>
+
+    <record id="base.action_partner_form" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="context">{"search_default_customer":1, "default_is_company":1}</field>
+    </record>
+
 </odoo>
