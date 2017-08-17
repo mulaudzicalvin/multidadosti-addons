@@ -9,8 +9,3 @@ class ProjectProject(models.Model):
 
     project_tags_ids = fields.Many2many(comodel_name='project.tags',
                                         string='Tags')
-
-    project_task_type_id = fields.Many2many(
-        comodel_name="project.task.type",
-        string="Tarefa(s)"
-    )
