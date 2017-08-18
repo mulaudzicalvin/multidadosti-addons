@@ -1,6 +1,6 @@
-## Account Replace Invoice Menu
+## Account Replace Purchase Menu
 
-This module changes the display of the menus of the Account modules.
+This module changes the display of the menus of the Purchase modules.
 
 ### Bug Tracker
 

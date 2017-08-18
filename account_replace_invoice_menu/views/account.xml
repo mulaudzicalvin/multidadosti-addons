@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="account.menu_account_customer" model="ir.ui.menu">
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="account.menu_product_template_action" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="account.menu_action_invoice_tree2" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="account.menu_action_account_payments_receivable" model="ir.ui.menu">
+        <field name="name">Receipts</field>
+    </record>
+
+    <record id="account.menu_account_report_bs" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="account.menu_account_report_pl" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="account.menu_account_report" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+</odoo>

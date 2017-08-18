@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="purchase.purchase_rfq" model="ir.actions.act_window">
+        <field name="name">Requests for Quotation VMulti_1</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order</field>
+        <field name="context">{'search_default_todo':1}</field>
+        <field name="domain">[('state','in',('draft','sent','bid','cancel','confirmed'))]</field>
+    </record>
+
+</odoo>
