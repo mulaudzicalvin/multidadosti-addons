@@ -38,13 +38,16 @@ class TestHelpDeskPhoneCallConfirm(TransactionCase):
             {'active_ids': [phonecall.id]})
 
         # Executamos o metodo de finalizar o atendimento
-        wizard.action_confirm_finish_phonecall()
+        res = wizard.action_confirm_finish_phonecall()
 
         self.assertNotEqual(phonecall.finish_date_hour, False)
         self.assertEqual(phonecall.state, 'done')
+        self.assertIsInstance(res, dict)
+        self.assertIn('type', res)
+        self.assertEqual('ir.actions.act_window_close', res['type'])
 
         # Executamos o metodo de finalizar o atendimento, verificamos
         # se ele obedece o conceito que apenas atendimentos em aberto podem
         # ser finalizados
-        self.assertRaises(wizard.action_confirm_finish_phonecall, None,
-                          UserError)
+        with self.assertRaises(UserError):
+            wizard.action_confirm_finish_phonecall()

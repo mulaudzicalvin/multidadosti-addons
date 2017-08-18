@@ -104,5 +104,7 @@ class HelpDeskPhoneCallService(models.Model):
         # a data de início (criação) para data de salvamento.
         # Este método faz com que o sistema pegue novamente a data de criação
         # armazenada no campo title e sobrescreva no campo.
-        values['start_date_hour'] = values['title'].split(',')[0]
+        if 'title' in values:
+            values['start_date_hour'] = values['title'].split(',')[0]
+
         return super(HelpDeskPhoneCallService, self).create(values)
