@@ -1,6 +1,6 @@
-## Account Replace Invoice Menu
+## Account Replace Invoice Menu in Sale
 
-This module changes the display of the menus of the Account modules.
+This module changes the display of the menus of the Sales modules.
 
 ### Bug Tracker
 
@@ -10,4 +10,5 @@ In case of trouble, please check there if your issue has already been reported.
 
 ### Contributors
 
+* Michell Stuttgart <michellstut@gmail.com>
 * Rodrigo Ferreira <rodrigosferreira91@gmail.com>

@@ -1,6 +1,6 @@
 ## Account Replace Purchase Menu
 
-This module changes the display of the menus of the Account, Purchase modules.
+This module changes the display of the menus of the Purchase modules.
 
 ### Bug Tracker
 
