@@ -6,7 +6,6 @@ from odoo.exceptions import UserError
 
 
 class HelpDeskPhoneCallService(models.Model):
-
     _name = 'helpdesk.phonecall.service'
     _rec_name = 'title'
 
@@ -15,9 +14,11 @@ class HelpDeskPhoneCallService(models.Model):
     description = fields.Text(string='Description')
 
     start_date_hour = fields.Datetime(string='Start Date',
-                                      readonly=True,
                                       copy=False,
-                                      default=lambda s: fields.Datetime.now())
+                                      readonly=True,
+                                      change_default=True,
+                                      store=True,
+                                      default=lambda x: fields.datetime.now())
 
     partner_id = fields.Many2one(string='Partner',
                                  required=True,
@@ -96,3 +97,14 @@ class HelpDeskPhoneCallService(models.Model):
             'views': [(False, "form")],
             'target': 'new',
         }
+
+    @api.model
+    def create(self, values):
+        # Quando salvamos a criação do atendimento, o sistema esta recalculando
+        # a data de início (criação) para data de salvamento.
+        # Este método faz com que o sistema pegue novamente a data de criação
+        # armazenada no campo title e sobrescreva no campo.
+        if 'title' in values:
+            values['start_date_hour'] = values['title'].split(',')[0]
+
+        return super(HelpDeskPhoneCallService, self).create(values)
