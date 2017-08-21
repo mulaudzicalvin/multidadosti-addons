@@ -29,7 +29,8 @@ class TestHelpDeskPhoneCallConfirm(TransactionCase):
         }
 
         # Finalmente criamos um atendimento
-        self.phonecall = self.env['helpdesk.phonecall.service'].create(self.phonecall_values)
+        self.phonecall = self.env['helpdesk.phonecall.service'].create(
+            self.phonecall_values)
 
     def test__onchange_title(self):
 
@@ -45,11 +46,3 @@ class TestHelpDeskPhoneCallConfirm(TransactionCase):
         self.phonecall._onchange_title()
 
         self.assertEqual(self.phonecall.title, title)
-
-
-
-
-
-
-
-
