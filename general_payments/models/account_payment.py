@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
+from odoo.tools.translate import _
 from odoo.exceptions import ValidationError
 
 

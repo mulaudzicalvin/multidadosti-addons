@@ -55,7 +55,8 @@ class TestHelpDeskPhoneCallService(TransactionCase):
     def test__onchange_partner_id(self):
 
         # Alteramos para um usuario que e pessoa fisica
-        self.phonecall.partner_id = self.env.ref('base.res_partner_address_1').id
+        self.phonecall.partner_id = \
+            self.env.ref('base.res_partner_address_1').id
 
         # Garantimos que o parceiro nao e uma empresa
         self.assertFalse(self.phonecall.partner_id.is_company)
