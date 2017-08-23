@@ -14,9 +14,8 @@ class PrismePostIt(models.Model):
 
     @api.multi
     def _compute_opportunity_count(self):
-        for postit in self:
-            postit.opportunity_count = self.env['crm.lead'].search_count(
-                [('postit_ids', '=', postit.id)])
+        for rec in self:
+            rec.opportunity_count = len(self.lead_ids)
 
     @api.multi
     def action_redirect_crm_lead(self):
