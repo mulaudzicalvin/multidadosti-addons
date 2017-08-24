@@ -18,10 +18,13 @@ class TestCrmLead(TransactionCase):
         self.post_it = self.env['prisme.postit'].create(values)
 
     def test__compute_postit_count(self):
-        self.assertEqual(self.crm_lead.postit_count, 0)
+        initial_amount = self.crm_lead.postit_count
+        self.crm_lead._compute_postit_count()
+        self.assertEqual(self.crm_lead.postit_count, initial_amount)
+
         self.crm_lead.postit_ids = [(6, 0, self.post_it.ids)]
         self.crm_lead._compute_postit_count()
-        self.assertEqual(self.crm_lead.postit_count, 1)
+        self.assertEqual(self.crm_lead.postit_count, initial_amount + 1)
 
     def test_action_redirect_postit(self):
         self.crm_lead.postit_ids = [(6, 0, self.post_it.ids)]
