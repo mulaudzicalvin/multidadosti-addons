@@ -7,13 +7,17 @@ class CrmLead(models.Model):
     _inherit = 'crm.lead'
 
     postit_ids = fields.Many2many(comodel_name='prisme.postit',
+                                  relation='crm_lead_prisme_postit_rel',
                                   string='Postit')
+
     postit_count = fields.Integer(string='Postit',
+                                  default=0,
                                   compute='_compute_postit_count')
 
-    @api.multi
+    @api.depends('postit_ids')
     def _compute_postit_count(self):
-        self.postit_count = len(self.postit_ids)
+        for rec in self:
+            rec.postit_count = len(rec.postit_ids)
 
     @api.multi
     def action_redirect_postit(self):

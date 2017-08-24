@@ -36,7 +36,6 @@ class TestCrmLead(TransactionCase):
 
         self.assertEqual(action['context']['default_lead_ids'],
                          self.crm_lead.ids)
-        
         self.assertEqual(action['context']['default_partner_id'],
                          self.crm_lead.partner_id.id)
 
@@ -46,4 +45,3 @@ class TestCrmLead(TransactionCase):
         self.assertEqual(action['view_ids'], [view_id])
         self.assertEqual(action['view_mode'], 'form')
         self.assertEqual(action['view_type'], 'form')
-

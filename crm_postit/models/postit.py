@@ -10,9 +10,11 @@ class PrismePostIt(models.Model):
     opportunity_count = fields.Integer(string='Opportunity',
                                        compute='_compute_opportunity_count')
 
-    lead_ids = fields.Many2many(comodel_name='crm.lead', string='Leads')
+    lead_ids = fields.Many2many(comodel_name='crm.lead',
+                                relation='crm_lead_prisme_postit_rel',
+                                string='Leads')
 
-    @api.multi
+    @api.depends('lead_ids')
     def _compute_opportunity_count(self):
         for rec in self:
             rec.opportunity_count = len(self.lead_ids)
