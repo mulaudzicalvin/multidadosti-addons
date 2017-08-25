@@ -26,10 +26,10 @@ class CrmLead(models.Model):
         action = self.env['ir.actions.act_window'].for_xml_id(
             'prisme_postit', 'action_prisme_postit')
 
+        view_id = self.env.ref('prisme_postit.view_prisme_postit_form')
         action['domain'] = [('id', 'in', self.postit_ids.ids)]
-        action['view_id'] = \
-            self.env.ref('prisme_postit.view_prisme_postit_form').id
-        action['view_ids'] = [action['view_id']]
+        action['view_id'] = view_id.id
+        action['view_ids'] = [view_id.id]
         action['view_mode'] = 'form'
         action['view_type'] = 'form'
         action['context'] = {
