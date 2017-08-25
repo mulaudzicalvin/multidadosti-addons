@@ -17,10 +17,14 @@ class TestPostIt(TransactionCase):
         self.post_it = self.env['prisme.postit'].create(values)
 
     def test__compute_opportunity_count(self):
+
+        # Como nao adicionamos nenhuma relacao com crm.lead
+        # a quantidade deve permanecer
         initial_amount = self.post_it.opportunity_count
         self.post_it._compute_opportunity_count()
         self.assertEqual(self.post_it.opportunity_count, initial_amount)
 
+        # Como adicionamos uma relacao com crm.lead deve aumentar unidade
         self.post_it.lead_ids = [(6, 0, self.env.ref('crm.crm_case_19').ids)]
         self.post_it._compute_opportunity_count()
         self.assertEqual(self.post_it.opportunity_count, initial_amount + 1)
@@ -28,6 +32,7 @@ class TestPostIt(TransactionCase):
     def test_action_redirect_crm_lead(self):
         action = self.post_it.action_redirect_crm_lead()
 
+        # Testamos se a action retornada possui os atributos que desejamos
         self.assertListEqual(action['domain'],
                              [('postit_ids', '=', self.post_it.id)])
 
