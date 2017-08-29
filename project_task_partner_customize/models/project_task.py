@@ -15,7 +15,7 @@ class ProjectTask(models.Model):
         msg = u'Tarefa: %s atribuída a você.' % self.name
 
         post_vars = {
-            'subject': 'Notification',
+            'subject': u'Nova tarefa atribuída a você',
             'body':  msg,
             'partner_ids': [(4, self.user_id.partner_id.id)],
             'message_type': 'notification',
