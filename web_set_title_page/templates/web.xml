@@ -5,10 +5,4 @@
             <script type="text/javascript" src="/web_set_title_page/static/src/js/web_set_title_page.js"></script>
         </xpath>
     </template>
-
-    <template id="layout" name="Multi Backend" inherit_id="web.layout">
-        <xpath expr="//link[@t-att-href=x_icon or '/web/static/src/img/favicon.ico']" position="replace">
-            <link type="image/x-icon" rel="shortcut icon" t-att-href= "x_icon or '/web_set_title_page/static/src/img/favicon.ico'"/>
-        </xpath>
-    </template>
 </odoo>
