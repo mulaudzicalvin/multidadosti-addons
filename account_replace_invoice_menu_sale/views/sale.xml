@@ -15,7 +15,7 @@
     </record>
 
     <record id="sale.menu_sale_quotations" model="ir.ui.menu">
-        <field name="active" eval="False"/>
+        <field name="active" eval="True"/>
     </record>
 
     <record id="sale.menu_sale_invoicing" model="ir.ui.menu">
