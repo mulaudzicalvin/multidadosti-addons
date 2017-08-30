@@ -35,12 +35,12 @@ msgstr "Perdido"
 #. module: crm
 #: model:ir.ui.menu,name:crm.menu_crm_opportunities
 msgid "My Pipeline"
-msgstr "Propostas"
+msgstr "Oportunidades"
 
 #. module: crm
 #: model:ir.actions.act_window,name:crm.crm_lead_opportunities_tree_view
 msgid "Your Pipeline"
-msgstr "Suas Propostas"
+msgstr "Suas Oportunidades"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.view_crm_case_opportunities_filter

@@ -12,6 +12,7 @@
                         context="{
                             'default_partner_id': partner_id,
                             'default_lead_ids': id,
+                            'search_default_state_active':1,
                          }"
                         name="action_redirect_postit"
                         icon="fa-star">
