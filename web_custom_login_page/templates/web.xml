@@ -4,9 +4,6 @@
         <t t-set="head">
             <link rel="stylesheet" href="/web_custom_login_page/static/src/css/web_custom_login_page.css"/>
         </t>
-        <xpath expr="//div[@class='col-md-6 col-md-offset-3 o_database_list']/div[@t-if='not disable_footer']"
-            position="replace">
-        </xpath>
 
         <xpath expr="//div[@class='col-md-6 col-md-offset-3 o_database_list']/div[@class='text-center']/img" position="replace">
             <img t-attf-src="/web/binary/login_logo{{ '?dbname='+db if db else '' }}"/>
