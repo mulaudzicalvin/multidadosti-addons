@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-17 14:15+0000\n"
-"PO-Revision-Date: 2017-05-17 11:16-0300\n"
+"POT-Creation-Date: 2017-08-30 17:57+0000\n"
+"PO-Revision-Date: 2017-08-30 14:57-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,17 +32,8 @@ msgstr "Prospecção/Oportunidade"
 msgid "Lost"
 msgstr "Perdido"
 
-#. module: crm
-#: model:ir.ui.menu,name:crm.menu_crm_opportunities
-msgid "My Pipeline"
-msgstr "Oportunidades"
-
-#. module: crm
-#: model:ir.actions.act_window,name:crm.crm_lead_opportunities_tree_view
-msgid "Your Pipeline"
-msgstr "Oportunidades"
-
-#. module: crm
-#: model:ir.ui.view,arch_db:crm.view_crm_case_opportunities_filter
-msgid "Overdue Opportunities"
-msgstr "Oportunidades em Atraso"
+#. module: crm_lead_is_customer
+#: model:ir.model.fields,field_description:crm_lead_is_customer.field_crm_lead_negotiation
+#: model:ir.ui.view,arch_db:crm_lead_is_customer.crm_case_form_view_oppor
+msgid "Negotiation"
+msgstr "Negociação"
