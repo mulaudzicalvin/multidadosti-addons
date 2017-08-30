@@ -14,10 +14,13 @@ class CrmLead(models.Model):
                                   default=0,
                                   compute='_compute_postit_count')
 
+    @api.multi
     @api.depends('postit_ids')
     def _compute_postit_count(self):
-        for rec in self:
-            rec.postit_count = len(rec.postit_ids)
+        for record in self:
+            count_postit = [rec.state for rec in record.postit_ids
+                            if rec.state != 'terminated']
+            record.postit_count = len(count_postit)
 
     @api.multi
     def action_redirect_postit(self):

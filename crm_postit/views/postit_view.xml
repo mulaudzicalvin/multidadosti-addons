@@ -16,6 +16,7 @@
                              'default_partner_id': partner_id,
                              'default_postit_id': id,
                              'search_default_postit_id': id,
+                             'search_default_state_active': 1,
                         }"
                         icon="fa-star">
                     <field string="Opportunities"
