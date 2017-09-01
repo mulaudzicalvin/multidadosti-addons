@@ -14,6 +14,7 @@
     ],
     'depends': [
         'project',
+        'project_planned_time',
     ],
     'data': [
         'views/project_project.xml',
