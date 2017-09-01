@@ -15,6 +15,7 @@
     ],
     'depends': [
         'project',
+        'project_task_add_very_high',
     ],
     'data': [
         'views/project_project.xml',
