@@ -17,29 +17,25 @@ class ProjectTask(models.Model):
     @api.model
     def create(self, values):
         project_task = super(ProjectTask, self).create(values)
-
-        if 'user_id' in values and values.get('user_id'):
-            self._send_message()
-
+        self._send_message(values=values, project_task=project_task)
         return project_task
 
     @api.multi
     def write(self, values):
         ret = super(ProjectTask, self).write(values)
-
-        if 'user_id' in values and values.get('user_id'):
-            self._send_message()
-
+        self._send_message(values=values, project_task=self)
         return ret
 
-    def _send_message(self):
+    def _send_message(self, values, project_task):
 
-        post_vars = {
-            'subject': u'Nova tarefa atribuída a você',
-            'body': u'Tarefa: %s atribuída a você.' % self.name,
-            'partner_ids': [(4, self.user_id.partner_id.id)],
-            'message_type': 'notification',
-            'subtype': 'mt_comment',
-        }
+        if 'user_id' in values and values.get('user_id'):
 
-        self.env['mail.thread'].message_post(**post_vars)
+            post_vars = {
+                'subject': u'Nova tarefa atribuída a você',
+                'body': u'Tarefa: %s atribuída a você.' % project_task.name,
+                'partner_ids': [(4, project_task.user_id.partner_id.id)],
+                'message_type': 'notification',
+                'subtype': 'mt_comment',
+            }
+
+            self.env['mail.thread'].message_post(**post_vars)
