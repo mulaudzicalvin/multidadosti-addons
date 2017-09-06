@@ -39,3 +39,6 @@ class ProjectTask(models.Model):
             }
 
             self.env['mail.thread'].message_post(**post_vars)
+            return True
+        else:
+            return False
