@@ -1,6 +1,6 @@
 ## Project Default Stages
 
-This Module allow create projects with default stages.
+This Module allows create projects without default stages.
 
 ### Bug Tracker
 

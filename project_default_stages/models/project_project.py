@@ -15,11 +15,6 @@ class ProjectProject(models.Model):
     @api.model
     def create(self, values):
         project = super(ProjectProject, self).create(values)
-        if values.get('bring_default_task_type'):
-
-            task_types = self.env['project.task.type'].search([(
-                'is_default', '=', 'True')])
-            for rec in task_types:
-                rec.project_ids = [(4, project.id)]
-
+        if not values.get('bring_default_task_type'):
+            project.type_ids = [(5,)]
         return project
