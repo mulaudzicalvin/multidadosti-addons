@@ -40,7 +40,7 @@ msgstr "Oportunidades"
 #. module: crm
 #: model:ir.actions.act_window,name:crm.crm_lead_opportunities_tree_view
 msgid "Your Pipeline"
-msgstr "Suas Oportunidades"
+msgstr "Oportunidades"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.view_crm_case_opportunities_filter
