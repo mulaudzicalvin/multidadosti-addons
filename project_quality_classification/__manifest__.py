@@ -14,7 +14,6 @@
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'project',
         'project_task_add_very_high',
     ],
     'data': [
