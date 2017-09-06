@@ -8,6 +8,13 @@
         <field name="priority">24</field>
         <field name="arch" type="xml">
 
+            <xpath expr="//kanban[@class='oe_background_grey o_kanban_dashboard o_project_kanban']" position="inside">
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="planned_time"/>
+                <field name="hours_left"/>
+            </xpath>
+
             <xpath expr="//kanban/templates/t/div/child::div[1]"
                    position="replace">
                 <div class="o_project_kanban_main" style="display: flex;">
@@ -17,6 +24,20 @@
                                 <div class="o_primary">
                                     <span>
                                         <t t-esc="record.name.value"/>
+                                    </span>
+                                    <span>
+                                        <t t-esc="record.partner_id.value"/>
+                                    </span>
+                                    <span>
+                                        <t t-esc="record.user_id.value"/>
+                                    </span>
+                                    <span>
+                                        <strong class="small">Horas Planejadas:</strong>
+                                        <t t-esc="record.planned_time.value"/>
+                                    </span>
+                                    <span>
+                                        <strong class="small">Horas Restantes:</strong>
+                                        <t t-esc="record.hours_left.value"/>
                                     </span>
                                 </div>
                                 <div t-if="record.alias_name.value and record.alias_domain.value">
