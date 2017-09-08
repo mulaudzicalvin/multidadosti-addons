@@ -77,8 +77,8 @@ class HelpDeskPhoneCallService(models.Model):
         for rec in self:
             rec.title = ''
             rec.title += rec.start_date_hour if rec.start_date_hour else ''
-            rec.title += ', ' + rec.partner_id.name if rec.partner_id else ''
-            rec.title += ', ' + rec.project_id.name if rec.project_id else ''
+            rec.title += ', %s' % rec.partner_id.name if rec.partner_id else ''
+            rec.title += ', %s' % rec.project_id.name if rec.project_id else ''
 
     @api.onchange('partner_id')
     def _onchange_partner_id(self):
@@ -119,8 +119,10 @@ class HelpDeskPhoneCallService(models.Model):
         attachment_data = self.env['ir.attachment'].read_group(
             [('res_model', '=', 'helpdesk.phonecall.service'),
              ('res_id', 'in', self.ids)], ['res_id'], ['res_id'])
+
         attachment = dict(
             (data['res_id'], data['res_id_count']) for data in attachment_data)
+
         for expense in self:
             expense.attachment_number = attachment.get(expense.id, 0)
 
@@ -128,11 +130,16 @@ class HelpDeskPhoneCallService(models.Model):
     def action_get_attachment_tree_view(self):
         attachment_action = self.env.ref('base.action_attachment')
         action = attachment_action.read()[0]
-        action['context'] = {'default_res_model': self._name,
-                             'default_res_id': self.ids[0]}
-        action['domain'] = str(['&', ('res_model', '=', self._name),
+
+        action['context'] = {
+            'default_res_model': self._name,
+            'default_res_id': self.ids[0],
+        }
+        action['domain'] = str([('res_model', '=', self._name),
                                 ('res_id', 'in', self.ids)])
-        action['search_view_id'] = (self.env.ref(
-            'helpdesk_phonecall_support.'
-            'ir_attachment_view_search_helpdesk_phonecall_service').id,)
+
+        search_view = self.env.ref(
+            'helpdesk_phonecall_support.ir_attachment_view_search_helpdesk_phonecall_service')  # noqa: E501
+
+        action['search_view_id'] = [search_view.id]
         return action
