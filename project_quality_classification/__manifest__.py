@@ -14,11 +14,12 @@
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'project',
+        'project_task_add_very_high',
     ],
     'data': [
         'views/project_project.xml',
     ],
+    'uninstall_hook': 'uninstall_hook',
     'installable': True,
     'auto_install': False,
     'application': False,
