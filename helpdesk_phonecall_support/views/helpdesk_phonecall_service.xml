@@ -21,8 +21,13 @@
                                 icon="fa-archive" groups="base.group_system, base.group_user">
                             <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
                         </button>
+                        <button name="action_get_attachment_tree_view"
+                                class="oe_stat_button"
+                                icon="fa-book"
+                                type="object">
+                            <field name="attachment_number" widget="statinfo" string="Documents"/>
+                        </button>
                     </div>
-
                     <group>
                         <group>
                             <field name="title" invisible="1"/>
@@ -52,15 +57,20 @@
                             <field name="user_id"/>
                         </group>
                     </group>
-                    <notebook>
-                        <page string="Description">
-                            <group style="margin: 1%; width: 98%">
+                    <group>
+                        <group string="Description" style="width: 98%">
+                            <div>
                                 <field name="description"
-                                       attrs="{'readonly':[('state','=','done')]}"
-                                       nolabel="1"/>
-                            </group>
-                        </page>
-                    </notebook>
+                                       attrs="{'readonly':[('state','=','done')]}"/>
+                            </div>
+                        </group>
+                        <group string="Solution" style="width: 98%">
+                            <div>
+                                <field name="solution" string="Solution"
+                                       attrs="{'readonly':[('state','=','done')]}"/>
+                            </div>
+                        </group>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -265,5 +275,27 @@
               sequence="3"
               parent="phonecall_service_report"
               action="action_helpdesk_phonecall_service_report_graph_all_2"/>
+
+
+    <record id="ir_attachment_view_search_helpdesk_phonecall_service" model="ir.ui.view">
+        <field name="name">ir.attachment.search.helpdesk.phonecall.service</field>
+        <field name="model">ir.attachment</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="base.view_attachment_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='create_date']" position="after">
+                <field name="index_content" string="Content"/>
+            </xpath>
+            <xpath expr="//filter[@name='my_documents_filter']" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='url_filter']" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='binary_filter']" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </xpath>
+        </field>
+    </record>
 
 </odoo>

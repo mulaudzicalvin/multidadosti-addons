@@ -13,6 +13,8 @@ class HelpDeskPhoneCallService(models.Model):
 
     description = fields.Text(string='Description')
 
+    solution = fields.Text(string='Solution')
+
     start_date_hour = fields.Datetime(string='Start Date',
                                       copy=False,
                                       readonly=True,
@@ -67,13 +69,16 @@ class HelpDeskPhoneCallService(models.Model):
 
     active = fields.Boolean(default=True)
 
+    attachment_number = fields.Integer(compute='_compute_attachment_number',
+                                       string='Number of Attachments')
+
     @api.onchange('start_date_hour', 'partner_id', 'project_id')
     def _onchange_title(self):
         for rec in self:
             rec.title = ''
             rec.title += rec.start_date_hour if rec.start_date_hour else ''
-            rec.title += ', ' + rec.partner_id.name if rec.partner_id else ''
-            rec.title += ', ' + rec.project_id.name if rec.project_id else ''
+            rec.title += ', %s' % rec.partner_id.name if rec.partner_id else ''
+            rec.title += ', %s' % rec.project_id.name if rec.project_id else ''
 
     @api.onchange('partner_id')
     def _onchange_partner_id(self):
@@ -108,3 +113,33 @@ class HelpDeskPhoneCallService(models.Model):
             values['start_date_hour'] = values['title'].split(',')[0]
 
         return super(HelpDeskPhoneCallService, self).create(values)
+
+    @api.multi
+    def _compute_attachment_number(self):
+        attachment_data = self.env['ir.attachment'].read_group(
+            [('res_model', '=', 'helpdesk.phonecall.service'),
+             ('res_id', 'in', self.ids)], ['res_id'], ['res_id'])
+
+        attachment = dict(
+            (data['res_id'], data['res_id_count']) for data in attachment_data)
+
+        for expense in self:
+            expense.attachment_number = attachment.get(expense.id, 0)
+
+    @api.multi
+    def action_get_attachment_tree_view(self):
+        attachment_action = self.env.ref('base.action_attachment')
+        action = attachment_action.read()[0]
+
+        action['context'] = {
+            'default_res_model': self._name,
+            'default_res_id': self.ids[0],
+        }
+        action['domain'] = str([('res_model', '=', self._name),
+                                ('res_id', 'in', self.ids)])
+
+        search_view = self.env.ref(
+            'helpdesk_phonecall_support.ir_attachment_view_search_helpdesk_phonecall_service')  # noqa: E501
+
+        action['search_view_id'] = [search_view.id]
+        return action
