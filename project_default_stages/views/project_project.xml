@@ -14,22 +14,4 @@
         </field>
     </record>
 
-    <record id="edit_project" model="ir.ui.view">
-        <field name="name">project.default.in.project.view.form</field>
-        <field name="model">project.project</field>
-        <field name="inherit_id" ref="project.edit_project"/>
-        <field name="arch" type="xml">
-
-            <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="type_ids" widget="many2many_tags" options="{'no_create': True}"/>
-            </xpath>
-
-        </field>
-    </record>
-
-    <menuitem action="project.project_tags_action"
-              id="project.menu_project_tags_act"
-              parent="project.menu_project_config"
-              groups="project.group_project_manager"/>
-    
 </odoo>

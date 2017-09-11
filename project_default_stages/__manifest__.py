@@ -8,17 +8,16 @@
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
     'category': 'Project',
-    'summary': 'Allow create projects with default stages',
+    'summary': 'This Module allows create projects without default stages',
     'contributors': [
         'Aldo Soares <soares_aldo@hotmail.com>',
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'project',
+        'project_task_default_stage',
     ],
     'data': [
         'views/project_project.xml',
-        'views/project_task_type.xml',
     ],
     'installable': True,
     'auto_install': False,

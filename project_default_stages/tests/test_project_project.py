@@ -23,13 +23,13 @@ class TestProjectProject(TransactionCase):
 
         # Adicionamos todas os estagios de tarefas como False
         for task_type in self.env['project.task.type'].search([]):
-            task_type.is_default = False
+            task_type.case_default = False
 
         # Definimos os estagios New e Advanced como estagios default do
         # projeto, logo elas serao adicionadas quando criamos um projeto
         # e marcamos o checkbox para trazer estagios padrao
-        self.project_stage_0.is_default = True
-        self.project_stage_2.is_default = True
+        self.project_stage_0.case_default = True
+        self.project_stage_2.case_default = True
 
         # Definimos que o projeto deve utilizar estagios default
         self.project_values['bring_default_task_type'] = True
@@ -44,10 +44,6 @@ class TestProjectProject(TransactionCase):
         self.assertIn(self.project_stage_2.id, project.type_ids.ids)
 
     def test_create_with_default_task(self):
-
-        # Verificamos se todos os estagios sao default
-        for task_type in self.env['project.task.type'].search([]):
-            self.assertTrue(task_type.is_default)
 
         # Definimos que o projeto nao deve utilizar estagios default
         self.project_values['bring_default_task_type'] = False
