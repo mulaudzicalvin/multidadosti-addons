@@ -36,12 +36,8 @@
     </record>
 
     <record id="crm.create_opportunity_simplified" model="ir.actions.act_window">
-        <field name="name">Create an Opportunity</field>
-        <field name="res_model">crm.lead</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">form</field>
         <field name="view_id" ref="crm.crm_case_form_view_oppor"/>
-        <field name="target">inline</field>
+        <field name="target">current</field>
     </record>
 
     <record id="view_crm_case_opportunities_filter" model="ir.ui.view">
