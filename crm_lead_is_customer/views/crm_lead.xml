@@ -27,9 +27,12 @@
                     team_id}
                 </attribute>
             </field>
+            <field name="description" position="attributes">
+                <attribute name="widget">html</attribute>
+            </field>
             <xpath expr="//notebook/page[last()]" position="after">
                 <page string="Negotiation">
-                    <field name="negotiation"/>
+                    <field name="negotiation" widget="html"/>
                 </page>
             </xpath>
         </field>
