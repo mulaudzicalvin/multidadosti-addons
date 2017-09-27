@@ -8,9 +8,9 @@ class CrmLead(models.Model):
 
     postit_ids = fields.Many2many(comodel_name='prisme.postit',
                                   relation='crm_lead_prisme_postit_rel',
-                                  string='Postit')
+                                  string='Post-it')
 
-    postit_count = fields.Integer(string='Postit',
+    postit_count = fields.Integer(string='Post-it',
                                   default=0,
                                   compute='_compute_postit_count')
 
