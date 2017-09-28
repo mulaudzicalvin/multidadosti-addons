@@ -3,11 +3,11 @@
 from odoo import fields, models
 
 PRIORITY_CLASSIFICATION = [
-    ('0', 'Lowest'),
-    ('1', 'Low'),
-    ('2', 'Medium'),
-    ('3', 'Hight'),
-    ('4', 'Highest'),
+    ('0', 'Muito Baixa'),
+    ('1', 'Baixa'),
+    ('2', 'Média'),
+    ('3', 'Alta'),
+    ('4', 'Muito Alta'),
 ]
 
 
