@@ -6,11 +6,28 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
         <field name="arch" type="xml">
-
             <xpath expr="//field[@name='name']" position="after">
                 <field name="bring_default_task_type"/>
             </xpath>
+        </field>
+    </record>
 
+    <record id="edit_project" model="ir.ui.view">
+        <field name="name">project.default.stage.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project_task_default_stage.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type_ids']" position="replace">
+                <field name="type_ids">
+                    <tree>
+                        <field name="sequence" widget="handle"/>
+                        <field name="name"/>
+                        <field name="case_default"/>
+                        <field name="fold"/>
+                        <field name="description"/>
+                    </tree>
+                </field>
+            </xpath>
         </field>
     </record>
 
