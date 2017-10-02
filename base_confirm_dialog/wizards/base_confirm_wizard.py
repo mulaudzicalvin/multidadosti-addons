@@ -12,6 +12,66 @@ class ConfirmEventsWizard(models.TransientModel):
 
     method = fields.Char(string='Method', readonly=True)
 
+    def validate_method(self, rec_wiz):
+        """
+        This method validates if method exists in active_model and if there is
+        method parameters in context, if so, them verifies if parameters
+        matches with related parameters in method.
+        """
+        if hasattr(rec_wiz, self.method):
+            ctx_method_parameters = (self.env.context.get('method_parameters')
+                                     or {})
+            method = getattr(rec_wiz, self.method)
+            method_parameters = method.func_code.co_varnames
+            undefined_parameters = [var for var in ctx_method_parameters
+                                    if var not in method_parameters]
+
+            if ctx_method_parameters and undefined_parameters:
+                raise AccessError(
+                    'The following method parameters is not implemented:\n%s'
+                    % '\n-'.join(undefined_parameters))
+        else:
+            raise AccessError('The following method is not implemented:\n%s' %
+                              self.method)
+
+    def validate_xml_action(self):
+        """
+        This method validates if xml_id_action is valid(in other words, if the
+        module is installed/exists and if action exists in module).
+        """
+        module_name, act_name = self.xml_id_action.split('.')
+        module_recs = self.env['ir.module.module'].search([('name', '=',
+                                                            module_name)])
+        if module_recs:
+            action = self.env['ir.model.data'].search(
+                ['&', ('module', '=', module_name), ('name', '=', act_name)])
+            if not action:
+                raise AccessError(
+                    'The following action is not implemented in %s module:'
+                    '\n-%s' % (module_name, act_name))
+        else:
+            raise AccessError(
+                'The following module is not installed:'
+                '\n-%s' % module_name)
+
+    def validate_record(self):
+        """
+        This method calls methods of method validation and XML action
+        validation if a xml_id_action was passed if no one exception is raised,
+        then return active_id record.
+        :return: active_id record
+        """
+
+        rec_wiz = self.env[self.env.context.get('active_model')].browse(
+            [self.env.context.get('active_id')])
+
+        self.validate_method(rec_wiz)
+
+        if self.xml_id_action:
+            self.validate_xml_action()
+
+        return rec_wiz
+
     @api.multi
     def yes(self):
         """
@@ -23,9 +83,7 @@ class ConfirmEventsWizard(models.TransientModel):
         model of the returned action)
         :return:
         """
-        rec_wiz = self.env[self.env.context.get('active_model')].browse(
-            [self.env.context.get('active_id')])
-
+        rec_wiz = self.validate_record()
         method_parameters = self.env.context.get('method_parameters') or {}
         generated_records = getattr(rec_wiz, self.method)(**method_parameters)
 
