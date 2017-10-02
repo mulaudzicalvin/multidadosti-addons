@@ -8,24 +8,34 @@ class ConfirmEventsWizard(models.TransientModel):
 
     message = fields.Char(string='Message', readonly=True)
 
-    wiz_model = fields.Char(string='Wizard Model', readonly=True)
-
     xml_id_action = fields.Char(string='XML ID Action', readonly=True)
 
     method = fields.Char(string='Method', readonly=True)
 
     @api.multi
     def yes(self):
-        wiz_id = self.env.context.get('active_id')
-        rec_wiz = self.env[self.wiz_model].browse([wiz_id])
-        generated_records = getattr(rec_wiz, self.method)()
+        """
+        This method calls method validate_record, if no one exception is
+        raised, them calls passed method with method_parameters in the context
+        (if it was passed), if any return is received through method and the
+        xml_id_action field was assigned, then the action is returned with
+        generated_records(return value of method, generally ids from related
+        model of the returned action)
+        :return:
+        """
+        rec_wiz = self.env[self.env.context.get('active_model')].browse(
+            [self.env.context.get('active_id')])
 
-        res = self.env['ir.actions.act_window'].for_xml_id(
-            *self.xml_id_action.split('.'))
+        method_parameters = self.env.context.get('method_parameters') or {}
+        generated_records = getattr(rec_wiz, self.method)(**method_parameters)
 
-        res['domain'] = [('id', 'in', generated_records)]
+        if self.xml_id_action and generated_records:
+            res = self.env['ir.actions.act_window'].for_xml_id(
+                *self.xml_id_action.split('.'))
 
-        return res
+            res['domain'] = [('id', 'in', generated_records)]
+
+            return res
 
     @api.multi
     def no(self):
