@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models
+from odoo.exceptions import AccessError
+from odoo.tools.translate import _
 
 
-class ConfirmEventsWizard(models.TransientModel):
+class BaseConfirmWizard(models.TransientModel):
     _name = 'base.confirm.wizard'
 
     message = fields.Char(string='Message', readonly=True)
@@ -27,12 +29,12 @@ class ConfirmEventsWizard(models.TransientModel):
                                     if var not in method_parameters]
 
             if ctx_method_parameters and undefined_parameters:
-                raise AccessError(
-                    'The following method parameters is not implemented:\n%s'
+                raise AccessError(_(
+                    'The following method parameters are not implemented:\n-%s')
                     % '\n-'.join(undefined_parameters))
         else:
-            raise AccessError('The following method is not implemented:\n%s' %
-                              self.method)
+            raise AccessError(_(
+                'The following method is not implemented:\n-%s') % self.method)
 
     def validate_xml_action(self):
         """
@@ -51,20 +53,18 @@ class ConfirmEventsWizard(models.TransientModel):
                     '\n-%s' % (module_name, act_name))
         else:
             raise AccessError(
-                'The following module is not installed:'
-                '\n-%s' % module_name)
+                _('The following module is not installed:\n-%s') % module_name)
 
     def validate_record(self):
         """
         This method calls methods of method validation and XML action
         validation if a xml_id_action was passed if no one exception is raised,
-        then return active_id record.
+        then return active_ids records.
         :return: active_id record
         """
 
         rec_wiz = self.env[self.env.context.get('active_model')].browse(
-            [self.env.context.get('active_id')])
-
+            self.env.context.get('active_ids'))
         self.validate_method(rec_wiz)
 
         if self.xml_id_action:
