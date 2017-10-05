@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Base - Confirm Dialog',
+    'name': 'Base - Confirm Wizard',
     'version': '10.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',

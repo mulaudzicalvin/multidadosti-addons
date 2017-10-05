@@ -1,4 +1,4 @@
-### Base - Confirm Dialog
+### Base - Confirm Wizard
 
 This module adds an implementation of a customizable confirm wizard.
 
