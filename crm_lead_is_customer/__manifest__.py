@@ -13,10 +13,15 @@
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
+        'sales_team',
         'sale_crm',
     ],
     'data': [
         'views/crm_lead.xml',
+        'views/sales_team_dashboard.xml',
+    ],
+    'qweb': [
+        "static/src/xml/sales_team_dashboard.xml",
     ],
     'installable': True,
 }
