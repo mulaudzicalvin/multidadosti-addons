@@ -6,21 +6,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 17:57+0000\n"
-"PO-Revision-Date: 2017-08-30 14:57-0300\n"
+"POT-Creation-Date: 2017-10-09 17:37+0000\n"
+"PO-Revision-Date: 2017-10-09 14:44-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: pt\n"
+"Language: pt_BR\n"
 "X-Generator: Poedit 1.8.7.1\n"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:91
+#, python-format
+msgid "3 exp. closing"
+msgstr "3 exp. closing"
+
+#. module: crm_lead_is_customer
+#: model:ir.ui.view,arch_db:crm_lead_is_customer.crm_team_salesteams_view_kanban
+msgid "<span>New</span>"
+msgstr "<span>Novo</span>"
+
+#. module: crm_lead_is_customer
+#: model:ir.ui.view,arch_db:crm_lead_is_customer.crm_team_salesteams_view_kanban
+msgid "<span>Reports</span>"
+msgstr "<span>Relatórios</span>"
+
+#. module: crm_lead_is_customer
+#: model:ir.ui.view,arch_db:crm_lead_is_customer.crm_team_salesteams_view_kanban
+msgid "<span>View</span>"
+msgstr "<span>Visualizar</span>"
+
+#. module: crm_lead_is_customer
+#: model:ir.ui.view,arch_db:crm_lead_is_customer.ir_attachment_view_search_crm_lead
+msgid "Content"
+msgstr "Conteúdo"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:107
+#, python-format
+msgid "Create a few opportunities in it."
+msgstr "Crie algumas oportunidades nele."
+
+#. module: crm_lead_is_customer
+#: model:ir.ui.view,arch_db:crm_lead_is_customer.crm_case_form_view_oppor
+msgid "Documents"
+msgstr "Documentos"
 
 #. module: crm_lead_is_customer
 #: model:ir.ui.view,arch_db:crm_lead_is_customer.view_crm_case_opportunities_filter
 msgid "Filed"
 msgstr "Arquivado"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:106
+#, python-format
+msgid "Great sales journeys start with a clean pipeline."
+msgstr "Grandes jornadas de vendas começam com uma tubulação limpa."
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:105
+#, python-format
+msgid "Hi there!"
+msgstr "Olá!"
 
 #. module: crm_lead_is_customer
 #: model:ir.model,name:crm_lead_is_customer.model_crm_lead
@@ -33,7 +86,109 @@ msgid "Lost"
 msgstr "Perdido"
 
 #. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:25
+#, python-format
+msgid "Meetings"
+msgstr "Reuniões"
+
+#. module: crm_lead_is_customer
+#: model:ir.ui.view,arch_db:crm_lead_is_customer.crm_team_salesteams_view_kanban
+msgid "More <i class=\"fa fa-caret-down\"/>"
+msgstr "Mais <i class=\"fa fa-caret-down\"/>"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:42
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:44
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:108
+#, python-format
+msgid "My Pipeline"
+msgstr "My Pipeline"
+
+#. module: crm_lead_is_customer
 #: model:ir.model.fields,field_description:crm_lead_is_customer.field_crm_lead_negotiation
 #: model:ir.ui.view,arch_db:crm_lead_is_customer.crm_case_form_view_oppor
 msgid "Negotiation"
 msgstr "Negociação"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:50
+#, python-format
+msgid "Next 7 days"
+msgstr "Próximos 7 dias"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:38
+#, python-format
+msgid "Next Actions"
+msgstr "Próxima Ações"
+
+#. module: crm_lead_is_customer
+#: model:ir.model.fields,field_description:crm_lead_is_customer.field_crm_lead_attachment_number
+msgid "Number of Attachments"
+msgstr "Número de Anexos"
+
+#. module: crm_lead_is_customer
+#: model:ir.model.fields,field_description:crm_lead_is_customer.field_crm_lead_sale_originator
+msgid "Sale Originator"
+msgstr "Vendedor Originador"
+
+#. module: crm_lead_is_customer
+#: model:ir.ui.view,arch_db:crm_lead_is_customer.crm_team_salesteams_view_kanban
+msgid "Settings"
+msgstr "Configurações"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:29
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:61
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:76
+#, python-format
+msgid "To Activities"
+msgstr "Para Atividades"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:16
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:51
+#, python-format
+msgid "To Calendar"
+msgstr "Para Calendário"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:86
+#, python-format
+msgid "To Opportunities"
+msgstr "Para Oportunidades"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:13
+#, python-format
+msgid "To do"
+msgstr "To do"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:13
+#, python-format
+msgid "Today"
+msgstr "Hoje"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:89
+#, python-format
+msgid "exp. closing"
+msgstr "exp. closing"
+
+#. module: crm_lead_is_customer
+#. openerp-web
+#: code:addons/crm_lead_is_customer/static/src/xml/sales_team_dashboard.xml:79
+#, python-format
+msgid "overdue"
+msgstr "overdue"
