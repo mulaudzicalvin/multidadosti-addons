@@ -1,0 +1,123 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_confirm_wizard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-05 19:39+0000\n"
+"PO-Revision-Date: 2017-10-05 16:41-0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: base_confirm_wizard
+#: model:ir.ui.view,arch_db:base_confirm_wizard.base_confirm_wizard_form
+msgid "Confirm dialog"
+msgstr "Janela de Confirmação"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard_create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard_create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard_display_name
+msgid "Display Name"
+msgstr "Nome para Exibição"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard___last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard_write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard_message
+msgid "Message"
+msgstr "Mensagem"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard_method
+msgid "Method"
+msgstr "Método"
+
+#. module: base_confirm_wizard
+#: model:ir.ui.view,arch_db:base_confirm_wizard.base_confirm_wizard_form
+msgid "No"
+msgstr "Não"
+
+#. module: base_confirm_wizard
+#: model:ir.ui.view,arch_db:base_confirm_wizard.base_confirm_wizard_form
+msgid "PS:This action cannot be reversed"
+msgstr "OBS.:Esta ação não poderá ser revertida"
+
+#. module: base_confirm_wizard
+#: code:addons/base_confirm_wizard/wizards/base_confirm_wizard.py:36
+#, python-format
+msgid ""
+"The following method is not implemented:\n"
+"-%s"
+msgstr ""
+"O método a seguir não esta implementado:\n"
+"-%s"
+
+#. module: base_confirm_wizard
+#: code:addons/base_confirm_wizard/wizards/base_confirm_wizard.py:32
+#, python-format
+msgid ""
+"The following method parameters are not implemented:\n"
+"-%s"
+msgstr ""
+"O parâmetros de método a seguir não estão implementados:\n"
+"-%s"
+
+#. module: base_confirm_wizard
+#: code:addons/base_confirm_wizard/wizards/base_confirm_wizard.py:56
+#, python-format
+msgid ""
+"The following module is not installed:\n"
+"-%s"
+msgstr ""
+"O módulo a seguir não esta instalado:\n"
+"-%s"
+
+#. module: base_confirm_wizard
+#: model:ir.model.fields,field_description:base_confirm_wizard.field_base_confirm_wizard_xml_id_action
+msgid "XML ID Action"
+msgstr "XML ID Action"
+
+#. module: base_confirm_wizard
+#: model:ir.ui.view,arch_db:base_confirm_wizard.base_confirm_wizard_form
+msgid "Yes"
+msgstr "Sim"
+
+#. module: base_confirm_wizard
+#: model:ir.model,name:base_confirm_wizard.model_base_confirm_wizard
+msgid "base.confirm.wizard"
+msgstr "base.confirm.wizard"
