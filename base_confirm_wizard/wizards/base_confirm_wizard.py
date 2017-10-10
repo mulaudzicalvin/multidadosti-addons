@@ -92,6 +92,8 @@ class BaseConfirmWizard(models.TransientModel):
                 *self.xml_id_action.split('.'))
 
             res['domain'] = [('id', 'in', generated_records)]
+            if 'action_context' in self.env.context:
+                res['context'] = self.env.context.get('action_context')
 
             return res
 
