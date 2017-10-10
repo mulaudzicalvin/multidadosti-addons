@@ -13,14 +13,11 @@ class Lead(models.Model):
     attachment_number = fields.Integer(compute='_compute_attachment_number',
                                        string='Number of Attachments')
 
-    partner_id = fields.Many2one('res.partner', string='Customer',
-                                 track_visibility='onchange', index=True,
-                                 required=True)
-
     @api.multi
     def action_set_won(self):
         rec = super(Lead, self).action_set_won()
-        self.partner_id.customer = True
+        if self.partner_id:
+            self.partner_id.customer = True
         self.next_activity_id = False
         return rec
 
