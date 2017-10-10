@@ -9,6 +9,10 @@ class Lead(models.Model):
     negotiation = fields.Text(string='Negotiation')
 
     def action_set_won(self):
-        rec = super(Lead, self).action_set_won()
-        self.partner_id.customer = True
-        return rec
+        ret = super(Lead, self).action_set_won()
+
+        for rec in self:
+            if rec.partner_id:
+                rec.partner_id.customer = True
+
+        return ret
