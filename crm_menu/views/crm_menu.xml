@@ -65,7 +65,8 @@
 
     <menuitem id="crm.menu_crm_lead_stage_act"
               sequence="2"
-              parent="crm_menu_configuration"/>
+              parent="crm_menu_configuration"
+              groups="base.group_user"/>
 
     <menuitem id="crm.menu_crm_lead_categ"
               sequence="3"
@@ -73,7 +74,8 @@
               parent="crm_menu_configuration"/>
 
     <menuitem id="crm.menu_crm_lost_reason"
-              parent="crm_menu_configuration"/>
+              parent="crm_menu_configuration"
+              groups="base.group_user"/>
 
     <menuitem id="sales_team.sales_team_config"
               parent="crm_menu_configuration"/>
