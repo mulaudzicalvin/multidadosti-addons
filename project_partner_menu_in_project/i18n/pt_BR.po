@@ -21,4 +21,4 @@ msgstr ""
 #: model:ir.actions.act_window,name:project_partner_menu_in_project.project_project_partner_action
 #: model:ir.ui.menu,name:project_partner_menu_in_project.project_partner_menu
 msgid "Partner"
-msgstr "Cliente"
+msgstr "Clientes"
