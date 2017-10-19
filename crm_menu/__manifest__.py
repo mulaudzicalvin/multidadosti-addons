@@ -19,7 +19,6 @@
         'sale',
         'base_add_partner_filter',
         'web_lead_funnel_chart',
-
     ],
     'data': [
         'views/res_partner.xml',
