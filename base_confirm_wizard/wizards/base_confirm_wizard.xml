@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="base_confirm_wizard_form">
+        <field name="name">base.confirm.wizard</field>
+        <field name="model">base.confirm.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Confirm dialog">
+                <style>
+                    @media screen and (min-width: 900px) {
+                        .modal-lg{
+                            max-width: 400px !important;
+                        }
+                        .modal-lg .modal-footer button{
+                            width: calc(50% - 2.5px) !important;
+                        }
+                        .modal-lg p{
+                            text-align: center;
+                        }
+                        #confirm_wizard_message span{
+                            display: block;
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+                </style>
+                <div id="confirm_wizard_message">
+                    <field name="message"/>
+                </div>
+                <p>PS:This action cannot be reversed</p>
+                <footer>
+                    <button class="oe_highlight" type="object" name="no" string="No" />
+                    <button class="oe_highlight" type="object" name="yes" string="Yes" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
