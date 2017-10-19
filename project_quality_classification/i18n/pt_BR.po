@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-05 15:00+0000\n"
-"PO-Revision-Date: 2017-03-05 12:01-0300\n"
+"POT-Creation-Date: 2017-10-17 15:58+0000\n"
+"PO-Revision-Date: 2017-10-17 14:00-0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,11 @@ msgstr ""
 "Plural-Forms: \n"
 "Language: pt_BR\n"
 "X-Generator: Poedit 1.8.7.1\n"
+
+#. module: project_quality_classification
+#: model:ir.ui.view,arch_db:project_quality_classification.view_project_kanban
+msgid "<strong class=\"small\" style=\"display: block; float: left; margin-right: 5px;\">Prioridade:</strong>"
+msgstr "<strong class=\"small\" style=\"display: block; float: left; margin-right: 5px;\">Prioridade:</strong>"
 
 #. module: project_quality_classification
 #: selection:project.project,quality_classification:0
@@ -38,19 +43,49 @@ msgid "Great"
 msgstr "Ótimo"
 
 #. module: project_quality_classification
+#: selection:project.project,priority:0
+msgid "High"
+msgstr "Alta"
+
+#. module: project_quality_classification
+#: selection:project.project,priority:0
+msgid "Low"
+msgstr "Baixa"
+
+#. module: project_quality_classification
+#: selection:project.project,priority:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: project_quality_classification
+#: model:ir.model.fields,field_description:project_quality_classification.field_project_project_priority
+msgid "Priority"
+msgstr "Prioridade"
+
+#. module: project_quality_classification
 #: model:ir.model,name:project_quality_classification.model_project_project
 msgid "Project"
 msgstr "Projeto"
 
 #. module: project_quality_classification
 #: model:ir.model.fields,field_description:project_quality_classification.field_project_project_quality_classification
-msgid "Quality"
-msgstr "Qualidade"
+msgid "Situation"
+msgstr "Situação"
+
+#. module: project_quality_classification
+#: model:ir.model,name:project_quality_classification.model_project_task
+msgid "Task"
+msgstr "Tarefa"
 
 #. module: project_quality_classification
 #: selection:project.project,quality_classification:0
 msgid "Terrible"
 msgstr "Péssimo"
+
+#. module: project_quality_classification
+#: selection:project.project,priority:0
+msgid "Very Low"
+msgstr "Muito Baixa"
 
 #. module: project_quality_classification
 #: selection:project.project,quality_classification:0

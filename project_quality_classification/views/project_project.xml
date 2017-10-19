@@ -7,8 +7,41 @@
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//field[@name='name']" position="after">
-                <field name="quality_classification" widget="priority"/>
+            <xpath expr="//div[2]" position="after">
+                <div>
+                    <group>
+                        <field name="quality_classification" widget="priority"/>
+                        <field name="priority" widget="priority"/>
+                    </group>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_project_kanban" model="ir.ui.view">
+        <field name="name">project.kanban.onclick.redirect.project.kanban</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="priority">24</field>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban[@class='oe_background_grey o_kanban_dashboard o_project_kanban']" position="inside">
+                <field name="priority" widget="priority"/>
+            </xpath>
+
+            <xpath expr='//div[@class="o_primary"]' position="inside">
+                <div>
+                    <span>
+                        <style>
+                            .o_priority{
+                                display: flex;
+                                float: left
+                            }
+                        </style>
+                        <strong class="small" style="display: block; float: left; margin-right: 5px;">Prioridade:</strong>
+                        <field name="priority" style="width: 45%;display: auto" widget="priority"/>
+                    </span>
+                </div>
             </xpath>
 
         </field>
