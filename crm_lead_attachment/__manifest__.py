@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'CRM Lead - Is Customer',
+    'name': 'CRM Lead Attachment',
     'license': 'LGPL-3',
     'author': 'MultidadosTI',
     'version': '10.0.1.0.0',
     'website': 'www.multidadosti.com.br',
-    'summary': 'This module customizes default value in customer field on '
-               'res.partner model',
+    'summary': 'This module insert attachments in crm lead',
     'category': 'Web',
     'contributors': [
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
@@ -18,10 +17,6 @@
     ],
     'data': [
         'views/crm_lead.xml',
-        'views/sales_team_dashboard.xml',
-    ],
-    'qweb': [
-        "static/src/xml/sales_team_dashboard.xml",
     ],
     'installable': True,
 }

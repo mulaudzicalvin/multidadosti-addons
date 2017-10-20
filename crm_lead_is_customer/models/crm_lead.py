@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class Lead(models.Model):
@@ -8,11 +8,18 @@ class Lead(models.Model):
 
     negotiation = fields.Text(string='Negotiation')
 
+    sale_originator = fields.Many2one('res.users', string='Sale Originator')
+
+    @api.multi
     def action_set_won(self):
-        ret = super(Lead, self).action_set_won()
+        rec = super(Lead, self).action_set_won()
+        if self.partner_id:
+            self.partner_id.customer = True
+        self.next_activity_id = False
+        return rec
 
-        for rec in self:
-            if rec.partner_id:
-                rec.partner_id.customer = True
-
+    @api.multi
+    def action_set_lost(self):
+        ret = super(Lead, self).action_set_lost()
+        self.next_activity_id = False
         return ret

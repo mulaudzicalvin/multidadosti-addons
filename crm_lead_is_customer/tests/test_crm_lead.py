@@ -1,23 +1,25 @@
 # -*- coding: utf-8 -*-
 
-from odoo.tests import TransactionCase
+from odoo.tests.common import TransactionCase
 
 
-class TestLead(TransactionCase):
+class TestCrmLeadIsCustomer(TransactionCase):
+
+    def setUp(self):
+        super(TestCrmLeadIsCustomer, self).setUp()
+
+        self.crm_lead = self.env.ref('crm.crm_case_26')
 
     def test_action_set_won(self):
+        self.crm_lead.action_set_won()
+        self.assertTrue(self.crm_lead.partner_id.customer)
+        self.assertFalse(self.crm_lead.next_activity_id)
 
-        lead = self.env.ref('crm.crm_case_11')
-        lead.partner_id.customer = False
+        self.crm_lead.partner_id = False
+        self.crm_lead.action_set_won()
+        self.assertFalse(self.crm_lead.partner_id.customer)
+        self.assertFalse(self.crm_lead.next_activity_id)
 
-        self.assertFalse(lead.partner_id.customer)
-
-        # testando metodo para deixar o campo costumer verdadeiro
-        ret = lead.action_set_won()
-
-        # verificando se o campo partner esta preenchido
-        self.assertTrue(lead.partner_id.customer)
-
-        # Verificando o retorno do metodo
-        self.assertTrue(ret)
-        self.assertIsInstance(ret, bool)
+    def test_action_set_lost(self):
+        self.crm_lead.action_set_lost()
+        self.assertFalse(self.crm_lead.next_activity_id)
