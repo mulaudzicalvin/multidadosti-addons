@@ -83,4 +83,10 @@
     <menuitem id="crm.crm_activity_menu"
               parent="crm_menu_configuration"/>
 
+    <menuitem id="FunnelChart"
+              name="Funnel Chart"
+              parent="crm_menu.crm_menu_crm"
+              action="web_lead_funnel_chart.action_funnel_chart"
+              groups="sales_team.group_sale_manager"/>
+
 </odoo>

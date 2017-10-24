@@ -15,7 +15,6 @@
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
-        'crm',
         'sale',
         'base_add_partner_filter',
         'web_lead_funnel_chart',
