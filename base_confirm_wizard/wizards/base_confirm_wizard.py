@@ -42,10 +42,10 @@ class BaseConfirmWizard(models.TransientModel):
         module is installed/exists and if action exists in module).
         """
         module_name, act_name = self.xml_id_action.split('.')
-        module_recs = self.env['ir.module.module'].search([('name', '=',
-                                                            module_name)])
+        module_recs = self.sudo().env['ir.module.module'].search(
+            [('name', '=', module_name)])
         if module_recs:
-            action = self.env['ir.model.data'].search(
+            action = self.sudo().env['ir.model.data'].search(
                 ['&', ('module', '=', module_name), ('name', '=', act_name)])
             if not action:
                 raise AccessError(
