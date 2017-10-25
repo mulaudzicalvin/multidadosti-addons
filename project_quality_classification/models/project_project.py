@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 QUALITY_CLASSIFICATION = [
     ('0', 'Without Classification'),
@@ -29,3 +29,7 @@ class ProjectProject(models.Model):
     priority = fields.Selection(string='Priority',
                                 selection=PRIORITY_CLASSIFICATION,
                                 default='0')
+
+    priority_kanban = fields.Selection(string='Priority',
+                                       related='priority',
+                                       readonly=True)
