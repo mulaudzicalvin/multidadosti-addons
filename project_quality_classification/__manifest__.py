@@ -15,6 +15,7 @@
     ],
     'depends': [
         'project_task_add_very_high',
+        'project_kanban_onclick_redirect_project',
     ],
     'data': [
         'views/project_project.xml',
