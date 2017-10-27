@@ -33,13 +33,12 @@ class AccountPayment(models.Model):
         if not self.invoice_ids and not self.payment_type == 'transfer':
             # Set account_account prefix
             if self.payment_type == 'inbound':
-                account_prefix = '3'
+                account_prefix = 3
             elif self.payment_type == 'outbound':
-                account_prefix = '4'
+                account_prefix = 4
 
-            records = self.env['account.account'].search([])
-            ids = [rec.id for rec in records if rec.code[0] == account_prefix]
-            res['domain']['general_account_id'] = [('id', 'in', ids)]
+            res['domain']['general_account_id'] = [
+                ('code_first_digit', '=', account_prefix)]
 
         return res
 
@@ -61,22 +60,3 @@ class AccountPayment(models.Model):
         # if not self.invoice_ids:
         res['analytic_account_id'] = self.analytic_account_id.id
         return res
-
-    @api.constrains('general_account_id', 'payment_type')
-    def _check_general_account(self):
-
-        for record in self:
-
-            if record.general_account_id \
-                    and not self.payment_type == 'transfer':
-
-                if self.payment_type == 'inbound' \
-                        and record.general_account_id.code[0] != '3':
-                    raise ValidationError(_("Account to 'Receive Money' "
-                                            "payment type must starts "
-                                            "with '3'!"))
-
-                elif self.payment_type == 'outbound' \
-                        and record.general_account_id.code[0] != '4':
-                    raise ValidationError(_("Account to 'Send Money' payment "
-                                            "type must starts with '4'!"))
