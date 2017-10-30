@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="partner_activity_branch_form" model="ir.ui.view">
+        <field name="name">Activity Branch</field>
+        <field name="model">partner.activity.branch</field>
+        <field name="arch" type="xml">
+            <form name="Activity Branch">
+                <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="partner_activity_branch_action" model="ir.actions.act_window">
+        <field name="name">Activity Branch</field>
+        <field name="res_model">partner.activity.branch</field>
+        <field name="view_mode">tree,form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="search_view_id" ref="partner_activity_branch_form"/>
+    </record>
+
+    <menuitem id="partner_activity_branch_menu"
+              name="Activity Branch"
+              action="partner_activity_branch_action"
+              parent="sales_team.menu_sales"
+              sequence="15"/>
+</odoo>
