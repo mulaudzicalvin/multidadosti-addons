@@ -26,6 +26,6 @@
     <menuitem id="partner_activity_branch_menu"
               name="Activity Branch"
               action="partner_activity_branch_action"
-              parent="sales_team.menu_sales"
+              parent="tko_contacts.contacts_config_menu"
               sequence="15"/>
 </odoo>
