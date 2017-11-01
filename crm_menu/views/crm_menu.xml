@@ -83,7 +83,7 @@
     <menuitem id="crm.crm_activity_menu"
               parent="crm_menu_configuration"/>
 
-    <menuitem id="FunnelChart"
+    <menuitem id="web_lead_funnel_chart.FunnelChart"
               name="Funnel Chart"
               parent="crm_menu.crm_menu_crm"
               action="web_lead_funnel_chart.action_funnel_chart"
