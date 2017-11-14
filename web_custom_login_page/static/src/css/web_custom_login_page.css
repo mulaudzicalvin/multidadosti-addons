@@ -12,14 +12,29 @@ body.container {
     background-position: center center;
 }
 
-.o_database_list{
+@media (max-width: 767px) {
+    body.container {
+        background: #444;
+    }
+    body.container div.o_database_list {
+        opacity: 0.8;
+        margin: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    body.container div.o_database_list {
+        width: 40%;
+        margin: 10% 30%;
+    }
+}
+
+body.container div.o_database_list {{
     opacity: 0.8;
-    width: 40%;
-    margin: 10% 30% !important;
     transition:1s;
 }
 
-.o_database_list:hover{
+body.container div.o_database_list {:hover{
     opacity: 1;
     transition:1s;
 }
