@@ -97,6 +97,14 @@
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
 
+            <xpath expr="//field[@name='property_account_expense_id']" position="attributes">
+                <attribute name="domain">[('code_first_digit', '=', 4)]</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='property_account_income_id']" position="attributes">
+                <attribute name="domain">[('code_first_digit', '=', 3)]</attribute>
+            </xpath>
+
             <xpath expr="//field[@name='barcode']" position="attributes">
                 <attribute name="attrs">{'invisible': [('type', '=', 'expense')]}</attribute>
             </xpath>
