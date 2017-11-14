@@ -14,7 +14,7 @@
     ],
     'depends': [
         'base',
-        'sales_team',
+        'account_replace_invoice_menu_sale',
     ],
     'data': [
         'security/ir.model.access.csv',
