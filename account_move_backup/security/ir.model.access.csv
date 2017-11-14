@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_move_backup_admin,account.move.backup.admin,model_account_move_backup,base.group_system,1,1,1,1
+access_account_move_backup_line_admin,account.move.backup.line.admin,model_account_move_backup_line,base.group_system,1,1,1,1
