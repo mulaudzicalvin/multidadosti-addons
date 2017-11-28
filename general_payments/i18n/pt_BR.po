@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-27 18:33+0000\n"
-"PO-Revision-Date: 2017-08-24 16:48-0300\n"
+"POT-Creation-Date: 2017-11-28 13:46+0000\n"
+"PO-Revision-Date: 2017-11-28 11:48-0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,22 +18,36 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: general_payments
-#: model:ir.model,name:general_payments.model_account_account
+#: model:ir.ui.view,arch_db:general_payments.view_move_line_form
+msgid ""
+"<span class=\"to_expire\" attrs=\"{'invisible': [('title_status', '!=', 'to_expire')]}\">\n"
+"                        To Expire</span>\n"
+"\n"
+"                    <span class=\"expired\" attrs=\"{'invisible': [('title_status', '!=', 'expired')]}\">\n"
+"                        Expired</span>\n"
+"\n"
+"                    <span class=\"received_or_payed\" attrs=\"{'invisible': [('title_status', '!=', 'received')]}\">\n"
+"                        Received</span>\n"
+"\n"
+"                    <span class=\"received_or_payed\" attrs=\"{'invisible': [('title_status', '!=', 'payed')]}\">\n"
+"                        Payed</span>"
+msgstr ""
+"<span class=\"to_expire\" attrs=\"{'invisible': [('title_status', '!=', 'to_expire')]}\">\n"
+"                        A Expirar</span>\n"
+"\n"
+"                    <span class=\"expired\" attrs=\"{'invisible': [('title_status', '!=', 'expired')]}\">\n"
+"                        Expirado</span>\n"
+"\n"
+"                    <span class=\"received_or_payed\" attrs=\"{'invisible': [('title_status', '!=', 'received')]}\">\n"
+"                        Recebido</span>\n"
+"\n"
+"                    <span class=\"received_or_payed\" attrs=\"{'invisible': [('title_status', '!=', 'payed')]}\">\n"
+"                        Pago</span>"
+
+#. module: general_payments
 #: model:ir.model.fields,field_description:general_payments.field_account_payment_general_account_id
 msgid "Account"
 msgstr "Conta"
-
-#. module: general_payments
-#: code:addons/general_payments/models/account_payment.py:76
-#, python-format
-msgid "Account to 'Receive Money' payment type must starts with '3'!"
-msgstr "Conta para o tipo de pagamento 'Receber Dinheiro' deve começar com o dígito '3'!"
-
-#. module: general_payments
-#: code:addons/general_payments/models/account_payment.py:82
-#, python-format
-msgid "Account to 'Send Money' payment type must starts with '4'!"
-msgstr "Conta para o tipo de pagamento 'Enviar Dinheiro' deve começar com o dígito '4'!"
 
 #. module: general_payments
 #: model:ir.model.fields,field_description:general_payments.field_account_payment_analytic_account_id
@@ -41,29 +55,25 @@ msgid "Analytic Account"
 msgstr "Conta Analítica"
 
 #. module: general_payments
-#: model:ir.ui.view,arch_db:account.view_payment_term_form
-msgid ""
-"The last line's computation type should be \"Balance\" to ensure that the whole amount "
-"will be allocated."
-msgstr ""
-"O Tipo de cálculo da última linha deve ser \"Saldo\" para garantir que todo o montante "
-"seja alocado."
-
-#. module: general_payments
-#: model:ir.model.fields,field_description:general_payments.field_account_account_code_first_digit
-msgid "Code first digit"
-msgstr "Código Primeiro Digito"
-
-#. module: general_payments
-#: model:ir.ui.view,arch_db:general_payments.view_general_payment_form_inherit
+#: model:ir.ui.view,arch_db:general_payments.view_br_account_payment_payment_form_inherit
 msgid "Código de Referência"
 msgstr "Código de Referência"
 
 #. module: general_payments
 #: model:ir.model.fields,field_description:general_payments.field_account_payment_description
-#: model:ir.ui.view,arch_db:general_payments.view_general_payment_form_inherit
+#: model:ir.ui.view,arch_db:general_payments.view_br_account_payment_payment_form_inherit
 msgid "Description"
 msgstr "Descrição"
+
+#. module: general_payments
+#: model:ir.ui.menu,name:general_payments.menu_action_account_payments
+msgid "Financial Moves"
+msgstr "Movimentações Finânceiras"
+
+#. module: general_payments
+#: model:ir.model,name:general_payments.model_account_move_line
+msgid "Journal Item"
+msgstr "Item de Diário"
 
 #. module: general_payments
 #: model:ir.model,name:general_payments.model_account_payment
@@ -71,6 +81,6 @@ msgid "Payments"
 msgstr "Pagamentos"
 
 #. module: general_payments
-#: model:ir.ui.menu,name:account.menu_action_account_payments
-msgid "Financial Moves"
-msgstr "Movimentos Financeiros"
+#: model:ir.model.fields,field_description:general_payments.field_account_move_line_title_status
+msgid "Status do Título"
+msgstr "Status do Título"
