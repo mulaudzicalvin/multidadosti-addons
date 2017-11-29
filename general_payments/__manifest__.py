@@ -16,7 +16,9 @@
         'br_account_payment',
     ],
     'data': [
+        'templates/assets.xml',
         'views/account_analytic.xml',
+        'views/account_move.xml',
         'views/account_payment.xml',
     ],
     'installable': True,
