@@ -59,4 +59,5 @@ class AccountPayment(models.Model):
 
         # if not self.invoice_ids:
         res['analytic_account_id'] = self.analytic_account_id.id
+        res['partner_id'] = self.partner_id.id
         return res
