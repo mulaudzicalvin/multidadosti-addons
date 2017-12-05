@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+
 from odoo import api, fields, models
 
 
@@ -17,11 +19,15 @@ class AccountMoveLine(models.Model):
                 aml.title_status = 'received'
             elif aml.user_type_id.type == 'payable' and aml.reconciled:
                 aml.title_status = 'payed'
-            elif (not aml.reconciled and aml.date_maturity <
-                    fields.Datetime.now()):
+            elif (not aml.reconciled and aml.date_maturity >
+                    datetime.strftime(
+                        datetime.strptime(fields.Datetime.now(),
+                                          '%Y-%m-%d %H:%M:%S'), '%Y-%m-%d')):
                 aml.title_status = 'to_expire'
-            elif (not aml.reconciled and aml.date_maturity >=
-                    fields.Datetime.now()):
+            elif (not aml.reconciled and aml.date_maturity <=
+                  datetime.strftime(
+                      datetime.strptime(fields.Datetime.now(),
+                                        '%Y-%m-%d %H:%M:%S'), '%Y-%m-%d')):
                 aml.title_status = 'expired'
             else:
                 aml.title_status = 'unknown'
