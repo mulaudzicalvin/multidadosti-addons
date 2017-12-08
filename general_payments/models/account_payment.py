@@ -61,3 +61,9 @@ class AccountPayment(models.Model):
         res['analytic_account_id'] = self.analytic_account_id.id
         res['partner_id'] = self.partner_id.id
         return res
+
+    @api.constrains('destination_journal_id', 'journal_id')
+    def _check_destination_journal_id(self):
+        if self.destination_journal_id == self.journal_id:
+            raise ValidationError(_(
+                'You can not make a transfer to the same journal'))
