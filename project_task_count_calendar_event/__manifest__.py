@@ -15,6 +15,7 @@
     ],
     'depends': [
         'project_task_calendar',
+        'project_stage_state',
     ],
     'data': [
         'views/project_project.xml',

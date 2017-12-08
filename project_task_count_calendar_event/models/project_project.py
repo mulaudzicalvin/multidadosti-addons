@@ -18,6 +18,12 @@ class ProjectProject(models.Model):
     label_issues = fields.Char(translate=True,
                                default=lambda self: _("Issues"))
 
+    def _compute_task_count(self):
+        for partner in self:
+            part = partner.task_ids.filtered(
+                lambda r: r.state not in ['done', 'cancelled'])
+            partner.task_count = len(part)
+
     @api.multi
     def _compute_event_number(self):
         for record in self:
