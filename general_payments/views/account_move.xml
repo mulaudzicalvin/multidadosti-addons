@@ -22,6 +22,9 @@
                         Payed</span>
                 </div>
             </xpath>
+            <field name="move_id" position="before">
+                <field name="invoice_id"/>
+            </field>
         </field>
     </record>
 </odoo>
