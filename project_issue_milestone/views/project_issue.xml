@@ -13,6 +13,12 @@
                 </page>
             </xpath>
 
+            <!--TODO: Mover 'task_id' para um modulo separado.-->
+            <!--Sugestao: algum modulo que personalize a tela de Incidentes-->
+            <xpath expr="//field[@name='task_id']" position="attributes">
+                <attribute name="groups">base.group_user</attribute>
+            </xpath>
+
         </field>
     </record>
 
