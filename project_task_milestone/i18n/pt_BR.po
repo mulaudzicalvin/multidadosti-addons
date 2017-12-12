@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_task_milestone
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-12 12:21+0000\n"
+"PO-Revision-Date: 2017-12-12 10:23-0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: project_task_milestone
+#: model:ir.ui.view,arch_db:project_task_milestone.project_milestone_view_form
+msgid "Close Milestone"
+msgstr "Encerrar Milestone"
+
+#. module: project_task_milestone
+#: selection:project.milestone,state:0
+msgid "Closed"
+msgstr "Encerrado"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_description
+#: model:ir.ui.view,arch_db:project_task_milestone.project_milestone_view_form
+msgid "Description"
+msgstr "Descrição"
+
+#. module: project_task_milestone
+#: model:ir.ui.view,arch_db:project_task_milestone.project_milestone_view_form
+msgid "Description..."
+msgstr "Descrição..."
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_display_name
+msgid "Display Name"
+msgstr "Nome para Exibição"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_due_date
+msgid "Due Date"
+msgstr "Data de Encerramento"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone___last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: project_task_milestone
+#: model:ir.actions.act_window,name:project_task_milestone.action_project_milestone
+#: model:ir.ui.menu,name:project_task_milestone.menu_project_milestones
+#: model:ir.ui.view,arch_db:project_task_milestone.project_milestone_view_tree
+#: model:ir.ui.view,arch_db:project_task_milestone.view_task_form2
+msgid "Milestone"
+msgstr "Milestone"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_name
+msgid "Name"
+msgstr "Nome"
+
+#. module: project_task_milestone
+#: selection:project.milestone,state:0
+msgid "Open"
+msgstr "Aberto"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_task_project_milestone_ids
+#: model:ir.ui.view,arch_db:project_task_milestone.project_milestone_view_form
+msgid "Project Milestone"
+msgstr "Milestone do Projeto"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_project_task_ids
+msgid "Project Task"
+msgstr "Tarefas"
+
+#. module: project_task_milestone
+#: model:ir.ui.view,arch_db:project_task_milestone.project_milestone_view_form
+msgid "Reopen Milestone"
+msgstr "Reabrir Milestone"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_state
+msgid "State"
+msgstr "Situação"
+
+#. module: project_task_milestone
+#: model:ir.model,name:project_task_milestone.model_project_task
+msgid "Task"
+msgstr "Tarefa"
+
+#. module: project_task_milestone
+#: model:ir.ui.view,arch_db:project_task_milestone.project_milestone_view_form
+msgid "Tasks"
+msgstr "Tarefas"
+
+#. module: project_task_milestone
+#: model:ir.model.fields,field_description:project_task_milestone.field_project_milestone_task_count
+msgid "Tasks Count"
+msgstr "Número de Tarefas"
+
+#. module: project_task_milestone
+#: model:ir.model,name:project_task_milestone.model_project_milestone
+msgid "project.milestone"
+msgstr "project.milestone"
