@@ -18,6 +18,8 @@ class AccountInvoice(models.Model):
         :param rec: Record that will be used to examine type of each field
                        to adjust it in case of relational type.
         :param backup_dict: Base dict containing each field of 'rec' object.
+        :param limit_lvl: How deep the function is called recursively(like
+                          levels in graphs).
         :return: backup_dict with fields of relational type readjusted.
         """
         if rec:
