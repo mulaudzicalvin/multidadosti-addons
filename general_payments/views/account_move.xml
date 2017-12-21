@@ -23,7 +23,7 @@
                 </div>
             </xpath>
             <field name="move_id" position="before">
-                <field name="invoice_id"/>
+                <field name="invoice_id" attrs="{'readonly':[('reconciled','=', True)]}"/>
             </field>
         </field>
     </record>

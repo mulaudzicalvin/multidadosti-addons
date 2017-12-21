@@ -158,7 +158,8 @@
                         <page string="Analytic Lines"
                               groups="analytic.group_analytic_accounting">
                             <field name="analytic_line_ids"
-                                   context="{'default_general_account_id':account_id, 'default_name': name, 'default_date':date, 'amount': (debit or 0.0)-(credit or 0.0)}"/>
+                                   context="{'default_general_account_id':account_id, 'default_name': name, 'default_date':date, 'amount': (debit or 0.0)-(credit or 0.0)}"
+                                   attrs="{'readonly':[('reconciled','=', True)]}"/>
                         </page>
                     </notebook>
                 </sheet>
