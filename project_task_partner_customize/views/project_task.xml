@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <record id="view_task_form2" model="ir.ui.view">
+    <record id="project_task_code.project_task_code_form_view" model="ir.ui.view">
         <field name="name">project.partner.customize.task.view.form</field>
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
+
+            <field name="name" position="before">
+                <span>
+                    <field name="code" class="oe_inline" />
+                    <label string=" - " class="oe_inline" />
+                </span>
+            </field>
+
             <xpath expr="//field[@name='partner_id']" position="replace"/>
             <xpath expr="//field[@name='project_id']" position="after">
                 <field name="partner_ids" invisible="1"/>

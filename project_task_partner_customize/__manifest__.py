@@ -13,6 +13,7 @@
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
+        'project_task_code',
         'project_related_partners',
     ],
     'data': [
