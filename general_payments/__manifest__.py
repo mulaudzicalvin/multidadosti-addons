@@ -10,6 +10,7 @@
     'website': 'http://www.multidadosti.com.br',
     'contributors': [
         'Michell Stuttgart <michellstut@gmail.com>',
+        'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
         'account_accountant',
