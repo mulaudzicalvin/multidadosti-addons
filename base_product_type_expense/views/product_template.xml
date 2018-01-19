@@ -117,6 +117,10 @@
                 <attribute name="attrs">{'invisible':[('type','=','expense')]}</attribute>
             </xpath>
 
+            <field name="name" position="attributes">
+                <attribute name="style">width: 700px</attribute>
+            </field>
+
         </field>
     </record>
 
