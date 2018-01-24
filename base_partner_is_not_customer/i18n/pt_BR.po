@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 13:02+0000\n"
-"PO-Revision-Date: 2017-03-02 10:06-0300\n"
+"POT-Creation-Date: 2018-01-24 12:01+0000\n"
+"PO-Revision-Date: 2018-01-24 10:02-0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,19 +18,14 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: base_partner_is_not_customer
-#: model:ir.ui.view,arch_db:base_partner_is_not_customer.view_custom_users_form
-msgid "Company"
-msgstr "Empresa"
+#: model:ir.ui.view,arch_db:base_partner_is_not_customer.view_br_base_partner_form
+msgid "Parceiro Relacionado"
+msgstr "Parceiro Relacionado"
 
 #. module: base_partner_is_not_customer
-#: model:ir.ui.view,arch_db:base_partner_is_not_customer.view_custom_users_form
-msgid "Partner"
-msgstr "Parceiro"
-
-#. module: base_partner_is_not_customer
-#: model:ir.model.fields,field_description:base_partner_is_not_customer.field_res_users_locate_partner
-msgid "Select Existing Partner?"
-msgstr "Selecionar Parceiro Existente?"
+#: model:ir.ui.view,arch_db:base_partner_is_not_customer.view_br_base_partner_form
+msgid "Relation User"
+msgstr "Usuário Relacionado"
 
 #. module: base_partner_is_not_customer
 #: model:ir.model,name:base_partner_is_not_customer.model_res_users
