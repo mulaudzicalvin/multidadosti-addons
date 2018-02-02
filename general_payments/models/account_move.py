@@ -26,7 +26,7 @@ class AccountMoveLine(models.Model):
                         datetime.strptime(fields.Datetime.now(),
                                           '%Y-%m-%d %H:%M:%S'), '%Y-%m-%d')):
                 aml.title_status = 'to_expire'
-            elif (not aml.reconciled and aml.date_maturity <=
+            elif (not aml.reconciled and aml.date_maturity <
                   datetime.strftime(
                       datetime.strptime(fields.Datetime.now(),
                                         '%Y-%m-%d %H:%M:%S'), '%Y-%m-%d')):
