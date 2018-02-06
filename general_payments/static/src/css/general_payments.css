@@ -24,3 +24,6 @@
 .payment_status_box .received_or_payed{
     background-color: #00c613;
 }
+.payment_status_box .late{
+    background-color: #668b8b;
+}

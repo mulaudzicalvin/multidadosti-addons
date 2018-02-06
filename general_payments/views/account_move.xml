@@ -6,22 +6,6 @@
         <field name="inherit_id" ref="br_account_payment.view_move_line_form"/>
         <field eval="2" name="priority"/>
         <field name="arch" type="xml">
-            <xpath expr="//form/sheet/group" position="before">
-                <field name="title_status" invisible="1"/>
-                <div class="payment_status_box">
-                    <span class="to_expire" attrs="{'invisible': [('title_status', '!=', 'to_expire')]}">
-                        To Expire</span>
-
-                    <span class="expired" attrs="{'invisible': [('title_status', '!=', 'expired')]}">
-                        Expired</span>
-
-                    <span class="received_or_payed" attrs="{'invisible': [('title_status', '!=', 'received')]}">
-                        Received</span>
-
-                    <span class="received_or_payed" attrs="{'invisible': [('title_status', '!=', 'payed')]}">
-                        Payed</span>
-                </div>
-            </xpath>
             <field name="move_id" position="before">
                 <field name="invoice_id" attrs="{'readonly':[('reconciled','=', True)]}"/>
             </field>
