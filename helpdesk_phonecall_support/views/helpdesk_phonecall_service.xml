@@ -121,15 +121,11 @@
                 <filter name="done_filters"
                         string="Done"
                         domain="[('state', '=', 'done')]"/>
-
+                <separator orientation="vertical"/>
                 <filter name="archived"
-                        string="Inactive"
+                        string="Archived"
                         domain="[('active', '=', False)]"/>
-
-                <filter string="Expired"
-                        name="expired"
-                        domain="[('finish_date_hour','&lt;', context_today().strftime('%%Y-%%m-%%d'))]"
-                        help="Display all move lines that as expired."/>
+                        
                 <filter string="Maturity Today"
                         name="today"
                         domain="[('finish_date_hour','&gt;', context_today().strftime('%Y-%m-%d 00:00:00')),
