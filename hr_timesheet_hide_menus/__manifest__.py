@@ -20,7 +20,7 @@
         'security/hr_timesheet.xml',
         'views/hr_timesheet.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

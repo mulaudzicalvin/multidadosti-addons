@@ -25,7 +25,7 @@
         'disable_odoo_online',
         'res_config_settings_enterprise_remove',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

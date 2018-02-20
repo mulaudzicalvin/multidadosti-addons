@@ -17,5 +17,5 @@
     'data': [
         'views/menu_groups.xml',
     ],
-    'installable': True,
+    'installable': False,
 }

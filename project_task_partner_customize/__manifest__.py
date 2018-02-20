@@ -20,7 +20,7 @@
         'views/project_task.xml',
         'views/project_project.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

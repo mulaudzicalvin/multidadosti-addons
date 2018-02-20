@@ -22,7 +22,7 @@
         'views/account_move.xml',
         'views/account_payment.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

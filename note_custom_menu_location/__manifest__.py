@@ -18,7 +18,7 @@
     'data': [
         'views/note_menu.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

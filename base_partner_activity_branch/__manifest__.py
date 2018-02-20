@@ -21,7 +21,7 @@
         'views/res_partner.xml',
         'views/base_partner_activity_branch.xml'
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

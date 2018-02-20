@@ -17,7 +17,7 @@
     'data': [
         'views/base_ir_module_author_filter.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': True,
     'application': False,
 }

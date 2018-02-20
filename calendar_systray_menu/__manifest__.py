@@ -24,7 +24,7 @@
     'qweb': [
         'static/src/xml/systray.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

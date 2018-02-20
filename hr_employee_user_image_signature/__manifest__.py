@@ -18,7 +18,7 @@
     'data': [
         'views/hr_employee.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

@@ -19,7 +19,7 @@
         'security/ir.model.access.csv',
         'views/account_move_backup.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

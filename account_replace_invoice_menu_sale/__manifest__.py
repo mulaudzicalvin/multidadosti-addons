@@ -23,7 +23,7 @@
         'views/sale.xml',
         'views/crm_team_views.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

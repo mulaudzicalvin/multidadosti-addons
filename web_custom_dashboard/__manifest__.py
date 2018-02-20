@@ -21,7 +21,7 @@
     'qweb': [
         'static/src/xml/dashboard.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

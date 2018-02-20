@@ -21,7 +21,7 @@
     'qweb': [
         'static/src/xml/web.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

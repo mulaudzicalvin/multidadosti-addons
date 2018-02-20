@@ -20,7 +20,7 @@
         'views/postit_view.xml',
         'views/crm_lead_views.xml',
     ],
-    'installable': True,
+    'installable': False,
     'application': True,
     'auto_install': False,
 }

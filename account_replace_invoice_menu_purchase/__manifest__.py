@@ -21,7 +21,7 @@
         'views/purchase.xml',
         'views/purchase_order.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

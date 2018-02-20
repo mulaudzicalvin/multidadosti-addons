@@ -20,5 +20,5 @@
         'views/project_project.xml',
         'views/project_team.xml',
     ],
-    'installable': True,
+    'installable': False,
 }

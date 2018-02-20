@@ -19,7 +19,7 @@
     'data': [
         'views/res_users.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

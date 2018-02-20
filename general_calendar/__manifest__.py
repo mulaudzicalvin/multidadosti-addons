@@ -24,7 +24,7 @@
         'views/general_calendar.xml',
         'views/general_calendar_line.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

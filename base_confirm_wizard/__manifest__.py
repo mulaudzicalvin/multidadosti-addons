@@ -19,7 +19,7 @@
     'data': [
         'wizards/base_confirm_wizard.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

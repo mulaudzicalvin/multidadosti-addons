@@ -21,7 +21,7 @@
         'views/project_project.xml',
     ],
     'uninstall_hook': 'uninstall_hook',
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

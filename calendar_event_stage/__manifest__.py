@@ -20,7 +20,7 @@
         'views/calendar_event.xml',
         'wizards/calendar_event_finish.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

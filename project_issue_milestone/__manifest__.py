@@ -19,5 +19,5 @@
         'views/project_issue.xml',
         'views/project_milestone.xml',
     ],
-    'installable': True,
+    'installable': False,
 }

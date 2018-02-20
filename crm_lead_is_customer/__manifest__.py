@@ -23,5 +23,5 @@
     'qweb': [
         "static/src/xml/sales_team_dashboard.xml",
     ],
-    'installable': True,
+    'installable': False,
 }

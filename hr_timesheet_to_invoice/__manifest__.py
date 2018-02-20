@@ -22,7 +22,7 @@
         'views/account_analytic_line_view.xml',
         'views/account_analytic_line_to_invoice.xml'
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

@@ -19,7 +19,7 @@
         'note_disable_tag_creation_option',
         'note_filter_my_items',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

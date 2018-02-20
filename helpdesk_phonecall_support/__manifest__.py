@@ -22,7 +22,7 @@
         'views/helpdesk_phonecall_service.xml',
         'wizards/helpdesk_phonecall_confirm.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

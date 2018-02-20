@@ -24,7 +24,7 @@
         'views/res_config_view.xml',
         'views/crm_menu.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

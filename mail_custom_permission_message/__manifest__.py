@@ -17,7 +17,7 @@
     'qweb': [
         'static/src/xml/client_action.xml'
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

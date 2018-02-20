@@ -18,7 +18,7 @@
     'data': [
         'views/res_partner.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }
