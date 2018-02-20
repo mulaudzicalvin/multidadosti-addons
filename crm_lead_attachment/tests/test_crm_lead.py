@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
 from odoo.tests.common import TransactionCase
 
 
 class TestCrmLeadAttachment(TransactionCase):
+    
     def setUp(self):
         super(TestCrmLeadAttachment, self).setUp()
 
