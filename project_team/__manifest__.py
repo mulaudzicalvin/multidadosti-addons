@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'Project Team',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'author': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
     'license': 'LGPL-3',
@@ -20,5 +18,5 @@
         'views/project_project.xml',
         'views/project_team.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
