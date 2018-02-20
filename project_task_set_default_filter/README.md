@@ -1,4 +1,4 @@
-## Project Task Partner Customize
+## Project Task - Set Default Filter
 
 This Module sets the default filter in project task module.
 
