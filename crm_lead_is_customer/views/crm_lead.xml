@@ -22,8 +22,7 @@
                     partner_name, 'default_street': street,
                     'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip,
                     'default_country_id': country_id, 'default_function': function, 'default_phone': phone,
-                    'default_mobile': mobile,
-                    'default_fax': fax, 'default_email': email_from, 'default_user_id': user_id, 'default_team_id':
+                    'default_mobile': mobile, 'default_email': email_from, 'default_user_id': user_id, 'default_team_id':
                     team_id}
                 </attribute>
             </field>
@@ -62,9 +61,9 @@
             <xpath expr="//filter[10]" position="replace">
                 <filter name="opportunity_lost" string="Lost" domain="[('active', '=', False),('stage_id', '!=', %(crm.stage_lead4)d)]"/>
             </xpath>
-
         </field>
     </record>
+
     <record id="ir_attachment_view_search_crm_lead" model="ir.ui.view">
         <field name="name">ir.attachment.search.crm.lead</field>
         <field name="model">ir.attachment</field>
@@ -85,6 +84,5 @@
             </xpath>
         </field>
     </record>
-
 
 </odoo>
