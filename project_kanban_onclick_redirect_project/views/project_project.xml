@@ -8,9 +8,9 @@
         <field name="priority">24</field>
         <field name="arch" type="xml">
 
-            <xpath expr="//kanban[@class='oe_background_grey o_kanban_dashboard o_project_kanban']" position="inside">
-                <field name="partner_id"/>
-                <field name="user_id"/>
+            <xpath expr="//div[hasclass('o_project_kanban_boxes')]" position="inside">
+                <field name="partner_id" invisible="1"/>
+                <field name="user_id" invisible="1"/>
                 <field name="planned_time"/>
                 <field name="hours_left"/>
             </xpath>
@@ -31,14 +31,6 @@
                                     <span>
                                         <t t-esc="record.user_id.value"/>
                                     </span>
-                                    <span>
-                                        <strong class="small">Horas Planejadas:</strong>
-                                        <t t-esc="record.planned_time.value"/>
-                                    </span>
-                                    <span>
-                                        <strong class="small">Horas Restantes:</strong>
-                                        <t t-esc="record.hours_left.value"/>
-                                    </span>
                                 </div>
                                 <div t-if="record.alias_name.value and record.alias_domain.value">
                                     <span>
@@ -53,7 +45,7 @@
                                 <div groups="project.group_project_manager">
                                     <a type="edit">Settings</a>
                                 </div>
-                                <div attrs="{'invisible': [('use_tasks', '=', False)]}">
+                                <div>
                                     <a name="%(project.action_project_task_user_tree_filtered)d"
                                        type="action">Tasks
                                     </a>
@@ -73,8 +65,6 @@
                         </a>
                         <a type="object" name="toggle_favorite"
                            class="o_right">
-                            <i t-attf-class="oe_inline fa o_dashboard_star #{record.is_favorite.raw_value ? 'fa-star' : 'fa-star-o'}"
-                               title="Add/remove from favorite"/>
                         </a>
                     </div>
                 </div>
