@@ -1,4 +1,4 @@
-## Project Task Partner Customize
+## Project Task Partner Customize.
 
 This Module move partner field on project task screen to above project field.
 
