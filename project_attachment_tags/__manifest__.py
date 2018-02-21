@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'Project Attachment Category Tags',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
@@ -21,7 +19,7 @@
         'views/attachment_category.xml',
         'views/project_project.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
