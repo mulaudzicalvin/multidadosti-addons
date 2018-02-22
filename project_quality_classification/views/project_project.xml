@@ -25,7 +25,7 @@
         <field name="inherit_id" ref="project_kanban_onclick_redirect_project.view_project_kanban"/>
         <field name="priority">24</field>
         <field name="arch" type="xml">
-            <xpath expr='//div[@class="o_primary"]' position="inside">
+            <xpath expr='//div[hasclass("o_primary")]' position="inside">
                 <div>
                     <span>
                         <style>

@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 def uninstall_hook(cr, registry):
     # convert priority from very high to high to avoid inconsistency
     # after the module is uninstalled
