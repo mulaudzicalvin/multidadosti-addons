@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import mock
 
 from odoo.tests.common import TransactionCase
@@ -53,8 +51,8 @@ class TestProjectTask(TransactionCase):
         self.assertTrue(ret)
 
         post_vars = {
-            'subject': u'Nova tarefa atribuída a você',
-            'body': u'Tarefa: %s atribuída a você.' % task.name,
+            'subject': 'Nova tarefa atribuída a você',
+            'body': 'Tarefa: %s atribuída a você.' % task.name,
             'partner_ids': [(4, task.user_id.partner_id.id)],
             'message_type': 'notification',
             'subtype': 'mt_comment',

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo import api, fields, models
 
 
@@ -31,8 +29,8 @@ class ProjectTask(models.Model):
         if 'user_id' in values and values.get('user_id'):
 
             post_vars = {
-                'subject': u'Nova tarefa atribuída a você',
-                'body': u'Tarefa: %s atribuída a você.' % project_task.name,
+                'subject': 'Nova tarefa atribuída a você',
+                'body': 'Tarefa: %s atribuída a você.' % project_task.name,
                 'partner_ids': [(4, project_task.user_id.partner_id.id)],
                 'message_type': 'notification',
                 'subtype': 'mt_comment',
