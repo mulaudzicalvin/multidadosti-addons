@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 {
     'name': 'CRM Postit',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
@@ -17,10 +16,10 @@
         'prisme_postit',
     ],
     'data': [
-        'views/postit_view.xml',
-        'views/crm_lead_views.xml',
+        'views/prisme_postit.xml',
+        'views/crm_lead.xml',
     ],
-    'installable': False,
-    'application': True,
+    'installable': True,
+    'application': False,
     'auto_install': False,
 }
