@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo.tests.common import TransactionCase
 
 
@@ -13,8 +11,8 @@ class TestCalendarEventPartner(TransactionCase):
     def test__compute_record_name(self):
         self.ce.partner_id = self.ce.partner_ids.id
         self.ce._compute_record_name()
-        self.assertEqual(self.ce.partner_name, u' * ASUSTeK')
+        self.assertEqual(self.ce.partner_name, ' * ASUSTeK')
 
         self.ce.partner_id = False
         self.ce._compute_record_name()
-        self.assertEqual(self.ce.partner_name, u'')
+        self.assertEqual(self.ce.partner_name, '')
