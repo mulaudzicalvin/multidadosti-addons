@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo.tests.common import TransactionCase
 
 
@@ -10,7 +8,6 @@ class TestProjectProject(TransactionCase):
 
         self.project_values = {
             'name': 'Projeto Teste',
-            'use_tasks': True,
             'label_tasks': 'Tasks',
             'partner_id': self.env.ref('base.res_partner_4').id,
             'bring_default_task_type': True,
