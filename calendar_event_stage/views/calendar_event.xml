@@ -24,7 +24,7 @@
 
             <xpath expr="//sheet" position="before">
                 <header>
-                    <button name="action_finish_calendar_event" string='Finish'
+                    <button name="action_call_finish_calendar_wizard" string='Finish'
                             type="object"
                             class="btn-primary"
                             attrs="{'invisible': [('event_state','in',['done', 'cancel'])]}"/>

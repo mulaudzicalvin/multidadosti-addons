@@ -19,7 +19,8 @@ class CalendarEvent(models.Model):
     start_datetime = fields.Datetime(track_visibility='onchange')
 
     @api.multi
-    def action_finish_calendar_event(self):
+    def action_call_finish_calendar_wizard(self):
+        """Call wizard to finish calendar event."""
         self.ensure_one()
 
         return {
@@ -34,16 +35,32 @@ class CalendarEvent(models.Model):
             }
         }
 
+    @api.multi
     def action_cancel_calendar_event(self):
-        if self.event_state == 'open':
-            self.event_state = 'cancel'
+        """Cancel calendar event if state is 'open'.
+        """
+        for rec in self:
+            if rec.event_state == 'open':
+                rec.event_state = 'cancel'
 
+    @api.multi
     def action_open_calendar_event(self):
-        if self.event_state == 'cancel':
-            self.event_state = 'open'
+        """Open calendar event if state is 'cancel.
+        """
+        for rec in self:
+            if rec.event_state == 'cancel':
+                rec.event_state = 'open'
 
     @api.multi
     def unlink(self, can_be_deleted=True):
+        """Unlink calendar event record.
+
+        Raises:
+            UserError -- When calendar event is on 'done' or 'cancel' state.
+
+        Returns:
+            boolean -- True if calendar event was deleted, False otherwise.
+        """
         for record in self:
             if record.event_state in ('done', 'cancel'):
                 raise UserError(_('You cannot delete a calendar event which'
