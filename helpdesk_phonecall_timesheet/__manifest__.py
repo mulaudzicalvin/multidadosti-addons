@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'HelpDesk PhoneCall Timesheet',
     'license': 'LGPL-3',
@@ -20,7 +18,7 @@
         'wizards/helpdesk_phonecall_confirm.xml',
         'views/account_analytic_line.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
