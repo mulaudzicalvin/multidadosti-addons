@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-from odoo import _, fields, models
+from odoo import fields, models, _
 
 
 class ResUsers(models.Model):
