@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo import api, fields, models
 
 
@@ -14,9 +12,15 @@ class CalendarEvent(models.Model):
                                   readonly=True)
 
     @api.multi
-    def action_finish_calendar_event(self):
+    def action_call_finish_calendar_wizard(self):
+        """Finish calendar event from wizard
+
+        Returns:
+            [dict] -- ir.actions.act_window dict
+        """
         self.ensure_one()
-        res = super(CalendarEvent, self).action_finish_calendar_event()
+
+        res = super(CalendarEvent, self).action_call_finish_calendar_wizard()
 
         res['context']['default_event_feedback'] = self.event_feedback
         res['context']['default_event_duration'] = self.event_duration
