@@ -13,10 +13,11 @@
                     </group>
                     <notebook>
                         <page string="Team Members" name="team_members">
-                            <field name="member_ids" widget="many2many_kanban">
+                            <field name="member_ids">
                                 <kanban quick_create="false" create="true"
                                         delete="true">
                                     <field name="name"/>
+                                    <field name="image"/>
                                     <templates>
                                         <t t-name="kanban-box">
                                             <div class="oe_kanban_global_click"
@@ -26,9 +27,10 @@
                                                    style="position: absolute; right: 0; padding: 4px; display: inline-block">
                                                     X
                                                 </a>
-                                                <div class="oe_module_vignette">
-                                                    <img t-att-src="kanban_image('res.users', 'image_small', record.id.value)"
-                                                         class="oe_avatar oe_kanban_avatar_smallbox"/>
+                                                <div t-attf-class="oe_kanban_global_click">
+                                                    <div class="o_kanban_image">
+                                                        <img t-att-src="'data:image/png;base64,'+record.image.raw_value"/>
+                                                    </div>
                                                     <div class="oe_module_desc">
                                                         <field name="name"/>
                                                     </div>
