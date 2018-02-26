@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo.tests.common import TransactionCase
 from odoo.exceptions import AccessError
 
@@ -27,5 +25,5 @@ class TestBaseConfirmDialog(TransactionCase):
             'active_model': 'res.partner',
         }).yes()
 
-        self.assertEquals(self.env['res.partner'].search(
+        self.assertEqual(self.env['res.partner'].search(
             [('id', '=', partner_id)]).ids, [])

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo import api, fields, models
 from odoo.exceptions import AccessError
 from odoo.tools.translate import _
@@ -24,13 +22,13 @@ class BaseConfirmWizard(models.TransientModel):
             ctx_method_parameters = (self.env.context.get('method_parameters')
                                      or {})
             method = getattr(rec_wiz, self.method)
-            method_parameters = method.func_code.co_varnames
+            method_parameters = method.__code__.co_varnames
             undefined_parameters = [var for var in ctx_method_parameters
                                     if var not in method_parameters]
 
             if ctx_method_parameters and undefined_parameters:
                 raise AccessError(_(
-                    'The following method parameters are not implemented:\n-%s')
+                    'The following method parameters are not implemented:\n-%s')  # noqa 501
                     % '\n-'.join(undefined_parameters))
         else:
             raise AccessError(_(
@@ -100,4 +98,3 @@ class BaseConfirmWizard(models.TransientModel):
     @api.multi
     def no(self):
         return False
-
