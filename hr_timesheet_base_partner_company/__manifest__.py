@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'HR Timesheet - Base Partner and Company',
     'license': 'AGPL-3',
     'author': 'MultidadosTI',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'website': 'www.multidadosti.com.br',
     'summary': """This module adds the columns partner_id and
             company_id in tree view of module account_analytic_line.""",
@@ -19,7 +17,7 @@
     'data': [
         'views/account_analytic_line.xml'
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
