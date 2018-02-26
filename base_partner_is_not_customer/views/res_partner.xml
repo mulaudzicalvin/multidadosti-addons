@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="br_base.view_br_base_partner_form"/>
         <field name="arch" type="xml">
             <field name="child_ids" position="attributes">
-                <attribute name="context">"{
+                <attribute name="context">{
                     'default_parent_id': active_id,
                     'default_street': street,
                     'default_street2': street2,
@@ -18,7 +18,7 @@
                     'default_supplier': False,
                     'default_customer': False,
                     'default_is_company': False,
-                    }"
+                    }
                 </attribute>
 
             </field>
