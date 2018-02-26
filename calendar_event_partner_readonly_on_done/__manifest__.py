@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'Calendar Event Partner Readonly on Done',
     'version': '10.0.1.0.0',
@@ -20,7 +18,7 @@
     'data': [
         'views/calendar_event.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
