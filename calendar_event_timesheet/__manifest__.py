@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'Calendar Event Timesheet',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
@@ -22,7 +20,7 @@
         'views/account_analytic_line.xml',
         'wizards/calendar_event_finish.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }

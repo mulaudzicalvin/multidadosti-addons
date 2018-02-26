@@ -1,17 +1,20 @@
-# -*- coding: utf-8 -*-
-
 import datetime
 
 from odoo import api, models
+from odoo.exceptions import UserError
+from odoo.tools.translate import _
 
 
 class CalendarEventFinish(models.TransientModel):
     _inherit = 'calendar.event.finish'
 
     @api.multi
-    def finish_calendar_event(self):
+    def action_finish_calendar_event(self):
+        """Finish Calendar Event and create entry in account.analytic.line
+        table (timesheet).
+        """
         self.ensure_one()
-        res = super(CalendarEventFinish, self).finish_calendar_event()
+        res = super(CalendarEventFinish, self).action_finish_calendar_event()
 
         ce = self.calendar_event_id
 
@@ -22,8 +25,7 @@ class CalendarEventFinish(models.TransientModel):
             partners = [item.id for item in ce.partner_ids
                         if item.parent_id == ce.company_partner_id]
 
-            users = \
-                self.env['res.users'].search([('partner_id', 'in', partners)])
+            users = self.env['res.users'].search([('partner_id', 'in', partners)])
 
             # Create Timesheet to any user in users list
             for user in users:
@@ -31,12 +33,25 @@ class CalendarEventFinish(models.TransientModel):
                     user=user, calendar_event=ce, start_datetime=dt)
 
                 self.env['account.analytic.line'].create(values)
+        else:
+            raise UserError(_("To finish this event, it must be in 'Open' "
+                              "state and select a project"))
 
         return res
 
     @api.multi
-    def _get_account_analytic_line_values(self, user, calendar_event,
-                                          start_datetime):
+    def _get_account_analytic_line_values(self, user, calendar_event, start_datetime):
+        """Get Account Analytic Line values to use in create method.
+
+        Arguments:
+            user {res.users} -- User to create a entry in timesshet
+            calendar_event {calendar.event} -- Calendar Event to use in entry
+            start_datetime {[type]} -- [description]
+
+        Returns:
+            dict -- dict with values attributes of account.analytic.entry
+        """
+
         self.ensure_one()
         values = {
             'name': calendar_event.event_feedback,
