@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'Account Detached Payments',
     'summary': """Send and Receive your detached payments""",
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'Invoicing & Payments',
     'author': 'MultidadosTI',
     'license': 'LGPL-3',
@@ -13,7 +11,6 @@
         'Rodrigo Ferreira <rodrigosferreira91@gmail.com>',
     ],
     'depends': [
-        'account_accountant',
         'br_account_payment',
     ],
     'data': [
@@ -22,7 +19,7 @@
         'views/account_move.xml',
         'views/account_payment.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
