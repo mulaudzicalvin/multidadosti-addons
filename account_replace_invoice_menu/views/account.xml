@@ -23,10 +23,6 @@
             groups="account.group_account_user,account.group_account_manager,account.group_account_invoice"
             sequence="2"/>
 
-    <record id="account.menu_product_template_action" model="ir.ui.menu">
-        <field name="active" eval="False"/>
-    </record>
-
     <record id="account.menu_action_invoice_tree2" model="ir.ui.menu">
         <field name="active" eval="False"/>
     </record>
