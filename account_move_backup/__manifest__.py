@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'Account Move Backup',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
@@ -19,7 +17,7 @@
         'security/ir.model.access.csv',
         'views/account_move_backup.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }

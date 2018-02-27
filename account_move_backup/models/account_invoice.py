@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo import api, models
 
 
@@ -31,9 +29,9 @@ class AccountInvoice(models.Model):
             for field in date_fields_to_avoid:
                 if field in backup_dict:
                     backup_dict.pop(field)
-
-            dic_fields_to_avoid = dict(rec._field_inverses._map,
-                                       **rec._field_computed)
+            
+            dic_fields_to_avoid = rec._field_inverses._map
+            dic_fields_to_avoid.update(rec._field_computed)
 
             for field in dic_fields_to_avoid:
                 if (rec._fields[field.name].type != 'one2many' and
