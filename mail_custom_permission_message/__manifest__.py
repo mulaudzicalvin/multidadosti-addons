@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
 {
     'name': 'Mail - Custom Permission Message',
     'license': 'LGPL-3',
     'author': 'MultidadosTI',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'website': 'www.multidadosti.com.br',
     'summary': 'Customize Permission Message',
     'category': 'Web',
@@ -17,7 +15,7 @@
     'qweb': [
         'static/src/xml/client_action.xml'
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
