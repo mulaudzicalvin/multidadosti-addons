@@ -12,7 +12,6 @@
         'Michell Stuttgart <michellstut@gmail.com>',
     ],
     'depends': [
-        'hr_timesheet',
         'sale_timesheet',
     ],
     'data': [
