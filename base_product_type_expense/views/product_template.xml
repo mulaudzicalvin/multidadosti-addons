@@ -64,7 +64,7 @@
         <field name="inherit_id" ref="sale.product_template_form_view_invoice_policy"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//page[@name='invoicing']/separator" position="attributes">
+            <xpath expr="//page[@name='invoicing']" position="attributes">
                 <attribute name="attrs">{'invisible':[('type','=','expense')]}
                 </attribute>
             </xpath>
@@ -72,20 +72,6 @@
             <xpath expr="//page[@name='invoicing']/group[last()]" position="attributes">
                 <attribute name="attrs">{'invisible':[('type','=','expense')]}
                 </attribute>
-            </xpath>
-
-        </field>
-    </record>
-
-    <record id="product_template_only_form_view" model="ir.ui.view">
-        <field name="name">product.template.procurement.stat.button</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_only_form_view"/>
-        <field name="arch" type="xml">
-
-            <xpath expr="//button[@name='%(procurement.procurement_order_action_product_template_stat)d']"
-                   position="attributes">
-                <attribute name="attrs">{'invisible':[('type','!=','consu')]}</attribute>
             </xpath>
 
         </field>
