@@ -1,4 +1,4 @@
-import mock
+from unittest import mock
 
 from odoo.exceptions import UserError
 from odoo.tools import float_compare
