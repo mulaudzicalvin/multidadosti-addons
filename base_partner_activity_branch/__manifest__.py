@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 
 {
     'name': 'Partner Activity Branch',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'author': 'MultidadosTI',
     'maintainer': 'MultidadosTI',
     'website': 'www.multidadosti.com.br',
@@ -21,7 +20,7 @@
         'views/res_partner.xml',
         'views/base_partner_activity_branch.xml'
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
