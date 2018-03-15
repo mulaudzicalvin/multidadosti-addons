@@ -13,6 +13,7 @@
     ],
     'depends': [
         'br_base',
+        'contacts',
     ],
     'data': [
         'views/res_partner.xml',
