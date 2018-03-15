@@ -52,12 +52,19 @@
         </field>
     </record>
 
+    # Passa por contexto default 'company_type'='company' e 
+    # 'is_company' para action de criação de parceiros na tela de clientes.   
     <record id="base.action_partner_form" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
-        <field name="context">{"search_default_customer":1,
-            "default_is_company":1}
-        </field>
+        <field name="context">{'search_default_customer':1, 'default_company_type': 'company', 'default_is_company': 1}</field>
+    </record>
+
+    # Passa por contexto default 'company_type'='company' e     
+    # 'is_company' para action de criação de parceiros na tela de contatos.
+    <record id="contacts.action_contacts" model="ir.actions.act_window">        
+        <field name="type">ir.actions.act_window</field>
+        <field name="context">{'search_default_customer':1, 'default_company_type': 'company', 'default_is_company': 1}</field>
     </record>
 
 </odoo>
