@@ -37,3 +37,7 @@ msgstr "Prospecção/Oportunidade"
 msgid "Stage of case"
 msgstr "Estágio do caso"
 
+#. module: sale_crm
+#: model:ir.ui.view,arch_db:sale_crm.crm_case_form_view_oppor
+msgid "<span class=\"o_stat_text\"> Quotation(s) </span>"
+msgstr "<span class=\"o_stat_text\"> Cotação(ões) </span>"
