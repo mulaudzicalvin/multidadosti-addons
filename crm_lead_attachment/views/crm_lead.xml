@@ -6,9 +6,6 @@
         <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
         <field name="arch" type="xml">
             <div class="oe_button_box" name="button_box">
-                <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive" groups="base.group_system, base.group_user">
-                    <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
-                </button>
                 <button name="action_get_attachment_tree_view" class="oe_stat_button" icon="fa-book" type="object">
                     <field name="attachment_number" widget="statinfo" string="Documents"/>
                 </button>
