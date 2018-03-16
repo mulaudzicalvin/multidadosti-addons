@@ -18,11 +18,11 @@ class AccountPayment(models.Model):
     @api.multi
     @api.depends('invoice_ids', 'payment_type', 'partner_type', 'partner_id')
     def _compute_destination_account_id(self):
-        self.ensure_one()
         super(AccountPayment, self)._compute_destination_account_id()
 
-        if self.general_account_id:
-            self.destination_account_id = self.general_account_id.id
+        for rec in self:
+            if rec.general_account_id:
+                rec.destination_account_id = rec.general_account_id.id
 
     @api.onchange('payment_type')
     def _onchange_payment_type(self):
