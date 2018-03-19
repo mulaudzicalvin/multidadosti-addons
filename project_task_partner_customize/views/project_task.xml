@@ -24,6 +24,7 @@
                 <attribute name="domain">[('id', 'in', partner_ids and partner_ids[0][2])]</attribute>
             </xpath>
         </field>
+
     </record>
 
 </odoo>

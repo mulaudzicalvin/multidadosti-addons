@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_project_task_origin_form" model="ir.ui.view">
+        <field name="name">project.task.origin.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="origin" widget="radio"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_task_code_tree_view">
+        <field name="name">project.task.code.tree</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="origin"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_task_code_kanban_view">
+        <field name="name">project.task.code.kanban</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="origin"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_task_search_form" model="ir.ui.view">
+        <field name="name">Project Task View Search Form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="origin"/>
+            </field>
+            <filter name="my_tasks" position="before">
+                <filter string="Features" name="origin" domain="[('origin','=','feature')]"/>
+                <filter string="Issues" name="origin" domain="[('origin','=','issue')]"/>
+            </filter>
+
+            <filter name="User" position="after">
+                <filter string="Origin" name="group_feature" context="{'group_by':'origin'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_task_code_kanban_view">
+        <field name="name">project.task.code.kanban</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <div>
+                    <field name="origin"/>
+                </div>
+            </field>
+        </field>
+    </record>
+
+</odoo>
