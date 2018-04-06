@@ -31,7 +31,7 @@ class ProjectTeam(models.Model):
             values['lead_id'] = self.lead_id.id
 
         if 'lead_id' in values:
-            if 'member_ids' not in values:
+            if not values.get('member_ids', None):
                 values['member_ids'] = [(4, values['lead_id'])]
             else:
                 values['member_ids'][0][2].append(values['lead_id'])
