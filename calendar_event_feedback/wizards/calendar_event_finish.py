@@ -13,4 +13,5 @@ class CalendarEventFinish(models.TransientModel):
         res = super(CalendarEventFinish, self).action_finish_calendar_event()
         self.calendar_event_id.event_feedback = self.event_feedback
         self.calendar_event_id.event_duration = self.event_duration
+        self.calendar_event_id.name = self.calendar_event_id.name + ' (Finalizado)'
         return res

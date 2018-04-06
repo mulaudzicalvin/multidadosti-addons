@@ -18,6 +18,7 @@ class TestCalendarEventPartner(TransactionCase):
 
     def test_action_finish_calendar_event_ok(self):
         self.calendar_event_1.event_state = 'open'
+        event_name = self.calendar_event_1.name + ' (Finalizado)'
 
         ret = self.wizard.action_finish_calendar_event()
 
@@ -26,3 +27,4 @@ class TestCalendarEventPartner(TransactionCase):
 
         self.assertEqual(self.calendar_event_1.event_feedback, 'Feedback')
         self.assertEqual(self.calendar_event_1.event_duration, 3600.0)
+        self.assertEqual(self.calendar_event_1.name, event_name)
