@@ -1,14 +1,7 @@
 <odoo>
     <template id="assets_common" name="assets_common" inherit_id="web.assets_common">
-        <xpath expr="//script[@src='/web/static/src/js/framework/dialog.js']" position="replace">
+        <xpath expr="." position="inside">
             <script type="text/javascript" src="/web_custom_dialogs/static/src/js/dialog.js"></script>
         </xpath>
     </template>
-
-    <template id="assets_backend" name="Multi Backend" inherit_id="web.assets_backend">
-        <xpath expr="//script[@src='/web/static/src/js/framework/crash_manager.js']" position="replace">
-            <script type="text/javascript" src="/web_custom_dialogs/static/src/js/framework/crash_manager.js"></script>
-        </xpath>
-    </template>
-
 </odoo>
